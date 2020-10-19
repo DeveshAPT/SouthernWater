@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1"   verbose="1" name="Unified Test" annotations="JDK">
+	
+<test name="BDD- Web" junit="false" preserve-order="true">
+		
+		<classes>
+			<!-- <class name="bddRunner.DemoRunner">	
+			</class> -->
+			<class name="bddRunner.BDDDemoRunner">	
+			</class>
+		</classes>	
+	</test>
+</suite>
+
+ 
