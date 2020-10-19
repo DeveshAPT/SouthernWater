@@ -12,6 +12,7 @@ public class PayBill_Test extends driver
 	public void FirstTest() throws Exception
 	{
 		Southern.get().SouthernWaterPayBill();
+		Meter.get().SouthernWaterSumbitMeterReading();
 		//Southern.get().SouthernWaterPayBillDetail();
 		Thread.sleep(30000);
 		Assert.fail();

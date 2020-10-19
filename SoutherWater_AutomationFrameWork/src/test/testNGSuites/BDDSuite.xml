@@ -6,8 +6,7 @@
 		<classes>
 			<!-- <class name="bddRunner.DemoRunner">	
 			</class> -->
-			<class name="bddRunner.BDDDemoRunner">	
-			</class>
+			<class name="bddRunner.SouthernwaterRunner"/>	
 		</classes>	
 	</test>
 </suite>

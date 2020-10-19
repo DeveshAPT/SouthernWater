@@ -34,7 +34,7 @@ public class maiUtility {
 
           protected PasswordAuthentication getPasswordAuthentication() {
 
-              return new PasswordAuthentication("ashwanis@360logica.com", "ashwani@123");
+              return new PasswordAuthentication("devesh.k@360logica.com", "360@Logica");
 
           }
 

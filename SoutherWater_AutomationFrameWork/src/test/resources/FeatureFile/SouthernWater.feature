@@ -30,12 +30,18 @@ Scenario: Check the mandatory field error message
 		Then I Should see the mandatory field Error Message
 		
 @WEB
-Scenario: Check the error message removed after entering mandatory field
+Scenario: Check the error message for Incorrect Data
 		Given I am on SouthernWater Pay Bill with mandatory field error
 		When I enter all details
+		And I click on Continue
 		Then I Should see the error Message for incorrect Data
 		
 
+@WEB
+Scenario: Check the error message removed after entering mandatory field
+		Given I am on SouthernWater Pay Bill with mandatory field error message
+		When I enter all details in form
+		Then I Should not see the error Message for mandatroy fields
 
 
 		
