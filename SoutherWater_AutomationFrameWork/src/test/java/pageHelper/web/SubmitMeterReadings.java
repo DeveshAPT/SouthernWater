@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
+import org.dom4j.DocumentException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
@@ -21,6 +22,7 @@ import io.restassured.specification.RequestSpecification;
 import pageHelper.bddDriver;
 import utils.PropertyReader;
 import utils.driver;
+import utils.xmlreader;
 
 public class SubmitMeterReadings 
 {
@@ -28,13 +30,13 @@ public class SubmitMeterReadings
 	public  webHelper webDriver;
 	private bddDriver DriverInstance;
 	PropertyReader prpertyreader = new PropertyReader();
-		public SubmitMeterReadings(WebDriver driver) 
+	xmlreader payBillLoct=new xmlreader("src\\test\\resources\\locators\\PayBill.xml");
+		public SubmitMeterReadings(WebDriver driver) throws IOException 
 		{
 			webDriver=new baseDriverHelper(driver);
-			//webDriver.OpenURL("http://eservicesproxydev.southernwater.co.uk/submit-meter-read");
-			//System.out.println(prpertyreader.readproperty("PayBill"));
-			//webDriver.OpenURL("https://www.southernwater.co.uk/pay-bill");
+			
 			System.out.println("First Constructor");
+			
 		}
 		
 		public SubmitMeterReadings(bddDriver contextSteps) throws Exception 
@@ -48,7 +50,10 @@ public class SubmitMeterReadings
 		public void SouthernWaterSumbitMeterReading() throws Exception
 		{
 			Thread.sleep(5000);
-			webDriver.OpenURL("http://eservicesproxydev.southernwater.co.uk/submit-meter-read");
+			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
+			System.out.println(prpertyreader.readproperty("MeterReading"));
+			webDriver.OpenURL(prpertyreader.readproperty("MeterReading"));
+			webDriver.WaitforPageToBeReady();
 			System.out.println(webDriver.GetTitle());
 			webDriver.VerifyTitle("Submit Meter Read - Southern Water: Water for life, Water and wastewater services for Kent, Sussex, Hampshire and the Isle of Wight");
 		}
@@ -56,22 +61,21 @@ public class SubmitMeterReadings
 		@When("^I click on Having trouble link$") 
 		public void TroubleLinkverification() throws Exception
 		{
-			webDriver.Clickon(webDriver.getwebelement("//a[@class='landing-link']"));
+			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/TroubleLink")));
 			webDriver.WaitforPageToBeReady();
+		}
+		
+		@Then("^I Should move to how to find your meter page$") 
+		public void VerifyHowtofindYourMeterPageOpen() throws InterruptedException, DocumentException
+		{
+			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/FindMeter")), "How to find your water meter");
 			
 		}
 		
-		@Then("^I move to customer details page") 
-		public void VerifyHowtofindYourMeterPageOpen() throws InterruptedException
-		{
-			
-			webDriver.VerifyTitle("How to find your water meter");
-			
-		}
 		@And("^Submit Meter link is theree$") 
 		public void VerifySubmitonline() throws Exception
 		{
-			webDriver.IsPresent("//a[text()='submit it online']");
+			webDriver.IsPresent(payBillLoct.getlocator("//locators/SubmitOnline"));
 			webDriver.WaitforPageToBeReady();
 			
 		}
@@ -80,10 +84,11 @@ public class SubmitMeterReadings
 		public void ClickSubmitonline() throws Exception
 		{
 			
-			webDriver.Clickon(webDriver.getwebelement("//a[text()='submit it online']"));
+			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/SubmitOnline")));
 			webDriver.WaitforPageToBeReady();
 			
 		}
+		
 		@Then("^I Should move to Submit meter reading page") 
 		public void VerifySumbitMeterReadingOpen() throws InterruptedException
 		{

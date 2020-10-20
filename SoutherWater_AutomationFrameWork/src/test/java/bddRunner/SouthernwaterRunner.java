@@ -19,7 +19,7 @@ import utils.maiUtility;
 
 @CucumberOptions(
 
-features = {"src/test/resources/FeatureFile/SouthernWater.feature"},glue = { "pageHelper" },
+features = {"src/test/resources/FeatureFile/SouthernWater.feature","src/test/resources/FeatureFile/SubmitMeterReading.feature"},glue = { "pageHelper" },
 plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"},
 tags= "@WEB",
 dryRun=false
@@ -39,11 +39,11 @@ public static String message;
      Reporter.setSystemInfo("Selenium", "3.7.0");
      Reporter.setSystemInfo("Maven", "3.5.2");
      Reporter.setSystemInfo("Java Version", "1.8.0_151");
-     // Sent the Email
+      //Sent the Email
      System.out.println(prpertyreader.readproperty("to"));
-     maiUtility ml=new maiUtility();
+     /*maiUtility ml=new maiUtility();
      message="<p>Hi All,</p><p>A Test Execution build was triggered and the execution has been completed.</p><p>For the detailed Information’s, please refer the attached html report.</p><p>Thanks,<br/>QA Team</p>";
-     ml.SendEmail(message,"target//cucumber-reports//report.html");
+     ml.SendEmail(message,"target//cucumber-reports//report.html");*/
      
 	}
 }

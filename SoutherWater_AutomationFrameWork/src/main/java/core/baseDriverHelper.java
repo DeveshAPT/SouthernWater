@@ -130,6 +130,7 @@ public class baseDriverHelper implements apiHelper, webHelper
 	        return false;
 	    }
 	}
+	
 	@Override
 	public boolean IsNotPresent(String locator)
 	{
@@ -1429,12 +1430,12 @@ try {
 
 	@Override
 	public void OpenURL(String environment) {
-		String URL=null;
+		//String URL=null;
 		//PropertyReader pr=new PropertyReader();
-		////Log.info(environment+"_URL");
+		//Log.info(environment+"_URL");
 		//URL=pr.readproperty(environment+"_URL");
-		System.out.println(URL);
-		driver.get(URL);
+		//System.out.println(URL);
+		driver.get(environment);
 		
 	}
 

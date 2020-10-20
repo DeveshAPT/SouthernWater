@@ -49,7 +49,8 @@ public class bddDriver
 	public void Websetup(Scenario s) throws Exception{
 	
 		webDriver webDriver=new baseDriver();
-		WEB_DRIVER_THREAD_LOCAL.set(webDriver.webinit("chrome", "https://www.southernwater.co.uk/pay-bill", false));
+		WEB_DRIVER_THREAD_LOCAL.set(webDriver.webinit("chrome", "https://www.southernwater.co.uk", false));
+		//WEB_DRIVER_THREAD_LOCAL.set(webDriver.webinit("chrome", "http://eservicesproxydev.southernwater.co.uk/submit-meter-read", false));
 		//WEB_DRIVER_THREAD_LOCAL.set(webDriver.webinit("chrome", false));
 		
 		

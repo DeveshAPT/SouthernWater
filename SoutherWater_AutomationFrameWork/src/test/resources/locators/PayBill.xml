@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<locators>
+<AcceptCokies>//button[@id='onetrust-accept-btn-handler']</AcceptCokies>
+<Start>//a[text()='Start']</Start>
+<YourDetailHeading>//h1[text()='Your details']</YourDetailHeading>
+<BackButton>//a[text()='Back']</BackButton>
+<ContinueButton>//button[text()='Continue']</ContinueButton>
+<IncorrectInputMsg>//p[text()='You’ll need to correct the errors to continue.']</IncorrectInputMsg>
+<CustomerNumber>//input[@id='customerNumber']</CustomerNumber>
+<CustomerRefNum>//input[@id='customerRefNumber']</CustomerRefNum>
+<CustomerLName>//input[@id='inpName']</CustomerLName>
+<CustomerEmail>//input[@id='inpEmail']</CustomerEmail>
+<ErrorMessage>//div[@class='feedback-box__text']</ErrorMessage>
+<ToolTipIcon>//span[@class='fas fa-question-circle tooltip-icon']</ToolTipIcon>
+<ActiveToolTip>//span[@class='fas fa-question-circle tooltip-icon active']</ActiveToolTip>
+<ToolTipMessage>//div[@class='tooltip-msg']</ToolTipMessage>
+<TroubleLink>//a[@class='landing-link']</TroubleLink>
+<FindMeter>//h1[text()='How to find your water meter']</FindMeter>
+<SubmitOnline>//a[text()='submit it online']</SubmitOnline>
+
+
+
+</locators>
