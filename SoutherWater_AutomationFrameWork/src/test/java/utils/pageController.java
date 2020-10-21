@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import pageHelper.web.homePageHelper;
+import pageHelper.web.CustomerRegistrationSteps;
 import pageHelper.web.SouthernWater_PayBill_Steps;
 import pageHelper.web.SubmitMeterReadings;
 import pageHelper.api.EmployeeHelper;
@@ -18,6 +19,7 @@ public class pageController {
 		public static final ThreadLocal<homePageHelper> HomePage= new InheritableThreadLocal<>();
 		public static final ThreadLocal<SouthernWater_PayBill_Steps> Southern= new InheritableThreadLocal<>();
 		public static final ThreadLocal<SubmitMeterReadings> Meter= new InheritableThreadLocal<>();
+		public static final ThreadLocal<CustomerRegistrationSteps> Register= new InheritableThreadLocal<>();
 		public static final ThreadLocal<EmployeeHelper> EmployeeService= new InheritableThreadLocal<>();
 		
 		
@@ -31,6 +33,9 @@ public class pageController {
 			
 			SubmitMeterReadings ME= new SubmitMeterReadings(driver);
 			Meter.set(ME);
+			
+			CustomerRegistrationSteps RE= new CustomerRegistrationSteps(driver);
+			Register.set(RE);
 				
 		}
 		public void initPage(RequestSpecification dr,Response respoence)

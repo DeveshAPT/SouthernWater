@@ -147,7 +147,7 @@ public class baseDriverHelper implements apiHelper, webHelper
 	@Override
 	public List<WebElement> getwebelements(String locator)
 	{
-		List<WebElement> elements = el.findElements(By.xpath(locator));
+		List<WebElement> elements = driver.findElements(By.xpath(locator));
 		return elements;
 	}
 	public void javascriptexecutor2(String st) throws InterruptedException
