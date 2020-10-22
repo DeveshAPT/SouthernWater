@@ -11,4 +11,8 @@
 <Start>//button[text()='Start']</Start>
 <AcceptTermMessageFirst>//div[@class='feedback-box__container']//div[text()='Please accept the Terms and Conditions']</AcceptTermMessageFirst>
 <AcceptTermMessageSecond>//div[@class='custom-checkbox']//div[text()='Please accept the Terms and Conditions']</AcceptTermMessageSecond>
+<ItShouldTakeLabel>//h2[text()='It should only take a few minutes']</ItShouldTakeLabel>
+<EightDigitLabel>//li[text()='Your customer number. This is the 8 digit number shown on the top right of your bill. ']</EightDigitLabel>
+<YourLastNameLabel>//li[text()='Your last name as shown on the bill. ']</YourLastNameLabel>
+<YourEmailLabel>//li[text()='Your email address. ']</YourEmailLabel>
 </locators>

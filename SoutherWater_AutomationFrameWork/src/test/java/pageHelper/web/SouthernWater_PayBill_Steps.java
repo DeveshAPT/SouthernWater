@@ -44,6 +44,8 @@ public class SouthernWater_PayBill_Steps
 			
 		}
 		
+		//Test 1 >> Check the SouthernWater App Access//
+		
 		@Given("^I am on SouthernWater Pay Bill page$") 
 		public void SouthernWaterPayBill() throws Exception
 		{
@@ -70,15 +72,15 @@ public class SouthernWater_PayBill_Steps
 			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/YourDetailHeading")), "Your details");
 		}
 		
-		@And("^Back link is also avialable") 
+		@And("^Back link is also available") 
 		public void Verify_BackButon() throws InterruptedException, DocumentException
 		{
 			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/BackButton")), "Back");
 		}
 		
-		//******** Second ******//
+		//Test2 >> Verify Pay Bill Back Button Functionality//
 		
-		@Given("^I am on SouthernWater PayBill detail Page$") 
+		@Given("^I am on SouthernWater Pay Bill detail Page$") 
 		public void IAmSouthernWaterPayBillDetail() throws Exception
 		{
 			Thread.sleep(5000);
@@ -107,7 +109,79 @@ public class SouthernWater_PayBill_Steps
 			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/Start")));				
 		}
 		
-		//******* Third ******* //
+		//Test3 >> Verify Question Mark ToolTip //
+		
+		@Given("^I am on SouthernWater PayBill detail Page$") 
+		public void SouthernWaterBillPay() throws Exception
+		{
+			Thread.sleep(5000);
+				webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
+			webDriver.WaitforPageToBeReady();
+			System.out.println(prpertyreader.readproperty("PayBill"));
+			webDriver.OpenURL(prpertyreader.readproperty("PayBill"));
+			Thread.sleep(5000);
+			webDriver.WaitforPageToBeReady();
+			System.out.println(webDriver.GetTitle());
+			webDriver.VerifyTitle("Quick Pay - Southern Water: Water for life, Water and wastewater services for Kent, Sussex, Hampshire and the Isle of Wight");
+			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/Start")));
+			webDriver.WaitforPageToBeReady();
+			
+		}
+						
+		@When("^I Click First Time on Question Mark Icons$") 
+		public void ClickQuestionIconFirst() throws Exception
+		{
+			
+			webDriver.WaitforPageToBeReady();
+			List<WebElement> elements=webDriver.getwebelements(payBillLoct.getlocator("//locators/ToolTipIcon"));
+			do
+			{
+				webDriver.Clickon(elements.get(0));
+				elements=webDriver.getwebelements(payBillLoct.getlocator("//locators/ToolTipIcon"));
+			}while(elements.size()>0);
+		}
+						
+		@Then("^I Can see the Suggestion Message") 
+		public void SuugestionMessageAppear() throws InterruptedException, DocumentException
+		{
+			List<WebElement> elements=webDriver.getwebelements(payBillLoct.getlocator("//locators/ToolTipMessage"));
+			WebElement ele=null;	
+			for(int i=0;i<elements.size();i++)
+			{
+				ele=elements.get(i);
+				if(i==0)
+					webDriver.VerifyText(ele, "Your 8 or 10 digit customer number is in the top right corner of any letters or emails you have received from us.");
+				else if(i==1)
+					webDriver.VerifyText(ele, "Your 13 digit payment reference is in the top right corner of any bills you have received from us. Please enter it without any spaces between the digits.");
+				else if(i==2)
+					webDriver.VerifyText(ele, "Please enter this information exactly as it appears on any letters or emails you have received from us. If more than one person is responsible for the charges, please enter the last name of the first customer shown on any letters or emails you have from us.");
+			}
+					
+			
+		}
+		
+		@When("^I Click Second Time on Question Mark Icons$") 
+		public void ClickQuestionIconSecond() throws Exception
+		{
+			
+			List<WebElement> elements=webDriver.getwebelements(payBillLoct.getlocator("//locators/ActiveToolTip"));
+			do
+			{
+				webDriver.Clickon(elements.get(0));
+				elements=webDriver.getwebelements(payBillLoct.getlocator("//locators/ActiveToolTip"));
+			}while(elements.size()>0);
+		}
+						
+		@Then("^I Suggestion Message should hide") 
+		public void SuugestionMessageDisAppear() throws InterruptedException, DocumentException
+		{
+			boolean flag=false;
+			List<WebElement> elements=webDriver.getwebelements(payBillLoct.getlocator("//locators/ToolTipMessage"));
+			flag=elements.isEmpty()?true:false;
+			Assert.assertTrue(flag, "Error Removed");			
+		}
+		
+		//Test4 >> Verify Question Mark ToolTip //
 		
 		@Given("^I am on SouthernWater Pay Bill page detail Page$") 
 		public void SouthernWaterPayBillDetail() throws Exception
@@ -124,8 +198,8 @@ public class SouthernWater_PayBill_Steps
 			webDriver.WaitforPageToBeReady();
 		}
 		
-		@When("^I Click on Containue$") 
-		public void ClickOnContainue() throws Exception
+		@When("^I Click on Continue$") 
+		public void ClickOnContinueLink() throws Exception
 		{
 			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/ContinueButton")));
 			webDriver.WaitforPageToBeReady();
@@ -138,7 +212,7 @@ public class SouthernWater_PayBill_Steps
 			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/IncorrectInputMsg")), "You’ll need to correct the errors to continue.");
 		}
 		
-		// ***** Fourth ****** //
+		//Test5 >> Check the error message for Incorrect Data //
 		
 		@Given("^I am on SouthernWater Pay Bill with mandatory field error$") 
 		public void SouthernWaterPayErrorMessage() throws Exception
@@ -182,7 +256,7 @@ public class SouthernWater_PayBill_Steps
 		}
 		
 		
-		// ***** Fifth ****** //
+		//Test6 >> Check the error message removed after entering mandatory field //
 		@Given("I am on SouthernWater Pay Bill with mandatory field error message$") 
 		public void SouthernWaterPayMandatroyMessage() throws Exception
 		{
@@ -215,8 +289,7 @@ public class SouthernWater_PayBill_Steps
 			
 		}
 			
-		
-		@Then("^I Should not see the error Message for mandatroy fields$") 
+		@Then("^I Should not see the error Message for mandatory fields$") 
 		public void MandatoryErrorMessageRemoved() throws InterruptedException, DocumentException
 		{
 			boolean flag=false;
@@ -224,77 +297,6 @@ public class SouthernWater_PayBill_Steps
 			flag=elements.isEmpty()?true:false;
 			Assert.assertTrue(flag, "Error Removed");
 					
-		}
-		
-		//*** ****//
-		@Given("^I am on SouthernWater Pay Bill detail Page$") 
-		public void SouthernWaterBillPay() throws Exception
-		{
-			Thread.sleep(5000);
-				webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
-			webDriver.WaitforPageToBeReady();
-			System.out.println(prpertyreader.readproperty("PayBill"));
-			webDriver.OpenURL(prpertyreader.readproperty("PayBill"));
-			Thread.sleep(5000);
-			webDriver.WaitforPageToBeReady();
-			System.out.println(webDriver.GetTitle());
-			webDriver.VerifyTitle("Quick Pay - Southern Water: Water for life, Water and wastewater services for Kent, Sussex, Hampshire and the Isle of Wight");
-			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/Start")));
-			webDriver.WaitforPageToBeReady();
-			
-		}
-						
-		@When("^I Click First Time on Question Mark Icons$") 
-		public void ClickQuestionIconFirst() throws Exception
-		{
-			
-			webDriver.WaitforPageToBeReady();
-			List<WebElement> elements=webDriver.getwebelements(payBillLoct.getlocator("//locators/ToolTipIcon"));
-			do
-			{
-				webDriver.Clickon(elements.get(0));
-				elements=webDriver.getwebelements(payBillLoct.getlocator("//locators/ToolTipIcon"));
-			}while(elements.size()>0);
-		}
-						
-		@Then("^I Can see the Suggestion Messsage") 
-		public void SuugestionMessageAppear() throws InterruptedException, DocumentException
-		{
-			List<WebElement> elements=webDriver.getwebelements(payBillLoct.getlocator("//locators/ToolTipMessage"));
-			WebElement ele=null;	
-			for(int i=0;i<elements.size();i++)
-			{
-				ele=elements.get(i);
-				if(i==0)
-					webDriver.VerifyText(ele, "Your 8 or 10 digit customer number is in the top right corner of any letters or emails you have received from us.");
-				else if(i==1)
-					webDriver.VerifyText(ele, "Your 13 digit payment reference is in the top right corner of any bills you have received from us. Please enter it without any spaces between the digits.");
-				else if(i==2)
-					webDriver.VerifyText(ele, "Please enter this information exactly as it appears on any letters or emails you have received from us. If more than one person is responsible for the charges, please enter the last name of the first customer shown on any letters or emails you have from us.");
-			}
-					
-			
-		}
-		
-		@When("^I Click Second Time on Question Mark Icons$") 
-		public void ClickQuestionIconSecond() throws Exception
-		{
-			
-			List<WebElement> elements=webDriver.getwebelements(payBillLoct.getlocator("//locators/ActiveToolTip"));
-			do
-			{
-				webDriver.Clickon(elements.get(0));
-				elements=webDriver.getwebelements(payBillLoct.getlocator("//locators/ActiveToolTip"));
-			}while(elements.size()>0);
-		}
-						
-		@Then("^I Suggestion Messsage should hide") 
-		public void SuugestionMessageDisAppear() throws InterruptedException, DocumentException
-		{
-			boolean flag=false;
-			List<WebElement> elements=webDriver.getwebelements(payBillLoct.getlocator("//locators/ToolTipMessage"));
-			flag=elements.isEmpty()?true:false;
-			Assert.assertTrue(flag, "Error Removed");			
 		}
 		
 		/*public void clickonQuestionMarks() throws Exception

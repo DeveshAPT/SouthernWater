@@ -3,6 +3,7 @@ package pageHelper;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import utils.Log;
+import utils.PropertyReader;
 import utils.pageController;
 
 import java.io.IOException;
@@ -35,6 +36,7 @@ public class bddDriver
 	public static final ThreadLocal<RequestSpecification> API_DRIVER_THREAD_LOCAL = new InheritableThreadLocal<>();
 	public static final ThreadLocal<Response> API_RESPONCE_THREAD_LOCAL = new InheritableThreadLocal<>();
 	public static final ThreadLocal<String> Message = new InheritableThreadLocal<>();
+	PropertyReader prpertyreader = new PropertyReader();
 	
 	@Before("@API")
 	public void APIsetup(Scenario s){
@@ -49,12 +51,8 @@ public class bddDriver
 	public void Websetup(Scenario s) throws Exception{
 	
 		webDriver webDriver=new baseDriver();
-		WEB_DRIVER_THREAD_LOCAL.set(webDriver.webinit("chrome", "https://www.southernwater.co.uk", false));
-		//WEB_DRIVER_THREAD_LOCAL.set(webDriver.webinit("chrome", "http://eservicesproxydev.southernwater.co.uk/submit-meter-read", false));
-		//WEB_DRIVER_THREAD_LOCAL.set(webDriver.webinit("chrome", false));
-		
-		
-		
+		WEB_DRIVER_THREAD_LOCAL.set(webDriver.webinit(prpertyreader.readproperty("browser"), "https://www.southernwater.co.uk", false));
+		//WEB_DRIVER_THREAD_LOCAL.set(webDriver.webinit("chrome", false));	
 	}
 	@After("@WEB")
 	public void TearDown(Scenario s) throws IOException{

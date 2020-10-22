@@ -14,6 +14,9 @@ import org.apache.http.params.CoreConnectionPNames;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
 import org.openqa.selenium.remote.CapabilityType;
@@ -52,8 +55,23 @@ public class baseDriver implements apiDriver, webDriver
 			dr.manage().deleteAllCookies();
 			dr.get(BaseURL);
 		}
-		else if (browser.equals("ie"))
+		else if (browser.equalsIgnoreCase("edge"))
 		{
+			System.setProperty("webdriver.edge.driver","lib\\msedgedriver.exe");
+			dr= new EdgeDriver();	
+			dr.manage().deleteAllCookies();
+			dr.get(BaseURL);
+			dr.manage().window().maximize();
+			System.out.println("For IE Browser");
+		}
+		
+		else if (browser.equalsIgnoreCase("ie"))
+		{
+			System.setProperty("webdriver.ie.driver","lib\\IEDriverServer.exe");
+			dr= new InternetExplorerDriver();
+			dr.manage().deleteAllCookies();
+			dr.get(BaseURL);
+			dr.manage().window().maximize();
 			System.out.println("For IE Browser");
 		}
 		

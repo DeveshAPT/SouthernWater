@@ -32,7 +32,8 @@ public class maiUtility {
       // Get the default Session object.
       Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
 
-          protected PasswordAuthentication getPasswordAuthentication() {
+          protected PasswordAuthentication getPasswordAuthentication()
+          {
 
               return new PasswordAuthentication("devesh.k@360logica.com", "360@Logica");
 
