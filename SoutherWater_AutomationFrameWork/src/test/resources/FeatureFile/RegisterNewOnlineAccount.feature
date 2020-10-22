@@ -33,7 +33,7 @@ And Second at below the Terms & Condition line
 Scenario: Verify Agree Terms & Condition is mandatory should remove after checking agree Terms & Condition 
 Given Customer Registration Page is open and having Terms & Condition error on page
 When I Click checkbox against Terms & Conditions
-Then Agree Terms & Conditions Error message should remove from both location
+Then Agree Terms & Conditions Error message should remove from both locations
 
 @WEB
 Scenario: Verify Your Privacy Link Functionality

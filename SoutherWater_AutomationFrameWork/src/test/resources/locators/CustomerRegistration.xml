@@ -15,4 +15,5 @@
 <EightDigitLabel>//li[text()='Your customer number. This is the 8 digit number shown on the top right of your bill. ']</EightDigitLabel>
 <YourLastNameLabel>//li[text()='Your last name as shown on the bill. ']</YourLastNameLabel>
 <YourEmailLabel>//li[text()='Your email address. ']</YourEmailLabel>
+<PrivacyLink>//a[text()='Privacy Notice']</PrivacyLink>
 </locators>
