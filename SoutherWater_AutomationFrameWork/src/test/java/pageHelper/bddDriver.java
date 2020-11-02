@@ -41,7 +41,9 @@ public class bddDriver
 	@Before("@API")
 	public void APIsetup(Scenario s){
 		apiDriver ApiDriver=new baseDriver();
-		API_DRIVER_THREAD_LOCAL.set(ApiDriver.apiinit("https://d40105b4-005d-4643-afe4-8ff0c97b9374.mock.pstmn.io/"));
+		//API_DRIVER_THREAD_LOCAL.set(ApiDriver.apiinit("https://gorest.co.in/public-api/users/123/posts"));
+		//API_DRIVER_THREAD_LOCAL.set(ApiDriver.apiinit("https://rapidapi.p.rapidapi.com/exchange?from=SGD&to=MYR&q=1.0"));
+		API_DRIVER_THREAD_LOCAL.set(ApiDriver.apiinit("https://rapidapi.p.rapidapi.com/"));
 		
 		API_RESPONCE_THREAD_LOCAL.set(null);
 		

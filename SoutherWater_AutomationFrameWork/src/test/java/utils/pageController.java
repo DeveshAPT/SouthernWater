@@ -11,12 +11,14 @@ import pageHelper.web.CustomerRegistrationSteps;
 import pageHelper.web.SouthernWater_PayBill_Steps;
 import pageHelper.web.SubmitMeterReadings;
 import pageHelper.api.EmployeeHelper;
+import pageHelper.api.SPQR;
 
 
 
 public class pageController {
 
 		public static final ThreadLocal<homePageHelper> HomePage= new InheritableThreadLocal<>();
+		public static final ThreadLocal<SPQR> SP= new InheritableThreadLocal<>();
 		public static final ThreadLocal<SouthernWater_PayBill_Steps> Southern= new InheritableThreadLocal<>();
 		public static final ThreadLocal<SubmitMeterReadings> Meter= new InheritableThreadLocal<>();
 		public static final ThreadLocal<CustomerRegistrationSteps> Register= new InheritableThreadLocal<>();
@@ -42,6 +44,9 @@ public class pageController {
 		{
 			EmployeeHelper EH= new EmployeeHelper(dr,respoence);
 			EmployeeService.set(EH);
+			
+			SPQR SP1= new SPQR(dr,respoence);
+			SP.set(SP1);
 				
 		}
 		

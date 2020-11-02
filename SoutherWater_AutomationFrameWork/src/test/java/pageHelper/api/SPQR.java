@@ -40,6 +40,7 @@ public class SPQR{
 	public SPQR(RequestSpecification dr,Response respoence)
 	{
 		apiDriver=new baseDriverHelper(dr,respoence);	
+		//URI="https://rapidapi.p.rapidapi.com/exchange?from=SGD&to=MYR&q=1.0";
 	}
 
 	public SPQR(bddDriver contextSteps) throws Exception {
@@ -48,13 +49,11 @@ public class SPQR{
 		System.out.println(this.DriverInstance);
 		apiDriver=new baseDriverHelper(DriverInstance.getApiDriver(),DriverInstance.API_RESPONCE_THREAD_LOCAL.get());
 	}
-	
-	
-	
+		
 	@Given("^I have submit a SPQR request for \"([^\"]*)\"$") 
-	public void SubmitSPQRRequest(String s) throws Exception {
+	public void SubmitSPQRRequest1(String s) throws Exception {
 		if(s.equals("EIRCODE1"))
-			URI="spqr?Scenario=1";
+			URI="exchange?from=SGD&to=MYR&q=1.0";
 		else
 			URI="spqr?Scenario=2";	
 		apiDriver.updateAttributeInRequestBody("SPQR_Input_Request.xml","//ORDER/TARGET_DETAILS/TARGET_IDENTIFIER/EIRCODE",s);
@@ -74,7 +73,36 @@ public class SPQR{
 		
 	}
 	
-	
-	
+	@Given("^I have submit a JSON request for$") 
+	public void SubmitJSONRequest() throws Exception {
+		/*if(s.equals("EIRCODE1"))
+			URI="spqr?Scenario=1";
+		else
+			URI="spqr?Scenario=2";	
+		apiDriver.updateAttributeInRequestBody("SPQR_Input_Request.xml","//ORDER/TARGET_DETAILS/TARGET_IDENTIFIER/EIRCODE",s);
+		//apiDriver.updateAttributeInRequestBody("SPQR_Input_Request.xml","//ORDER/TARGET_DETAILS/TARGET_IDENTIFIER/Telephone",s2);
+		*/
+		//apiDriver.submitRequest(method, URI);
+		//apiDriver.updateRequestHeader("x-rapidapi-key", "SIGN-UP-FOR-KEY");
+		//apiDriver.updateRequestHeader("x-rapidapi-host", "currency-exchange.p.rapidapi.com");
+		//URI="exchange?from=SGD&to=MYR&q=1.0";
+		//apiDriver.generatePayLoad();
+		//System.out.println(apiDriver.toString());
+		apiDriver.submitRequest(Method.GET,"https://jsonplaceholder.typicode.com/posts/1");
+		apiDriver.assertStringInResponceBody("sunt aut facere");
+		
+		
 	}
+	
+	@Then("^Responce should contains the User ID")
+	public void VerifyResponse() throws IOException, SAXException, ParserConfigurationException, DocumentException 
+	{
+		//apiDriver.assertResponceBodyAttribute("//NOTIFICATION/NOTIFICATION_DATA/AVAILABILITY/AVAIL_SERVICES/AVAIL_SERVICE/SURVEY_DETAILS/SURVEY_REQUIRED", s);
+		//apiDriver.assertStatusCode(apiDriver.RESPONSE_CODE_200);
+		System.out.println(apiDriver.toString());
+	}
+
+	
+	
+}
 

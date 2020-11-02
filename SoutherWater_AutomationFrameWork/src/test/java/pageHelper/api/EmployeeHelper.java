@@ -70,7 +70,8 @@ public class EmployeeHelper{
 		System.out.println("New Employee ID is:" +EmployeeID);
 		
 	}
-	@Given("^I have created an employee$") 
+	
+	@Given("^I have created an employee$") 	
 	public void CreateEmploye(DataTable data) throws Exception {
 		List<Map<String, String>> list = data.asMaps(String.class, String.class);
 		URI="create";
@@ -89,6 +90,7 @@ public class EmployeeHelper{
 		EmployeeID=apiDriver.SaveAttributevalue("data.id");
 		System.out.println("New Employee ID is:" +EmployeeID);
 	}
+	
 	@Then("^Get the Employee Details$") 
 	public void GetEmployee() throws IOException {
 		URI="employee/"+EmployeeID;
@@ -97,6 +99,7 @@ public class EmployeeHelper{
 		apiDriver.assertStatusCode(apiDriver.RESPONSE_CODE_200);
 		apiDriver.assertStringInResponceBody("data");
 	}
+	
 	public void UpdateEmployee(Object[][] InputData) throws Exception {
 		URI="update/"+EmployeeID;
 		System.out.println(URI);
@@ -111,6 +114,7 @@ public class EmployeeHelper{
 		
 		
 	}
+	
 	@Then("^I have Update the Employee details$") 
 	public void UpdateEmployee(DataTable data) throws Exception {
 		List<Map<String, String>> list = data.asMaps(String.class, String.class);
@@ -127,6 +131,7 @@ public class EmployeeHelper{
 		
 		
 	}
+	
 	@Then("^Verify the Create Employee Data$")
 	public void VerifyEmployeeDetailCreated(DataTable data) throws IOException, SAXException, ParserConfigurationException, DocumentException {
 		List<Map<String, String>> list = data.asMaps(String.class, String.class);
@@ -147,17 +152,20 @@ public class EmployeeHelper{
 		
 		apiDriver.assertResponceBodyAttribute(Key, Value);	
 	}
+	
 	@Then("^Verify Employee has been deleted$")
-public void VerifyDeletedEmployee() throws IOException {
+	public void VerifyDeletedEmployee() throws IOException {
 		
 	apiDriver.assertStringInResponceBody("successfully! deleted Records");
 		
 	}
-@Then("^I deleted the Employee$")
+	
+	@Then("^I deleted the Employee$")
 	public void DeleteEmployee() throws IOException {
 		URI="delete/"+EmployeeID;
 		apiDriver.submitRequest(Method.DELETE,URI);
 		apiDriver.assertStringInResponceBody("successfully! deleted Records");
 	}
+	
 	}
 

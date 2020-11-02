@@ -19,9 +19,9 @@ Scenario: Verify Pay Bill Back Button Functionality
 Scenario: Verify Question Mark ToolTip
 		Given I am on SouthernWater PayBill detail Page
 		When I Click First Time on Question Mark Icons
-		Then I Can see the Suggestion Messsage
+		Then I Can see the Suggestion Message
 		When I Click Second Time on Question Mark Icons
-		Then I Suggestion Messsage should hide
+		Then I Suggestion Message should hide
     
 @WEB
 Scenario: Check the mandatory field error message

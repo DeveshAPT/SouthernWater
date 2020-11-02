@@ -26,7 +26,7 @@ import utils.maiUtility;
 
 features = {"src/test/resources/FeatureFile/Demo.feature"},glue = { "pageHelper" },
 plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"},
-tags= "@Regression",
+tags= "@API",
 dryRun=false
 )
 
