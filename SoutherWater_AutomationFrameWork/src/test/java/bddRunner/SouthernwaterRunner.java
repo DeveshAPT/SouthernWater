@@ -19,7 +19,7 @@ import utils.maiUtility;
 
 @CucumberOptions(
 
-features = {"src/test/resources/FeatureFile/Login.feature"},glue = { "pageHelper" },
+features = {"src/test/resources/FeatureFile/Logout.feature"},glue = { "pageHelper" },
 plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"},
 tags= "@WEB",
 dryRun=false
@@ -46,4 +46,6 @@ public static String message;
      ml.SendEmail(message,"target//cucumber-reports//report.html");*/
      
 	}
+	
+	//"src/test/resources/FeatureFile/Login.feature",
 }

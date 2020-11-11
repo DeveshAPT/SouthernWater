@@ -3,7 +3,7 @@
 Feature: Login to SoutherWater Webportal
  
 
-  @WEB
+ @WEB
   Scenario Outline: User is not able Login with incorrect credentials 
     Given I am at login page
     When I Enter my <Email> and <Password> into respective fields
@@ -20,7 +20,7 @@ Feature: Login to SoutherWater Webportal
     Given I am on login page
     When I Enter credentials <Email> and <Password> into respective fields
     And Click on Login button
-    Then I Should login
+    Then I should see the Dashboard
     
   Examples:
     |Email|Password|

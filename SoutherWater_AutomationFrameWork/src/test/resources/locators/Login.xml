@@ -11,5 +11,10 @@
 <LoginError>//div[@class='feedback-box mb-4 feedback-box--harley']//p</LoginError>
 <ForgotMessageEmail>//div[@class='sw-body-container']//p//strong</ForgotMessageEmail>
 <ForgotMessage>//div[@class='sw-body-container']//p</ForgotMessage>
+<LoginMakeaPayment>//a[text()='Make a payment']</LoginMakeaPayment>
+<SubmitMeterReading>//a[text()='Submit a meter reading']</SubmitMeterReading>
+<CloseAccount>//a[text()='Close your account']</CloseAccount>
+<LogOut>//Button[text()='Log out']</LogOut>
+<LogoutComplete>//div[@class='feedback-box mb-4 feedback-box--south-downs-complementary-2']//p</LogoutComplete>
 </locators>
 
