@@ -18,6 +18,4 @@
 <FindMeter>//h1[text()='How to find your water meter']</FindMeter>
 <SubmitOnline>//a[text()='submit it online']</SubmitOnline>
 
-
-<test5></test5>
 </locators>
