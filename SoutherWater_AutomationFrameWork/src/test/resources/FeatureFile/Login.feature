@@ -1,6 +1,6 @@
 
 
-Feature: Loagin to SoutherWater Webportal
+Feature: Login to SoutherWater Webportal
  
 
   @WEB
