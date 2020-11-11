@@ -271,7 +271,7 @@ public class LoginPageHelper {
 			
 			List<WebElement> elements1=webDriver.getwebelements(loginLoct.getlocator("//locators/RegisterNow"));
 			boolean flag1=elements1.size()>0?true:false;	
-			Assert.assertTrue(flag1,"Not moved to Regisration Page");
+			Assert.assertTrue(flag1,"Test Failed Due to >> Not Navigated to Registered page");
 		
 		}
 }
