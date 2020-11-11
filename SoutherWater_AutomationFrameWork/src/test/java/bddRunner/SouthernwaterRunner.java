@@ -19,7 +19,7 @@ import utils.maiUtility;
 
 @CucumberOptions(
 
-features = {"src/test/resources/FeatureFile/SouthernWater.feature","src/test/resources/FeatureFile/SubmitMeterReading.feature"},glue = { "pageHelper" },
+features = {"src/test/resources/FeatureFile/Login.feature"},glue = { "pageHelper" },
 plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"},
 tags= "@WEB",
 dryRun=false
