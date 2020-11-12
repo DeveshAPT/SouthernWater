@@ -58,7 +58,7 @@ And Your email address.
 
 # SSR-926 >> Tell the customer a verification email has been sent to them
 
-@WEB 
+#@WEB 
 Scenario: Verify verification Email Send Message to Customer registration page
 Given I am on online SouthernWater Customer Registration Page
 When An email for verification send to me 
@@ -66,7 +66,7 @@ Then I am able to see the message to check the email on Customer Registration pa
 
 # SSR-960 >> Confirm account has been successfully registered/activated
 
-@WEB 
+#@WEB 
 Scenario: Verify activation message after clicking on verification email
 Given I have the Email Verification Link
 When I Click on verification email before 48 hours
@@ -74,11 +74,29 @@ Then I should move to new page
 And I am able to see that my account successful registered/activated
 And I am able to login
 
-@WEB 
+#@WEB 
 Scenario: Verification Link Expire After 48 hours
 Given I have the Account Verification Link in mail
 When I Click on verification email after 48 hours
 Then I should Error message for linked is expired 
+
+@WEB
+ Scenario Outline: As SouthernWater User I can Register online account 
+    Given I am at online Register page
+    When I Check Terms & Condition
+    And Click on Start
+    And Click on Customer Number <CustNumber> Last Name <LastName> Email <EmailID>
+    And Click on Continue 
+    Then I Can see Name  
+    And Email 
+    And Customer Number
+    And Address
+
+Examples:
+    | CustNumber | LastName | EmailID|
+    |10470201|Downhyll|kumar.devesh82@yahoo.com|
+
+
 
 
 

@@ -16,4 +16,10 @@
 <YourLastNameLabel>//li[text()='Your last name as shown on the bill. ']</YourLastNameLabel>
 <YourEmailLabel>//li[text()='Your email address. ']</YourEmailLabel>
 <PrivacyLink>//a[text()='Privacy Notice']</PrivacyLink>
+<CustomerNumber>//input[@id='customerNumber']</CustomerNumber>
+<LastName>//input[@id='inpName']</LastName>
+<EmailId>//input[@id='inpEmail']</EmailId>
+<Continue>//button[text()='Continue']</Continue>
+<CheckDetailHeadings>//div[@class='review-detail-section']//h3</CheckDetailHeadings>
+<CheckDetailValues>//div[@class='review-detail-section']//p</CheckDetailValues>
 </locators>

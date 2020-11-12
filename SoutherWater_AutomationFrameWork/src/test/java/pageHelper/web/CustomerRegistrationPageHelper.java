@@ -1,4 +1,5 @@
 package pageHelper.web;
+import java.io.IOException;
 import java.util.List;
 
 import org.dom4j.DocumentException;
@@ -23,20 +24,22 @@ import utils.PropertyReader;
 import utils.driver;
 import utils.xmlreader;
 
-public class CustomerRegistrationSteps 
+public class CustomerRegistrationPageHelper
 {
 	public  webHelper webDriver;
 	private bddDriver DriverInstance;
+	public String enteredName,  enteredCustomerNumber, enteredEmailID;
 	xmlreader payBillLoct=new xmlreader("src\\test\\resources\\locators\\PayBill.xml");
 	xmlreader custRegist=new xmlreader("src\\test\\resources\\locators\\CustomerRegistration.xml");
 	PropertyReader prpertyreader = new PropertyReader();
-		public CustomerRegistrationSteps(WebDriver driver)  
+	
+		public CustomerRegistrationPageHelper(WebDriver driver)  
 		{
 			webDriver=new baseDriverHelper(driver);
 			System.out.println("First Constructor");
 		}
 		
-		public CustomerRegistrationSteps(bddDriver contextSteps) throws Exception {
+		public CustomerRegistrationPageHelper(bddDriver contextSteps) throws Exception {
 			this.DriverInstance = contextSteps;
 			System.out.println(this.DriverInstance);
 			webDriver=new baseDriverHelper(DriverInstance.getWebDriver());
@@ -420,11 +423,116 @@ public class CustomerRegistrationSteps
 					
 		}
 				
-		@Then("^I should Error message for linked is expired$")
-		public void LinkExpiredMessage()
+		@Then("^I am at online Register page$")
+		public void OpenRegistrationPage()
 		{
 					
 		}
 				
-				
+			
+		@Given("^I am at online Register page$")
+		public void SouthernWaterWebPortal() throws Exception
+		{
+			Thread.sleep(5000);
+			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
+			webDriver.WaitforPageToBeReady();
+			webDriver.OpenURL(prpertyreader.readproperty("CustomerRegistration"));
+			Thread.sleep(5000);
+
+		}
+		
+		@When("^I Check Terms & Condition$")
+		public void OpenCustomerWebRegistrationPage() throws Exception
+		{
+			Thread.sleep(5000);
+			webDriver.OpenURL(prpertyreader.readproperty("CustomerRegistration"));
+			Thread.sleep(5000);
+			//System.out.println(webDriver.GetTitle());
+			//webDriver.VerifyTitle("Register");
+			webDriver.Clickon(webDriver.getwebelement(custRegist.getlocator("//locators/TermsAndConditionsLink")));
+			webDriver.WaitforPageToBeReady();
+
+		}
+		
+		@And("^Click on Start$")
+		public void Click_on_Start() throws Exception
+		{
+			webDriver.Clickon(webDriver.getwebelement(custRegist.getlocator("//locators/Start")));
+			webDriver.WaitforPageToBeReady();
+		}
+		
+		@And("^Click on Customer Number ([^\"]*) Last Name ([^\"]*) Email  ([^\"]*)$")
+		public void EnterCustomerDatialsInfields(String CustomerNumber, String LastName, String Email ) throws InterruptedException, IOException, DocumentException
+		{
+			enteredName=LastName;
+			enteredCustomerNumber=CustomerNumber;
+			enteredEmailID=Email;
+			webDriver.SendKeys(webDriver.getwebelement(custRegist.getlocator("//locators/EmailId")),CustomerNumber);
+			webDriver.SendKeys(webDriver.getwebelement(custRegist.getlocator("//locators/Password")),LastName);
+			webDriver.SendKeys(webDriver.getwebelement(custRegist.getlocator("//locators/Password")),Email);
+		}
+		
+		@And("^Click on Continue$")
+		public void ClickOnContinue() throws Exception
+		{
+			webDriver.Clickon(webDriver.getwebelement(custRegist.getlocator("//locators/Continue")));
+			webDriver.WaitforPageToBeReady();
+		}
+		
+		@Then("^I Can see Name$")
+		public void ICanSeeName() throws InterruptedException, DocumentException
+		{
+			List<WebElement> elements=webDriver.getwebelements(custRegist.getlocator("//locators/CheckDetailHeadings"));
+			WebElement ele=elements.get(0);
+			String Text=ele.getText();
+			Assert.assertTrue(Text.contains("Name"), "Name Lable Not Found on Check Detials");
+			
+			elements=webDriver.getwebelements(custRegist.getlocator("//locators/CheckDetailHeadings"));
+			ele=elements.get(0);
+			Text=ele.getText();
+			Assert.assertTrue(Text.contains(enteredName), "Entered Name Not matched on Check Detail page");
+					
+		}
+		
+		@And("^Email$")
+		public void Email() throws InterruptedException, DocumentException
+		{
+			List<WebElement> elements=webDriver.getwebelements(custRegist.getlocator("//locators/CheckDetailHeadings"));
+			WebElement ele=elements.get(1);
+			String Text=ele.getText();
+			Assert.assertTrue(Text.contains("Email Address"), "Email Address Lable Not Found on Check Detials");
+			
+			elements=webDriver.getwebelements(custRegist.getlocator("//locators/CheckDetailHeadings"));
+			ele=elements.get(1);
+			Text=ele.getText();
+			Assert.assertTrue(Text.contains(enteredEmailID), "Entered Email ID not matched on Check Detail page");
+					
+		}
+		
+		@And("^Customer Number$")
+		public void Customer_Number() throws InterruptedException, DocumentException
+		{
+			List<WebElement> elements=webDriver.getwebelements(custRegist.getlocator("//locators/CheckDetailHeadings"));
+			WebElement ele=elements.get(2);
+			String Text=ele.getText();
+			Assert.assertTrue(Text.contains("Customer number"), "Customer number Lable Not Found on Check Detials");
+			
+			elements=webDriver.getwebelements(custRegist.getlocator("//locators/CheckDetailHeadings"));
+			ele=elements.get(2);
+			Text=ele.getText();
+			Assert.assertTrue(Text.contains(enteredEmailID), "Entered Customer number not matched on Check Detail page");
+					
+		}
+		
+		@And("^Address$")
+		public void Address() throws InterruptedException, DocumentException
+		{
+			List<WebElement> elements=webDriver.getwebelements(custRegist.getlocator("//locators/CheckDetailHeadings"));
+			WebElement ele=elements.get(3);
+			String Text=ele.getText();
+			Assert.assertTrue(Text.contains("Address"), "Address Lable Not Found on Check Detials");
+			
+		
+					
+		}
 }
