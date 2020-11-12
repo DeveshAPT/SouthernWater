@@ -19,7 +19,7 @@ import utils.maiUtility;
 
 @CucumberOptions(
 
-features = {"src/test/resources/FeatureFile/RegsiterNewOnlineAccount.feature"},glue = { "pageHelper" },
+features = {"src/test/resources/FeatureFile/RegsiterAccount.feature"},glue = { "pageHelper" },
 plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"},
 tags= "@WEB",
 dryRun=false

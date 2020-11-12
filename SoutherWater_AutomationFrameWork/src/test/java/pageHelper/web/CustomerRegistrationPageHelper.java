@@ -430,7 +430,7 @@ public class CustomerRegistrationPageHelper
 		}
 				
 			
-		@Given("^I am at online Register page$")
+		@Given("^I am at online Register Web page$")
 		public void SouthernWaterWebPortal() throws Exception
 		{
 			Thread.sleep(5000);
@@ -472,7 +472,7 @@ public class CustomerRegistrationPageHelper
 			webDriver.SendKeys(webDriver.getwebelement(custRegist.getlocator("//locators/Password")),Email);
 		}
 		
-		@And("^Click on Continue$")
+		@And("^Click on Continue link$")
 		public void ClickOnContinue() throws Exception
 		{
 			webDriver.Clickon(webDriver.getwebelement(custRegist.getlocator("//locators/Continue")));
