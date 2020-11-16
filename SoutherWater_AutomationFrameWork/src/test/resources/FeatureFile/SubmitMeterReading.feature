@@ -13,3 +13,8 @@ Scenario: I Want Access Submit meter reading
     When I click on Submit Meter link
     Then I Should move to Submit meter reading page
 
+@WEB
+Scenario: I Want to Verify customer meter reading details 
+    Given I am on submit meter reading page
+    When I submit all the details of customer
+    Then I Should able to verify all the details of customer
