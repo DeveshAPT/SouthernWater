@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import pageHelper.web.homePageHelper;
-import pageHelper.web.CustomerRegistrationSteps;
+import pageHelper.web.CustomerRegistrationPageHelper;
 import pageHelper.web.LogOutPageHelper;
 import pageHelper.web.LoginPageHelper;
 import pageHelper.web.SouthernWater_PayBill_Steps;
@@ -25,7 +25,7 @@ public class pageController {
 		public static final ThreadLocal<SubmitMeterReadings> Meter= new InheritableThreadLocal<>();
 		public static final ThreadLocal<LoginPageHelper> Login= new InheritableThreadLocal<>();
 		public static final ThreadLocal<LogOutPageHelper> Logout= new InheritableThreadLocal<>();
-		public static final ThreadLocal<CustomerRegistrationSteps> Register= new InheritableThreadLocal<>();
+		public static final ThreadLocal<CustomerRegistrationPageHelper> Register= new InheritableThreadLocal<>();
 		public static final ThreadLocal<EmployeeHelper> EmployeeService= new InheritableThreadLocal<>();
 		
 		
@@ -40,11 +40,12 @@ public class pageController {
 			SubmitMeterReadings ME= new SubmitMeterReadings(driver);
 			Meter.set(ME);
 			
-			CustomerRegistrationSteps RE= new CustomerRegistrationSteps(driver);
+			CustomerRegistrationPageHelper RE= new CustomerRegistrationPageHelper(driver);
 			Register.set(RE);
 				
 			LoginPageHelper LG=new LoginPageHelper(driver);
 			Login.set(LG);
+			
 			LogOutPageHelper LO=new LogOutPageHelper(driver);
 			Logout.set(LO);
 		}

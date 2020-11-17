@@ -1,17 +1,26 @@
 package pageHelper.web;
 import java.util.List;
+
 import org.dom4j.DocumentException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+
+
+import core.apiHelper;
 import core.baseDriverHelper;
 import core.webHelper;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.restassured.specification.RequestSpecification;
 import pageHelper.bddDriver;
 import utils.PropertyReader;
+import utils.driver;
 import utils.xmlreader;
 
 public class LoginPageHelper {
@@ -115,25 +124,14 @@ public class LoginPageHelper {
 					
 			webDriver.Clickon(webDriver.getwebelement(loginLoct.getlocator("//locators/LoginButton")));
 			webDriver.WaitforPageToBeReady();	
-			Thread.sleep(5000);
 		}
 		
-		@Then("^I should see the Dashboard$")
+		@Then("^I Should login$")
 		public void LoginCompleteed() throws InterruptedException, DocumentException
 		{
-			List<WebElement> elements1=webDriver.getwebelements(loginLoct.getlocator("//locators/LoginMakeaPayment"));
-			boolean flag1=elements1.size()>0?true:false;
-			
-			elements1=webDriver.getwebelements(loginLoct.getlocator("//locators/SubmitMeterReading"));
-			boolean flag2=elements1.size()>0?true:false;
-			
-			elements1=webDriver.getwebelements(loginLoct.getlocator("//locators/CloseAccount"));
-			boolean flag3=elements1.size()>0?true:false;
-			
-			elements1=webDriver.getwebelements(loginLoct.getlocator("//locators/LogOut"));
-			boolean flag4=elements1.size()>0?true:false;
-			
-			Assert.assertTrue(flag1&&flag2&&flag3&&flag4,"Dashboard not Loaded");
+			List<WebElement> elements1=webDriver.getwebelements(loginLoct.getlocator("//locators/LoginError"));
+			boolean flag1=elements1.size()>0?false:true;
+			Assert.assertTrue(flag1,"failed in Login");
 		}
 		//Third
 		
@@ -258,11 +256,12 @@ public class LoginPageHelper {
 			
 		}
 
+
 		@When("^I Click on Registration$")
-		public void ClickOnRegisration () throws Exception
+		public void ClickOnRegisration (String email) throws Exception
 		{
+			
 			webDriver.Clickon(webDriver.getwebelement(loginLoct.getlocator("//locators/Register")));
-			webDriver.WaitforPageToBeReady();
 		}
 		
 		
@@ -270,9 +269,9 @@ public class LoginPageHelper {
 		public void VerifyRegisrationPageOpen() throws InterruptedException, DocumentException
 		{
 			
-			List<WebElement> elements1=webDriver.getwebelements(regiLoct.getlocator("//locators/RegisterNow"));
+			List<WebElement> elements1=webDriver.getwebelements(loginLoct.getlocator("//locators/RegisterNow"));
 			boolean flag1=elements1.size()>0?true:false;	
-			Assert.assertTrue(flag1,"Test Failed Due to >> Not Navigated to Registered page");
+			Assert.assertTrue(flag1,"Not moved to Regisration Page");
 		
 		}
 }

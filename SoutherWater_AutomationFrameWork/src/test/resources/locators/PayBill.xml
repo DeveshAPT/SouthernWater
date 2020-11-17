@@ -27,8 +27,13 @@
 <VerifyPaymentReferenceNumber>//h3[text()='Payment reference']/following::p[text()='0004505530617']</VerifyPaymentReferenceNumber>
 <VerifyLastName>//h3[text()='Last name']/following::p[text()='Updahyll']</VerifyLastName>
 <ContinueHyperLink>//a[text()='Continue']</ContinueHyperLink>
-<VerifyYourMeterReadingLabel>//div/h1[text()='Your meter reading']</VerifyYourMeterReadingLabel>
-<CustomerMeterReading>//*[@id="customerMeterReading"]</CustomerMeterReading>
-<ConfirmMeterReadingHeader>//div/h1[text()='Confirm meter reading']</ConfirmMeterReadingHeader>
-
+<VerifyYourMeterReadingLabel>//div/h2[text()='Your meter reading']</VerifyYourMeterReadingLabel>
+<VerifyYourMeterReadingLabel2>//div/h1[text()='Your meter reading']</VerifyYourMeterReadingLabel2>
+<CustomerMeterReading>//input[@id="customerMeterReading"]</CustomerMeterReading>
+<ConfirmMeterReadingHeader>//h1[text()='Confirm meter reading']</ConfirmMeterReadingHeader>
+<ContinueButton2>//button[contains(text(),'Continue')]</ContinueButton2>
+<LastMeterReading>//div/h3[text()='Last meter reading']</LastMeterReading>
+<LastMeterReadingValue>//*[@id="content"]/div/div[2]/form/div[2]/div[2]/p</LastMeterReadingValue>
+<ConfirmMeterReadingValue>//*[@id="content"]/div/div[2]/div[2]/p</ConfirmMeterReadingValue>
+<ConfirmReadingButton>//button[text()='Confirm reading']</ConfirmReadingButton>
 </locators>

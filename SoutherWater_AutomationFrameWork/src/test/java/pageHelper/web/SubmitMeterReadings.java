@@ -5,10 +5,12 @@ import java.util.List;
 
 import org.dom4j.DocumentException;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
 import core.apiHelper;
@@ -97,4 +99,75 @@ public class SubmitMeterReadings
 			webDriver.VerifyTitle("Submit Meter Read - Southern Water: Water for life, Water and wastewater services for Kent, Sussex, Hampshire and the Isle of Wight");
 			
 		}
+		
+		//Scenario: I Want to Verify customer meter reading details	
+		@Given("^I am on submit meter reading page$") 
+		public void VerifySubmitMeterReadingPage() throws Exception
+		{
+			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
+			webDriver.OpenURL(prpertyreader.readproperty("CustomerMeterReadingUrl"));
+			webDriver.WaitforPageToBeReady();
+			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/Start")));
+			webDriver.WaitforPageToBeReady();
+			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/YourDetailHeading")), "Your details");
+		}
+		
+		@When("^I submit all the details of customer") 
+		public void ClickOnSubmitButtonAfterSubmitingCustomerDetails() throws Exception
+		{
+			webDriver.SendKeys(webDriver.getwebelement(payBillLoct.getlocator("//locators/CustomerNumber")), "21301653"+Keys.TAB);	
+			webDriver.SendKeys(webDriver.getwebelement(payBillLoct.getlocator("//locators/CustomerRefNum")), "4505530617"+Keys.TAB);	
+			webDriver.SendKeys(webDriver.getwebelement(payBillLoct.getlocator("//locators/CustomerLName")), "Updahyll"+Keys.TAB);
+			webDriver.SendKeys(webDriver.getwebelement(payBillLoct.getlocator("//locators/CustomerEmail")), "test@gmail.com"+Keys.TAB);
+			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/ContinueButton2")));
+			webDriver.WaitforPageToBeReady();
+		}
+		
+		@Then("^I Should able to verify all the details of customer") 
+		public void VerifySumbitMeterReadingDetailsOfgCustomer() throws Exception
+		{
+			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/CheckYourDetailsHeader")), "Check your details");
+			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/VerifyYourMeterReadingLabel")), "Your meter reading");
+			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/VerifyCustomerNumber")), "21301653");
+			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/VerifyPaymentReferenceNumber")), "0004505530617");
+			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/VerifyLastName")), "Updahyll");
+			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/ContinueHyperLink")));
+			webDriver.WaitforPageToBeReady();
+			Thread.sleep(5000);
+			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/VerifyYourMeterReadingLabel2")), "Your meter reading");
+			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/LastMeterReading")), "Last meter reading");
+			System.out.println("meterReading started::: ");
+			String meterReading =webDriver.getwebelement(payBillLoct.getlocator("//locators/LastMeterReadingValue")).getText();
+			System.out.println("meterReading::: "+meterReading);
+			int meterReading3 = Integer.valueOf(meterReading) +100;
+			System.out.println("meterReading3::: "+meterReading3);
+			webDriver.SendKeys(webDriver.getwebelement(payBillLoct.getlocator("//locators/CustomerMeterReading")),String.valueOf(meterReading3)+Keys.TAB);		
+			WebDriver driver = new ChromeDriver();
+			JavascriptExecutor jse = (JavascriptExecutor)driver;
+			jse.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+			Thread.sleep(5000);
+			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/ContinueButton")));
+			webDriver.WaitforPageToBeReady();
+			Thread.sleep(3000);
+			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/ConfirmMeterReadingHeader")), "Confirm meter reading");
+			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/ConfirmMeterReadingValue")), String.valueOf(meterReading3));
+			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/BackButton")));
+			webDriver.WaitforPageToBeReady();
+			Thread.sleep(3000);
+			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/VerifyYourMeterReadingLabel2")), "Your meter reading");
+			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/BackButton")));
+			webDriver.WaitforPageToBeReady();
+			Thread.sleep(3000);
+			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/CheckYourDetailsHeader")), "Check your details");
+			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/ContinueHyperLink")));
+			webDriver.WaitforPageToBeReady();
+			Thread.sleep(3000);
+			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/VerifyYourMeterReadingLabel2")), "Your meter reading");
+			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/ContinueButton")));
+			webDriver.WaitforPageToBeReady();
+			Thread.sleep(3000);
+			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/ConfirmMeterReadingHeader")), "Confirm meter reading");
+			// This step is commented intentionally
+			//webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/ConfirmReadingButton")));
+		}		
 }
