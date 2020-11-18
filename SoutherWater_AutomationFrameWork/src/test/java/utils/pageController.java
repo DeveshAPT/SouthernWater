@@ -11,7 +11,7 @@ import pageHelper.web.CustomerRegistrationPageHelper;
 import pageHelper.web.LogOutPageHelper;
 import pageHelper.web.LoginPageHelper;
 import pageHelper.web.MoveInPageHelper;
-import pageHelper.web.SouthernWater_PayBill_Steps;
+import pageHelper.web.PayBillPageHelper;
 import pageHelper.web.SubmitMeterReadings;
 import pageHelper.api.EmployeeHelper;
 import pageHelper.api.SPQR;
@@ -22,7 +22,7 @@ public class pageController {
 
 		public static final ThreadLocal<homePageHelper> HomePage= new InheritableThreadLocal<>();
 		public static final ThreadLocal<SPQR> SP= new InheritableThreadLocal<>();
-		public static final ThreadLocal<SouthernWater_PayBill_Steps> PayBill= new InheritableThreadLocal<>();
+		public static final ThreadLocal<PayBillPageHelper> PayBill= new InheritableThreadLocal<>();
 		public static final ThreadLocal<SubmitMeterReadings> Meter= new InheritableThreadLocal<>();
 		public static final ThreadLocal<LoginPageHelper> Login= new InheritableThreadLocal<>();
 		public static final ThreadLocal<LogOutPageHelper> Logout= new InheritableThreadLocal<>();
@@ -35,7 +35,7 @@ public class pageController {
 			homePageHelper FP= new homePageHelper(driver);
 			HomePage.set(FP);
 			
-			SouthernWater_PayBill_Steps PU= new SouthernWater_PayBill_Steps(driver);
+			PayBillPageHelper PU= new PayBillPageHelper(driver);
 			PayBill.set(PU);
 			
 			SubmitMeterReadings ME= new SubmitMeterReadings(driver);

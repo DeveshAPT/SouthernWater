@@ -24,20 +24,20 @@ import utils.driver;
 import utils.xmlreader;
 
 
-public class SouthernWater_PayBill_Steps 
+public class PayBillPageHelper 
 {
 	public  webHelper webDriver;
 	private bddDriver DriverInstance;
 	xmlreader payBillLoct=new xmlreader("src\\test\\resources\\locators\\PayBill.xml");
 	PropertyReader prpertyreader = new PropertyReader();
-		public SouthernWater_PayBill_Steps(WebDriver driver)  
+		public PayBillPageHelper(WebDriver driver)  
 		{
 			webDriver=new baseDriverHelper(driver);
 			System.out.println("First Constructor");
 			
 		}
 		
-		public SouthernWater_PayBill_Steps(bddDriver contextSteps) throws Exception {
+		public PayBillPageHelper(bddDriver contextSteps) throws Exception {
 			this.DriverInstance = contextSteps;
 			System.out.println(this.DriverInstance);
 			webDriver=new baseDriverHelper(DriverInstance.getWebDriver());
