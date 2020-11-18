@@ -1,5 +1,3 @@
-
-
 Feature: Login to SoutherWater Webportal
  
 
@@ -21,6 +19,7 @@ Feature: Login to SoutherWater Webportal
     When I Enter credentials <Email> and <Password> into respective fields
     And Click on Login button
     Then I should see the Dashboard
+    
     
   Examples:
     |Email|Password|
@@ -51,5 +50,3 @@ Feature: Login to SoutherWater Webportal
     Given I am accessing the Login Page
     When I Click on Registration 
     Then I Should Navigate to Registration Page
-    
-  

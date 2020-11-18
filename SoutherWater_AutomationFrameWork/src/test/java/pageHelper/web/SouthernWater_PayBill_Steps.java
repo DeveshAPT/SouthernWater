@@ -50,12 +50,13 @@ public class SouthernWater_PayBill_Steps
 		public void SouthernWaterPayBill() throws Exception
 		{
 			Thread.sleep(5000);
-			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
-			webDriver.WaitforPageToBeReady();
+			ClickOnAcceptCokies();
+			//webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
+			//webDriver.WaitforPageToBeReady();
 			webDriver.OpenURL(prpertyreader.readproperty("PayBill"));
 			Thread.sleep(5000);
 			System.out.println(webDriver.GetTitle());
-			webDriver.VerifyTitle("Quick Pay - Southern Water: Water for life, Water and wastewater services for Kent, Sussex, Hampshire and the Isle of Wight");
+			//webDriver.VerifyTitle("Quick Pay - Southern Water: Water for life, Water and wastewater services for Kent, Sussex, Hampshire and the Isle of Wight");
 		}
 		
 		@When("^I Click on Start$") 
@@ -84,13 +85,14 @@ public class SouthernWater_PayBill_Steps
 		public void IAmSouthernWaterPayBillDetail() throws Exception
 		{
 			Thread.sleep(5000);
-			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
-			Thread.sleep(5000);
+			//webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
+			//Thread.sleep(5000);
+			ClickOnAcceptCokies();
 			webDriver.WaitforPageToBeReady();
 			webDriver.OpenURL(prpertyreader.readproperty("PayBill"));
 			webDriver.WaitforPageToBeReady();
 			System.out.println(webDriver.GetTitle());
-			webDriver.VerifyTitle("Quick Pay - Southern Water: Water for life, Water and wastewater services for Kent, Sussex, Hampshire and the Isle of Wight");
+			//webDriver.VerifyTitle("Quick Pay - Southern Water: Water for life, Water and wastewater services for Kent, Sussex, Hampshire and the Isle of Wight");
 			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/Start")));
 			webDriver.WaitforPageToBeReady();
 		}
@@ -102,7 +104,7 @@ public class SouthernWater_PayBill_Steps
 			webDriver.WaitforPageToBeReady();	
 		}
 				
-		@Then("^I moved to Term page") 
+		@Then("^I moved to Pay Detail Main Page") 
 		public void TermPage() throws DocumentException, Exception
 		{
 			System.out.println("Then Body");
@@ -115,14 +117,16 @@ public class SouthernWater_PayBill_Steps
 		public void SouthernWaterBillPay() throws Exception
 		{
 			Thread.sleep(5000);
-				webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
-			webDriver.WaitforPageToBeReady();
+				
+			//webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
+			//webDriver.WaitforPageToBeReady();
+			//ClickOnAcceptCokies();
 			System.out.println(prpertyreader.readproperty("PayBill"));
 			webDriver.OpenURL(prpertyreader.readproperty("PayBill"));
 			Thread.sleep(5000);
 			webDriver.WaitforPageToBeReady();
 			System.out.println(webDriver.GetTitle());
-			webDriver.VerifyTitle("Quick Pay - Southern Water: Water for life, Water and wastewater services for Kent, Sussex, Hampshire and the Isle of Wight");
+			//webDriver.VerifyTitle("Quick Pay - Southern Water: Water for life, Water and wastewater services for Kent, Sussex, Hampshire and the Isle of Wight");
 			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/Start")));
 			webDriver.WaitforPageToBeReady();
 			
@@ -187,13 +191,14 @@ public class SouthernWater_PayBill_Steps
 		public void SouthernWaterPayBillDetail() throws Exception
 		{
 			Thread.sleep(5000);
-			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
-			webDriver.WaitforPageToBeReady();
+			//webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
+			//webDriver.WaitforPageToBeReady();
+			//ClickOnAcceptCokies();
 			webDriver.OpenURL(prpertyreader.readproperty("PayBill"));
 			Thread.sleep(5000);
 			webDriver.WaitforPageToBeReady();
 			System.out.println(webDriver.GetTitle());
-			webDriver.VerifyTitle("Quick Pay - Southern Water: Water for life, Water and wastewater services for Kent, Sussex, Hampshire and the Isle of Wight");
+			//webDriver.VerifyTitle("Quick Pay - Southern Water: Water for life, Water and wastewater services for Kent, Sussex, Hampshire and the Isle of Wight");
 			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/Start")));
 			webDriver.WaitforPageToBeReady();
 		}
@@ -218,12 +223,13 @@ public class SouthernWater_PayBill_Steps
 		public void SouthernWaterPayErrorMessage() throws Exception
 		{
 			Thread.sleep(5000);
-			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
-			webDriver.WaitforPageToBeReady();
+			//webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
+			//webDriver.WaitforPageToBeReady();
+			//ClickOnAcceptCokies();
 			webDriver.OpenURL(prpertyreader.readproperty("PayBill"));
 			webDriver.WaitforPageToBeReady();
 			System.out.println(webDriver.GetTitle());
-			webDriver.VerifyTitle("Quick Pay - Southern Water: Water for life, Water and wastewater services for Kent, Sussex, Hampshire and the Isle of Wight");
+			//webDriver.VerifyTitle("Quick Pay - Southern Water: Water for life, Water and wastewater services for Kent, Sussex, Hampshire and the Isle of Wight");
 			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/Start")));
 			webDriver.WaitforPageToBeReady();
 		}
@@ -262,13 +268,14 @@ public class SouthernWater_PayBill_Steps
 		{
 			
 			Thread.sleep(5000);
-			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
-			webDriver.WaitforPageToBeReady();
+			//webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
+			//webDriver.WaitforPageToBeReady();
+			//ClickOnAcceptCokies();
 			System.out.println(prpertyreader.readproperty("PayBill"));
 			webDriver.OpenURL(prpertyreader.readproperty("PayBill"));
 			webDriver.WaitforPageToBeReady();
 			System.out.println(webDriver.GetTitle());
-			webDriver.VerifyTitle("Quick Pay - Southern Water: Water for life, Water and wastewater services for Kent, Sussex, Hampshire and the Isle of Wight");
+			//webDriver.VerifyTitle("Quick Pay - Southern Water: Water for life, Water and wastewater services for Kent, Sussex, Hampshire and the Isle of Wight");
 			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/Start")));
 			webDriver.WaitforPageToBeReady();
 		}
@@ -298,6 +305,21 @@ public class SouthernWater_PayBill_Steps
 			Assert.assertTrue(flag, "Error Removed");
 					
 		}
+		
+		public void ClickOnAcceptCokies()
+		{
+			try
+			{
+			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
+			webDriver.WaitforPageToBeReady();
+			}
+			catch(Exception ex)
+			{
+				System.out.println(ex.getMessage());
+			}
+		}
+		
+		
 		
 		/*public void clickonQuestionMarks() throws Exception
 		{

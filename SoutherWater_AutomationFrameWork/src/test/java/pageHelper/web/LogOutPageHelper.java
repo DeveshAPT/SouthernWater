@@ -41,7 +41,7 @@ public class LogOutPageHelper
 	public void I_have_LoggedIn(String email,String password ) throws Exception
 	{
 		Thread.sleep(5000);
-		webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
+		//webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
 		webDriver.WaitforPageToBeReady();
 		webDriver.OpenURL(prpertyreader.readproperty("LoginUrl"));
 		webDriver.WaitforPageToBeReady();

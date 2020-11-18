@@ -601,31 +601,24 @@ public void ClickswithAction(String el) throws InterruptedException {
 			}
 		}
 	}
-	public void safeJavaScriptClick(WebElement element) throws Exception {
-		
-	//	JavascriptExecutor js = (JavascriptExecutor) driver;
+	
+	@Override
+	public void SafeJavaScriptClick(WebElement element)
+	{
 		try {
-//			((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('style', 'border: 2px solid red;');", el);
-//			Thread.sleep(200);
-//			((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('style', 'border: 0px solid red;');", el);
 			if (element.isEnabled() && element.isDisplayed()) {
-			
-				////Log.info("Clicking on element with using java script click");
-				System.out.println("Clicking on element with using java script click in If");
+				System.out.println("Clicking on element with using java script click");
+
 				((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
 			} else {
-				////Log.info("Unable to click on element");
-				System.out.println("Clicking on element with using java script click in else");
-				((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+				System.out.println("Unable to click on element");
 			}
-		//	js.executeScript("arguments[0].setAttribute('style', 'border: 2px solid red;');", el);
-			
 		} catch (StaleElementReferenceException e) {
-			////Log.info("Element is not attached to the page document "+ e.getStackTrace());
+			System.out.println("Element is not attached to the page document "+ e.getStackTrace());
 		} catch (NoSuchElementException e) {
-			////Log.info("Element was not found in DOM "+ e.getStackTrace());
+			System.out.println("Element was not found in DOM "+ e.getStackTrace());
 		} catch (Exception e) {
-			////Log.info("Unable to click on element "+ e.getStackTrace());
+			System.out.println("Unable to click on element "+ e.getStackTrace());
 		}
 	}
 	public void switchtofram(WebElement el){
@@ -691,12 +684,49 @@ public void ClickswithAction(String el) throws InterruptedException {
 				//openurl2(FinalURL);
 				
 			}
-public void Moveon(WebElement el) {
 			
-		Actions action = new Actions(driver);
-		 
-	    action.moveToElement(el).build().perform();
+	@Override
+	public void Moveon(WebElement el) 
+	{			
+		Actions action = new Actions(driver);	 
+		action.moveToElement(el).build().perform();
 	}
+	
+	@Override
+	public void CleasrAndSendKeys(WebElement el,String value) throws InterruptedException, IOException 
+	{
+		
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	try 
+	{
+		js.executeScript("arguments[0].setAttribute('style', 'border: 2px solid red;');", el);	
+		Thread.sleep(200);
+		js.executeScript("arguments[0].setAttribute('style', 'border: 0px solid red;');", el);
+		el.clear();
+		el.sendKeys(value);
+		System.out.println("try to click on the element");	
+	}
+	catch(WebDriverException e)
+	{
+		js.executeScript("arguments[0].setAttribute('style', 'border: 2px solid red;');", el);	
+		Thread.sleep(200);
+		js.executeScript("arguments[0].setAttribute('style', 'border: 0px solid red;');", el);
+		System.out.println("Error in Clickon " + e.getMessage());
+		if(!e.toString().equals("NoSuchElementException"))
+		{
+			try 
+			{
+				Thread.sleep(8000);
+				el.sendKeys(value);
+			}
+			catch(Exception e1)
+			{
+				System.out.println(e1.getMessage().toString());
+			}
+		}
+	}
+		
+}
 	public boolean isElementPresent(String locator) {
 	    try {
 	        driver.findElement(By.xpath(locator));

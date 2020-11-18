@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <locators>
-<AgreeTermsCheckBox>//input[@id='agree']</AgreeTermsCheckBox>
+<AgreeTermsCheckBox>//span[text()=' I agree with the ']</AgreeTermsCheckBox>
+<YourDetails>//h1[text()='Your details']</YourDetails>
 <TermsAndConditionsLink>//a[text()=' Terms and Conditions']</TermsAndConditionsLink>
 <TermsAndCondtionHeading>//h1[text()='Terms and conditions']</TermsAndCondtionHeading>
 <ImportantNotice>//h2[text()='1. Important notice']</ImportantNotice>
@@ -9,7 +10,15 @@
 <TermsAndConditionClose>//a[text()='Close']</TermsAndConditionClose>
 <RegisterNow>//h1[text()='Register now']</RegisterNow>
 <Start>//button[text()='Start']</Start>
-<AcceptTermMessageFirst>//div[@class='feedback-box__container']//div[text()='Please accept the Terms and Conditions']</AcceptTermMessageFirst>
+<Back>//a[text()='Back']</Back>
+<Password>//input[@id='passwordInput']</Password>
+<FirstQuestion>//select[@id='firstSecurityQuestion']</FirstQuestion>
+<FirstAnswer>//input[@id='firstSecurityAnswer']</FirstAnswer>
+<ConfirmContinue>//button[text()='Confirm and continue']</ConfirmContinue>
+<SecondQuestion>//select[@id='secondSecurityQuestion']</SecondQuestion>
+<SecondAnswer>//input[@id='secondSecurityAnswer']</SecondAnswer>
+<PasswordContinue>//button[@type='submit']</PasswordContinue>
+<AcceptTermMessageFirst>//ul[@class='error-state-message']//a[text()='Please accept the Terms and Conditions']</AcceptTermMessageFirst>
 <AcceptTermMessageSecond>//div[@class='custom-checkbox']//div[text()='Please accept the Terms and Conditions']</AcceptTermMessageSecond>
 <ItShouldTakeLabel>//h2[text()='It should only take a few minutes']</ItShouldTakeLabel>
 <EightDigitLabel>//li[text()='Your customer number. This is the 8 digit number shown on the top right of your bill. ']</EightDigitLabel>
@@ -22,4 +31,7 @@
 <Continue>//button[text()='Continue']</Continue>
 <CheckDetailHeadings>//div[@class='review-detail-section']//h3</CheckDetailHeadings>
 <CheckDetailValues>//div[@class='review-detail-section']//p</CheckDetailValues>
+<VerifyEmailMessage>//h1[text()='Verify your email address']</VerifyEmailMessage>
+<VerifyEmailMessageList>//div[@class='register__container']//p</VerifyEmailMessageList>
+
 </locators>
