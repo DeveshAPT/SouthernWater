@@ -5,6 +5,7 @@
 <YourDetailHeading>//h1[text()='Your details']</YourDetailHeading>
 <BackButton>//a[text()='Back']</BackButton>
 <ContinueButton>//button[text()='Continue']</ContinueButton>
+<DetailsContinue>//a[text()='Continue']</DetailsContinue>
 <IncorrectInputMsg>//p[text()='You’ll need to correct the errors to continue.']</IncorrectInputMsg>
 <CustomerNumber>//input[@id='customerNumber']</CustomerNumber>
 <CustomerRefNum>//input[@id='customerRefNumber']</CustomerRefNum>
@@ -15,6 +16,16 @@
 <ActiveToolTip>//span[@class='fas fa-question-circle tooltip-icon active']</ActiveToolTip>
 <ToolTipMessage>//div[@class='tooltip-msg']</ToolTipMessage>
 <TroubleLink>//a[@class='landing-link']</TroubleLink>
+<AnotherAmount>//label[@for='another-amount']</AnotherAmount>
+<FullAmount>//label[@for='full-amount']</FullAmount>
+<EnterAmount>//input[@id='custom-amount']</EnterAmount>
+<MakePayment>//button[text()='Make payment']</MakePayment>
+<CardNumber>//input[@id='cardNumber']</CardNumber>
+<CardHolderName>//input[@id='cardholderName']</CardHolderName>
+<ExpiryMonth>//input[@id='expiryMonth']</ExpiryMonth>
+<ExpiryYear>//input[@id='expiryYear']</ExpiryYear>
+<SecurityCode>//input[@id='securityCode']</SecurityCode>
+<Pay>//input[@id='submitButton']</Pay>
 <FindMeter>//h1[text()='How to find your water meter']</FindMeter>
 <SubmitOnline>//a[text()='submit it online']</SubmitOnline>
 <Start>//a[text()='Start']</Start>
