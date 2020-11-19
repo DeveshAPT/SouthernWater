@@ -43,7 +43,7 @@ public class LoginPageHelper {
 			webDriver.OpenURL(prpertyreader.readproperty("LoginUrl"));
 			webDriver.WaitforPageToBeReady();
 			Thread.sleep(10000);
-			webDriver.VerifyTitle("My account");
+			//webDriver.VerifyTitle("My account");
 			
 		}
 		

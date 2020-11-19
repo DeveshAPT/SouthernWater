@@ -68,7 +68,7 @@ Scenario Outline: As a Unregistered user I Can Pay Partial Amount of My Bill
 		 
 
 
-@WEB
+#@WEB
 Scenario Outline: As a Unregistered user I Can Pay Full Amount of My Bill
 		Given I have Open Pay Bill Detail Page
 		And I Click Start Link on Page
@@ -89,4 +89,41 @@ Scenario Outline: As a Unregistered user I Can Pay Full Amount of My Bill
     |CustNum|PayRef|LastName|Email|Card|Name|expiryMonth|expiryYear|SecureCode|
     |13417979|4050614612|Vardy|devesh.kumar@southernwater.co.uk|122000000000003|Fiona Vardy|08|27|453|		 
 
+
+#@WEB
+Scenario Outline: As a Registered user I Can Pay Partial Amount of My Bill
+		Given I Login with my Login Credentials as Email <Email> and Password <Password>
+		And I Click On Make Payment from Dashboard
+		And I Click Select Pay Another Amount Option
+		And I Enter Amount as <Amount>
+		And I Click on Make Payment Link on Page
+		When I Fill Payment Card Detail <Card> Name <Name> Expiry Month <expiryMonth> Expiry Year <expiryYear> and SecurityCode <SecureCode>
+		And I Click on Pay Now Button on Make Payment Step on Portal
+		Then I Can see Payment Confirmation Message on Portal
+		And I Can See Thankyou Message on Portal
+		And I Can See Transaction with Transaction Number on Portal
+		And I Can See Payment Reference With Reference Number on Portal
+		And I Can See Same Amount as <Amount> I Pay on Portal
+		
+		 Examples:
+    |Email|Password|Amount|Card|Name|expiryMonth|expiryYear|SecureCode|
+    |kumar.devesh82@yahoo.com|Apple@123|1|122000000000003|Fiona Vardy|08|27|453|
+    
+ @WEB
+Scenario Outline: As a Registered user I Can Pay Full Amount of My Bill
+		Given I have Login with my Login Credentials as Email <Email> and Password <Password>
+		And I Click On Make Payment on Dashboard
+		And I Click Select Pay Full Amount Option
+		And I Click on Make Payment Link on Portal
+		When I Fill Payment Card Detail <Card> Name <Name> Expiry Month <expiryMonth> Expiry Year <expiryYear> and SecurityCode <SecureCode>
+		And I Click on Pay Now Link on Make Payment Step on Portal
+		Then I Should see Payment Confirmation Message
+		And I Should See Thankyou Message
+		And I Should See Transaction with Transaction
+		And I Should See Payment Reference With Reference
+		And I Should See Payment Amount as I Pay on Portal
+		
+		 Examples:
+    |Email|Password|Card|Name|expiryMonth|expiryYear|SecureCode|
+    |kumar.devesh82@yahoo.com|Apple@123|122000000000003|Fiona Vardy|08|27|453|
 		
