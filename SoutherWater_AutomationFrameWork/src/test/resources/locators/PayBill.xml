@@ -16,6 +16,7 @@
 <ActiveToolTip>//span[@class='fas fa-question-circle tooltip-icon active']</ActiveToolTip>
 <ToolTipMessage>//div[@class='tooltip-msg']</ToolTipMessage>
 <TroubleLink>//a[@class='landing-link']</TroubleLink>
+<DueAmount>//div[@class='review-detail-section']//p</DueAmount>
 <AnotherAmount>//label[@for='another-amount']</AnotherAmount>
 <FullAmount>//label[@for='full-amount']</FullAmount>
 <EnterAmount>//input[@id='custom-amount']</EnterAmount>

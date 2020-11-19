@@ -31,6 +31,7 @@ public class PayBillPageHelper
 	private bddDriver DriverInstance;
 	xmlreader payBillLoct=new xmlreader("src\\test\\resources\\locators\\PayBill.xml");
 	PropertyReader prpertyreader = new PropertyReader();
+	String dueAmount;
 		public PayBillPageHelper(WebDriver driver)  
 		{
 			webDriver=new baseDriverHelper(driver);
@@ -469,6 +470,166 @@ public class PayBillPageHelper
 			Assert.assertTrue(text.contains(Amount), "Entered Amount not matched with reciept amount");
 		}
 		
+		
+		//Test Full Amount 
+		@Given("^I have Open Pay Bill Detail Page$")
+		public void IHaveOpenPayBillPage() throws IOException, InterruptedException
+		{
+			Thread.sleep(5000);
+			//ClickOnAcceptCokies();
+			webDriver.OpenURL(prpertyreader.readproperty("PayBill"));
+			Thread.sleep(5000);
+			System.out.println(webDriver.GetTitle());
+		}
+		
+		@And("^I Click Start Link on Page$")
+		public void i_Click_Start_Link_on_Page() throws Exception
+		{
+			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/Start")));
+			webDriver.WaitforPageToBeReady();
+		}
+		
+		@And("^I enter my details Customer Number ([^\"]*) Payment Reference ([^\"]*) Last Name ([^\"]*) EmailID ([^\"]*)$")
+		public void IEnterMyCustDetailWithPaymentRef(String CustomerNumber,String PaymentRef,String LastName,String Email) throws Exception
+		{
+			webDriver.WaitforPageToBeReady();
+			webDriver.SendKeys(webDriver.getwebelement(payBillLoct.getlocator("//locators/CustomerNumber")), CustomerNumber+Keys.TAB);	
+			webDriver.SendKeys(webDriver.getwebelement(payBillLoct.getlocator("//locators/CustomerRefNum")), PaymentRef+Keys.TAB);	
+			webDriver.SendKeys(webDriver.getwebelement(payBillLoct.getlocator("//locators/CustomerLName")), LastName+Keys.TAB);	
+			webDriver.SendKeys(webDriver.getwebelement(payBillLoct.getlocator("//locators/CustomerEmail")), Email+Keys.TAB);
+		}
+		
+		@And("^I Click On Continue link on Detail Step$")
+		public void ContinueLinnkButtonofDetailStep() throws Exception
+		{
+			webDriver.WaitforPageToBeReady();
+			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/ContinueButton")));
+			Thread.sleep(5000);
+		}
+		
+		@And("^I Click on Continue link of Check Detail Step")
+		public void ContinueLinkButtonCheckDetailPage() throws Exception
+		{
+			webDriver.WaitforPageToBeReady();
+			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/DetailsContinue")));
+			Thread.sleep(5000);
+		}
+		
+		@And("I Select Pay Full Amount")
+		public void SelectPayFulllAmount() throws Exception
+		{
+			dueAmount=webDriver.getwebelement(payBillLoct.getlocator("//locators/DueAmount")).getText();
+			System.out.println("");
+			System.out.println(dueAmount);
+			
+			webDriver.SafeJavaScriptClick(webDriver.getwebelement(payBillLoct.getlocator("//locators/FullAmount")));
+			webDriver.WaitforPageToBeReady();
+		}
+		
+		
+		@And("^I Click on Make Payment Link$")
+		public void ClickMakePaymentLink() throws InterruptedException, DocumentException, Exception
+		{
+			webDriver.WaitforPageToBeReady();
+			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/MakePayment")));
+			Thread.sleep(5000);
+		}
+		
+		@When("^I Enter Payment Card Detail ([^\"]*) Name ([^\"]*) Expiry Month ([^\"]*) Expiry Year ([^\"]*)  and SecurityCode ([^\"]*)$")
+		public void IEnterPaymentCardDetails(String CardNumber, String NameOnCard, String ExpiryMonth,String ExpiryYear, String code) throws InterruptedException, IOException, DocumentException 
+		{
+			webDriver.switchtofram(webDriver.getwebelement("//iframe[@id='wp-cl-custom-html-iframe']"));
+			webDriver.SendKeys(webDriver.getwebelement(payBillLoct.getlocator("//locators/CardNumber")), CardNumber+Keys.TAB);	
+			webDriver.SendKeys(webDriver.getwebelement(payBillLoct.getlocator("//locators/CardHolderName")), NameOnCard+Keys.TAB);	
+			webDriver.SendKeys(webDriver.getwebelement(payBillLoct.getlocator("//locators/ExpiryMonth")), ExpiryMonth+Keys.TAB);	
+			webDriver.SendKeys(webDriver.getwebelement(payBillLoct.getlocator("//locators/ExpiryYear")), ExpiryYear+Keys.TAB);
+			webDriver.SendKeys(webDriver.getwebelement(payBillLoct.getlocator("//locators/SecurityCode")), code+Keys.TAB);
+			
+		}
+		
+		@And("^I Click on Pay Now Button on Make Payment Step$")
+		public void ClickPayNowtoMakePayment() throws Exception
+		{
+			//webDriver.switchtofram(webDriver.getwebelement("//iframe[@id='wp-cl-custom-html-iframe']"));
+			webDriver.WaitforPageToBeReady();
+			//webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/Pay")));
+			
+			Thread.sleep(5000);
+			webDriver.switchtodefault();
+		}
+		
+		@Then("^I Can see Payment Confirmation Message on Page$")
+		public void PyamentConfirmationMessagePage() throws DocumentException, InterruptedException
+		{
+			Assert.assertTrue(webDriver.IsPresent(payBillLoct.getlocator("//locators/ConfirmationMessage")),"Payment Confirmation Message not found");
+		}
+		
+		@And("^Thankyou Message on Page$")
+		public void ThankyouMessageOnPage() throws DocumentException, InterruptedException
+		{
+			Assert.assertTrue(webDriver.IsPresent(payBillLoct.getlocator("//locators/ThankYou")),"Payment Confirmation Message not found");
+		}
+		
+		@And("^Transaction with Transaction Number on Receipt$")
+		public void TransactionMessageOnPage() throws DocumentException, InterruptedException
+		{
+			Assert.assertTrue(webDriver.IsPresent(payBillLoct.getlocator("//locators/PaymentReceipt")),"Payment Receipt Message not found");
+			
+			List<WebElement> elements=webDriver.getwebelements(payBillLoct.getlocator("//locators/PaymentDetailHeading"));
+			WebElement ele=elements.get(0);
+			
+			String text=ele.getText();
+			System.out.println(text);
+			Assert.assertTrue(text.equals("Transaction number"), "Transaction number Label Not found");
+			
+			elements=webDriver.getwebelements(payBillLoct.getlocator("//locators/PaymentDetailLabel"));
+			ele=elements.get(0);
+			
+			text=ele.getText();
+			System.out.println(text);
+			Assert.assertTrue(text!=null, "Transaction number value not found");
+		}
+		
+		@And("Payment Reference With Reference Number on Receipt")
+		public void PaymentReferenceNumberPage() throws InterruptedException, DocumentException
+		{
+			
+			List<WebElement> elements=webDriver.getwebelements(payBillLoct.getlocator("//locators/PaymentDetailHeading"));
+			WebElement ele=elements.get(1);
+			
+			String text=ele.getText();
+			System.out.println(text);
+			Assert.assertTrue(text.equals("Payment reference"), "Payment reference Label Not found");
+			
+			elements=webDriver.getwebelements(payBillLoct.getlocator("//locators/PaymentDetailLabel"));
+			Assert.assertTrue(elements.size()==3, "Error in Payment detail Values");
+			
+			ele=elements.get(1);
+			text=ele.getText();
+			System.out.println(text);
+			Assert.assertTrue(text!=null, "Payment reference value not found");
+		}
+		
+		@And("Same Amount as I Pay on Receipt")
+		public void AmountVerificationPage() throws InterruptedException, DocumentException
+		{
+			List<WebElement> elements=webDriver.getwebelements(payBillLoct.getlocator("//locators/PaymentDetailHeading"));
+			WebElement ele=elements.get(2);
+			
+			String text=ele.getText();
+			System.out.println(text);
+			//softAssert.assertTrue("Hello".equals("hello"), "Second soft assert failed");
+			Assert.assertTrue(text.equals("Amount paid"), "Payment reference Label Not found");
+			
+			elements=webDriver.getwebelements(payBillLoct.getlocator("//locators/PaymentDetailLabel"));
+			ele=elements.get(2);
+			
+			text=ele.getText();
+			System.out.println(text);
+			Assert.assertTrue(text.contains(dueAmount), "Entered Amount not matched with reciept amount");
+		}
+		
+		
 		public void ClickOnAcceptCokies()
 		{
 			try
@@ -481,6 +642,8 @@ public class PayBillPageHelper
 				System.out.println(ex.getMessage());
 			}
 		}
+		
+		
 		
 		
 		
