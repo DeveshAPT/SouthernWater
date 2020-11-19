@@ -11,7 +11,7 @@ public class PayBill_Test extends driver
 	@Test(groups = { "web" })
 	public void FirstTest() throws Exception
 	{
-		Southern.get().SouthernWaterPayBill();
+		PayBill.get().SouthernWaterPayBill();
 		Meter.get().SouthernWaterSumbitMeterReading();
 		//Southern.get().SouthernWaterPayBillDetail();
 		Thread.sleep(30000);

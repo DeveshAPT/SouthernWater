@@ -602,6 +602,25 @@ public void ClickswithAction(String el) throws InterruptedException {
 		}
 	}
 	
+	public void safeJavaScriptClick(WebElement element)
+	{
+		try {
+			if (element.isEnabled() && element.isDisplayed()) {
+				System.out.println("Clicking on element with using java script click");
+
+				((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+			} else {
+				System.out.println("Unable to click on element");
+			}
+		} catch (StaleElementReferenceException e) {
+			System.out.println("Element is not attached to the page document "+ e.getStackTrace());
+		} catch (NoSuchElementException e) {
+			System.out.println("Element was not found in DOM "+ e.getStackTrace());
+		} catch (Exception e) {
+			System.out.println("Unable to click on element "+ e.getStackTrace());
+		}
+	}
+	
 	@Override
 	public void SafeJavaScriptClick(WebElement element)
 	{
@@ -621,6 +640,7 @@ public void ClickswithAction(String el) throws InterruptedException {
 			System.out.println("Unable to click on element "+ e.getStackTrace());
 		}
 	}
+	@Override
 	public void switchtofram(WebElement el){
 		
 		driver.switchTo().frame(el);
@@ -653,7 +673,10 @@ public void ClickswithAction(String el) throws InterruptedException {
 		}
 		Thread.sleep(300);*/
 	}
-	public void switchtodefault(){
+	@Override
+	public void switchtodefault()
+	{
+		
 		driver.switchTo().defaultContent();
 		
 	}

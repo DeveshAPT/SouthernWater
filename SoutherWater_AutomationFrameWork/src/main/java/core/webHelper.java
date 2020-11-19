@@ -170,4 +170,6 @@ public interface webHelper {
 	public void CleasrAndSendKeys(WebElement el,String value) throws InterruptedException, IOException;
 	public void SafeJavaScriptClick(WebElement element) throws InterruptedException;
 	public void Moveon(WebElement el);
+	public void switchtofram(WebElement el);
+	public void switchtodefault();
 }

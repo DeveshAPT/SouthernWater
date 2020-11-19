@@ -26,6 +26,12 @@
 <ExpiryYear>//input[@id='expiryYear']</ExpiryYear>
 <SecurityCode>//input[@id='securityCode']</SecurityCode>
 <Pay>//input[@id='submitButton']</Pay>
+<ConfirmationMessage>//h1[text()='Confirmation']</ConfirmationMessage>
+<PaymentReceipt>//h2[text()='Payment receipt']</PaymentReceipt>
+<PaymentMessage>//div[@class='intro-text']//p</PaymentMessage>
+<PaymentDetailHeading>//div[@class='review-detail-section']//h3</PaymentDetailHeading>
+<PaymentDetailLabel>//div[@class='review-detail-section']//p</PaymentDetailLabel>
+<ThankYou>//div[text()='Thank you']</ThankYou>
 <FindMeter>//h1[text()='How to find your water meter']</FindMeter>
 <SubmitOnline>//a[text()='submit it online']</SubmitOnline>
 <Start>//a[text()='Start']</Start>

@@ -53,7 +53,7 @@ public class bddDriver
 	public void Websetup(Scenario s) throws Exception{
 	
 		webDriver webDriver=new baseDriver();
-		WEB_DRIVER_THREAD_LOCAL.set(webDriver.webinit(prpertyreader.readproperty("browser"), "https://www.southernwater.co.uk", false));
+		WEB_DRIVER_THREAD_LOCAL.set(webDriver.webinit(prpertyreader.readproperty("browser"), "https://sit.southernwater.co.uk", false));
 		//WEB_DRIVER_THREAD_LOCAL.set(webDriver.webinit("chrome", false));	
 	}
 	@After("@WEB")
