@@ -54,4 +54,7 @@
 <LastMeterReadingValue>//*[@id="content"]/div/div[2]/form/div[2]/div[2]/p</LastMeterReadingValue>
 <ConfirmMeterReadingValue>//*[@id="content"]/div/div[2]/div[2]/p</ConfirmMeterReadingValue>
 <ConfirmReadingButton>//button[text()='Confirm reading']</ConfirmReadingButton>
+<LastMeterReadingValueOfYourReadingPage>//*[@id="content"]/div/div/div[2]/form/div[2]/div[2]/p</LastMeterReadingValueOfYourReadingPage>
+<MeterReading>//*[@id="content"]/div/div/div[2]/div[2]/p</MeterReading>
+<UpdatedDateForMeterReading>//*[@id="content"]/div/div/div[2]/div[4]/p</UpdatedDateForMeterReading>
 </locators>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <locators>
+<AcceptCokies>//button[@id='onetrust-accept-btn-handler']</AcceptCokies>
 <EmailId>//input[@id='inpEmail']</EmailId>
 <Password>//input[@id='customerPassword']</Password>
 <LoginButton>//button[@type='submit']</LoginButton>
@@ -16,5 +17,7 @@
 <CloseAccount>//a[text()='Close your account']</CloseAccount>
 <LogOut>//Button[text()='Log out']</LogOut>
 <LogoutComplete>//div[@class='feedback-box mb-4 feedback-box--south-downs-complementary-2']//p</LogoutComplete>
+<YourMeterReadingPageHeading>//div/h1[text()='Your meter reading']</YourMeterReadingPageHeading>
+<BackButton>//a[text()='Back']</BackButton>
 </locators>
 

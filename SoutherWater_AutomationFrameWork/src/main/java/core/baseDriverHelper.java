@@ -19,6 +19,9 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.imageio.ImageIO;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -640,12 +643,23 @@ public void ClickswithAction(String el) throws InterruptedException {
 			System.out.println("Unable to click on element "+ e.getStackTrace());
 		}
 	}
+	
 	@Override
 	public void switchtofram(WebElement el){
 		
 		driver.switchTo().frame(el);
 		
 	}
+	
+	//@Override
+		public void ScrollWindowDownVertically(WebDriver driver2) 
+		{
+		   // scroll screen at the bottom
+			JavascriptExecutor jse = (JavascriptExecutor)driver2;
+			//jse.executeScript("window.scrollTo(0, document.body.scrollHeight)");	
+			jse.executeScript("window.scrollTo(0, 300)");
+		}
+	
 	public void Waitforswitchtofram(String Locator) throws InterruptedException{
 		//WaitforElementtobeclickable("id=engagementComponent");
 		//Thread.sleep(2000);
@@ -653,6 +667,7 @@ public void ClickswithAction(String el) throws InterruptedException {
 	
 		
 	}
+	
 	public void Waitforswitchtofram2(String Locator) throws InterruptedException{
 		
 		//Thread.sleep(5000);
@@ -1762,8 +1777,17 @@ try {
 	
 	*------------------------------------------------------------------------------------------
 	*
-	*/
-	
-	
+	*/				
+	public static String GetCurrentDate() {	
+		// Create object of SimpleDateFormat class and decide the format
+		DateFormat dateFormat = new SimpleDateFormat("MMMM dd, yyyy"); 
+		//get current date time with Date()
+		Date currentDate = new Date();
+		// Now format the date
+		String date1= dateFormat.format(currentDate); 					 
+		// Print the Date
+		System.out.println(date1);
+		return date1;
+	}
 	
 }
