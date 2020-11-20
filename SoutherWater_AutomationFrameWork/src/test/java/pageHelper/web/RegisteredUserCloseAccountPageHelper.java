@@ -34,7 +34,7 @@ public class RegisteredUserCloseAccountPageHelper {
 	public  webHelper webDriver;
 	private bddDriver DriverInstance;
 	//xmlreader payBillLoct=new xmlreader("src\\test\\resources\\locators\\PayBill.xml");
-	xmlreader loginLoct=new xmlreader("src\\test\\resources\\locators\\Login.xml");
+	xmlreader loginLoct=new xmlreader("src\\test\\resources\\locators\\CustomerRegistration.xml");
 	xmlreader CloseAccLoct=new xmlreader("src\\test\\resources\\locators\\CloseAccount.xml");
 	PropertyReader prpertyreader = new PropertyReader();
 	String dueAmount;
