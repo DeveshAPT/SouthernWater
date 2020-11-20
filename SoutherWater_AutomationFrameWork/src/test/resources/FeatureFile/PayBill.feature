@@ -1,21 +1,21 @@
 
 
-Feature: SouthernWater Application Access
+Feature: Pay Bill
  
-#@WEB
+@WEB
 Scenario: Check the SouthernWater App Access
     Given I am on SouthernWater Pay Bill page 
     When I Click on Start
     Then I move to customer details page
     And Back link is also available 
    
-#@WEB
+@WEB
 Scenario: Verify Pay Bill Back Button Functionality
 		Given I am on SouthernWater Pay Bill detail Page
 		When I Click on Back Button
-		Then I moved to Term page
+		Then I moved to Pay Detail Main Page
 
-#@WEB
+@WEB
 Scenario: Verify Question Mark ToolTip
 		Given I am on SouthernWater PayBill detail Page
 		When I Click First Time on Question Mark Icons
@@ -44,7 +44,7 @@ Scenario: Check the error message removed after entering mandatory field
 		Then I Should not see the error Message for mandatory fields
 		
 
-#@WEB
+@WEB
 Scenario Outline: As a Unregistered user I Can Pay Partial Amount of My Bill
 		Given I am Accesing Pay Bill Detail Page
 		And I Click Start Button on Page
@@ -68,7 +68,7 @@ Scenario Outline: As a Unregistered user I Can Pay Partial Amount of My Bill
 		 
 
 
-#@WEB
+@WEB
 Scenario Outline: As a Unregistered user I Can Pay Full Amount of My Bill
 		Given I have Open Pay Bill Detail Page
 		And I Click Start Link on Page
@@ -90,7 +90,7 @@ Scenario Outline: As a Unregistered user I Can Pay Full Amount of My Bill
     |13417979|4050614612|Vardy|devesh.kumar@southernwater.co.uk|122000000000003|Fiona Vardy|08|27|453|		 
 
 
-#@WEB
+@WEB
 Scenario Outline: As a Registered user I Can Pay Partial Amount of My Bill
 		Given I Login with my Login Credentials as Email <Email> and Password <Password>
 		And I Click On Make Payment from Dashboard

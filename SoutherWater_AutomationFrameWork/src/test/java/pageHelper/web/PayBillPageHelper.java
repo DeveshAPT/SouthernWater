@@ -90,7 +90,7 @@ public class PayBillPageHelper
 			Thread.sleep(5000);
 			//webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
 			//Thread.sleep(5000);
-			ClickOnAcceptCokies();
+			//ClickOnAcceptCokies();
 			webDriver.WaitforPageToBeReady();
 			webDriver.OpenURL(prpertyreader.readproperty("PayBill"));
 			webDriver.WaitforPageToBeReady();
@@ -918,7 +918,7 @@ public class PayBillPageHelper
 		{
 			try
 			{
-			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
+			//webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
 			webDriver.WaitforPageToBeReady();
 			}
 			catch(Exception ex)
