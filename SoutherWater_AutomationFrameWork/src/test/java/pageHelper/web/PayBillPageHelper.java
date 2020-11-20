@@ -33,6 +33,7 @@ public class PayBillPageHelper
 	xmlreader loginLoct=new xmlreader("src\\test\\resources\\locators\\Login.xml");
 	PropertyReader prpertyreader = new PropertyReader();
 	String dueAmount;
+	
 		public PayBillPageHelper(WebDriver driver)  
 		{
 			webDriver=new baseDriverHelper(driver);

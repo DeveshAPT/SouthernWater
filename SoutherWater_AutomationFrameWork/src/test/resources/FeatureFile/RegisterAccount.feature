@@ -18,11 +18,7 @@ And I can See the Close Button
 And I Click on Close button
 And I should move to Customer Registration Page
 
-#@WEB @NA
-Scenario: Verify that the Terms & Condition Close button should navigate Customer Registration Page
-Given I am on SW on Terms & Condition page 
-When I Click on Close button 
-Then I should move to Customer Registration Page
+
 
 #@WEB
 Scenario: Verify Agree Terms & Condition is mandatory 

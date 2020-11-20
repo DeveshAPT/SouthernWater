@@ -19,5 +19,9 @@
 <LogoutComplete>//div[@class='feedback-box mb-4 feedback-box--south-downs-complementary-2']//p</LogoutComplete>
 <YourMeterReadingPageHeading>//div/h1[text()='Your meter reading']</YourMeterReadingPageHeading>
 <BackButton>//a[text()='Back']</BackButton>
+<DashBoardName>//h1[contains(text(),'Hi')]</DashBoardName>
+<SubmitMeterPageHeading>//h1[text()='Your meter reading']</SubmitMeterPageHeading>
+<PaymentPageHeading>//h1[text()='Choose amount to pay']</PaymentPageHeading>
+<CloseAccountHeading>//h1[text()='Moving out date']</CloseAccountHeading>
 </locators>
 
