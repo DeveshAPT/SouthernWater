@@ -61,7 +61,7 @@ public class MoveInPageHelper
 		{
 			Thread.sleep(3000);
 			webDriver.WaitforPageToBeReady();
-			webDriver.Clickon(webDriver.getwebelement(MoveInLoct.getlocator("//locators/AcceptCokies")));
+			//webDriver.Clickon(webDriver.getwebelement(MoveInLoct.getlocator("//locators/AcceptCokies")));
 			webDriver.OpenURL(prpertyreader.readproperty("MoveInUrl"));
 			webDriver.WaitforPageToBeReady();
 			System.out.println(webDriver.GetTitle());
