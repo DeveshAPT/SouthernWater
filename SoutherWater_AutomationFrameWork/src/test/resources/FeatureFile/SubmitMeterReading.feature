@@ -13,7 +13,7 @@ Scenario: I Want Access Submit meter reading
     When I click on Submit Meter link
     Then I Should move to Submit meter reading page
 
-@WEB
+#@WEB
 Scenario: I Want to Verify customer meter reading details 
     Given I am on submit meter reading page
     When I submit all the details of customer
@@ -54,7 +54,7 @@ Scenario: I Want to Verify customer meter reading details
     |Email|Password|
     |kumar.devesh82@yahoo.com|Apple@123|
     
- @WEB
+@WEB
   Scenario Outline: Login with Valid credentials to update meter reading  
     Given I am on Confirm meter reading page using credentials <Email> and <Password>
     When I click Back button of Confirm meter reading page
@@ -65,3 +65,16 @@ Scenario: I Want to Verify customer meter reading details
  Examples:
     |Email|Password|
     |kumar.devesh82@yahoo.com|Apple@123|
+    
+@WEB
+Scenario: I want to check tell us you are moving home link is working
+    Given I am on meter submit reading page
+    When I click on tell us you are moving home link
+    Then I should move to moving home page
+    
+@WEB
+Scenario: I want to check all validation messages are working for submit meter reading
+    Given I am on a submit meter reading page
+    And Click on Start button
+    When I enter invalid values in Your details page
+    Then I should see error messages

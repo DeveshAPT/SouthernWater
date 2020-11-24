@@ -383,4 +383,66 @@ public class SubmitMeterReadings
 			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/MeterReading")), String.valueOf(meterReadingValue));			
 			Thread.sleep(2000);
 		}
+		
+		@Given("^I am on meter submit reading page$") 
+		public void SumbitMeterReadingPage() throws Exception
+		{
+			Thread.sleep(2000);
+			webDriver.OpenURL(prpertyreader.readproperty("CustomerMeterReadingUrl"));
+			webDriver.WaitforPageToBeReady();
+			System.out.println(webDriver.GetTitle());
+			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/SubmitAMeterReadingPageHeader")), "Submit a meter reading");
+			
+		}
+		
+		@When("^I click on tell us you are moving home link$") 
+		public void ClickOnTellUsYouAreMovingHomeLink() throws Exception
+		{
+			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/TellUsYouAreMovingHomeLink")));
+			webDriver.WaitforPageToBeReady();
+		}
+		
+		@Then("^I should move to moving home page$") 
+		public void VerifyMovingHomePage() throws InterruptedException, DocumentException
+		{
+			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/MovingHomePageHeaderText")), "Moving home");
+		}
+		
+		//Scenario: I want to check all validation messages are working for submit meter reading
+		@Given("^I am on a submit meter reading page$") 
+		public void SumbitAMeterReadingPage() throws Exception
+		{
+			Thread.sleep(2000);
+			webDriver.OpenURL(prpertyreader.readproperty("CustomerMeterReadingUrl"));
+			webDriver.WaitforPageToBeReady();
+			System.out.println(webDriver.GetTitle());
+			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/SubmitAMeterReadingPageHeader")), "Submit a meter reading");
+		}
+		
+		@And("^Click on Start button$")
+		public void ClickOnStartButton() throws Exception
+		{
+			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/Start")));
+		}
+		
+		@When("^I enter invalid values in Your details page$") 
+		public void EnterInvalidValues() throws Exception
+		{
+			Thread.sleep(2000);
+			webDriver.WaitforPageToBeReady();
+			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/YourDetailHeading")), "Your details");
+			webDriver.SendKeys(webDriver.getwebelement(payBillLoct.getlocator("//locators/CustomerNumber")), "2130165320"+Keys.TAB);	
+			webDriver.SendKeys(webDriver.getwebelement(payBillLoct.getlocator("//locators/CustomerRefNum")), "4505530617652"+Keys.TAB);	
+			webDriver.SendKeys(webDriver.getwebelement(payBillLoct.getlocator("//locators/CustomerLName")), "testLastName"+Keys.TAB);
+			webDriver.SendKeys(webDriver.getwebelement(payBillLoct.getlocator("//locators/CustomerEmail")), "test@gmail.com"+Keys.TAB);
+			Thread.sleep(3000);
+			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/ContinueButton2")));	
+			Thread.sleep(5000);
+		}
+		
+		@Then("^I should see error messages$") 
+		public void VerifyErrorMessages() throws InterruptedException, DocumentException, Exception
+		{
+			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/ErrorMessageForYourDetailsPage")), "There’s a problem");
+		}
 }

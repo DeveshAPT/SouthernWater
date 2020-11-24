@@ -9,7 +9,7 @@
 <SelectAddress>//*[@id="selectedAddress"]</SelectAddress>
 <YourMovingDateLabel>//div/label[text()='Your moving date']</YourMovingDateLabel>
 <MoveOutDate>//*[@id="moveOutDate"]/div/input</MoveOutDate>
-<NumberOfOccupants>//*[@id="content"]/div/div[2]/form/div[4]/div[3]/div/input</NumberOfOccupants>
+<NumberOfOccupants>//label[text()='Number of occupants']/following-sibling::input</NumberOfOccupants>
 <ContinueButton>//div/button[text()=' Continue ']</ContinueButton>
 <YourDetailsHeader>//h1[text()='Your details']</YourDetailsHeader>
 <SelectTitle>//*[@id="title"]</SelectTitle>
