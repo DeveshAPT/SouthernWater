@@ -16,6 +16,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
@@ -63,8 +64,7 @@ public class baseDriver implements apiDriver, webDriver
 			dr.get(BaseURL);
 			dr.manage().window().maximize();
 			System.out.println("For IE Browser");
-		}
-		
+		}	
 		else if (browser.equalsIgnoreCase("ie"))
 		{
 			System.setProperty("webdriver.ie.driver","lib\\IEDriverServer.exe");
@@ -74,10 +74,18 @@ public class baseDriver implements apiDriver, webDriver
 			dr.manage().window().maximize();
 			System.out.println("For IE Browser");
 		}
-		
+		else if (browser.equalsIgnoreCase("Firefox"))
+		{
+			System.setProperty("webdriver.gecko.driver","lib\\geckodriver.exe");
+			dr= new FirefoxDriver();
+			dr.manage().deleteAllCookies();
+			dr.get(BaseURL);
+			dr.manage().window().maximize();
+			System.out.println("For FireFox Browser");
+		}
 		else
 		{
-			System.out.println("For FF Browser");
+			System.out.println("no browser specified");
 		}
 
 		}

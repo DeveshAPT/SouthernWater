@@ -1,8 +1,8 @@
 
-Feature: I want able to Move-In by filling all the the details
+Feature: Move In, including online registration
 
 @WEB
-Scenario: I Want to Move in 
+Scenario: Verify that user is able to move in to a address successfully
     Given I am on create an account page
     And I click on Start button
     When I fill all moving details

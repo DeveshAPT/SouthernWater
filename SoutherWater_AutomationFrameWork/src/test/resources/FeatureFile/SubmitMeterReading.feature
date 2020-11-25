@@ -1,26 +1,26 @@
 
-Feature: I want Access Submit Meter Reading
+Feature: Submit Meter Reading
 
 @WEB
-Scenario: I Want to Submit my meter reading 
+Scenario: Verify that user is able to navigate to how to find your meter page
     Given I am on meter submit reading pages
     When I click on Having trouble link
     Then I Should move to how to find your meter page
     
 @WEB
-Scenario: I Want Access Submit meter reading 
+Scenario: Verify that user is able to navigate to Submit meter reading 
     Given I am on how to find your meter page
     When I click on Submit Meter link
     Then I Should move to Submit meter reading page
 
-#@WEB
-Scenario: I Want to Verify customer meter reading details 
+@WEB
+Scenario: Verif that customer meter reading details are correct
     Given I am on submit meter reading page
     When I submit all the details of customer
     Then I Should able to verify all the details of customer 
     
 @WEB
- Scenario Outline: Login with Valid credentials to navigate Your meter reading page   
+ Scenario Outline: Verify that a registered user is able to navigate to submit meter reading page   
     Given I have logged in with <Email> and <Password>
     When I click to submit meter reading 
     Then I can view Your meter reading page
@@ -42,7 +42,7 @@ Scenario: I Want to Verify customer meter reading details
     |kumar.devesh82@yahoo.com|Apple@123|    
     
 @WEB
-  Scenario Outline: Login with Valid credentials to verify updated Meter Reading and today date 
+  Scenario Outline: Verify that a logged in user is able to view the updated meter redaing on the confirm meter reading page 
     Given I am on meter reading page using credentials <Email> and <Password>
     When I enter meter reading 
     And I click on Continue button
@@ -54,8 +54,8 @@ Scenario: I Want to Verify customer meter reading details
     |Email|Password|
     |kumar.devesh82@yahoo.com|Apple@123|
     
-@WEB
-  Scenario Outline: Login with Valid credentials to update meter reading  
+ @WEB
+  Scenario Outline: Verify that a logged in user is able to go back a step on the submit meter page using the back button 
     Given I am on Confirm meter reading page using credentials <Email> and <Password>
     When I click Back button of Confirm meter reading page
     Then I can update the new meter reading
@@ -65,16 +65,3 @@ Scenario: I Want to Verify customer meter reading details
  Examples:
     |Email|Password|
     |kumar.devesh82@yahoo.com|Apple@123|
-    
-@WEB
-Scenario: I want to check tell us you are moving home link is working
-    Given I am on meter submit reading page
-    When I click on tell us you are moving home link
-    Then I should move to moving home page
-    
-@WEB
-Scenario: I want to check all validation messages are working for submit meter reading
-    Given I am on a submit meter reading page
-    And Click on Start button
-    When I enter invalid values in Your details page
-    Then I should see error messages

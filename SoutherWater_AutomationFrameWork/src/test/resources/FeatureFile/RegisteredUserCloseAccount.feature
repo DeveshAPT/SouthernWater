@@ -1,4 +1,4 @@
-Feature: As A Register User I Want to Close My Account
+Feature: Move Out close account (auth)
 Description: The purpose of this feature is to test the Close Account Functionality of Registered User
 
 Background: I should be Login in SouthernWater Portal
@@ -8,13 +8,13 @@ And I Click on Login Button On Page
 Then I Should Login to SouthernWater Portal
 
 #@WEB
-Scenario: I Should move to DashBoard after clicking back button of Close Account
+Scenario: Verify tha user should move to DashBoard after clicking back button of Close Account
 Given I Am at Close Account page From Dashboard
 When I Click Back Button of Close Account page
 Then I Should move back to Dashboard 
 
 @WEB
-Scenario Outline: As Registered User I Should Close My Account 
+Scenario Outline: Verify that a registered user is able to Close My Account 
 Given I have open Close My Account from Dashboard
 And I Enter the MoveOut Date
 And I Click On Continue of Move Out Step

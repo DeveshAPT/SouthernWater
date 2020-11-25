@@ -1,9 +1,9 @@
 
 
-Feature: Logout from SouthernWater Portal
+Feature: Logout
  
   @WEB
-  Scenario Outline: Title of your scenario
+  Scenario Outline: Verify that user is able to logout from the application
     Given I have Logged in  <Email> and <Password> into SothernWater
     When I click on Logout
     Then I Should logout

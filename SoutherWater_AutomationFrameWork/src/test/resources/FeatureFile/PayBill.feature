@@ -10,42 +10,42 @@ Scenario: Check the SouthernWater App Access
     And Back link is also available 
    
 @WEB
-Scenario: Verify Pay Bill Back Button Functionality
+Scenario: Verify that user is able to go back to previous page using the Back Button Functionality
 		Given I am on SouthernWater Pay Bill detail Page
 		When I Click on Back Button
 		Then I moved to Pay Detail Main Page
 
 @WEB
-Scenario: Verify Question Mark ToolTip
+Scenario: Verify that informative message is displayed to the user on clicking of question mark
 		Given I am on SouthernWater PayBill detail Page
 		When I Click First Time on Question Mark Icons
 		Then I Can see the Suggestion Message
 		When I Click Second Time on Question Mark Icons
 		Then I Suggestion Message should hide
     
-#@WEB
-Scenario: Check the mandatory field error message
+@WEB
+Scenario: Verify that mandatory field messages on the page on different field values
 		Given I am on SouthernWater Pay Bill page detail Page
 		When I Click on Continue
 		Then I Should see the mandatory field Error Message
 		
-#@WEB
-Scenario: Check the error message for Incorrect Data
+@WEB
+Scenario: Verify that a validation message is displayed to the user if user try to proceed using incorrect data 
 		Given I am on SouthernWater Pay Bill with mandatory field error
 		When I enter all details
 		And I click on Continue
 		Then I Should see the error Message for incorrect Data
 		
 
-#@WEB
-Scenario: Check the error message removed after entering mandatory field
+@WEB
+Scenario: Verify that the validation message is removed after user insert the required data into the fields
 		Given I am on SouthernWater Pay Bill with mandatory field error message
 		When I enter all details in form
 		Then I Should not see the error Message for mandatory fields
 		
 
 @WEB
-Scenario Outline: As a Unregistered user I Can Pay Partial Amount of My Bill
+Scenario Outline: Verify that an unregistered user Can Pay Partial Amount of My Bill
 		Given I am Accesing Pay Bill Detail Page
 		And I Click Start Button on Page
 		And I Enter Details Customer Number <CustNum> Payment Reference <PayRef> Last Name <LastName> EmailID <Email>
@@ -69,7 +69,7 @@ Scenario Outline: As a Unregistered user I Can Pay Partial Amount of My Bill
 
 
 @WEB
-Scenario Outline: As a Unregistered user I Can Pay Full Amount of My Bill
+Scenario Outline: Verify that an unregistered user can Pay Full Amount of My Bill
 		Given I have Open Pay Bill Detail Page
 		And I Click Start Link on Page
 		And I enter my details Customer Number <CustNum> Payment Reference <PayRef> Last Name <LastName> EmailID <Email>
@@ -91,7 +91,7 @@ Scenario Outline: As a Unregistered user I Can Pay Full Amount of My Bill
 
 
 @WEB
-Scenario Outline: As a Registered user I Can Pay Partial Amount of My Bill
+Scenario Outline: Verify that a registered user can Pay Partial Amount of My Bill
 		Given I Login with my Login Credentials as Email <Email> and Password <Password>
 		And I Click On Make Payment from Dashboard
 		And I Click Select Pay Another Amount Option
@@ -110,7 +110,7 @@ Scenario Outline: As a Registered user I Can Pay Partial Amount of My Bill
     |kumar.devesh82@yahoo.com|Apple@123|1|122000000000003|Fiona Vardy|08|27|453|
     
  @WEB
-Scenario Outline: As a Registered user I Can Pay Full Amount of My Bill
+Scenario Outline: Verify that a registered user can Pay full Amount of My Bill
 		Given I have Login with my Login Credentials as Email <Email> and Password <Password>
 		And I Click On Make Payment on Dashboard
 		And I Click Select Pay Full Amount Option

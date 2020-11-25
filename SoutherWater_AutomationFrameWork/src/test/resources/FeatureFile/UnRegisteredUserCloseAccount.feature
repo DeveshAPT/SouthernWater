@@ -1,8 +1,8 @@
-Feature: As An UnRegister User I Want to Close My Account
+Feature: Move out close account (unauth)
 Description: The purpose of this feature is to test the Close Account Functionality of UnRegistered User
 
 @WEB
-Scenario Outline: As UnRegistered User I Can Close My Account
+Scenario Outline: Verify that an unauthorized user is able to close account successfully
 Given I have Open UnRegisterd User Close Account Page 
 And I Click on Start Button of Close Account Page
 And I Enter CustomerNumer <CustomerNumber> Payment Reference <PayReference> Last Name <LastName>
