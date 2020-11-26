@@ -19,15 +19,7 @@ import utils.maiUtility;
 
 @CucumberOptions(
 
-features = {"src/test/resources/FeatureFile/UnRegisteredUserCloseAccount.feature",
-		"src/test/resources/FeatureFile/AccountDashBoard.feature",
-		"src/test/resources/FeatureFile/Login.feature",
-		"src/test/resources/FeatureFile/Logout.feature",
-		"src/test/resources/FeatureFile/MoveIn.feature",
-		"src/test/resources/FeatureFile/PayBill.feature",
-		"src/test/resources/FeatureFile/RegisterAccount.feature",
-		"src/test/resources/FeatureFile/RegisteredUserCloseAccount.feature",
-		"src/test/resources/FeatureFile/SubmitMeterReading.feature"},glue = { "pageHelper" },
+features = {"src/test/resources/FeatureFile/MoveIn.feature"},glue = { "pageHelper" },
 plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"},
 tags= "@WEB",
 dryRun=false

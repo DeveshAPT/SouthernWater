@@ -13,6 +13,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.Calendar;
 import java.util.Base64.Encoder;
 import java.util.List;
 import java.util.Properties;
@@ -1785,6 +1786,27 @@ try {
 		Date currentDate = new Date();
 		// Now format the date
 		String date1= dateFormat.format(currentDate); 					 
+		// Print the Date
+		System.out.println(date1);
+		return date1;
+	}
+	
+	public static String GetFutureDate() {	
+	    // For selecting move-out date
+		// Create object of SimpleDateFormat class and decide the format
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY "); 
+		//get current date time with Date()
+		Date currentDate = new Date();
+		System.out.println("Today's date:::"+currentDate);
+		// convert date to calendar
+		Calendar c = Calendar.getInstance();
+		c.setTime(currentDate);
+		// manipulate date
+		c.add(Calendar.DATE, 15); 
+		// convert calendar to date
+		Date currentDatePlusOne = c.getTime();
+		// Now format the date
+		String date1= dateFormat.format(currentDatePlusOne); 					 
 		// Print the Date
 		System.out.println(date1);
 		return date1;

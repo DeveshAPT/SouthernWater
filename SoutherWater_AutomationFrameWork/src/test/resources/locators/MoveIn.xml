@@ -33,4 +33,14 @@
 <VerifyAccountNumber>//*[@id="content"]/div/div[2]/div[1]/div[4]/div[3]/div[3]/p</VerifyAccountNumber>
 <ConfirmDetailsButton>//div/button[text()=' Confirm details ']</ConfirmDetailsButton>
 <BackButton>//div/a[text()='Back']</BackButton>
+<ThereIsAProblemErrorMessage>//*[text()='There’s a problem']</ThereIsAProblemErrorMessage>
+<CorrectErrorsToContinueErrorMessage>//*[text()='You’ll need to correct the errors to continue.']</CorrectErrorsToContinueErrorMessage>
+<HeaderUKPostCodeErrorMessage>//*[text()='Please enter a valid UK postcode']</HeaderUKPostCodeErrorMessage>
+<HeaderYourMovingDateErrorMessage>//*[text()='Please enter your moving date']</HeaderYourMovingDateErrorMessage>
+<HeaderNumberOfOccupantsErrorMessage>//*[text()='Please enter the number of occupants.']</HeaderNumberOfOccupantsErrorMessage>
+<ValidUkPostCodeErrorMessage>//*[contains(@class,'invalid-feedback') and contains(text(),'Please enter a valid UK postcode')]</ValidUkPostCodeErrorMessage>
+<MovingDateErroeMessage>//*[contains(@class,'invalid-feedback') and contains(text(),'Please enter your moving date')]</MovingDateErroeMessage>
+<NumberOfOccupantsErrorMessage>//div[contains(@class,'invalid-feedback')]/span[contains(text(),'Please enter the number of occupants')]</NumberOfOccupantsErrorMessage>
+<EnterYourAddressManually>//*[@content='Enter your address manually']</EnterYourAddressManually>
+<PleaseSelectAnAddress>//*[text()='Please select an address']</PleaseSelectAnAddress>
 </locators>
