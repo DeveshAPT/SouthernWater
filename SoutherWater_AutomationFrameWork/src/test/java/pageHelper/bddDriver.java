@@ -1,3 +1,4 @@
+
 package pageHelper;
 
 import io.restassured.response.Response;
@@ -15,8 +16,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.testng.ITestContext;
-import org.testng.annotations.BeforeMethod;
+
 
 import com.cucumber.listener.Reporter;
 
@@ -37,6 +37,7 @@ public class bddDriver
 	public static final ThreadLocal<Response> API_RESPONCE_THREAD_LOCAL = new InheritableThreadLocal<>();
 	public static final ThreadLocal<String> Message = new InheritableThreadLocal<>();
 	PropertyReader prpertyreader = new PropertyReader();
+	String Browser;
 	
 	@Before("@API")
 	public void APIsetup(Scenario s){
@@ -49,15 +50,20 @@ public class bddDriver
 		
 	}
 	
-	@Before("@WEB")
-	public void Websetup(Scenario s) throws Exception{
 	
+	@Before("@WEB, @POM")
+	public void Websetup(Scenario s) throws Exception
+	{
+		//String currbrowser=Browser;
 		webDriver webDriver=new baseDriver();
-		WEB_DRIVER_THREAD_LOCAL.set(webDriver.webinit(prpertyreader.readproperty("browser"), "https://sit.southernwater.co.uk", false));
-		//WEB_DRIVER_THREAD_LOCAL.set(webDriver.webinit("chrome", false));	
+		WEB_DRIVER_THREAD_LOCAL.set(webDriver.webinit(prpertyreader.readproperty("browser"), "", false,false));
+		//WEB_DRIVER_THREAD_LOCAL.set(webDriver.webinit(currbrowser, "https://sit.southernwater.co.uk", false));
+		
 	}
-	@After("@WEB")
-	public void TearDown(Scenario s) throws IOException{
+
+	@After("@WEB, @POM")
+	public void TearDown(Scenario s) throws IOException
+	{
 	
 		 if (s.isFailed()) {
 			 String sourcePath = "data:image/png;base64,"+((TakesScreenshot)WEB_DRIVER_THREAD_LOCAL.get()).
@@ -78,6 +84,7 @@ public class bddDriver
 	public static WebDriver getWebDriver(){
 		return WEB_DRIVER_THREAD_LOCAL.get();
 	}
+	
 	public RequestSpecification getApiDriver(){
 		return API_DRIVER_THREAD_LOCAL.get();
 	}

@@ -1,6 +1,7 @@
 package core;
 
 import org.openqa.selenium.WebDriver;
+import org.zaproxy.clientapi.core.ClientApi;
 
 public interface webDriver 
 {
@@ -11,7 +12,6 @@ public interface webDriver
 	 * @param Grid - Boolian option to enable the Grid Mod <b> True </b>OR <b>False</b>. by Default value is False
 	 * @throws Exception 
 	*/
-	  public WebDriver webinit(String browser, String BaseURL, Boolean Grid) throws Exception;
-	  public WebDriver webinit(String browser,  Boolean Grid) throws Exception;
-	  
+	  public WebDriver webinit(String browser, String BaseURL, Boolean Grid,Boolean proxy) throws Exception;
+	  public ClientApi ReturnZapScanner();
 	}
