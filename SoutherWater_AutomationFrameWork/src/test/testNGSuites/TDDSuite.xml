@@ -1,10 +1,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="1"   verbose="1" name="Unified Test" annotations="JDK">
+<suite thread-count="1"   verbose="1" name="SouthernWater_Accessibility_Test" annotations="JDK">
 	<listeners>
 	  <listener class-name="Listeners.TestListener"/>
 	  <listener class-name="Listeners.AnnotationTransformer"/>  
     </listeners>
-<test name="API Test" junit="false" preserve-order="true">
+<!-- <test name="API Test" junit="false" preserve-order="true">
 		<groups>	
 			<run>	
 	   			<include name="api" />	
@@ -17,22 +17,27 @@
 				</methods>	
 			</class>
 		</classes>	
-	</test>
+	</test> -->
 <test name="Web" junit="false" preserve-order="true">
+  <parameter name = "Browser" value="chrome"/>
 		<groups>	
 			<run>	
 	   			<include name="web" />	
 	        </run>	
 	    </groups>	
 		<classes>
-			<class name="testScripts.Google_Search_Test">	
+			<class name="testScripts.Accessibility">	
 				<methods>
-					<include name="FirstTest"/>
+					 <include name="PayBill_Accessibility"/>
+					 <include name="MoveIn_Accessibility"/>
+					 <include name="Registration_Accessibility"/>
+					 <include name="PayBillAuth_Accessibility"/>
+					 <include name="CloseAccount_Accessibility"/>
+					 <include name="SubmitMeterReading_Accessibility"/>
+					 <include name="Login_Accessibility"/>
 				</methods>	
 			</class>
 		</classes>	
 	</test>
 	
 </suite>
-
- 

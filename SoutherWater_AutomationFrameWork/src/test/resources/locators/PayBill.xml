@@ -46,6 +46,7 @@
 <VerifyLastName>//h3[text()='Last name']/following::p[text()='Updahyll']</VerifyLastName>
 <ContinueHyperLink>//a[text()='Continue']</ContinueHyperLink>
 <VerifyYourMeterReadingLabel>//div/h2[text()='Your meter reading']</VerifyYourMeterReadingLabel>
+<VerifyYourMeterReadingLabel3>//div[@class='review-detail-section']//p</VerifyYourMeterReadingLabel3>
 <VerifyYourMeterReadingLabel2>//div/h1[text()='Your meter reading']</VerifyYourMeterReadingLabel2>
 <CustomerMeterReading>//input[@id="customerMeterReading"]</CustomerMeterReading>
 <ConfirmMeterReadingHeader>//h1[text()='Confirm meter reading']</ConfirmMeterReadingHeader>
@@ -57,8 +58,4 @@
 <LastMeterReadingValueOfYourReadingPage>//*[@id="content"]/div/div/div[2]/form/div[2]/div[2]/p</LastMeterReadingValueOfYourReadingPage>
 <MeterReading>//*[@id="content"]/div/div/div[2]/div[2]/p</MeterReading>
 <UpdatedDateForMeterReading>//*[@id="content"]/div/div/div[2]/div[4]/p</UpdatedDateForMeterReading>
-<TellUsYouAreMovingHomeLink>//a[text()='tell us you’re moving home.']</TellUsYouAreMovingHomeLink>
-<MovingHomePageHeaderText>//h1[text()='Moving home']</MovingHomePageHeaderText>
-<SubmitAMeterReadingPageHeader>//h1[text()='Submit a meter reading']</SubmitAMeterReadingPageHeader>
-<ErrorMessageForYourDetailsPage>//*[text()="There’s a problem"]</ErrorMessageForYourDetailsPage>
 </locators>
