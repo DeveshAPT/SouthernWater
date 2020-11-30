@@ -68,7 +68,7 @@ public class CustomerRegistrationPageHelper
 			webDriver.OpenURL(prpertyreader.readproperty("CustomerRegistration"));
 			Thread.sleep(5000);
 			System.out.println(webDriver.GetTitle());
-			webDriver.VerifyTitle("My account");
+			//webDriver.VerifyTitle("My account");
 
 		}
 		
@@ -844,6 +844,7 @@ public class CustomerRegistrationPageHelper
 			Question.selectByVisibleText(secondQuestion);
 			
 			webDriver.SendKeys(webDriver.getwebelement(custRegist.getlocator("//locators/SecondAnswer")),secondAnswer);
+			Thread.sleep(5000);
 		}
 		
 		@And("^Click on Login Detail Continue Button$")

@@ -55,6 +55,7 @@ public class AccountDashBoardPageHelper
 			Thread.sleep(5000);
 			//webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
 			webDriver.WaitforPageToBeReady();
+			
 			webDriver.OpenURL(prpertyreader.readproperty("LoginUrl"));
 			webDriver.WaitforPageToBeReady();
 			Thread.sleep(10000);

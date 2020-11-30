@@ -34,7 +34,7 @@ public class RegisteredUserCloseAccountPageHelper {
 	public  webHelper webDriver;
 	private bddDriver DriverInstance;
 	//xmlreader payBillLoct=new xmlreader("src\\test\\resources\\locators\\PayBill.xml");
-	xmlreader loginLoct=new xmlreader("src\\test\\resources\\locators\\CustomerRegistration.xml");
+	xmlreader loginLoct=new xmlreader("src\\test\\resources\\locators\\Login.xml");
 	xmlreader CloseAccLoct=new xmlreader("src\\test\\resources\\locators\\CloseAccount.xml");
 	PropertyReader prpertyreader = new PropertyReader();
 	String dueAmount;
@@ -53,7 +53,6 @@ public class RegisteredUserCloseAccountPageHelper {
 			
 		}
 		
-		
 		@Given("^I have SouthernWater Login Page on Browser$")
 		public void I_haveSouthernWater_Login_Page_on_Browser() throws Exception
 		{
@@ -64,6 +63,10 @@ public class RegisteredUserCloseAccountPageHelper {
 			webDriver.WaitforPageToBeReady();
 			Thread.sleep(10000);
 			
+			for(int i=0;1<100;i++)
+			{
+				
+			}
 		}
 		
 		@When("I Enter my Account EmailID and Password$")
@@ -71,9 +74,11 @@ public class RegisteredUserCloseAccountPageHelper {
 		{
 			Thread.sleep(5000);
 			webDriver.SendKeys(webDriver.getwebelement(loginLoct.getlocator("//locators/EmailId")),prpertyreader.readproperty("UserEmail"));
-			
+			Thread.sleep(2000);
+			System.out.println(prpertyreader.readproperty("UserPassword"));
 			webDriver.SendKeys(webDriver.getwebelement(loginLoct.getlocator("//locators/Password")),prpertyreader.readproperty("UserPassword"));
 		}
+		
 		@And("^I Click on Login Button On Page$")
 		public void I_Click_on_Login_Button_On_Page() throws Exception
 		{

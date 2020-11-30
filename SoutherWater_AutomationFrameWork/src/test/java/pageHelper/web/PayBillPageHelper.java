@@ -1,3 +1,4 @@
+
 package pageHelper.web;
 import java.io.IOException;
 import java.util.List;
@@ -554,7 +555,7 @@ public class PayBillPageHelper
 		{
 			//webDriver.switchtofram(webDriver.getwebelement("//iframe[@id='wp-cl-custom-html-iframe']"));
 			webDriver.WaitforPageToBeReady();
-			//webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/Pay")));
+			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/Pay")));
 			
 			Thread.sleep(5000);
 			webDriver.switchtodefault();
@@ -593,7 +594,7 @@ public class PayBillPageHelper
 		}
 		
 		@And("Payment Reference With Reference Number on Receipt")
-		public void PaymentReferenceNumberPage() throws InterruptedException, DocumentException
+		public void Payment_Reference_With_Reference_Number_On_Receipt() throws InterruptedException, DocumentException
 		{
 			
 			List<WebElement> elements=webDriver.getwebelements(payBillLoct.getlocator("//locators/PaymentDetailHeading"));
@@ -838,7 +839,7 @@ public class PayBillPageHelper
 		public void IClickPayNowWithCardDetails() throws Exception
 		{
 			webDriver.WaitforPageToBeReady();
-			//webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/Pay")));
+			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/Pay")));
 			Thread.sleep(5000);
 			webDriver.switchtodefault();
 		}

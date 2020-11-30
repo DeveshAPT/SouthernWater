@@ -1,3 +1,4 @@
+
 package pageHelper.web;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -5,7 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
 import org.dom4j.DocumentException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -14,8 +14,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-
-
 import core.apiHelper;
 import core.baseDriverHelper;
 import core.webHelper;
@@ -113,7 +111,10 @@ public class UnRegisteredUserCloseAccountPageHelper
 		@And("^I Click On Continue of Close Account Moving Date Step$")
 		public void I_Click_On_Continue_of_Close_Account_Moving_Date_Step() throws InterruptedException, DocumentException, Exception
 		{
+			Thread.sleep(5000);
+			webDriver.WaitforPageToBeReady();
 			webDriver.Clickon(webDriver.getwebelement(CloseAccLoct.getlocator("//locators/MoveOutContinue")));
+			webDriver.WaitforPageToBeReady();
 			Thread.sleep(5000);
 		}
 		
