@@ -1,51 +1,50 @@
 
-
 Feature: Pay Bill
  
-@WEB
+@SIT
 Scenario: Check the SouthernWater App Access
     Given I am on SouthernWater Pay Bill page 
     When I Click on Start
     Then I move to customer details page
     And Back link is also available 
    
-@WEB
-Scenario: Verify that user is able to go back to previous page using the Back Button Functionality
+@SIT
+Scenario: Verify Pay Bill Back Button Functionality
 		Given I am on SouthernWater Pay Bill detail Page
 		When I Click on Back Button
 		Then I moved to Pay Detail Main Page
 
-@WEB
-Scenario: Verify that informative message is displayed to the user on clicking of question mark
+@SIT
+Scenario: Verify Question Mark ToolTip
 		Given I am on SouthernWater PayBill detail Page
 		When I Click First Time on Question Mark Icons
 		Then I Can see the Suggestion Message
 		When I Click Second Time on Question Mark Icons
 		Then I Suggestion Message should hide
     
-@WEB
-Scenario: Verify that mandatory field messages on the page on different field values
+@SIT
+Scenario: Check the mandatory field error message
 		Given I am on SouthernWater Pay Bill page detail Page
 		When I Click on Continue
 		Then I Should see the mandatory field Error Message
 		
-@WEB
-Scenario: Verify that a validation message is displayed to the user if user try to proceed using incorrect data 
+@SIT
+Scenario: Check the error message for Incorrect Data
 		Given I am on SouthernWater Pay Bill with mandatory field error
 		When I enter all details
 		And I click on Continue
 		Then I Should see the error Message for incorrect Data
 		
 
-@WEB
-Scenario: Verify that the validation message is removed after user insert the required data into the fields
+@SIT
+Scenario: Check the error message removed after entering mandatory field
 		Given I am on SouthernWater Pay Bill with mandatory field error message
 		When I enter all details in form
 		Then I Should not see the error Message for mandatory fields
 		
 
-@WEB
-Scenario Outline: Verify that an unregistered user Can Pay Partial Amount of My Bill
+@SIT
+Scenario Outline: As a Unregistered user I Can Pay Partial Amount of My Bill
 		Given I am Accesing Pay Bill Detail Page
 		And I Click Start Button on Page
 		And I Enter Details Customer Number <CustNum> Payment Reference <PayRef> Last Name <LastName> EmailID <Email>
@@ -68,8 +67,8 @@ Scenario Outline: Verify that an unregistered user Can Pay Partial Amount of My 
 		 
 
 
-@WEB
-Scenario Outline: Verify that an unregistered user can Pay Full Amount of My Bill
+@SIT
+Scenario Outline: As a Unregistered user I Can Pay Full Amount of My Bill
 		Given I have Open Pay Bill Detail Page
 		And I Click Start Link on Page
 		And I enter my details Customer Number <CustNum> Payment Reference <PayRef> Last Name <LastName> EmailID <Email>
@@ -82,7 +81,7 @@ Scenario Outline: Verify that an unregistered user can Pay Full Amount of My Bil
 		Then I Can see Payment Confirmation Message on Page
 		And Thankyou Message on Page
 		And Transaction with Transaction Number on Receipt
-		And Payment Reference With Reference Number on Receipt
+		And Payment Reference With Reference Number
 		And Same Amount as I Pay on Receipt
 		
 		 Examples:
@@ -90,8 +89,8 @@ Scenario Outline: Verify that an unregistered user can Pay Full Amount of My Bil
     |13417979|4050614612|Vardy|devesh.kumar@southernwater.co.uk|122000000000003|Fiona Vardy|08|27|453|		 
 
 
-@WEB
-Scenario Outline: Verify that a registered user can Pay Partial Amount of My Bill
+@SIT
+Scenario Outline: As a Registered user I Can Pay Partial Amount of My Bill
 		Given I Login with my Login Credentials as Email <Email> and Password <Password>
 		And I Click On Make Payment from Dashboard
 		And I Click Select Pay Another Amount Option
@@ -109,8 +108,8 @@ Scenario Outline: Verify that a registered user can Pay Partial Amount of My Bil
     |Email|Password|Amount|Card|Name|expiryMonth|expiryYear|SecureCode|
     |kumar.devesh82@yahoo.com|Apple@123|1|122000000000003|Fiona Vardy|08|27|453|
     
- @WEB
-Scenario Outline: Verify that a registered user can Pay full Amount of My Bill
+ @SIT
+Scenario Outline: As a Registered user I Can Pay Full Amount of My Bill
 		Given I have Login with my Login Credentials as Email <Email> and Password <Password>
 		And I Click On Make Payment on Dashboard
 		And I Click Select Pay Full Amount Option
@@ -126,4 +125,3 @@ Scenario Outline: Verify that a registered user can Pay full Amount of My Bill
 		 Examples:
     |Email|Password|Card|Name|expiryMonth|expiryYear|SecureCode|
     |kumar.devesh82@yahoo.com|Apple@123|122000000000003|Fiona Vardy|08|27|453|
-		
