@@ -33,6 +33,18 @@ public class PropertyReader {
 		
 	}
 	
+	public String readProperyFromFile(String Filename,String key) throws IOException
+	{ String St=null;
+	
+	Properties pr= new Properties();
+	InputStream file= new FileInputStream("src/test/resources/NodePath/"+Filename);
+	pr.load(file);
+	St=pr.getProperty(key);
+	file.close();
+	return St;
+		
+	}
+	
 	public void updateproprty(String key,String value) throws IOException {
 		FileInputStream in = new FileInputStream("src\\Config\\Debug.properties");
 		Properties props = new Properties();
@@ -52,3 +64,5 @@ public class PropertyReader {
 	}
 	
 }
+
+
