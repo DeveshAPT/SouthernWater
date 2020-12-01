@@ -184,7 +184,7 @@ public class Accessibility extends driver {
 			Login.get().ClickOnLogin();
 			Run_AccessibilityTest();
 			Login.get().LoginCompleted();
-			Logout.get().ClickOnLogOut();
+			Account.get().i_Click_on_Logout_from_Dashboard();
 			Run_AccessibilityTest();
 		} catch (Exception ex) {
 			System.out.println("Error : " + ex.toString());

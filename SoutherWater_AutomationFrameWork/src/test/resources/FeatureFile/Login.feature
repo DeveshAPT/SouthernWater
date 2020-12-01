@@ -1,7 +1,7 @@
-Feature: Login to SouthernWater Webportal
+Feature: Login
  
 
-@POM
+@WEB
   Scenario Outline: User is not able Login with incorrect credentials 
     Given I am at login page
     When I Enter my <Email> and <Password> into respective fields
@@ -13,12 +13,12 @@ Feature: Login to SouthernWater Webportal
     |Email|Password|
     |abc@yahoo.com|xyz123|
    
-@POM
+@WEB
   Scenario Outline: Login with Valid credentials   
     Given I am on login page
     When I Enter credentials <Email> and <Password> into respective fields
     And Click on Login button
-    Then I should see the Dashboard
+    Then I Should see Your Account link on the Page
     
     
   Examples:
@@ -26,7 +26,7 @@ Feature: Login to SouthernWater Webportal
     |devesh.kumar@southernwater.co.uk|360@Logica|
   
   
-@POM
+@WEB
   Scenario: User is able to reset the Password  
     Given User is at login page
     When I Click on Forgot Password
@@ -34,7 +34,7 @@ Feature: Login to SouthernWater Webportal
     And I Should See Email address field for reset password
     And Back to login, Continue links 
   
-@POM
+@WEB
   Scenario Outline: User is notifying that Reset Password link sent on mail   
     Given I am at Reset Password Page
     When I Enter <Email> in Reset Password 
@@ -44,7 +44,7 @@ Feature: Login to SouthernWater Webportal
     |Email|
     |abc@yahoo.com|
     
-@POM
+@WEB
   Scenario: User is able to move on Registration Page    
     Given I am accessing the Login Page
     When I Click on Registration 

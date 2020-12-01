@@ -10,6 +10,8 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import pageFunctions.web.AccountDashBoardFunctions;
+import pageFunctions.web.LoginFunctions;
 import pageHelper.bddDriver;
 import utils.PropertyReader;
 import utils.xmlreader;
@@ -18,6 +20,8 @@ public class LogOutPageHelper
 {
 	public  webHelper webDriver;
 	private bddDriver DriverInstance;
+	public LoginFunctions login;
+	public AccountDashBoardFunctions dashBoard;
 	String EmailID=null;
 	xmlreader payBillLoct=new xmlreader("src\\test\\resources\\locators\\PayBill.xml");
 	xmlreader loginLoct=new xmlreader("src\\test\\resources\\locators\\Login.xml");
@@ -28,45 +32,32 @@ public class LogOutPageHelper
 	{
 		webDriver=new baseDriverHelper(driver);
 		System.out.println("First Constructor");
+		login=new LoginFunctions(webDriver);
+		dashBoard=new AccountDashBoardFunctions(webDriver);
 	}
 	
 	public LogOutPageHelper(bddDriver contextSteps) throws Exception {
 		this.DriverInstance = contextSteps;
 		System.out.println(this.DriverInstance);
 		webDriver=new baseDriverHelper(DriverInstance.getWebDriver());
+		login=new LoginFunctions(webDriver);
+		dashBoard=new AccountDashBoardFunctions(webDriver);
 		
-		
-	}
-	@Given("^I have Logged in ([^\"]*) and([^\"]*) into SothernWater$")
-	public void I_have_LoggedIn(String email,String password ) throws Exception
-	{
-		Thread.sleep(5000);
-		//webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
-		webDriver.WaitforPageToBeReady();
-		webDriver.OpenURL(prpertyreader.readproperty("LoginUrl"));
-		webDriver.WaitforPageToBeReady();
-		Thread.sleep(10000);
-		webDriver.SendKeys(webDriver.getwebelement(loginLoct.getlocator("//locators/EmailId")),email);
-		webDriver.SendKeys(webDriver.getwebelement(loginLoct.getlocator("//locators/Password")),password);
-		
-		webDriver.Clickon(webDriver.getwebelement(loginLoct.getlocator("//locators/LoginButton")));
-		webDriver.WaitforPageToBeReady();	
-		Thread.sleep(5000);
 	}
 	
-	@When("^I click on Logout$")
-	public void ClickOnLogOut() throws Exception
+	@And("^I Logout from SW Portal$")
+	public void i_Logout_from_SW_Portal() throws Throwable 
 	{
-		webDriver.Clickon(webDriver.getwebelement(loginLoct.getlocator("//locators/LogOut")));
-		webDriver.WaitforPageToBeReady();
-		Thread.sleep(5000);
+		dashBoard.LogoutClick(); 
+		dashBoard.LogoutSuccessfully();    
 	}
-	
-	@And("^I Should logout$")
-	public void VerifyLogoutMessage() throws Exception
-	{	
-		webDriver.VerifyText(webDriver.getwebelement(loginLoct.getlocator("//locators/LogoutComplete")), "You have been logged out successfully");
-		webDriver.WaitforPageToBeReady();	
+
+	@When("^Relogin with Using Login Credentials ([^\"]*) and ([^\"]*)$")
+	public void relogin_with_Using_Login_Credentials(String email, String password) throws Throwable 
+	{
+		login.EnterEmailAndPassword(email, password); 
+		login.ClickOnLogin();
 	}
+
 	
 }
