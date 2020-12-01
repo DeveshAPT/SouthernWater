@@ -15,7 +15,7 @@
 <LoginMakeaPayment>//a[text()='Make a payment']</LoginMakeaPayment>
 <SubmitMeterReading>//a[text()='Submit a meter reading']</SubmitMeterReading>
 <CloseAccount>//a[text()='Close your account']</CloseAccount>
-<LogOut>//Button[text()='Log out']</LogOut>
+
 <LogoutComplete>//div[@class='feedback-box mb-4 feedback-box--south-downs-complementary-2']//p</LogoutComplete>
 <YourMeterReadingPageHeading>//div/h1[text()='Your meter reading']</YourMeterReadingPageHeading>
 <BackButton>//a[text()='Back']</BackButton>
@@ -23,5 +23,13 @@
 <SubmitMeterPageHeading>//h1[text()='Your meter reading']</SubmitMeterPageHeading>
 <PaymentPageHeading>//h1[text()='Choose amount to pay']</PaymentPageHeading>
 <CloseAccountHeading>//h1[text()='Moving out date']</CloseAccountHeading>
+
+<!-- Account DashBoard -->
+<AccountButtons>//ul[@id='nav-icons']//button[contains(.,'DisplayText')]</AccountButtons>
+<AccountDashBoardOption>//div[@class='sw-body-container']//div[@class='subnav-group']//a</AccountDashBoardOption>
+<AccountDashBoardLink>//div[@class='sw-body-container']//h2//span[text()='Dashboard']//parent::a</AccountDashBoardLink>
+<LogOut>//div[@class='sw-body-container']//h2//span[text()='Logout']//parent::a</LogOut>
+
+
 </locators>
 
