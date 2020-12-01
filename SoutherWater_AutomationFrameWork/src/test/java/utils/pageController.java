@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import pageHelper.web.homePageHelper;
 import pageHelper.web.AccountDashBoardPageHelper;
 import pageHelper.web.CustomerRegistrationPageHelper;
 import pageHelper.web.LogOutPageHelper;
@@ -23,7 +22,6 @@ import pageHelper.api.SPQR;
 
 public class pageController {
 
-		public static final ThreadLocal<homePageHelper> HomePage= new InheritableThreadLocal<>();
 		public static final ThreadLocal<SPQR> SP= new InheritableThreadLocal<>();
 		public static final ThreadLocal<PayBillPageHelper> PayBill= new InheritableThreadLocal<>();
 		public static final ThreadLocal<SubmitMeterReadings> Meter= new InheritableThreadLocal<>();
@@ -38,8 +36,7 @@ public class pageController {
 		
 		public void initPage(WebDriver driver) throws IOException
 		{
-			homePageHelper FP= new homePageHelper(driver);
-			HomePage.set(FP);
+			
 			
 			PayBillPageHelper PU= new PayBillPageHelper(driver);
 			PayBill.set(PU);
