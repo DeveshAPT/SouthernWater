@@ -19,9 +19,8 @@ import utils.maiUtility;
 
 @CucumberOptions(
 
-features = {"src/test/resources/FeatureFile/Login.feature",
-			"src/test/resources/FeatureFile/logout.feature",
-			"src/test/resources/FeatureFile/AccountDashBoard.feature"},glue = { "pageHelper" },
+features = {
+			"src/test/resources/FeatureFile/RegisteredUserCloseAccount.feature"},glue = { "pageHelper" },
 plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"},
 tags= "@WEB",
 dryRun=false

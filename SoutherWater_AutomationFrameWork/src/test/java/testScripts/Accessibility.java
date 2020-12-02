@@ -173,17 +173,19 @@ public class Accessibility extends driver {
 	@Test(groups = { "web" })
 	public void Login_Accessibility(String Browser) throws Throwable {
 		try {
-			Login.get().ResetPasswordPage();
+			/*Login.get().ResetPasswordPage();
 			Run_AccessibilityTest();
 			Login.get().EnterEmailForgotPassword("abc@yahoo.com");
 			Login.get().ClickContinue();
 			Login.get().ResetPasswordLinkVerification();
 			Login.get().I_am_at_login_page();
-			Run_AccessibilityTest();
+			Run_AccessibilityTest();*/
+			Login.get().I_am_on_login_page();
 			Login.get().EnterCredentials("kumar.devesh82@yahoo.com", "Apple@123");
 			Login.get().ClickOnLogin();
 			Run_AccessibilityTest();
-			Login.get().LoginCompleted();
+			Account.get().click_on_Your_Account_Option();
+			Run_AccessibilityTest();
 			Account.get().i_Click_on_Logout_from_Dashboard();
 			Run_AccessibilityTest();
 		} catch (Exception ex) {

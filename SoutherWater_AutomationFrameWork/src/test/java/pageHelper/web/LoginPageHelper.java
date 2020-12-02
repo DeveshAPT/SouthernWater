@@ -11,6 +11,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import pageFunctions.web.AccountDashBoardFunctions;
 import pageFunctions.web.LoginFunctions;
 import pageHelper.bddDriver;
 import utils.PropertyReader;
@@ -19,6 +20,7 @@ import utils.xmlreader;
 public class LoginPageHelper {
 	public  webHelper webDriver;
 	public LoginFunctions login;
+	public AccountDashBoardFunctions dashBoard;
 	private bddDriver DriverInstance;
 	String EmailID=null;
 	xmlreader payBillLoct=new xmlreader("src\\test\\resources\\locators\\PayBill.xml");
@@ -30,6 +32,7 @@ public class LoginPageHelper {
 			webDriver=new baseDriverHelper(driver);
 			login=new LoginFunctions(webDriver);
 			System.out.println("First Constructor");
+			dashBoard=new AccountDashBoardFunctions(webDriver);
 		}
 		
 		public LoginPageHelper(bddDriver contextSteps) throws Exception {
@@ -37,6 +40,7 @@ public class LoginPageHelper {
 			System.out.println(this.DriverInstance);
 			webDriver=new baseDriverHelper(DriverInstance.getWebDriver());
 			login=new LoginFunctions(webDriver);
+			dashBoard=new AccountDashBoardFunctions(webDriver);
 		}
 		
 		@Given("^I am at login page$")
@@ -93,6 +97,15 @@ public class LoginPageHelper {
 		{
 			login.LoginCompleted();
 		}
+		
+		/*public void ClickYourAccount() throws Exception
+		{
+			dashBoard.YourAccountClick();
+		}
+		public void ClickLogout() throws Exception
+		{
+			dashBoard.LogoutClick();
+		}*/
 		//Third
 		
 		@Given("^User is at login page$")

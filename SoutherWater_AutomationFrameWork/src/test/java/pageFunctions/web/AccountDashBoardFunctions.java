@@ -107,6 +107,7 @@ public class AccountDashBoardFunctions {
 			{
 				found=true;
 				pagedriver.Clickon(ele);
+				Thread.sleep(5000);
 				break;
 			}
 			

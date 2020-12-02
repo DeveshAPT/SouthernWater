@@ -25,6 +25,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.specification.RequestSpecification;
+import pageFunctions.web.SubmitmeterReadingFunctions;
 import pageHelper.bddDriver;
 import utils.PropertyReader;
 import utils.driver;
@@ -35,16 +36,18 @@ public class SubmitMeterReadings
 
 	public  webHelper webDriver;
 	private bddDriver DriverInstance;
+	public SubmitmeterReadingFunctions subMeter;
 	PropertyReader prpertyreader = new PropertyReader();
 	xmlreader payBillLoct=new xmlreader("src\\test\\resources\\locators\\PayBill.xml");
 	xmlreader loginLoct=new xmlreader("src\\test\\resources\\locators\\Login.xml");
 	Integer meterReadingValue = null;
 	String EnteredReading;
-	core.baseDriverHelper baseDriverHelperFunctions = null;
+	//core.baseDriverHelper baseDriverHelperFunctions = null;
 		public SubmitMeterReadings(WebDriver driver) throws IOException 
 		{
 			webDriver=new baseDriverHelper(driver);
 			System.out.println("First Constructor");
+			subMeter=new SubmitmeterReadingFunctions(webDriver);
 		}
 		
 		public SubmitMeterReadings(bddDriver contextSteps) throws Exception 
@@ -52,59 +55,50 @@ public class SubmitMeterReadings
 			this.DriverInstance = contextSteps;
 			System.out.println(this.DriverInstance);
 			webDriver=new baseDriverHelper(DriverInstance.getWebDriver());
+			subMeter=new SubmitmeterReadingFunctions(webDriver);
 		}
 		
 		@Given("^I am on meter submit reading pages$") 
 		public void SouthernWaterSumbitMeterReading() throws Exception
 		{
-			Thread.sleep(5000);
-			//webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
-			webDriver.OpenURL(prpertyreader.readproperty("MeterReading"));
-			webDriver.WaitforPageToBeReady();
-			System.out.println(webDriver.GetTitle());
-			//webDriver.VerifyTitle("Submit Meter Read - Southern Water: Water for life, Water and wastewater services for Kent, Sussex, Hampshire and the Isle of Wight");
+			subMeter.AccessUnauthSubmitMeterReading();
 		}
 		
 		@When("^I click on Having trouble link$") 
 		public void TroubleLinkverification() throws Exception
 		{
-			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/TroubleLink")));
-			webDriver.WaitforPageToBeReady();
+			subMeter.ClickTroubleLink();
 		}
 		
 		@Then("^I Should move to how to find your meter page$") 
 		public void VerifyHowtofindYourMeterPageOpen() throws InterruptedException, DocumentException
 		{
-			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/FindMeter")), "How to find your water meter");
 			
+			subMeter.VerifyFindMeterOnpage();
 		}
+		
+		
+		//Test 2
 		
 		@Given("^I am on how to find your meter page$") 
 		public void VerifySubmitonline() throws Exception
 		{
-			//webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
-			webDriver.OpenURL(prpertyreader.readproperty("MeterReading"));
-			webDriver.WaitforPageToBeReady();
-			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/TroubleLink")));
-			webDriver.WaitforPageToBeReady();
-			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/FindMeter")), "How to find your water meter");
+			
+			subMeter.AccessUnauthSubmitMeterReading();
+			subMeter.ClickTroubleLink();
+			subMeter.VerifyFindMeterOnpage();
 		}
 		
 		@When("^I click on Submit Meter link") 
 		public void ClickSubmitonline() throws Exception
 		{
-			
-			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/SubmitOnline")));
-			webDriver.WaitforPageToBeReady();
-			
+			subMeter.SubmitOnlineClick();
 		}
 		
 		@Then("^I Should move to Submit meter reading page") 
 		public void VerifySumbitMeterReadingOpen() throws Exception
 		{
-			webDriver.WaitforPageToBeReady();
-			Thread.sleep(5000);
-			webDriver.VerifyTitle("Submit Meter Read - Southern Water: Water for life, Water and wastewater services for Kent, Sussex, Hampshire and the Isle of Wight");
+			subMeter.VerifyMoveBackToSubmitMeterReadingPage();
 			
 		}
 		
@@ -112,58 +106,56 @@ public class SubmitMeterReadings
 		@Given("^I am on submit meter reading page$") 
 		public void VerifySubmitMeterReadingPage() throws Exception
 		{			
-			//webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
-			webDriver.OpenURL(prpertyreader.readproperty("CustomerMeterReadingUrl"));
-			webDriver.WaitforPageToBeReady();
-			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/Start")));
-			webDriver.WaitforPageToBeReady();
-			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/YourDetailHeading")), "Your details");
+			subMeter.AccessUnauthSubmitMeterReading();
+			subMeter.StartClick();
 		}
 		
 		@When("^I submit all the details of customer") 
 		public void ClickOnSubmitButtonAfterSubmitingCustomerDetails() throws Exception
 		{
-			webDriver.SendKeys(webDriver.getwebelement(payBillLoct.getlocator("//locators/CustomerNumber")), "21301653"+Keys.TAB);	
-			webDriver.SendKeys(webDriver.getwebelement(payBillLoct.getlocator("//locators/CustomerRefNum")), "4505530617"+Keys.TAB);	
-			webDriver.SendKeys(webDriver.getwebelement(payBillLoct.getlocator("//locators/CustomerLName")), "Updahyll"+Keys.TAB);
-			webDriver.SendKeys(webDriver.getwebelement(payBillLoct.getlocator("//locators/CustomerEmail")), "test@gmail.com"+Keys.TAB);
-			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/ContinueButton2")));
-			webDriver.WaitforPageToBeReady();
+			subMeter.EnterCustomerDetails("21301653", "4505530617", "Updahyll", "test@gmail.com");
+			subMeter.ContinueClick();
 		}
 		
 		@Then("^I Should able to verify all the details of customer") 
 		public void VerifySumbitMeterReadingDetailsOfgCustomer() throws Exception
 		{
-			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/CheckYourDetailsHeader")), "Check your details");
+			/*webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/CheckYourDetailsHeader")), "Check your details");
 			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/VerifyYourMeterReadingLabel")), "Your meter reading");
 			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/VerifyCustomerNumber")), "21301653");
 			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/VerifyPaymentReferenceNumber")), "0004505530617");
-			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/VerifyLastName")), "Updahyll");
-			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/ContinueHyperLink")));
+			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/VerifyLastName")), "Updahyll");*/
+			
+			subMeter.VerifyCustomerDetails("21301653","0004505530617", "Updahyll");
+			
+			/*webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/ContinueHyperLink")));
 			webDriver.WaitforPageToBeReady();
-			Thread.sleep(2000);
-			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/VerifyYourMeterReadingLabel2")), "Your meter reading");
-			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/LastMeterReading")), "Last meter reading");
-			System.out.println("meterReading started::: ");
-			String meterReading =webDriver.getwebelement(payBillLoct.getlocator("//locators/LastMeterReadingValue")).getText();
-			System.out.println("meterReading::: "+meterReading);
-			int meterReading3 = Integer.valueOf(meterReading) +100;
-			System.out.println("meterReading3::: "+meterReading3);
-			webDriver.SendKeys(webDriver.getwebelement(payBillLoct.getlocator("//locators/CustomerMeterReading")),String.valueOf(meterReading3)+Keys.TAB);			
+			Thread.sleep(2000);*/
+			subMeter.ContinueHyperlink();
+			
+			subMeter.EnterMeterReading();
+						
 			//scroll screen at the bottom
-			WebDriver driver = new ChromeDriver();
+			/*WebDriver driver = new ChromeDriver();
 			JavascriptExecutor jse = (JavascriptExecutor)driver;
 			jse.executeScript("window.scrollTo(0, document.body.scrollHeight)");			
-			Thread.sleep(2000);
-			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/ContinueButton")));
-			webDriver.WaitforPageToBeReady();
-			Thread.sleep(2000);
-			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/ConfirmMeterReadingHeader")), "Confirm meter reading");
+			Thread.sleep(2000);*/
+			subMeter.ContinueClickOnMeterReading();
+			
+			subMeter.ConfirmMeterReading();
+			
+			//subMeter.BackButtonClick();
+			
+			subMeter.ConfirmeterReadingClick();
+			
+			/*webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/ConfirmMeterReadingHeader")), "Confirm meter reading");
 			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/ConfirmMeterReadingValue")), String.valueOf(meterReading3));
 			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/BackButton")));
 			webDriver.WaitforPageToBeReady();
-			Thread.sleep(2000);
-			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/VerifyYourMeterReadingLabel2")), "Your meter reading");
+			Thread.sleep(2000);*/
+			
+			
+			/*webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/VerifyYourMeterReadingLabel2")), "Your meter reading");
 			webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/BackButton")));
 			webDriver.WaitforPageToBeReady();
 			Thread.sleep(2000);
@@ -177,8 +169,11 @@ public class SubmitMeterReadings
 			Thread.sleep(2000);
 			webDriver.VerifyText(webDriver.getwebelement(payBillLoct.getlocator("//locators/ConfirmMeterReadingHeader")), "Confirm meter reading");
 			// This step is commented intentionally
-			//webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/ConfirmReadingButton")));
+			//webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/ConfirmReadingButton")));*/
 		}
+		
+		
+		
 		
 		// Meter Reading after login - scenario-1
 		@Given("^I have logged in with ([^\"]*) and ([^\"]*)$")

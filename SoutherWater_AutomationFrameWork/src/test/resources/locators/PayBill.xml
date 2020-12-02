@@ -58,4 +58,5 @@
 <LastMeterReadingValueOfYourReadingPage>//*[@id="content"]/div/div/div[2]/form/div[2]/div[2]/p</LastMeterReadingValueOfYourReadingPage>
 <MeterReading>//*[@id="content"]/div/div/div[2]/div[2]/p</MeterReading>
 <UpdatedDateForMeterReading>//*[@id="content"]/div/div/div[2]/div[4]/p</UpdatedDateForMeterReading>
+<PaymentFrame>//iframe[@id='wp-cl-custom-html-iframe']</PaymentFrame>
 </locators>
