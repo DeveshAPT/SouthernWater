@@ -24,6 +24,8 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.specification.RequestSpecification;
+import pageFunctions.web.CloseAccountFunctions;
+import pageFunctions.web.MoveInFunction;
 import pageHelper.bddDriver;
 import utils.PropertyReader;
 import utils.driver;
@@ -33,6 +35,7 @@ public class RegisteredUserCloseAccountPageHelper {
 
 	public  webHelper webDriver;
 	private bddDriver DriverInstance;
+	public CloseAccountFunctions closeAcc;
 	//xmlreader payBillLoct=new xmlreader("src\\test\\resources\\locators\\PayBill.xml");
 	xmlreader loginLoct=new xmlreader("src\\test\\resources\\locators\\Login.xml");
 	xmlreader CloseAccLoct=new xmlreader("src\\test\\resources\\locators\\CloseAccount.xml");
@@ -43,6 +46,7 @@ public class RegisteredUserCloseAccountPageHelper {
 		{
 			webDriver=new baseDriverHelper(driver);
 			System.out.println("First Constructor");
+			closeAcc=new CloseAccountFunctions(webDriver);
 			
 		}
 		
@@ -50,10 +54,11 @@ public class RegisteredUserCloseAccountPageHelper {
 			this.DriverInstance = contextSteps;
 			System.out.println(this.DriverInstance);
 			webDriver=new baseDriverHelper(DriverInstance.getWebDriver());
+			closeAcc=new CloseAccountFunctions(webDriver);
 			
 		}
 		
-		@Given("^I have SouthernWater Login Page on Browser$")
+		/*@Given("^I have SouthernWater Login Page on Browser$")
 		public void I_haveSouthernWater_Login_Page_on_Browser() throws Exception
 		{
 			Thread.sleep(5000);
@@ -61,12 +66,7 @@ public class RegisteredUserCloseAccountPageHelper {
 			webDriver.WaitforPageToBeReady();
 			webDriver.OpenURL(prpertyreader.readproperty("LoginUrl"));
 			webDriver.WaitforPageToBeReady();
-			Thread.sleep(10000);
-			
-			for(int i=0;1<100;i++)
-			{
-				
-			}
+			Thread.sleep(10000);	
 		}
 		
 		@When("I Enter my Account EmailID and Password$")
@@ -121,88 +121,70 @@ public class RegisteredUserCloseAccountPageHelper {
 		{
 			webDriver.Clickon(webDriver.getwebelement(loginLoct.getlocator("//locators/CloseAccount")));
 			Thread.sleep(7000);
-		}
+		}*/
 
 		@And("^I Enter the MoveOut Date$")
 		public void i_Enter_the_MoveOut_Date() throws Throwable 
 		{
-			// Create object of SimpleDateFormat class and decide the format
-			DateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY "); 
-			//get current date time with Date()
-			Date currentDate = new Date();
-			System.out.println("Today's date:::"+currentDate);
-			// convert date to calendar
-			Calendar c = Calendar.getInstance();
-			c.setTime(currentDate);
-			// manipulate date
-			c.add(Calendar.DATE, 15); 
-			// convert calendar to date
-			Date currentDatePlusOne = c.getTime();
-			// Now format the date
-			String date1= dateFormat.format(currentDatePlusOne); 					 
-			// Print the Date
-			System.out.println(date1);
-			webDriver.SendKeys(webDriver.getwebelement(CloseAccLoct.getlocator("//locators/MoveOutDateInput")),date1+Keys.TAB);
+			closeAcc.EnterMoveOutDate();
 		}
 
 		@And("^I Click On Continue of Move Out Step$")
 		public void i_Click_On_Continue_of_Move_Out_Step() throws Throwable 
 		{
-			webDriver.Clickon(webDriver.getwebelement(CloseAccLoct.getlocator("//locators/MoveOutContinue")));
-			Thread.sleep(5000);
+			closeAcc.ContinueClick();
+			//webDriver.Clickon(webDriver.getwebelement(CloseAccLoct.getlocator("//locators/MoveOutContinue")));
+			//Thread.sleep(5000);
 		}
 
 		@And("^I Click On Continue of Final Bill Step$")
 		public void i_Click_On_Continue_of_Final_Bill_Step() throws Throwable 
 		{
-			webDriver.Clickon(webDriver.getwebelement(CloseAccLoct.getlocator("//locators/MoveOutContinue")));
-			Thread.sleep(5000);
+			closeAcc.ContinueClick();
+			//webDriver.Clickon(webDriver.getwebelement(CloseAccLoct.getlocator("//locators/MoveOutContinue")));
+			//Thread.sleep(5000);
 		}
 
 		@And("^I Enter Post Code as ([^\"]*)$")
 		public void i_Enter_Post_Code_as(String PostCode) throws Throwable 
 		{
-			webDriver.SendKeys(webDriver.getwebelement(CloseAccLoct.getlocator("//locators/PostCodeInput")),PostCode);
+			closeAcc.EnterPostCode(PostCode);
 		
 		}
 
 		@And("^I Click on Find Address$")
 		public void i_Click_Find_Address_as() throws Throwable 
 		{
-			webDriver.Clickon(webDriver.getwebelement(CloseAccLoct.getlocator("//locators/FinalAddress")));
-			Thread.sleep(5000);
+			closeAcc.FindAddressClick();
 		}
 
 		@And("^I Select ([^\"]*) from Address List$")
 		public void i_Select_Address_from_Address_List(String Address) throws Throwable 
 		{
-			Select Question=new Select(webDriver.getwebelement(CloseAccLoct.getlocator("//locators/SelectAddress")));
-			Question.selectByVisibleText(Address);
+			closeAcc.SelectAddress(Address);	
 		}
 
 		@And("^I Click Continue of Forwarding Address$")
 		public void i_Click_Continue_of_Forwarding_Address() throws Throwable 
 		{
-			webDriver.Clickon(webDriver.getwebelement(CloseAccLoct.getlocator("//locators/MoveOutContinue")));
-			Thread.sleep(5000);
+			closeAcc.MoveOutContinue();
 		}
 
 		@When("^I Click Confirm and Close Account$")
 		public void i_Click_Confirm_and_Close_Account() throws Throwable 
 		{
-			//webDriver.Clickon(webDriver.getwebelement(CloseAccLoct.getlocator("//locators/ConfirmCloseAccount")));
-			Thread.sleep(5000);
+			closeAcc.ConfirmClick();
 		}
 
 		@Then("^My Account Should Close$")
 		public void my_Account_Should_Close() throws Throwable 
 		{
-			
+			closeAcc.AccountShouldClose();
 		}
 
 		@Then("^I Can See Closing Message$")
 		public void i_Can_See_Closing_Message() throws Throwable 
 		{
-			
+			closeAcc.ClosingMessage();
 		}
 	}
