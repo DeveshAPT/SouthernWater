@@ -36,9 +36,6 @@ public class AccountDashBoardPageHelper
 	public LoginFunctions login;
 	private bddDriver DriverInstance;
 	public String enteredName,  enteredCustomerNumber, enteredEmailID,newEmail, firstSecurityQuest;
-	xmlreader payBillLoct=new xmlreader("src\\test\\resources\\locators\\PayBill.xml");
-	xmlreader custRegist=new xmlreader("src\\test\\resources\\locators\\CustomerRegistration.xml");
-	xmlreader loginLoct=new xmlreader("src\\test\\resources\\locators\\Login.xml");
 	PropertyReader prpertyreader = new PropertyReader();
 	
 	public AccountDashBoardPageHelper(WebDriver driver)  

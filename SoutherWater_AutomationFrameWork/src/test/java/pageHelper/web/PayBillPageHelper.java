@@ -32,8 +32,6 @@ public class PayBillPageHelper
 	public  webHelper webDriver;
 	private bddDriver DriverInstance;
 	public PayBillFunctions payFunc;
-	xmlreader payBillLoct=new xmlreader("src\\test\\resources\\locators\\PayBill.xml");
-	xmlreader loginLoct=new xmlreader("src\\test\\resources\\locators\\Login.xml");
 	PropertyReader prpertyreader = new PropertyReader();
 	String dueAmount;
 	

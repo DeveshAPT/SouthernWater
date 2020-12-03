@@ -38,7 +38,6 @@ public class MoveInPageHelper
 	private bddDriver DriverInstance;
 	public MoveInFunction moveIN;
 	PropertyReader prpertyreader = new PropertyReader();
-	xmlreader MoveInLoct=new xmlreader("src\\test\\resources\\locators\\MoveIn.xml");
 	String TestFirstName = "TestFirstName";
 	String TestMiddleName = "TestMiddleName";
 	String TestLastName ="TestLastName";

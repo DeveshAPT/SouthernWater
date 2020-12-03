@@ -33,8 +33,7 @@ public class UnRegisteredUserCloseAccountPageHelper
 	public  webHelper webDriver;
 	private bddDriver DriverInstance;
 	public CloseAccountFunctions closeAcc;
-	xmlreader payBillLoct=new xmlreader("src\\test\\resources\\locators\\PayBill.xml");
-	xmlreader CloseAccLoct=new xmlreader("src\\test\\resources\\locators\\CloseAccount.xml");
+	
 	PropertyReader prpertyreader = new PropertyReader();
 	String dueAmount;
 	

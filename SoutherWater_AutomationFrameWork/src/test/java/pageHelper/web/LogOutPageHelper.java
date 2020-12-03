@@ -23,9 +23,6 @@ public class LogOutPageHelper
 	public LoginFunctions login;
 	public AccountDashBoardFunctions dashBoard;
 	String EmailID=null;
-	xmlreader payBillLoct=new xmlreader("src\\test\\resources\\locators\\PayBill.xml");
-	xmlreader loginLoct=new xmlreader("src\\test\\resources\\locators\\Login.xml");
-	xmlreader regiLoct=new xmlreader("src\\test\\resources\\locators\\CustomerRegistration.xml");
 	PropertyReader prpertyreader = new PropertyReader();
 	
 	public LogOutPageHelper(WebDriver driver)  
