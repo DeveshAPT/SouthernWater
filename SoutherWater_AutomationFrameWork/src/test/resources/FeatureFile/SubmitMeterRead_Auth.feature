@@ -10,7 +10,7 @@ Feature: Auth Submit Meter Reading
     |Email|Password|
     |kumar.devesh82@yahoo.com|Apple@123|
     
-@SIT
+#@SIT
  Scenario Outline: Authorized Submit Meter Page Back Button
     Given I am on Account DashBoard Using Login Credentials <Email> and <Password> 
     When I Click on 'Submit a meter reading' from Dashboard

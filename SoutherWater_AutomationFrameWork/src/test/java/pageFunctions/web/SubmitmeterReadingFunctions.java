@@ -142,6 +142,7 @@ public class SubmitmeterReadingFunctions
 		pageDriver.Clickon(pageDriver.getwebelement(payBillLoct.getlocator("//locators/BackButton")));
 		pageDriver.WaitforPageToBeReady();
 		Thread.sleep(2000);
+		pageDriver.AcceptJavaScriptMethod();
 	}
 	
 	public void DashBoardLoaded() throws DocumentException, InterruptedException

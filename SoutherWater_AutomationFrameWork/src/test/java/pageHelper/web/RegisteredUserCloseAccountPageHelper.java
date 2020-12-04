@@ -185,4 +185,10 @@ public class RegisteredUserCloseAccountPageHelper {
 		{
 			closeAcc.ClosingMessage();
 		}
+		
+		@And("^I Click Close your account from you are moving$")
+		public void i_Click_Close_your_account_from_you_are_moving() throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+			closeAcc.ClickCloseYourAccount();
+		}
 	}

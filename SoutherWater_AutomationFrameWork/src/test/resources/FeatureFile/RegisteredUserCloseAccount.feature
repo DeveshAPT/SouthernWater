@@ -10,7 +10,7 @@ Description: The purpose of this feature is to test the Close Account Functional
 @SIT
 Scenario Outline: I Should move to DashBoard after clicking back button of Close Account
 Given I am on Account DashBoard Using Login Credentials <Email> and <Password> 
-When I Click on 'Close your account' from Dashboard
+When I Click on 'Tell us you are moving' from Dashboard
 Then I Should see Your Account link on the Page
 
 Examples:
@@ -20,7 +20,8 @@ Examples:
 @SIT
 Scenario Outline: As Registered User I Should Close My Account 
 Given I am on Account DashBoard Using Login Credentials <Email> and <Password> 
-When I Click on 'Close your account' from Dashboard
+When I Click on 'Tell us you are moving' from Dashboard
+And I Click Close your account from you are moving 
 And I Enter the MoveOut Date
 And I Click On Continue of Move Out Step
 And I Click On Continue of Final Bill Step

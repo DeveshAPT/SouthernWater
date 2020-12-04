@@ -11,4 +11,5 @@
 <LastName>//input[@id='inpName']</LastName>
 <CustomerNumber>//input[@id='customerNumber']</CustomerNumber>
 <PaymentReference>//input[@id='customerRefNumber']</PaymentReference>
+
 </locators>

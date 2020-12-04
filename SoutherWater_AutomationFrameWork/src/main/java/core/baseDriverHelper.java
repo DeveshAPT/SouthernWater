@@ -1235,6 +1235,8 @@ try {
 //		}
 		//Thread.sleep(8000);
 	}
+
+	@Override
 	public void AcceptJavaScriptMethod() throws InterruptedException{
 		try {
 			wait.until(ExpectedConditions.alertIsPresent());

@@ -173,4 +173,6 @@ public interface webHelper {
 	public void switchtofram(WebElement el);
 	public void switchtodefault();
 	public void ScrollWindowDownVertically(WebDriver driver) throws InterruptedException;
+	
+	public void AcceptJavaScriptMethod()throws InterruptedException;
 }

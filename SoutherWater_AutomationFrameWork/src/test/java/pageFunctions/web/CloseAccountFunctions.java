@@ -105,6 +105,14 @@ public class CloseAccountFunctions
 		//pagedriver.Clickon(pagedriver.getwebelement(CloseAccLoct.getlocator("//locators/ConfirmCloseAccount")));
 	}
 	
+	public void ClickCloseYourAccount() throws DocumentException, Exception
+	{
+		
+		pagedriver.Clickon(pagedriver.getwebelement(loginLoct.getlocator("//locators/CloseAccountButton")));
+		Thread.sleep(5000);
+		
+	}
+	
 	public void AccountShouldClose()
 	{
 		

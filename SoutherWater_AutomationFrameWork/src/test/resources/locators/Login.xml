@@ -32,5 +32,6 @@
 <DashBoardSection>//div[@class='dashboard-top-section-containt']</DashBoardSection>
 <CustomerNumber>//div[@class='customer-number-section']</CustomerNumber>
 <PaymentRefNumber>//div[@class='payment-ref-section']</PaymentRefNumber>
+<CloseAccountButton>//a[text()='Close your account']</CloseAccountButton>
 </locators>
 
