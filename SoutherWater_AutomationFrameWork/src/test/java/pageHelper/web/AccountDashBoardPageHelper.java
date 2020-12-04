@@ -75,7 +75,7 @@ public class AccountDashBoardPageHelper
 		dashBoard.DashBoardHead();
 	}
 
-	@And("^I Should See 'Logout' Option$")
+	@And("^I Should See 'Log out' Option$")
 	public void i_Should_See_Logout_Option() throws Throwable 
 	{
 		dashBoard.LogoutOption();
@@ -87,22 +87,22 @@ public class AccountDashBoardPageHelper
 		dashBoard.DashBoardOptionsVerification("Make a payment");  
 	}
 
-	@And("^I Should See 'Billing history' Option$")
-	public void i_Should_See_Billing_history_Option() throws Throwable 
+	@And("^I Should See 'Payment history' Option$")
+	public void i_Should_See_Payment_history_Option() throws Throwable 
 	{
-		dashBoard.DashBoardOptionsVerification("Billing history");   
+		dashBoard.DashBoardOptionsVerification("Payment history");   
 	}
 
-	@And("^I Should See 'Close your account' Option$")
+	@And("^I Should See 'Tell us you are moving' Option$")
 	public void i_Should_See_Close_your_account_Option() throws Throwable 
 	{
-		dashBoard.DashBoardOptionsVerification("Close your account");   
+		dashBoard.DashBoardOptionsVerification("Tell us you're moving");   
 	}
 
-	@And("^I Should See 'Set up a Direct Debit' Option$")
+	@And("^I Should See 'Set up/Amend a Direct Debit' Option$")
 	public void i_Should_See_Set_up_a_Direct_Debit_Option() throws Throwable 
 	{
-		dashBoard.DashBoardOptionsVerification("Set up a Direct Debit"); 
+		dashBoard.DashBoardOptionsVerification("Set up/Amend a Direct Debit"); 
 	}
 
 	@And("^I Should See 'Paperless settings' Option$")
@@ -118,10 +118,10 @@ public class AccountDashBoardPageHelper
 	   
 	}
 
-	@And("^I Should See 'Account statement' Option$")
+	@And("^I Should See 'View bills/Account statement' Option$")
 	public void i_Should_See_Account_statement_Option() throws Throwable 
 	{
-		dashBoard.DashBoardOptionsVerification("Account statement");   
+		dashBoard.DashBoardOptionsVerification("View bills/Account statement");   
 	}
 
 	@And("^I Should See 'Submit a meter reading' Option$")
@@ -141,7 +141,7 @@ public class AccountDashBoardPageHelper
 		dashBoard.YourAccountClick();   
 		
 	}
-
+	
 	@When("^I Click on Logout from Dashboard$")
 	public void i_Click_on_Logout_from_Dashboard() throws Throwable 
 	{
@@ -184,10 +184,10 @@ public class AccountDashBoardPageHelper
 		//Need to update when page is updated
 	}
 
-	@When("^I Click on 'Close your account' from Dashboard$")
+	@When("^I Click on 'Tell us you are moving' from Dashboard$")
 	public void i_Click_on_Close_your_account_from_Dashboard() throws Throwable 
 	{
-		dashBoard.DashBoardOptionsClick("Close your account");       
+		dashBoard.DashBoardOptionsClick("Tell us you're moving");       
 	}
 
 	@Then("^I Should Move to Close Account Page$")

@@ -54,16 +54,18 @@ public class UnRegisteredUserCloseAccountPageHelper
 		}
 		
 		@Given("^I have Open UnRegisterd User Close Account Page$")
-		public void I_have_Open_UnRegisterd_User_Close_Account_Page() throws Exception
+		public void i_have_Open_UnRegisterd_User_Close_Account_Page() throws Throwable 
 		{
-			closeAcc.OpenCloseAccountPage();
+			closeAcc.OpenCloseAccountPage();   
 		}
 		
-		@And("^I Click on Start Button of Close Account Page$")
-		public void I_Click_on_Start_Button_of_Close_Account_Page() throws InterruptedException, DocumentException, Exception
-		{
+		
+		
+		@And("^I Click on Start of Close Account Page$")
+		public void i_Click_on_Start_of_Close_Account_Page() throws Throwable {
 			closeAcc.StartClick();
 		}
+		
 		
 		@And("^I Enter CustomerNumer ([^\"]*) Payment Reference ([^\"]*) Last Name ([^\"]*)$")
 		public void I_Enter_CustomerNumer_Payment_Reference_LastName(String CustomerName, String PaymentRef, String LastName) throws InterruptedException, IOException, DocumentException

@@ -20,16 +20,15 @@ Scenario Outline: Account Dashboard should load after your account click
   And Click on Login
   And Click on 'Your Account' Option
   Then I Should see 'Dashboard' Option
-  And I Should See 'Logout' Option
+  And I Should See 'Log out' Option
   And I Should See 'Make a payment' Option
-  And I Should See 'Billing history' Option
-  And I Should See 'Close your account' Option
-  And I Should See 'Set up a Direct Debit' Option
+  And I Should See 'Payment history' Option
+  And I Should See 'Tell us you are moving' Option
+  And I Should See 'Set up/Amend a Direct Debit' Option
   And I Should See 'Paperless settings' Option
   And I Should See 'Your profile' Option
-  And I Should See 'Account statement' Option
+  And I Should See 'View bills/Account statement' Option
   And I Should See 'Submit a meter reading' Option
-  And I Should See 'Logout' Option
   
     Examples:
     |Email|Password|
@@ -75,7 +74,7 @@ Scenario Outline: Account Dashboard should load after your account click
   @SIT
  Scenario Outline: Registered User can access Close Account 
    	Given I am on Account DashBoard Using Login Credentials <Email> and <Password> 
-    When I Click on 'Close your account' from Dashboard
+    When I Click on 'Tell us you are moving' from Dashboard
     Then I Should Move to Close Account Page  
     
     Examples:

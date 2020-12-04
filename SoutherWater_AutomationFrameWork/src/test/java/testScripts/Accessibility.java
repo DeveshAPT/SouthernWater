@@ -117,9 +117,9 @@ public class Accessibility extends driver
 	@Test(groups = { "web" })
 	public void CloseAccount_Accessibility(String Browser) throws Throwable {
 		try {
-			UnRegisterUser.get().I_have_Open_UnRegisterd_User_Close_Account_Page();
+			UnRegisterUser.get().i_have_Open_UnRegisterd_User_Close_Account_Page();
 			Run_AccessibilityTest();
-			UnRegisterUser.get().I_Click_on_Start_Button_of_Close_Account_Page();
+			UnRegisterUser.get().i_Click_on_Start_of_Close_Account_Page();
 			Run_AccessibilityTest();
 			UnRegisterUser.get().I_Enter_CustomerNumer_Payment_Reference_LastName("10470201", "0004012407196",
 					"DOWNHYLL");

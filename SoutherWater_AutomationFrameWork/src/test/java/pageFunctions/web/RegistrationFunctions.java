@@ -151,14 +151,21 @@ public class RegistrationFunctions {
 	
 	public void TermsConditionMessegeDisAppear() throws InterruptedException, DocumentException
 	{
-		Thread.sleep(5000);						
+		boolean firstgone=pageDriver.IsNotPresent(custRegist.getlocator("//locators/AcceptTermMessageFirst"));
+		Assert.assertTrue(firstgone, "First Accpet Terms and Conditions is not removed");	
+		
+		boolean secondgone=pageDriver.IsNotPresent(custRegist.getlocator("//locators/AcceptTermMessageSecond"));
+		Assert.assertTrue(!secondgone, "Second Accpet Terms and Conditions is not removed");	
+	
+		
+		/*Thread.sleep(5000);						
 		List<WebElement> elements1=pageDriver.getwebelements(custRegist.getlocator("//locators/AcceptTermMessageFirst"));
 		boolean flag1=elements1.isEmpty()?true:false;
 		Assert.assertTrue(flag1, "First Accpet Terms and Conditions is not removed");	
 				
 		List<WebElement> elements2=pageDriver.getwebelements(custRegist.getlocator("//locators/AcceptTermMessageSecond"));
 		boolean flag2=elements2.isEmpty()?true:false;
-		Assert.assertTrue(flag2, "Second Accpet Terms and Conditions is not removed");	
+		Assert.assertTrue(flag2, "Second Accpet Terms and Conditions is not removed");	*/
 	}
 	
 	public void PrivacyLinkClick() throws InterruptedException, DocumentException, Exception

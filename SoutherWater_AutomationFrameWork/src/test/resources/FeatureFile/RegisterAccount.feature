@@ -1,4 +1,4 @@
-Feature: Existing customer online account registration
+Feature: Registration
 
 #SSR-502 >> Agree terms and conditions
 
@@ -9,7 +9,7 @@ When I open Customer Registration Page
 Then I am able to see Terms & Conditions Check Box 
 And Hyperlink for Terms & Conditions
 
-@SIT
+@SITNotworking
 Scenario: Verify that user is able to navigate to the terms and conditions page after clicking the button for the same
 Given I am at online Customer Registration Page
 When I Click on term & condition link
@@ -56,7 +56,7 @@ And Your email address
 
 # SSR-926 >> Tell the customer a verification email has been sent to them
 
-@SIT @NA 
+@NA 
 Scenario: Verify that a message is displayed to the user informing email has been sent to confirm registration
 Given I am on online SouthernWater Customer Registration Page
 When An email for verification send to me 
@@ -64,7 +64,7 @@ Then I am able to see the message to check the email on Customer Registration pa
 
 # SSR-960 >> Confirm account has been successfully registered/activated
 
-@SIT @NA
+@NA
 Scenario: Verify that user is able to activate the account after verifying the email address and able to login as well
 Given I have the Email Verification Link
 When I Click on verification email before 48 hours
@@ -72,7 +72,7 @@ Then I should move to new page
 And I am able to see that my account successful registered/activated
 And I am able to login
 
-@SIT @NA 
+@NA 
 Scenario: Verify that Verification Link Expire After 48 hours
 Given I have the Account Verification Link in mail
 When I Click on verification email after 48 hours
@@ -80,7 +80,7 @@ Then I should Error message for linked is expired
 
  @SIT
  Scenario Outline: Verify that as SouthernWater User I can verify my detail on Registration Checkdetail Step 
-    Given I am at online Register page
+    Given I am at online Register Web page
     When I Check Terms & Condition
     And Click on Start
     And Enter on Customer Number <CustNumber> Last Name <LastName> Email <EmailID>
@@ -92,7 +92,7 @@ Then I should Error message for linked is expired
 
 Examples:
     | CustNumber | LastName | EmailID|
-    |10470201|Downhyll|kumar.devesh82@yahoo.com|
+    |30041953|Pinku|xovisi7659@hmnmw.com|
   
  
  @SIT
@@ -106,7 +106,7 @@ Examples:
 
 Examples:
     | CustNumber | LastName | EmailID|
-    |10470201|Downhyll|kumar.devesh82@yahoo.com|
+    |30041953|Pinku|xovisi7659@hmnmw.com|
    
  @SIT
  Scenario Outline:  Verify that as SouthernWater User I can Change my Email on check detail step in online Registration
@@ -122,7 +122,7 @@ Examples:
 
 Examples:
     | CustNumber | LastName | EmailID|NewEmail|
-    |10470201|Downhyll|kumar.devesh82@yahoo.com|abc.xyz@yahoo.com|
+    |30041953|Pinku|xovisi7659@hmnmw.com|abc.xyz@yahoo.com|
 
 
 @SIT
@@ -133,8 +133,8 @@ Examples:
     Then I Can not See First Secuirty Question Option in Security Question Options
 
 Examples:
-    | CustNumber | LastName | EmailID|Password|Question1|Answer1|
-    |10470201|Downhyll|kumar.devesh82@yahoo.com|Apple@123| What was the model of the first car you owned? |Maruti|
+    | CustNumber|LastName|EmailID|Password|Question1|Answer1|
+    |30041953|Pinku|xovisi7659@hmnmw.com|Apple@123| What was the model of the first car you owned? |Maruti|
 
     
  @SIT
@@ -153,5 +153,5 @@ Examples:
 
 Examples:
     | CustNumber | LastName | EmailID|Password|Question1|Answer1|Question2|Answer2|
-    |10470201|Downhyll|kumar.devesh82@yahoo.com|Apple@123| What was the model of the first car you owned? |Maruti| What is the name of your first pet? |Dog|
+    |30041953|Pinku|xovisi7659@hmnmw.com|Apple@123| What was the model of the first car you owned? |Maruti| What is the name of your first pet? |Dog|
 

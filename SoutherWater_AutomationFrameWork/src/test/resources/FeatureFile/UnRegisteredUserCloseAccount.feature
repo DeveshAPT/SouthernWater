@@ -1,10 +1,10 @@
-Feature: Move out close account (unauth)
+Feature: UNAuth Close Account
 Description: The purpose of this feature is to test the Close Account Functionality of UnRegistered User
 
 @SIT
 Scenario Outline: Verify that an unauthorized user is able to close account successfully
 Given I have Open UnRegisterd User Close Account Page 
-And I Click on Start Button of Close Account Page
+And I Click on Start of Close Account Page
 And I Enter CustomerNumer <CustomerNumber> Payment Reference <PayReference> Last Name <LastName>
 And I Click On Continue of Close Account Your Detail Step
 And I Enter Moving Out Date of Close Account
@@ -20,6 +20,6 @@ And I Should See Account Closing Message
 
  Examples:
     |CustomerNumber|PayReference|LastName|PostCode|Address|
-    |20709752|4048720272|Peaa|CT16 3NR|18 WITLEY WALK, WHITFIELD, CT16 3NR|
+    |10470201|0004012407196|DOWNHYLL|CT16 3NR|18 WITLEY WALK, WHITFIELD, CT16 3NR|
     
  

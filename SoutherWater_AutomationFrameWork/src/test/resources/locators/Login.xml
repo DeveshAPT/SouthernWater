@@ -28,7 +28,7 @@
 <AccountButtons>//ul[@id='nav-icons']//button[contains(.,'DisplayText')]</AccountButtons>
 <AccountDashBoardOption>//div[@class='sw-body-container']//div[@class='subnav-group']//a</AccountDashBoardOption>
 <AccountDashBoardLink>//div[@class='sw-body-container']//h2//span[text()='Dashboard']//parent::a</AccountDashBoardLink>
-<LogOut>//div[@class='sw-body-container']//h2//span[text()='Logout']//parent::a</LogOut>
+<LogOut>//div[@class='sw-body-container']//h2//span[text()='Log out']//parent::a</LogOut>
 <DashBoardSection>//div[@class='dashboard-top-section-containt']</DashBoardSection>
 <CustomerNumber>//div[@class='customer-number-section']</CustomerNumber>
 <PaymentRefNumber>//div[@class='payment-ref-section']</PaymentRefNumber>

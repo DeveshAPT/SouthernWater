@@ -23,7 +23,7 @@ Scenario: Verify Question Mark ToolTip
 		When I Click Second Time on Question Mark Icons
 		Then I Suggestion Message should hide
 
-@SIT
+@SIT1
 Scenario: Check the mandatory field error message for Pay Bill
 		Given I have Open The SouthernWater UnAuth Pay Bill Page
 		And I already Click on Start Button

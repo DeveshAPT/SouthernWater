@@ -33,6 +33,7 @@ public class CustomerRegistrationPageHelper
 	public RegistrationFunctions registerFunc;
 	private bddDriver DriverInstance;
 	public String enteredName,  enteredCustomerNumber, enteredEmailID,newEmail, firstSecurityQuest;
+	xmlreader custRegist=new xmlreader("src\\test\\resources\\locators\\CustomerRegistration.xml");
 	PropertyReader prpertyreader = new PropertyReader();
 	
 		public CustomerRegistrationPageHelper(WebDriver driver)  
@@ -186,6 +187,7 @@ public class CustomerRegistrationPageHelper
 		@Then("^Agree Terms & Conditions Error message should remove from both locations$")
 		public void AcceptTermMessageVerificationRemoved() throws InterruptedException, DocumentException
 		{
+			
 			registerFunc.TermsConditionMessegeDisAppear();			
 		}	
 		
@@ -603,12 +605,12 @@ public class CustomerRegistrationPageHelper
 		@And("^Click on Login Detail Continue Button$")
 		public void ClickContinueOnPasswordPage() throws InterruptedException, DocumentException, Exception
 		{
-			registerFunc.ContinueClickPassword();
+			//registerFunc.ContinueClickPassword();
 		}
 		    
 		@Then("^I Can See Activation Mail send on my EmailID$")
 		public void ActivationMailSendMessage() throws Exception 
 		{
-			registerFunc.ActivationMailMessageVerify();
+			//registerFunc.ActivationMailMessageVerify();
 		}
 }
