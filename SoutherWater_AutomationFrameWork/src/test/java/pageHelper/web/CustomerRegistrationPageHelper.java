@@ -32,6 +32,7 @@ public class CustomerRegistrationPageHelper
 	public  webHelper webDriver;
 	public RegistrationFunctions registerFunc;
 	private bddDriver DriverInstance;
+	public String enteredName,  enteredCustomerNumber, enteredEmailID,newEmail, firstSecurityQuest;
 	PropertyReader prpertyreader = new PropertyReader();
 	
 		public CustomerRegistrationPageHelper(WebDriver driver)  

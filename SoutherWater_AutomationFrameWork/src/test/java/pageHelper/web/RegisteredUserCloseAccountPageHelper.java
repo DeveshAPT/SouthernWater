@@ -168,7 +168,7 @@ public class RegisteredUserCloseAccountPageHelper {
 			closeAcc.MoveOutContinue();
 		}
 
-		@When("^I Click Confirm and Close Account$")
+		@And("^I Click Confirm and Close Account$")
 		public void i_Click_Confirm_and_Close_Account() throws Throwable 
 		{
 			closeAcc.ConfirmClick();
@@ -180,7 +180,7 @@ public class RegisteredUserCloseAccountPageHelper {
 			closeAcc.AccountShouldClose();
 		}
 
-		@Then("^I Can See Closing Message$")
+		@And("^I Can See Closing Message$")
 		public void i_Can_See_Closing_Message() throws Throwable 
 		{
 			closeAcc.ClosingMessage();

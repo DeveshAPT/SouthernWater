@@ -8,15 +8,18 @@ import java.util.Date;
 
 import org.dom4j.DocumentException;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import core.webHelper;
+import java.util.List;
 import utils.PropertyReader;
 import utils.xmlreader;
 
 public class CloseAccountFunctions 
 {
 	public  webHelper pagedriver;
+	public AssertionExceptionManager custException;
 	xmlreader loginLoct=new xmlreader("src\\test\\resources\\locators\\Login.xml");
 	xmlreader CloseAccLoct=new xmlreader("src\\test\\resources\\locators\\CloseAccount.xml");
 	PropertyReader prpertyreader = new PropertyReader();
@@ -25,6 +28,7 @@ public class CloseAccountFunctions
 	public CloseAccountFunctions(webHelper dr)
 	{
 		pagedriver=dr;
+		custException=new AssertionExceptionManager(dr);
 	}
 
 	public void OpenCloseAccountPage() throws Exception
@@ -91,8 +95,14 @@ public class CloseAccountFunctions
 	
 	public void ConfirmClick() throws InterruptedException, DocumentException, Exception
 	{
-		//pagedriver.Clickon(pagedriver.getwebelement(CloseAccLoct.getlocator("//locators/ConfirmCloseAccount")));
+		
 		Thread.sleep(5000);
+		
+		List <WebElement> elements1=pagedriver.getwebelements(CloseAccLoct.getlocator("//locators/ConfirmCloseAccount"));
+		System.out.println(String.valueOf(elements1.size()));
+		
+		custException.IsTrue(elements1.size()>0, "Click Confirm Button Not Visible","Click Confirm Button Verified");
+		//pagedriver.Clickon(pagedriver.getwebelement(CloseAccLoct.getlocator("//locators/ConfirmCloseAccount")));
 	}
 	
 	public void AccountShouldClose()

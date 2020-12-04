@@ -6,7 +6,8 @@ import org.testng.annotations.Test;
 import junit.framework.Assert;
 import utils.driver;
 
-public class Accessibility extends driver {
+public class Accessibility extends driver 
+{
 	@Parameters("Browser")
 	@Test(groups = { "web" })
 	public void SoutherWaterLogin_withAccessibility(String Browser) throws Throwable {
@@ -26,7 +27,7 @@ public class Accessibility extends driver {
 					"devesh.kumar@southernwater.co.uk");
 			PayBill.get().ContinueButtonofDetailStep();
 			Run_AccessibilityTest();
-			PayBill.get().ContinueCheckDetailPage();
+			PayBill.get().When_I_Click_on_Continue_of_Pay_Bill_Detail_Page();
 			Run_AccessibilityTest();
 			PayBill.get().SelectPayAnotherAmount();
 			PayBill.get().EnterPartialAmount("1");
@@ -91,7 +92,7 @@ public class Accessibility extends driver {
 
 	@Parameters("Browser")
 	@Test(groups = { "web" })
-	public void PayBillAuth_Accessibility(String Browser) throws Throwable {
+	public void Auth_PayBillAuth_Accessibility(String Browser) throws Throwable {
 		try {
 			PayBill.get().LoginWithYouAccountCredentials("kumar.devesh82@yahoo.com", "Apple@123");
 			Run_AccessibilityTest();
@@ -102,7 +103,7 @@ public class Accessibility extends driver {
 			PayBill.get().MakePaymentLink();
 			Run_AccessibilityTest();
 			PayBill.get().EnterPaymentcardDetails("122000000000003", "Fiona Vardy", "08", "27", "453");
-			PayBill.get().IClickPayNowOnMakePayment();
+			PayBill.get().i_Click_on_Pay_Now_Button_on_Make_Payment();
 			Run_AccessibilityTest();
 			PayBill.get().PaymentConfirmationMessages();
 			Run_AccessibilityTest();
@@ -169,17 +170,12 @@ public class Accessibility extends driver {
 
 	}
 
+	
 	@Parameters("Browser")
 	@Test(groups = { "web" })
-	public void Login_Accessibility(String Browser) throws Throwable {
+	public void Logout_Accessibility(String Browser) throws Throwable {
 		try {
-			/*Login.get().ResetPasswordPage();
-			Run_AccessibilityTest();
-			Login.get().EnterEmailForgotPassword("abc@yahoo.com");
-			Login.get().ClickContinue();
-			Login.get().ResetPasswordLinkVerification();
-			Login.get().I_am_at_login_page();
-			Run_AccessibilityTest();*/
+			
 			Login.get().I_am_on_login_page();
 			Login.get().EnterCredentials("kumar.devesh82@yahoo.com", "Apple@123");
 			Login.get().ClickOnLogin();
@@ -192,6 +188,171 @@ public class Accessibility extends driver {
 			System.out.println("Error : " + ex.toString());
 		}
 	}
+	@Parameters("Browser")
+	@Test(groups = { "web" })
+	public void Account_Dashboard(String Browser) throws Throwable {
+		try {
+			
+			Login.get().I_am_on_login_page();
+			Login.get().EnterCredentials("kumar.devesh82@yahoo.com", "Apple@123");
+			Login.get().ClickOnLogin();
+			Run_AccessibilityTest();
+		
+		} catch (Exception ex) {
+			System.out.println("Error : " + ex.toString());
+		}
+	}
+	@Parameters("Browser")
+	@Test(groups = { "web" })
+	public void Account_Dashboard1(String Browser) throws Throwable {
+		try {
+			
+			Login.get().I_am_on_login_page();
+			Login.get().EnterCredentials("kumar.devesh82@yahoo.com", "Apple@123");
+			Login.get().ClickOnLogin();
+			Run_AccessibilityTest();
+			Account.get().click_on_Your_Account_Option();
+			Run_AccessibilityTest();
+		
+		} catch (Exception ex) {
+			System.out.println("Error : " + ex.toString());
+		}
+	}
+	@Parameters("Browser")
+	@Test(groups = { "web" })
+	public void Account_Dashboard2(String Browser) throws Throwable {
+		try {
+			
+			Login.get().I_am_on_login_page();
+			Login.get().EnterCredentials("kumar.devesh82@yahoo.com", "Apple@123");
+			Login.get().ClickOnLogin();
+			Run_AccessibilityTest();
+			Account.get().click_on_Your_Account_Option();
+			Run_AccessibilityTest();
+			Account.get().i_Click_on_Submit_a_meter_reading_from_Dashboard();
+			Run_AccessibilityTest();
+			
+			
+		} catch (Exception ex) {
+			System.out.println("Error : " + ex.toString());
+		}
+	}
+	@Parameters("Browser")
+	@Test(groups = { "web" })
+	public void Account_Dashboard3(String Browser) throws Throwable {
+		try {
+			
+			Login.get().I_am_on_login_page();
+			Login.get().EnterCredentials("kumar.devesh82@yahoo.com", "Apple@123");
+			Login.get().ClickOnLogin();
+			
+			Account.get().click_on_Your_Account_Option();
+			Account.get().i_Click_on_Make_a_payment_from_Dashboard();
+			Run_AccessibilityTest();
+			
+			
+		} catch (Exception ex) {
+			System.out.println("Error : " + ex.toString());
+		}
+	}
+	@Parameters("Browser")
+	@Test(groups = { "web" })
+	public void Account_Dashboard4(String Browser) throws Throwable {
+		try {
+			
+			Login.get().I_am_on_login_page();
+			Login.get().EnterCredentials("kumar.devesh82@yahoo.com", "Apple@123");
+			Login.get().ClickOnLogin();
+			Run_AccessibilityTest();
+			Account.get().click_on_Your_Account_Option();
+			Run_AccessibilityTest();
+			Account.get().i_Click_on_Close_your_account_from_Dashboard();
+			Run_AccessibilityTest();
+		} catch (Exception ex) {
+			System.out.println("Error : " + ex.toString());
+		}
+	}
+	@Parameters("Browser")
+	@Test(groups = { "web" })
+	public void Account_Dashboard5(String Browser) throws Throwable {
+		try {
+			
+			Login.get().I_am_on_login_page();
+			Login.get().EnterCredentials("kumar.devesh82@yahoo.com", "Apple@123");
+			Login.get().ClickOnLogin();
+			Account.get().click_on_Your_Account_Option();
+			Account.get().i_Click_on_Logout_from_Dashboard();
+			Run_AccessibilityTest();
+		} catch (Exception ex) {
+			System.out.println("Error : " + ex.toString());
+		}
+	}
+	
+	
+	@Parameters("Browser")
+	@Test(groups = { "web" })
+	public void Auth_CloseAccount(String Browser) throws Throwable {
+		try {
+			
+			Login.get().I_am_on_login_page();
+			Login.get().EnterCredentials("kumar.devesh82@yahoo.com", "Apple@123");
+			Login.get().ClickOnLogin();
+			Run_AccessibilityTest();
+			Account.get().click_on_Your_Account_Option();
+			Run_AccessibilityTest();
+			Account.get().i_Click_on_Close_your_account_from_Dashboard();
+			Run_AccessibilityTest();
+			RegisterUser.get().i_Enter_the_MoveOut_Date();
+			Run_AccessibilityTest();
+			RegisterUser.get().i_Click_On_Continue_of_Move_Out_Step();
+			Run_AccessibilityTest();
+			RegisterUser.get().i_Click_On_Continue_of_Final_Bill_Step();
+			Run_AccessibilityTest();
+			RegisterUser.get().i_Enter_Post_Code_as("CT16 3NR");
+			Run_AccessibilityTest();
+			RegisterUser.get().i_Click_Find_Address_as();
+			Run_AccessibilityTest();
+			RegisterUser.get().i_Select_Address_from_Address_List("18 WITLEY WALK, WHITFIELD, CT16 3NR");
+			RegisterUser.get().i_Click_Continue_of_Forwarding_Address();
+			Run_AccessibilityTest();
+			RegisterUser.get().i_Click_Confirm_and_Close_Account();
+			Run_AccessibilityTest();
+		} catch (Exception ex) {
+			System.out.println("Error : " + ex.toString());
+		}
+	}
+	
+	@Parameters("Browser")
+	@Test(groups = { "web" })
+	public void Auth_SubmitMeterReading_Accessibility(String Browser) throws Throwable
+	{
+		Login.get().I_am_on_login_page();
+		Login.get().EnterCredentials("kumar.devesh82@yahoo.com", "Apple@123");
+		Login.get().ClickOnLogin();
+		Run_AccessibilityTest();
+		Account.get().click_on_Your_Account_Option();
+		Run_AccessibilityTest();
+		Account.get().i_Click_on_Submit_a_meter_reading_from_Dashboard();
+		Run_AccessibilityTest();
+		Meter.get().EnterMeterReading();
+		Run_AccessibilityTest();
+		Meter.get().ClickOnContinueButton();
+		Run_AccessibilityTest();
+		Meter.get().ViewUpdatedMeterReading();
+		Run_AccessibilityTest();
+	}
+	
+	@Parameters("Browser")
+	@Test(groups = { "web" })
+	public void ForgotPassword_Accessibility(String Browser) throws Throwable
+	{
+		Login.get().I_am_on_login_page();
+		Login.get().EnterCredentials("kumar.devesh82@yahoo.com", "Apple@123");
+		Login.get().ClickOnLogin();
+		Run_AccessibilityTest();
+		
+	}
 }
+
 
 //Run_AccessibilityTest();

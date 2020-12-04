@@ -2,7 +2,7 @@
 
 Feature: Logout
  
- @WEB
+ @SIT
   Scenario Outline: Registered User Can Log out from Protal   
     Given I am on Account DashBoard Using Login Credentials <Email> and <Password> 
     When I Click on Logout from Dashboard
@@ -14,7 +14,7 @@ Feature: Logout
     |Email|Password|
     |devesh.kumar@southernwater.co.uk|360@Logica|   
  
-  @WEB
+  @SIT
   Scenario Outline: User can login again after logout
     Given I am on Account DashBoard Using Login Credentials <Email> and <Password> 
     And I Logout from SW Portal

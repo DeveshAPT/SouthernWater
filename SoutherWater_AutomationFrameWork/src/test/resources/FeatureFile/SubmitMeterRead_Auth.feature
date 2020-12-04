@@ -1,7 +1,7 @@
 Feature: Auth Submit Meter Reading 
 
-@WEB
- Scenario Outline: Login with Valid credentials to navigate Your meter reading page   
+@SIT
+ Scenario Outline: Authorized User Should have Access Submit Meter Page   
     Given I am on Account DashBoard Using Login Credentials <Email> and <Password> 
     When I Click on 'Submit a meter reading' from Dashboard
     Then I can view Your meter reading page
@@ -10,22 +10,23 @@ Feature: Auth Submit Meter Reading
     |Email|Password|
     |kumar.devesh82@yahoo.com|Apple@123|
     
-@WEB
- Scenario Outline: Login with Valid credentials to verify submit meter reading button 
+@SIT
+ Scenario Outline: Authorized Submit Meter Page Back Button
     Given I am on Account DashBoard Using Login Credentials <Email> and <Password> 
     When I Click on 'Submit a meter reading' from Dashboard
-    When I click to Back button of Your meter reading page
+    And I click to Back button of Your meter reading page
     Then I should navigate to my account dashboard
-    And I can confirm a Submit a meter reading button
+    And I can Customer Number & Payment Referen
     
  Examples:
     |Email|Password|
     |kumar.devesh82@yahoo.com|Apple@123|    
     
-@WEB
+@SIT
   Scenario Outline: Login with Valid credentials to verify updated Meter Reading and today date 
-    Given I am on meter reading page using credentials <Email> and <Password>
-    When I enter meter reading 
+    Given I am on Account DashBoard Using Login Credentials <Email> and <Password> 
+    When I Click on 'Submit a meter reading' from Dashboard
+    And I enter meter reading 
     And I click on Continue button
     Then I should move to Confirm meter reading step 
     And I can view updated Meter Reading 
@@ -35,7 +36,7 @@ Feature: Auth Submit Meter Reading
     |Email|Password|
     |kumar.devesh82@yahoo.com|Apple@123|
     
-#@WEB
+#@SIT
   Scenario Outline: Login with Valid credentials to update meter reading  
     Given I am on Account DashBoard Using Login Credentials <Email> and <Password> 
     When I Click on 'Submit a meter reading' from Dashboard

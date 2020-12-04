@@ -45,6 +45,8 @@
 <VerifyPaymentReferenceNumber>//h3[text()='Payment reference']/following::p[text()='0004505530617']</VerifyPaymentReferenceNumber>
 <VerifyLastName>//h3[text()='Last name']/following::p[text()='Updahyll']</VerifyLastName>
 <ContinueHyperLink>//a[text()='Continue']</ContinueHyperLink>
+<MeterReadingHeading>//h1[text()='Your meter reading']</MeterReadingHeading>
+
 <VerifyYourMeterReadingLabel>//div/h2[text()='Your meter reading']</VerifyYourMeterReadingLabel>
 <VerifyYourMeterReadingLabel3>//div[@class='review-detail-section']//p</VerifyYourMeterReadingLabel3>
 <VerifyYourMeterReadingLabel2>//div/h1[text()='Your meter reading']</VerifyYourMeterReadingLabel2>
@@ -52,11 +54,11 @@
 <ConfirmMeterReadingHeader>//h1[text()='Confirm meter reading']</ConfirmMeterReadingHeader>
 <ContinueButton2>//button[contains(text(),'Continue')]</ContinueButton2>
 <LastMeterReading>//div/h3[text()='Last meter reading']</LastMeterReading>
-<LastMeterReadingValue>//*[@id="content"]/div/div[2]/form/div[2]/div[2]/p</LastMeterReadingValue>
-<ConfirmMeterReadingValue>//*[@id="content"]/div/div[2]/div[2]/p</ConfirmMeterReadingValue>
+<LastMeterReadingValue>//h3[text()='Last meter reading']/following::p</LastMeterReadingValue>
+<ConfirmMeterReadingValue>//h3[text()='Meter reading']/following::p</ConfirmMeterReadingValue>
 <ConfirmReadingButton>//button[text()='Confirm reading']</ConfirmReadingButton>
 <LastMeterReadingValueOfYourReadingPage>//*[@id="content"]/div/div/div[2]/form/div[2]/div[2]/p</LastMeterReadingValueOfYourReadingPage>
 <MeterReading>//*[@id="content"]/div/div/div[2]/div[2]/p</MeterReading>
-<UpdatedDateForMeterReading>//*[@id="content"]/div/div/div[2]/div[4]/p</UpdatedDateForMeterReading>
+<UpdatedDateForMeterReading>//h3[text()='Date']/following::p</UpdatedDateForMeterReading>
 <PaymentFrame>//iframe[@id='wp-cl-custom-html-iframe']</PaymentFrame>
 </locators>

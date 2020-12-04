@@ -13,7 +13,9 @@ public class MoveInFunction
 {
 
 	public  webHelper pagedriver;
+	public AssertionExceptionManager custException;
 	PropertyReader prpertyreader = new PropertyReader();
+
 	xmlreader MoveInLoct=new xmlreader("src\\test\\resources\\locators\\MoveIn.xml");
 	String TestFirstName = "TestFirstName";
 	String TestMiddleName = "TestMiddleName";
@@ -24,6 +26,7 @@ public class MoveInFunction
 	public MoveInFunction(webHelper dr)
 	{
 		pagedriver=dr;
+		custException=new AssertionExceptionManager(pagedriver);
 	}
 	
 	public void OpenMoveInPage() throws Exception

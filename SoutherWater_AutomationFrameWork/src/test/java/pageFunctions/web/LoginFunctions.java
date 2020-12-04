@@ -13,6 +13,7 @@ public class LoginFunctions
 {
 
 	public  webHelper localdriver;
+	public AssertionExceptionManager custException;
 	private xmlreader payBillLoct=new xmlreader("src\\test\\resources\\locators\\PayBill.xml");
 	private xmlreader loginLoct=new xmlreader("src\\test\\resources\\locators\\Login.xml");
 	private xmlreader regiLoct=new xmlreader("src\\test\\resources\\locators\\CustomerRegistration.xml");
@@ -21,6 +22,7 @@ public class LoginFunctions
 	{
 		System.out.println("I am in POM");
 		localdriver=  dr;
+		custException=new AssertionExceptionManager(dr);
 	}
 	public void OpenLoginPage() throws Exception
 	{

@@ -33,6 +33,7 @@ public class RegistrationFunctions {
 
 	public  webHelper pageDriver;
 	private PropertyReader prpertyreader = new PropertyReader();
+	public AssertionExceptionManager custException;
 	public String enteredName,  enteredCustomerNumber, enteredEmailID,newEmail, firstSecurityQuest;
 	xmlreader payBillLoct=new xmlreader("src\\test\\resources\\locators\\PayBill.xml");
 	xmlreader custRegist=new xmlreader("src\\test\\resources\\locators\\CustomerRegistration.xml");
@@ -40,6 +41,7 @@ public class RegistrationFunctions {
 	public RegistrationFunctions(webHelper dr)
 	{
 		pageDriver=dr;
+		custException=new AssertionExceptionManager(pageDriver);
 	}
 	
 	public void OpenRegistrationPage() throws InterruptedException, IOException

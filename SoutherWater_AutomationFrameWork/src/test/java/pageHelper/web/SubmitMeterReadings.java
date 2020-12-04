@@ -244,16 +244,21 @@ public class SubmitMeterReadings
 		}
 		
 		@Then("^I should navigate to my account dashboard$")
-		public void VerifyCustomerCanViewMeterReadingPage() throws InterruptedException, DocumentException, Exception
+		public void DashBaordLoaded() throws InterruptedException, DocumentException, Exception
 		{
 			webDriver.WaitforPageToBeReady();	
+			subMeter.DashBoardLoaded();
+			
 		}
 		
-		@And("^I can confirm a Submit a meter reading button$")
-		public void MoveToYourMeterReadingPage2() throws Exception
+		@And("^I can Customer Number & Payment Reference$")
+		public void VerifyCustmerNumberAndPaymentRef() throws Exception
 		{
-			subMeter.VerifyMeterReadingPageOpen();			
+			subMeter.CustAndPayRefNumber();			
 		}
+		
+		
+		//subMeter.VerifyMeterReadingPageOpen();		
 		
 		// Meter Reading after login - scenario-3
 		/*@Given("^I am on meter reading page using credentials ([^\"]*) and ([^\"]*)$")

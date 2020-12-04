@@ -1,7 +1,7 @@
 Feature: Pay Bill Auth
 
 
-@WEB
+@SIT
 Scenario Outline: As a Registered user I Can Pay Partial Amount of My Bill
 	 	Given I am on Account DashBoard Using Login Credentials <Email> and <Password> 
 		And I Click on 'Make a payment' from Dashboard
@@ -20,7 +20,7 @@ Scenario Outline: As a Registered user I Can Pay Partial Amount of My Bill
     |Email|Password|Amount|Card|Name|expiryMonth|expiryYear|SecureCode|
     |kumar.devesh82@yahoo.com|Apple@123|1|122000000000003|Fiona Vardy|08|27|453|
     
- @WEB
+ @SIT
 Scenario Outline: As a Registered user I Can Pay Full Amount of My Bill
 		Given I am on Account DashBoard Using Login Credentials <Email> and <Password> 
 		And I Click on 'Make a payment' from Dashboard

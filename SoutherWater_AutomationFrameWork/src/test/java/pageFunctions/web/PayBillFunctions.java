@@ -64,6 +64,7 @@ public class PayBillFunctions
 	
 	public void PayUnAuthBillStart() throws InterruptedException, DocumentException, Exception
 	{
+		Thread.sleep(4000);
 		pagedriver.Clickon(pagedriver.getwebelement(payBillLoct.getlocator("//locators/Start")));
 		pagedriver.WaitforPageToBeReady();
 	}
@@ -89,7 +90,7 @@ public class PayBillFunctions
 	{
 		System.out.println("Then Body");
 		
-		custException.IsTrue(pagedriver.IsNotPresent(payBillLoct.getlocator("//locators/Start")),"Pay Bill Start Page not Loaded");
+		custException.IsTrue(pagedriver.IsPresent(payBillLoct.getlocator("//locators/Start")),"Pay Bill Start Page not Loaded");
 		
 	}
 	
@@ -139,8 +140,9 @@ public class PayBillFunctions
 		
 	}
 	
-	public void ClickContinue() throws InterruptedException, DocumentException, Exception
+	public void PayBillDetailClickContinue() throws InterruptedException, DocumentException, Exception
 	{
+		Thread.sleep(5000);
 		pagedriver.Clickon(pagedriver.getwebelement(payBillLoct.getlocator("//locators/ContinueButton")));
 		pagedriver.WaitforPageToBeReady();
 		Thread.sleep(5000);
@@ -203,7 +205,7 @@ public class PayBillFunctions
 	
 	public void EnterPaymentDetails(String CardNumber, String NameOnCard, String ExpiryMonth, String ExpiryYear, String code) throws InterruptedException, IOException, DocumentException
 	{
-		pagedriver.switchtofram(pagedriver.getwebelement(payBillLoct.getlocator("//locators/PaymentFrame]")));
+		pagedriver.switchtofram(pagedriver.getwebelement(payBillLoct.getlocator("//locators/PaymentFrame")));
 		pagedriver.SendKeys(pagedriver.getwebelement(payBillLoct.getlocator("//locators/CardNumber")), CardNumber+Keys.TAB);	
 		pagedriver.SendKeys(pagedriver.getwebelement(payBillLoct.getlocator("//locators/CardHolderName")), NameOnCard+Keys.TAB);	
 		pagedriver.SendKeys(pagedriver.getwebelement(payBillLoct.getlocator("//locators/ExpiryMonth")), ExpiryMonth+Keys.TAB);	

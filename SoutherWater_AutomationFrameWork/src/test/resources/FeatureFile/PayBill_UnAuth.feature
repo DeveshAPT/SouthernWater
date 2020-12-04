@@ -22,18 +22,19 @@ Scenario: Verify Question Mark ToolTip
 		Then I Can see the Suggestion Message
 		When I Click Second Time on Question Mark Icons
 		Then I Suggestion Message should hide
-    
+
 @SIT
-Scenario: Check the mandatory field error message
-		Given I am on SouthernWater Pay Bill page detail Page
-		When I Click on Continue
-		Then I Should see the mandatory field Error Message
+Scenario: Check the mandatory field error message for Pay Bill
+		Given I have Open The SouthernWater UnAuth Pay Bill Page
+		And I already Click on Start Button
+		When I Perform Click Action on Continue Button of Pay Bill Detail Page
+		Then I am not able to Proceed & System throw the mandatory field Error Message
 		
 @SIT
 Scenario: Check the error message for Incorrect Data
 		Given I am on SouthernWater Pay Bill on Your Detail Step
 		When I enter all details
-		And I click on Continue
+		And I click on Continue on Detail page
 		Then I Should see the error Message for incorrect Data
 		
 
@@ -49,8 +50,8 @@ Scenario Outline: As a Unregistered user I Can Pay Partial Amount of My Bill
 		Given I am Accesing Pay Bill Detail Page
 		And I Click Start Button on Page
 		And I Enter Details Customer Number <CustNum> Payment Reference <PayRef> Last Name <LastName> EmailID <Email>
-		And I Click On Continue Button on Detail Step
-		And I Click on Continue Button of Check Detail Step
+		And I Do Click Action on Continue Button of Pay Bill Detail Page
+		And I Do Click Action on Continue Button of Check Detail Step
 		And I Select Pay another Amount
 		And I Enter Partial Amount<Amount>
 		And I Click on Make Payment
@@ -73,8 +74,8 @@ Scenario Outline: As a Unregistered user I Can Pay Full Amount of My Bill
 		Given I have Open Pay Bill Detail Page
 		And I Click Start Link on Page
 		And I enter my details Customer Number <CustNum> Payment Reference <PayRef> Last Name <LastName> EmailID <Email>
-		And I Click On Continue link on Detail Step
-		And I Click on Continue link of Check Detail Step
+		And I Do Click Action on Continue Button of Pay Bill Detail Page
+		And I Do Click Action on Continue Button of Check Detail Step
 		And I Select Pay Full Amount
 		And I Click on Make Payment Link
 		When I Enter Payment Card Detail <Card> Name <Name> Expiry Month <expiryMonth> Expiry Year <expiryYear>  and SecurityCode <SecureCode>

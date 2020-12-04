@@ -28,13 +28,23 @@
 		<classes>
 			<class name="testScripts.Accessibility">	
 				<methods>
-					<!--  <include name="PayBill_Accessibility"/>
+					
+				<!--  <include name="PayBill_Accessibility"/> 
 					 <include name="MoveIn_Accessibility"/>
 					 <include name="Registration_Accessibility"/>
-					 <include name="PayBillAuth_Accessibility"/>
 					 <include name="CloseAccount_Accessibility"/>
-					 <include name="SubmitMeterReading_Accessibility"/> -->
-					 <include name="Login_Accessibility"/>
+					 <include name="SubmitMeterReading_Accessibility"/>
+					  <include name="Logout_Accessibility"/>
+					  <include name="Auth_CloseAccount"/>
+					  <include name="Auth_PayBillAuth_Accessibility"/>
+					  <include name="Auth_SubmitMeterReading_Accessibility"/> -->
+					  <include name="Account_Dashboard"/> 
+					  <include name="Account_Dashboard1"/>
+					  <include name="Account_Dashboard2"/>
+					  <include name="Account_Dashboard3"/>
+					  <include name="Account_Dashboard4"/>
+					  <include name="Account_Dashboard5"/>
+					  
 				</methods>	
 			</class>
 		</classes>	

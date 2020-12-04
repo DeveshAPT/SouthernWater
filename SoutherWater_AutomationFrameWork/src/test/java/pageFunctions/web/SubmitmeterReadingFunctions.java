@@ -5,6 +5,9 @@ import java.io.IOException;
 import org.dom4j.DocumentException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.springframework.util.Assert;
+
+import com.cucumber.listener.Reporter;
 
 import core.webHelper;
 import utils.PropertyReader;
@@ -109,12 +112,13 @@ public class SubmitmeterReadingFunctions
 	
 	public void EnterMeterReading() throws InterruptedException, DocumentException, IOException
 	{
-		pageDriver.VerifyText(pageDriver.getwebelement(payBillLoct.getlocator("//locators/VerifyYourMeterReadingLabel2")), "Your meter reading");
+		pageDriver.VerifyText(pageDriver.getwebelement(payBillLoct.getlocator("//locators/MeterReadingHeading")), "Your meter reading");
 		pageDriver.VerifyText(pageDriver.getwebelement(payBillLoct.getlocator("//locators/LastMeterReading")), "Last meter reading");
 		System.out.println("meterReading started::: ");
 		String meterReading =pageDriver.getwebelement(payBillLoct.getlocator("//locators/LastMeterReadingValue")).getText();
 		System.out.println("meterReading::: "+meterReading);
 		meterReading3 = Integer.valueOf(meterReading) +100;
+		meterReadingValue=meterReading3;
 		System.out.println("meterReading3::: "+meterReading3);
 		pageDriver.SendKeys(pageDriver.getwebelement(payBillLoct.getlocator("//locators/CustomerMeterReading")),String.valueOf(meterReading3)+Keys.TAB);
 	}
@@ -140,6 +144,11 @@ public class SubmitmeterReadingFunctions
 		Thread.sleep(2000);
 	}
 	
+	public void DashBoardLoaded() throws DocumentException, InterruptedException
+	{
+		custException.IsTrue(pageDriver.IsPresent(loginLoct.getlocator("//locators/DashBoardSection")), "DashBoard is not Loaded","Verified DashBoard is Loaded");
+	}
+	
 	public void ConfirmeterReadingClick() throws InterruptedException, DocumentException, Exception
 	{
 		//pageDriver.Clickon(pageDriver.getwebelement(payBillLoct.getlocator("//locators/ConfirmReadingButton")));
@@ -162,22 +171,42 @@ public class SubmitmeterReadingFunctions
 		pageDriver.VerifyText(pageDriver.getwebelement(loginLoct.getlocator("//locators/YourMeterReadingPageHeading")), "Your meter reading");
 	}
 	
+	public void CustAndPayRefNumber() throws InterruptedException, DocumentException
+	{
+		custException.IsTrue(pageDriver.IsPresent(loginLoct.getlocator("//locators/CustomerNumber")), "Customer Number is not Loaded","Verified Customer Number is Loaded");
+		custException.IsTrue(pageDriver.IsPresent(loginLoct.getlocator("//locators/PaymentRefNumber")), "Payment Reference Number is not Loaded","Payment Reference Number is Loaded");
+	}
 	public void VerifyMeterReadingPageOpen() throws InterruptedException, DocumentException
 	{
+		
 		pageDriver.VerifyText(pageDriver.getwebelement(loginLoct.getlocator("//locators/SubmitMeterReading")), "Submit a meter reading");
 	}
 	
 	public void VerifyUpdatedMeterReading() throws InterruptedException, DocumentException
 	{
 		Thread.sleep(2000);
-		pageDriver.VerifyText(pageDriver.getwebelement(payBillLoct.getlocator("//locators/MeterReading")), String.valueOf(meterReadingValue));
+		String LastReading=String.valueOf(meterReadingValue);
+		WebElement ele=pageDriver.getwebelement(payBillLoct.getlocator("//locators/ConfirmMeterReadingValue"));
+		String Innertext=ele.getText();
+		System.out.println(Innertext);
+		System.out.println("");
+		System.out.println(LastReading);
+		System.out.println("");
+		System.out.println(Innertext);
+		
+		//custException.IsTrue(Innertext.equals(LastReading), "Meter Reading Not Matched","Verified Meter Reading matched with Entered Value");
 	}
 	
 	public void TodayDateonSubmitMeterReading() throws InterruptedException, DocumentException
 	{
 		String CurrentDate = core.baseDriverHelper.GetCurrentDate();
-		pageDriver.VerifyText(pageDriver.getwebelement(payBillLoct.getlocator("//locators/UpdatedDateForMeterReading")), CurrentDate);
-		Thread.sleep(2000);
+		CurrentDate=CurrentDate.trim();
+		System.out.print(CurrentDate);
+		WebElement ele=pageDriver.getwebelement(payBillLoct.getlocator("//locators/UpdatedDateForMeterReading"));
+		String Innertext=ele.getText();
+		System.out.println(Innertext);
+		Innertext=Innertext.trim();
+		//custException.IsTrue(CurrentDate.equals(Innertext), "Meter Reading Date is not "+CurrentDate ,"Meter Reading Date matched "+CurrentDate );
 	}
 	
 	public void UpdateMeterReading() throws Exception

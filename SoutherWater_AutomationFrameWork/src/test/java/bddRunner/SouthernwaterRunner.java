@@ -20,9 +20,9 @@ import utils.maiUtility;
 @CucumberOptions(
 
 features = {
-			"src/test/resources/FeatureFile/RegisteredUserCloseAccount.feature"},glue = { "pageHelper" },
+			"src/test/resources/FeatureFile/PayBill_UnAuth.feature"},glue = { "pageHelper" },
 plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"},
-tags= "@WEB",
+tags= "@SIT",
 dryRun=false
 )
 

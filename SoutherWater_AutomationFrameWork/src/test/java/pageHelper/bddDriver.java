@@ -51,7 +51,7 @@ public class bddDriver
 	}
 	
 	
-	@Before("@WEB, @POM")
+	@Before("@SIT")
 	public void Websetup(Scenario s) throws Exception
 	{
 		//String currbrowser=Browser;
@@ -61,7 +61,7 @@ public class bddDriver
 		
 	}
 
-	@After("@WEB, @POM")
+	@After("@SIT")
 	public void TearDown(Scenario s) throws IOException
 	{
 	

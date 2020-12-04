@@ -2,7 +2,7 @@
  Feature: Account Dashboard
 
 
- @WEB
+ @SIT
 Scenario Outline: As A Registered User i can see Your Account Link after Login 
   Given I am at login page
   When I Enter my <Email> and <Password> into respective fields
@@ -13,7 +13,7 @@ Scenario Outline: As A Registered User i can see Your Account Link after Login
     |devesh.kumar@southernwater.co.uk|360@Logica|
   
  
- @WEB
+ @SIT
 Scenario Outline: Account Dashboard should load after your account click
   Given I am at login page
   When I Enter my <Email> and <Password> into respective fields
@@ -37,7 +37,7 @@ Scenario Outline: Account Dashboard should load after your account click
  
 
        
- @WEB
+ @SIT
   Scenario Outline: Registered User Can Log out from Protal   
     Given I am on Account DashBoard Using Login Credentials <Email> and <Password> 
     When I Click on Logout from Dashboard
@@ -50,7 +50,7 @@ Scenario Outline: Account Dashboard should load after your account click
     |devesh.kumar@southernwater.co.uk|360@Logica|   
     
  
-  @WEB
+  @SIT
   Scenario Outline: Registered User can access Submit Meter Reading
     Given I am on Account DashBoard Using Login Credentials <Email> and <Password> 
     When I Click on 'Submit a meter reading' from Dashboard
@@ -62,7 +62,7 @@ Scenario Outline: Account Dashboard should load after your account click
     |devesh.kumar@southernwater.co.uk|360@Logica| 
  
  
-  @WEB
+  @SIT
   Scenario Outline: Registered User can access Make a Payment
     Given I am on Account DashBoard Using Login Credentials <Email> and <Password> 
     When I Click on 'Make a payment' from Dashboard
@@ -72,7 +72,7 @@ Scenario Outline: Account Dashboard should load after your account click
     |Email|Password|
     |devesh.kumar@southernwater.co.uk|360@Logica| 
   
-  @WEB
+  @SIT
  Scenario Outline: Registered User can access Close Account 
    	Given I am on Account DashBoard Using Login Credentials <Email> and <Password> 
     When I Click on 'Close your account' from Dashboard

@@ -19,19 +19,37 @@ public class AssertionExceptionManager
 		ExceptionDriver=  dr;
 	}
 	
-	public void IsTrue(boolean Condition, String ExMessage ) 
+	public void IsTrue(boolean condition, String exMessage ) 
 	{
 		try
 		{
-		Assert.assertTrue(Condition, ExMessage);
+		Assert.assertTrue(condition, exMessage);
 		}
 		catch(AssertionError e)
 		{
-			Reporter.addStepLog(ExMessage);
+			Reporter.addStepLog(exMessage);
 			Reporter.addStepLog("Below is the Technical Exception");
 			//Assert.fail();
 			throw e; 		
 		}
 	}
-	
+	public void IsTrue(boolean condition, String exMessage,String passMessage ) 
+	{
+		try
+		{
+		Assert.assertTrue(condition, exMessage);
+		Reporter.addStepLog(passMessage);	
+		}
+		catch(AssertionError e)
+		{
+			Reporter.addStepLog(exMessage);
+			Reporter.addStepLog("Below is the Technical Exception");
+			//Assert.fail();
+			throw e; 		
+		}
+	}
+	public void AddPassStep(String passMessage ) 
+	{
+			Reporter.addStepLog(passMessage);	
+	}
 }

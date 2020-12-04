@@ -1,7 +1,7 @@
 Feature: Move out close account (unauth)
 Description: The purpose of this feature is to test the Close Account Functionality of UnRegistered User
 
-@WEB
+@SIT
 Scenario Outline: Verify that an unauthorized user is able to close account successfully
 Given I have Open UnRegisterd User Close Account Page 
 And I Click on Start Button of Close Account Page

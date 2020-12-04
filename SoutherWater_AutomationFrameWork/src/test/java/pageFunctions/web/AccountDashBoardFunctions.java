@@ -28,9 +28,10 @@ public class AccountDashBoardFunctions {
 	
 	public void YourAccountDisplayed() throws Exception
 	{
+		Thread.sleep(5000);
 		String locator=loginLoct.getlocator("//locators/AccountButtons");
 		locator=locator.replace("DisplayText", "Your Account");
-		custException.IsTrue(pagedriver.IsPresent(locator), "Your Account is not Button is not display");
+		custException.IsTrue(pagedriver.IsPresent(locator), "Your Account Button is not display","Your Account Button Loaded and Verified");
 	}
 	
 	public void YourAccountClick() throws Exception

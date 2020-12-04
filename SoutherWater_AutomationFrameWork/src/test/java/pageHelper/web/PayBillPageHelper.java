@@ -33,6 +33,7 @@ public class PayBillPageHelper
 	private bddDriver DriverInstance;
 	public PayBillFunctions payFunc;
 	PropertyReader prpertyreader = new PropertyReader();
+	xmlreader loginLoct=new xmlreader("src\\test\\resources\\locators\\Login.xml");
 	String dueAmount;
 	
 		public PayBillPageHelper(WebDriver driver)  
@@ -55,7 +56,7 @@ public class PayBillPageHelper
 		@Given("^I am on SouthernWater Pay Bill page$") 
 		public void SouthernWaterPayBill() throws Exception
 		{
-			
+			payFunc.AccessUnauthPayBillPage();
 		}
 		
 		@When("^I Click on Start$") 
@@ -141,11 +142,12 @@ public class PayBillPageHelper
 			payFunc.PayUnAuthBillStart();
 		}
 		
-		@When("^I Click on Continue$") 
-		public void ClickOnContinueLink() throws Exception
+		@When("^I Click on Continue of Pay Bill Detail Page$") 
+		public void When_I_Click_on_Continue_of_Pay_Bill_Detail_Page() throws Exception
 		{
-			payFunc.ClickContinue();
+			payFunc.PayBillDetailClickContinue();
 		}
+		
 		
 		@Then("^I Should see the mandatory field Error Message") 
 		public void MandatoryMessage() throws InterruptedException, DocumentException
@@ -168,10 +170,10 @@ public class PayBillPageHelper
 			payFunc.EnterYourDetails("1234567890","1234567891234","BDDTest","BDD@Test.com");
 		}
 			
-		@And("^I click on Continue$")
-		public void ClickOnContinue() throws InterruptedException, Exception
+		@And("^I click on Continue on Detail page$")
+		public void I_click_on_Continue_on_Detail_page() throws InterruptedException, Exception
 		{
-			payFunc.ClickContinue();
+			payFunc.PayBillDetailClickContinue();
 		}
 		
 		@Then("^I Should see the error Message for incorrect Data") 
@@ -187,7 +189,7 @@ public class PayBillPageHelper
 		{
 			payFunc.AccessUnauthPayBillPage();
 			payFunc.PayUnAuthBillStart();
-			payFunc.ClickContinue();
+			payFunc.PayBillDetailClickContinue();
 			
 		}
 				
@@ -229,12 +231,12 @@ public class PayBillPageHelper
 		@And("^I Click On Continue Button on Detail Step$")
 		public void ContinueButtonofDetailStep() throws Exception
 		{
-			payFunc.ClickContinue();
+			payFunc.PayBillDetailClickContinue();
 			
 		}
 		
 		@And("^I Click on Continue Button of Check Detail Step")
-		public void ContinueCheckDetailPage() throws Exception
+		public void And_I_Click_on_Continue_Button_of_Check_Detail_Step() throws Exception
 		{
 			payFunc.ClickCheckDetailContinue();
 		}
@@ -322,13 +324,13 @@ public class PayBillPageHelper
 		}
 		
 		@And("^I Click On Continue link on Detail Step$")
-		public void ContinueLinnkButtonofDetailStep() throws Exception
+		public void And_I_Click_On_Continue_link_on_Detail_Step() throws Exception
 		{
-			payFunc.ClickContinue();
+			payFunc.PayBillDetailClickContinue();
 		}
 		
 		@And("^I Click on Continue link of Check Detail Step")
-		public void ContinueLinkButtonCheckDetailPage() throws Exception
+		public void And_I_Click_on_Continue_link_of_Check_Detail_Step() throws Exception
 		{
 			payFunc.ClickCheckDetailContinue();
 		}
@@ -442,11 +444,12 @@ public class PayBillPageHelper
 			payFunc.EnterPaymentDetails(CardNumber,NameOnCard,Month,Year,Code);
 		}
 		
-		@And("^I Click on Pay Now Button on Make Payment Step on Portal$")
-		public void IClickPayNowOnMakePayment() throws InterruptedException, DocumentException, Exception
+		
+		@And("^I Click on Pay Now Button on Make Payment$")
+		public void i_Click_on_Pay_Now_Button_on_Make_Payment() throws Throwable 
 		{
 			payFunc.ClickPayNowButton();
-		}
+		}    
 		
 		@Then("^I Can see Payment Confirmation Message on Portal$")
 		public void PaymentConfirmationMessages() throws DocumentException, InterruptedException
@@ -558,5 +561,41 @@ public class PayBillPageHelper
 		public void IShouldSeePaymentAmountVerification() throws InterruptedException, DocumentException
 		{
 			payFunc.VerifyFullAmountonReciept();
+		}
+		
+		//New
+		
+		@Given("^I have Open The SouthernWater UnAuth Pay Bill Page$")
+		public void i_have_Open_The_SouthernWater_UnAuth_Pay_Bill_Page() throws Throwable {
+		   
+			payFunc.AccessUnauthPayBillPage();
+		}
+
+		@Given("^I already Click on Start Button$")
+		public void i_already_Click_on_Start_Button() throws Throwable 
+		{
+			payFunc.PayUnAuthBillStart();
+		}
+
+		@When("^I Perform Click Action on Continue Button of Pay Bill Detail Page$")
+		public void i_Perform_Click_Action_on_Continue_Button_of_Pay_Bill_Detail_Page() throws Throwable 
+		{
+			payFunc.PayBillDetailClickContinue();
+		}
+
+		@Then("^I am not able to Proceed & System throw the mandatory field Error Message$")
+		public void i_am_not_able_to_Proceed_System_throw_the_mandatory_field_Error_Message() throws Throwable 
+		{
+			payFunc.MandatoryFieldMessage();
+		}
+		
+		@And("^I Do Click Action on Continue Button of Pay Bill Detail Page$")
+		public void i_Do_Click_Action_on_Continue_Button_of_Pay_Bill_Detail_Page() throws Throwable {
+			payFunc.PayBillDetailClickContinue();
+		}
+		@And("^I Do Click Action on Continue Button of Check Detail Step$")
+		public void i_Do_Click_Action_on_Continue_Button_of_Check_Detail_Step() throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+			payFunc.ClickCheckDetailContinue();
 		}
 }

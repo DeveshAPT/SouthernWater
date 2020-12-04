@@ -7,7 +7,7 @@ Description: The purpose of this feature is to test the Close Account Functional
 #And I Click on Login Button On Page
 #Then I Should Login to SouthernWater Portal
 
-@WEB
+@SIT
 Scenario Outline: I Should move to DashBoard after clicking back button of Close Account
 Given I am on Account DashBoard Using Login Credentials <Email> and <Password> 
 When I Click on 'Close your account' from Dashboard
@@ -15,9 +15,9 @@ Then I Should see Your Account link on the Page
 
 Examples:
     |Email|Password|
-    |devesh.kumar@southernwater.co.uk|360@Logica|
+    |kumar.devesh82@yahoo.com|Apple@123|
 
-@WEB
+@SIT
 Scenario Outline: As Registered User I Should Close My Account 
 Given I am on Account DashBoard Using Login Credentials <Email> and <Password> 
 When I Click on 'Close your account' from Dashboard
@@ -28,10 +28,10 @@ And I Enter Post Code as <PostCode>
 And I Click on Find Address
 And I Select <Address> from Address List
 And I Click Continue of Forwarding Address
-When I Click Confirm and Close Account
+And I Click Confirm and Close Account
 Then My Account Should Close
 And I Can See Closing Message
 
  Examples:
     |Email|Password|PostCode|Address|
-    |devesh.kumar@southernwater.co.uk|360@Logica|CT16 3NR|18 WITLEY WALK, WHITFIELD, CT16 3NR|
+     |kumar.devesh82@yahoo.com|Apple@123|CT16 3NR|18 WITLEY WALK, WHITFIELD, CT16 3NR|
