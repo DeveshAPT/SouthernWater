@@ -1477,6 +1477,15 @@ try {
 	}
 
 	@Override
+	public int TabSize() {
+		 String parentWinHandle = driver.getWindowHandle();
+			Set<String> totalopenwindow=driver.getWindowHandles();
+			System.out.println(totalopenwindow.size());
+			return totalopenwindow.size();
+	}
+
+	
+	@Override
 	public void GetIframeLoaded(String framlocator) {
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.id(framlocator.split("=")[1])));
 		//driver.switchTo().frame(driver.findElement(By.id(framlocator.split("=")[1])));

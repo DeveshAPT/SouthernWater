@@ -46,6 +46,7 @@ public class DriverContext implements IDriverContext {
     @Override
     public String pageTitle() {
         return driver.getTitle();
+    	//return driver.getCurrentUrl();
     }
 
     @Override

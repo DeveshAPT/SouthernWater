@@ -53,6 +53,7 @@
 <CustomerMeterReading>//input[@id="customerMeterReading"]</CustomerMeterReading>
 <ConfirmMeterReadingHeader>//h1[text()='Confirm meter reading']</ConfirmMeterReadingHeader>
 <ContinueButton2>//button[contains(text(),'Continue')]</ContinueButton2>
+<CheckDetailsContinue>//a[contains(text(),'Continue')]</CheckDetailsContinue>
 <LastMeterReading>//div/h3[text()='Last meter reading']</LastMeterReading>
 <LastMeterReadingValue>//h3[text()='Last meter reading']/following::p</LastMeterReadingValue>
 <ConfirmMeterReadingValue>//h3[text()='Meter reading']/following::p</ConfirmMeterReadingValue>

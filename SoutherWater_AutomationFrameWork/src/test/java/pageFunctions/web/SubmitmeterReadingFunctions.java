@@ -90,7 +90,15 @@ public class SubmitmeterReadingFunctions
 	
 	public void ContinueClick() throws InterruptedException, DocumentException, Exception
 	{
+		pageDriver.WaitforPageToBeReady();
 		pageDriver.Clickon(pageDriver.getwebelement(payBillLoct.getlocator("//locators/ContinueButton2")));
+		pageDriver.WaitforPageToBeReady();
+	}
+	
+	public void CheckDetailsContinueClick() throws InterruptedException, DocumentException, Exception
+	{
+		pageDriver.WaitforPageToBeReady();
+		pageDriver.Clickon(pageDriver.getwebelement(payBillLoct.getlocator("//locators/CheckDetailsContinue")));
 		pageDriver.WaitforPageToBeReady();
 	}
 	

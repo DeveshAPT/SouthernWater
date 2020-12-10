@@ -405,6 +405,7 @@ public class SubmitMeterReadings
 			/* webDriver.Clickon(webDriver.getwebelement("//button[@type='submit']"));
 			 webDriver.WaitforPageToBeReady();
 			 Thread.sleep(5000);*/
+			 subMeter.ContinueClick();
 		 }
 		 
 		 @And("I Click again on  Continue")
@@ -414,7 +415,7 @@ public class SubmitMeterReadings
 			 webDriver.WaitforPageToBeReady();
 			 Thread.sleep(5000);*/
 			 
-			 subMeter.ContinueClick();
+			 subMeter.CheckDetailsContinueClick();
 		 }
 		 
 		 @Then("I Can Enter Updated Meter Reading")
@@ -436,7 +437,9 @@ public class SubmitMeterReadings
 			 /*webDriver.Clickon(webDriver.getwebelement("//button[text()='Continue']"));
 			 webDriver.WaitforPageToBeReady();
 			 Thread.sleep(5000);*/
-			 subMeter.ContinueHyperlink();
+			// subMeter.ContinueHyperlink();
+			 
+			 subMeter.ContinueClick();
 		 }
 		 
 		 @And("I can view updated meter reading on Confirm meter reading") 

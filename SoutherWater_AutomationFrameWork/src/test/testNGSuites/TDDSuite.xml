@@ -28,23 +28,74 @@
 		<classes>
 			<class name="testScripts.Accessibility">	
 				<methods>
+					 
+					 <!-- Pay Bill -->
+				 <!-- <include name="PayBill_AccessibilityAccessing"/> 
+					  <include name="PayBill_Detail"/>
+					  <include name="PayBill_CheckDetail"/>
+					  <include name="PayBill_ChooseAmount"/>
+					  <include name="PayBill_Payment"/>
+					  <include name="PayBill_PaymentCompleted"/>-->
+					  
+					  <!-- Move In -->
+					  <!-- <include name="MoveIn_Access"/>  
+					  <include name="MoveIn_Start"/>   
+					  <include name="MoveIn_CustomerDetails"/>
+					  <include name="MoveIn_PaymentDetail"/>
+					  <include name="MoveIn_Complete"/>-->
+					  
+				  	 <!-- Registration  -->
+					 <!-- <include name="Registration_Access"/> 
+				     <include name="Registration_Start"/>
+				     <include name="Registration_FillDetails"/>
+				     <include name="Registration_ConfirmDetails"/>
+				     <include name="Registration_SetDetails"/>-->
+				
+					<!-- Close Account -->
+					<!-- <include name="CloseAccount_Access"/> 
+					<include name="CloseAccount_Start"/>
+					<include name="CloseAccount_CheckDetails"/>
+					<include name="CloseAccount_MoveOutDate"/>
+					<include name="CloseAccount_PaymentBill"/>
+					<include name="CloseAccount_Forwarding"/>-->
 					
-				<!--  <include name="PayBill_Accessibility"/> 
-					 <include name="MoveIn_Accessibility"/>
-					 <include name="Registration_Accessibility"/>
-					 <include name="CloseAccount_Accessibility"/>
-					 <include name="SubmitMeterReading_Accessibility"/>
-					  <include name="Logout_Accessibility"/>
-					  <include name="Auth_CloseAccount"/>
-					  <include name="Auth_PayBillAuth_Accessibility"/>
-					  <include name="Auth_SubmitMeterReading_Accessibility"/> -->
-					  <include name="Account_Dashboard"/> 
+					
+					<!-- SubmitMeterReading -->
+						<!-- <include name="SubmitMeterReading_Access"/>
+						<include name="SubmitMeterReading_YourDetails"/>
+						<include name="SubmitMeterReading_CheckDetails"/>
+						<include name="SubmitMeterReading_YourReading"/>
+						<include name="SubmitMeterReading_ConfirmReadingDetails"/>-->
+						
+					
+					<!-- Forgot Password  -->
+					<!--  <include name="Reset_Password"/> -->
+					<include name="Auth_CloseConfirm"/>
+					<!-- Auth Close Account -->
+					<!-- <include name="Auth_MoveOutDate"/> 
+					<include name="Auth_BillStep"/> 
+					<include name="Auth_ForwardingAddress"/>
+					<include name="Auth_CloseConfirm"/>-->
+					
+					
+					 <!-- Auth Pay Bill -->
+					  
+					 <!-- <include name="Auth_PayBillAuth_Amount"/>-->
+					 
+					  <!-- Auth Pay Bill -->
+					  <!-- <include name="Auth_SubmitMeterReading_YourReading"/>  
+					  <include name="Auth_SubmitMeterReading_ConfirmReading"/>-->
+					  
+					  <!-- Account DashBoard -->
+					 <!-- <include name="Account_Dashboard"/>  
 					  <include name="Account_Dashboard1"/>
-					  <include name="Account_Dashboard2"/>
+					   <include name="Account_Dashboard2"/>
 					  <include name="Account_Dashboard3"/>
 					  <include name="Account_Dashboard4"/>
-					  <include name="Account_Dashboard5"/>
-					  
+					  <include name="Account_Dashboard5"/> 
+					  <include name="Account_DashboardPaperlessSetting"/> 
+					  <include name="Account_DashboardDirectDebit"/>
+					   <include name="Account_DashboardContactUs"/>--> 
 				</methods>	
 			</class>
 		</classes>	

@@ -31,7 +31,33 @@
 <LogOut>//div[@class='sw-body-container']//h2//span[text()='Log out']//parent::a</LogOut>
 <DashBoardSection>//div[@class='dashboard-top-section-containt']</DashBoardSection>
 <CustomerNumber>//div[@class='customer-number-section']</CustomerNumber>
+<CustomerNumberLabel>//div[@class='customer-number-section']//strong</CustomerNumberLabel>
 <PaymentRefNumber>//div[@class='payment-ref-section']</PaymentRefNumber>
+<PaymentRefNumberLabel>//div[@class='customer-number-section']//strong</PaymentRefNumberLabel>
 <CloseAccountButton>//a[text()='Close your account']</CloseAccountButton>
+<QuickLinkDashBoard>//div[@class='mt-2']//a[contains(text(),'DisplayText')]</QuickLinkDashBoard>
+<QuickLinkMakePayment>//div[@class='dashboard-tile-content']//a[contains(text(),'Make a payment')]</QuickLinkMakePayment>
+<QuickLinkStrugglingPay>//div[@class='dashboard-tile-content']//a[contains(text(),'Struggling to pay?')]</QuickLinkStrugglingPay>
+<QuickAmendDebit>//div[@class='dashboard-tile-content']//a[contains(text(),'Amend Direct Debit ')]</QuickAmendDebit>
+<QuickLinkMeterReading>//a[contains(text(),'Submit a meter reading')]</QuickLinkMeterReading>
+<QuickLinkMoving>//a[contains(text(),'Tell us you')]</QuickLinkMoving>
+<QuickLinkFooterButton>//div[@class='tiles-bottom mt-2']//a[contains(text(),'DisplayText')]</QuickLinkFooterButton>
+<LatestBillMainHeading>//h1[text()='Latest bill']</LatestBillMainHeading>
+<LatestBillAmount>//h1[text()='Latest bill']/following::h2</LatestBillAmount>
+<LatestBillDateLabel>//h1[text()='Latest bill']/following::p</LatestBillDateLabel>
+<LatestBillDate>//h1[text()='Latest bill']/parent::div//p[2]</LatestBillDate>
+<BillAmount>//h1[text()='Amount due']/parent::div/h2</BillAmount>
+<BillAmountDueHeading>//h1[text()='Amount due']</BillAmountDueHeading>
+<BillAmountDueDate>//h1[text()='Amount due']/parent::div/p/b</BillAmountDueDate>
+
+<MeterReadingHeading>//h1[text()='Meter readings']</MeterReadingHeading>
+<MeterReadSectionText>//p[text()='Last meter reading']/parent::div/p[@class='dashboard-tile-text']</MeterReadSectionText>
+<MeterReadSectionLabel>//p[text()='Last meter reading']/parent::div/p[@class='dashboard-tile-label']</MeterReadSectionLabel>
+<PaperLessSettingHeading>//h1[text()='Paperless settings']</PaperLessSettingHeading>
+<PaperlessOnline>//input[@type='radio']/following::label[contains(text(),'online')]</PaperlessOnline>
+<PaperlessPost>//input[@type='radio']/following::label[contains(text(),'address')]</PaperlessPost>
+<PaperlessUpdate>//button[contains(text(),'Update')]</PaperlessUpdate>
+<SetupDirectDebitHeading>//h1[text()='Set up/Amend Direct Debit']</SetupDirectDebitHeading>
+<ContactUsPageHeading>//h1[text()='Contact Us']</ContactUsPageHeading>
 </locators>
 

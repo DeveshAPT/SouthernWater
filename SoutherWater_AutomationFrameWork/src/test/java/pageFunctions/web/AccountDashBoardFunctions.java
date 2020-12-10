@@ -1,5 +1,6 @@
 package pageFunctions.web;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.dom4j.DocumentException;
@@ -18,6 +19,8 @@ public class AccountDashBoardFunctions {
 	xmlreader custRegist=new xmlreader("src\\test\\resources\\locators\\CustomerRegistration.xml");
 	xmlreader loginLoct=new xmlreader("src\\test\\resources\\locators\\Login.xml");
 	PropertyReader prpertyreader = new PropertyReader();
+	int lastTabCount=-1;
+	int newTabCount=-1;
 	
 	public AccountDashBoardFunctions(webHelper dr)
 	{
@@ -114,5 +117,319 @@ public class AccountDashBoardFunctions {
 			
 		}
 		custException.IsTrue(found, "DashBoard Option = '"+OptionText+" is not Loaded unable to click");		
+	}
+	
+	public void DashBoardQuickLinkFound(String DisplayText) throws DocumentException, InterruptedException
+	{
+		Thread.sleep(5000);
+		String LocateMe=loginLoct.getlocator("//locators/QuickLinkDashBoard");
+		LocateMe=LocateMe.replace("DisplayText", DisplayText);
+		
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "DashBoard Quick Link = " + DisplayText +" not found " );
+	}
+	
+	
+	public void DashBoardQuickLinkClick(String DisplayText) throws Exception
+	{
+		Thread.sleep(5000);
+		String LocateMe=loginLoct.getlocator("//locators/QuickLinkDashBoard");
+		LocateMe=LocateMe.replace("DisplayText", DisplayText);
+		
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "DashBoard Quick Link = " + DisplayText +" not found " );
+		
+		pagedriver.Clickon(pagedriver.getwebelement(LocateMe));
+	}
+	
+	
+	//Payment Panding Scenerio
+	
+	public void DashBoardMakePaymentButton() throws DocumentException, InterruptedException
+	{
+		String LocateMe=loginLoct.getlocator("//locators/QuickLinkMakePayment");
+		
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "DashBoard Make Payment Link Not found " );
+	}
+	
+	public void DashBoardMakePaymentButtonNotDisplay() throws DocumentException, InterruptedException
+	{
+		String LocateMe=loginLoct.getlocator("//locators/QuickLinkMakePayment");
+		
+		custException.IsTrue(pagedriver.IsNotPresent(LocateMe), "DashBoard Make Payment Link Not found " );
+	}
+	public void DashBoardStruggglingToPay() throws DocumentException, InterruptedException
+	{
+		String LocateMe=loginLoct.getlocator("//locators/QuickLinkStrugglingPay");
+		
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Struggling to Pay? not found on DashBoard" );
+	}
+	
+	public void DashBoardAmendDirectDebit() throws DocumentException, InterruptedException
+	{
+		String LocateMe=loginLoct.getlocator("//locators/QuickAmendDebit");
+		
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Amend Direct Debit not found on DashBoard" );
+	}
+	
+	public void DashBoardSubmitReading() throws DocumentException, InterruptedException
+	{
+		String LocateMe=loginLoct.getlocator("//locators/QuickLinkMeterReading");
+		
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Quick Link 'Submit a Meter Reading' not found on DashBoard" );
+	}
+	
+	public void DashBoardMovingLink() throws DocumentException, InterruptedException
+	{
+		String LocateMe=loginLoct.getlocator("//locators/QuickLinkMoving");
+		
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Quick Link 'Tell us You are Moving' not found on DashBoard" );
+	}
+	
+	public void DashBoardFooterButton(String DisplayText) throws DocumentException, InterruptedException
+	{
+		String LocateMe=loginLoct.getlocator("//locators/QuickLinkFooterButton");
+		LocateMe=LocateMe.replace("DisplayText", DisplayText);
+		
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Footer Button '"+DisplayText+"' not found on DashBoard" );
+	}
+	
+	public void DashBoardLatestBillMainHeading() throws DocumentException, InterruptedException
+	{
+		String LocateMe=loginLoct.getlocator("//locators/LatestBillMainHeading");
+		
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Latest Bill heading not found on DashBoard" );
+	}
+	
+	public void DashBoardLatestBillAmount() throws DocumentException, InterruptedException
+	{
+		String LocateMe=loginLoct.getlocator("//locators/LatestBillAmount");
+		
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Latest Bill Amount not found on DashBoard" );
+	}
+	
+	public void DashBoardLatestBillDate() throws DocumentException, InterruptedException
+	{
+		String LocateMe=loginLoct.getlocator("//locators/LatestBillDateLabel");
+		
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Latest Bill Date label not found on DashBoard" );
+		
+		LocateMe=loginLoct.getlocator("//locators/LatestBillDate");
+		
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Latest Bill Date Date not found on DashBoard" );
+	}
+	
+	public void DashBoardPaymentReferenceNumber() throws DocumentException, InterruptedException
+	{
+		String LocateMe=loginLoct.getlocator("//locators/PaymentRefNumberLabel");
+		
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Payment Reference Label not found on DashBoard" );
+		
+		LocateMe=loginLoct.getlocator("//locators/PaymentRefNumber");
+		
+		WebElement ele =pagedriver.getwebelement(LocateMe);
+		String Temp=ele.getText();
+		String[] OutPut = Temp.split(":");
+		System.out.println(Temp);
+		custException.IsTrue(OutPut.length>1, "Payment Reference Number Not Loaded" );
+		custException.IsTrue(OutPut[1].trim()!="", "Payment Reference Number is blank" );
+		
+	}
+	
+	public void DashBoardCustomerReferenceNumber() throws DocumentException, InterruptedException
+	{
+		String LocateMe=loginLoct.getlocator("//locators/CustomerNumberLabel");
+		
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Customer Reference Label not found on DashBoard" );
+		
+		LocateMe=loginLoct.getlocator("//locators/CustomerNumber");
+		
+		WebElement ele =pagedriver.getwebelement(LocateMe);
+		String Temp=ele.getText();
+		String[] OutPut = Temp.split(":");
+		System.out.println(Temp);
+		custException.IsTrue(OutPut.length>1, "Customer Number is Not Loaded" );
+		custException.IsTrue(OutPut[1].trim()!="", "Customer Number is blank" );
+		
+	}
+	
+	public void DashBoardBillDueLabel() throws DocumentException, InterruptedException
+	{
+		String LocateMe=loginLoct.getlocator("//locators/BillAmountDueHeading");
+		
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Bill Amount Label not found on DashBoard" );
+		
+	}
+	public void DashBoardBillAmount() throws DocumentException, InterruptedException
+	{
+		String LocateMe=loginLoct.getlocator("//locators/BillAmount");
+		
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Bill Amount not found on DashBoard" );
+		
+	}
+	
+	public void DashBoardBillAmountDate() throws DocumentException, InterruptedException
+	{
+		String LocateMe=loginLoct.getlocator("//locators/BillAmountDueDate");
+		
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Bill Amount Due Date not found on DashBoard" );
+		
+	}
+	
+	public void MatchBillDateAndDueDateisSame() throws DocumentException, InterruptedException
+	{
+		String LocateMe=loginLoct.getlocator("//locators/LatestBillDate");
+		
+		WebElement ele =pagedriver.getwebelement(LocateMe);
+		String Date1=ele.getText();
+		Date1=Date1.replaceAll("\\s", "");
+		System.out.println("");
+		System.out.println(Date1);
+		
+		LocateMe=loginLoct.getlocator("//locators/BillAmountDueDate");
+		ele =pagedriver.getwebelement(LocateMe);
+		String Date2=ele.getText();
+		Date2=Date2.replaceAll("\\s", "");
+		System.out.println("");
+		System.out.println(Date2);
+		
+		custException.IsTrue(Date1.equalsIgnoreCase(Date1), "Latest Bill Date and Amount Due Date not Matched" );
+		
+	}
+	
+	
+	public void MeterReadingHeading() throws DocumentException, InterruptedException
+	{
+		String LocateMe=loginLoct.getlocator("//locators/MeterReadingHeading");
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "MeterReading Heading Section 'Meter reading' not found" );
+		
+	}
+	
+	public void MeterReadingLabelAndValues() throws DocumentException, InterruptedException
+	{
+		
+		
+		String LocateMe=loginLoct.getlocator("//locators/MeterReadSectionLabel");
+		List<WebElement> labels=pagedriver.getwebelements(LocateMe);
+		custException.IsTrue(labels.size()==3, "MeterReading Labels not loaded correctly" );
+		
+		LocateMe=loginLoct.getlocator("//locators/MeterReadSectionText");
+		List<WebElement> texts=pagedriver.getwebelements(LocateMe);
+		custException.IsTrue(texts.size()==3, "MeterReading Labels values not loaded correctly" );
+		
+		WebElement ele1=labels.get(0);
+		String label=ele1.getText();
+		//label=label.replaceAll("\\s", "");
+		custException.IsTrue(label.equalsIgnoreCase("Last meter reading"), "Last meter reading label not found" );
+		
+		
+		ele1=texts.get(0);
+		label=ele1.getText();
+		label=label.replaceAll("\\s", "");
+		custException.IsTrue(label!=""||label!=null, "Last meter reading value not found" );
+	}
+	
+	public void MeterNumberLabelAndValues() throws DocumentException, InterruptedException
+	{
+		
+		
+		String LocateMe=loginLoct.getlocator("//locators/MeterReadSectionLabel");
+		List<WebElement> labels=pagedriver.getwebelements(LocateMe);
+		custException.IsTrue(labels.size()==3, "MeterReading Labels not loaded correctly" );
+		
+		LocateMe=loginLoct.getlocator("//locators/MeterReadSectionText");
+		List<WebElement> texts=pagedriver.getwebelements(LocateMe);
+		custException.IsTrue(texts.size()==3, "MeterReading Labels values not loaded correctly" );
+		
+		WebElement ele1=labels.get(1);
+		String label=ele1.getText();
+		//label=label.replaceAll("\\s", "");
+		custException.IsTrue(label.equalsIgnoreCase("Meter number"), "Meter number label not found" );
+		
+		
+		ele1=texts.get(1);
+		label=ele1.getText();
+		label=label.replaceAll("\\s", "");
+		custException.IsTrue(label!=""||label!=null, "Meter number value not found" );
+	}
+	
+	public void MeterReadLabelAndValues() throws DocumentException, InterruptedException
+	{
+		
+		
+		String LocateMe=loginLoct.getlocator("//locators/MeterReadSectionLabel");
+		List<WebElement> labels=pagedriver.getwebelements(LocateMe);
+		
+		
+		LocateMe=loginLoct.getlocator("//locators/MeterReadSectionText");
+		List<WebElement> texts=pagedriver.getwebelements(LocateMe);
+		
+		
+		WebElement ele1=labels.get(2);
+		String label=ele1.getText();
+		//label=label.replaceAll("\\s", "");
+		custException.IsTrue(label.equalsIgnoreCase("Date last read"), "Date last read label not found" );
+		
+		
+		ele1=texts.get(2);
+		label=ele1.getText();
+		label=label.replaceAll("\\s", "");
+		custException.IsTrue(label!=""||label!=null, "Date last read value not found" );
+	}
+	
+	public void ExtraFunction() throws DocumentException, InterruptedException
+	{
+		String LocateMe=loginLoct.getlocator("//locators/LatestBillMainHeading");
+		
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Latest Bill heading not found on DashBoard" );
+	}
+	
+	public void PaperlessSettingPageOpen() throws Exception
+	{
+		Thread.sleep(3500);
+		custException.IsTrue(pagedriver.IsPresent(loginLoct.getlocator("//locators/PaperLessSettingHeading")), "Paperless Seeting Heading not found not found");
+		
+	}
+	
+	public void SelectOnline() throws Exception
+	{
+		String LocateMe=loginLoct.getlocator("//locators/PaperlessOnline");	
+	}
+	
+	public void ClickUpdateofPaperless() throws Exception
+	{
+		String LocateMe=loginLoct.getlocator("//locators/PaperlessUpdate");	
+		pagedriver.Clickon(pagedriver.getwebelement(LocateMe));
+	}
+	
+	public void ThankYouMessage() throws Exception
+	{
+		String LocateMe=loginLoct.getlocator("//locators/PaperlessUpdate");
+		
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "'Thank You' Message not depict on screen after paperless Update" );
+	}
+	
+	public void SetupDirectDebitPageOpen() throws Exception
+	{
+		String LocateMe=loginLoct.getlocator("//locators/SetupDirectDebitHeading");
+		
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Set Up Direct Debit page not open " );
+	}
+	
+	public void DashBoardFooterButtonClick(String DisplayText) throws Exception
+	{
+		String LocateMe=loginLoct.getlocator("//locators/QuickLinkFooterButton");
+		LocateMe=LocateMe.replace("DisplayText", DisplayText);
+		
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Footer Button '"+DisplayText+"' not found on DashBoard" );
+		 lastTabCount=pagedriver.TabSize();
+		
+		pagedriver.Clickon(pagedriver.getwebelement(LocateMe));
+	}
+	public void ContactUsPageOpenInNewTab() throws Exception
+	{
+		newTabCount=pagedriver.TabSize();
+		custException.IsTrue(newTabCount-lastTabCount==1, "New Tab is not open" );
+		pagedriver.SwitchToLastTab();
+		String LocateMe=loginLoct.getlocator("//locators/ContactUsPageHeading");
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Contact Us page is not open" );
 	}
 }

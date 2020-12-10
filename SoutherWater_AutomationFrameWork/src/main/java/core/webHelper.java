@@ -175,4 +175,5 @@ public interface webHelper {
 	public void ScrollWindowDownVertically(WebDriver driver) throws InterruptedException;
 	
 	public void AcceptJavaScriptMethod()throws InterruptedException;
+	public int TabSize();
 }
