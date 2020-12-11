@@ -38,7 +38,7 @@ Feature: Move In
     And I clicked on the Continue button
     Then I should be able to see error messages on Moving details page
 
-  @SIT
+  #@SIT
   Scenario Outline: Verify that i can Move-in SW region with my Bank Detail and Correspondence as Yes
     Given I have open the move-in page
     And I click on Start button
@@ -73,7 +73,7 @@ Feature: Move In
       | SO45 2LU | 1 FRANCIS COURT, WALTONS AVENUE,HOLBURY,SO45 2LU | Mrs    | FTest12 | MTest12 | LTest12 | 12/02/1980 | 9818156878 | test12@yahoo.com |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
       | PO30 1TP | 121 HIGH STREET, NEWPORT, PO30 1TP               | Mr     | FTest13 | MTest13 | LTest13 | 20/08/1986 | 9818156878 | test13@yahoo.com |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
 
-  @SIT
+  #@SIT
   Scenario Outline: Verify that i can Move-in SW region without my Bank Detail and Correspondence as Yes
     Given I have open the move-in page
     And I click on Start button
@@ -106,7 +106,7 @@ Feature: Move In
       | BN14 0ES | 19 MARSHALL AVENUE,WORTHING,BN14 0ES   | Prof   | FTest22 | MTest22 | LTest22 | 25/10/1976 | 9818156878 | test2B@yahoo.com | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
       | ME12 3AU | 2 HALFWAY ROAD,MINSTER-ON-SEA,ME12 3AU | Mrs    | FTest23 | MTest23 | LTest23 | 25/10/1983 | 9818156878 | test2C@yahoo.com | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
 
-  @SIT
+  #@SIT
   Scenario Outline: Verify that I can Move-in SW region with my Bank Detail and Correspondence as No
     Given I have open the move-in page
     And I click on Start button
@@ -172,6 +172,9 @@ Feature: Move In
     And Confirmation Message
 
     Examples: 
-      | PostCode | Address                                           | PostCode2 | Address2                           | NTitle | FName   | MName   | LName   | DOB        | PNumber    | email              | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
-      | SO14 3TP | 2 TASMAN COURT, TASMAN CLOSE,SOUTHAMPTON,SO14 3TP | PO33 2JT  | 19 RIBOLEAU STREET, RYDE, PO33 2JT | Mr     | FTest4A | MTest4A | LTest4A | 25/10/1989 | 9818156878 | test44AA@yahoo.com | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
-      | SO23 8SH | 20 LONGHOUSE GREEN,WINCHESTER,SO23 8SH            | PO33 2JT  | 19 RIBOLEAU STREET, RYDE, PO33 2JT | Mrs    | FTest4B | MTest4B | LTest4B | 25/10/1975 | 9818156878 | test44BB@yahoo.com | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
+      | PostCode | Address                                          | PostCode2 | Address2                           | NTitle | FName   | MName   | LName   | DOB        | PNumber    | email              | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
+      | BN1 6YG  | 39 REGENCY COURT, WITHDEAN RISE,BRIGHTON,BN1 6YG | PO33 2JT  | 19 RIBOLEAU STREET, RYDE, PO33 2JT | Mr     | FTest4A | MTest4A | LTest4A | 25/10/1989 | 9818156878 | test44AA@yahoo.com | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
+   # Examples: 
+   #   | PostCode | Address                                           | PostCode2 | Address2                           | NTitle | FName   | MName   | LName   | DOB        | PNumber    | email              | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
+   #   | SO14 3TP | 2 TASMAN COURT, TASMAN CLOSE,SOUTHAMPTON,SO14 3TP | PO33 2JT  | 19 RIBOLEAU STREET, RYDE, PO33 2JT | Mr     | FTest4A | MTest4A | LTest4A | 25/10/1989 | 9818156878 | test44AA@yahoo.com | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
+   #   | SO23 8SH | 20 LONGHOUSE GREEN,WINCHESTER,SO23 8SH            | PO33 2JT  | 19 RIBOLEAU STREET, RYDE, PO33 2JT | Mrs    | FTest4B | MTest4B | LTest4B | 25/10/1975 | 9818156878 | test44BB@yahoo.com | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |

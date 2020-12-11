@@ -302,7 +302,7 @@ public class MoveInFunction {
 
 	public void verifyEmailMessage() throws DocumentException, InterruptedException {
 
-		custException.IsTrue(pagedriver.IsNotPresent(MoveInLoct.getlocator("//locators/VerifyEmailHeading")),
+		custException.IsTrue(pagedriver.IsPresent(MoveInLoct.getlocator("//locators/VerifyEmailHeading")),
 				"Verification Email Not found");
 
 	}
@@ -313,7 +313,7 @@ public class MoveInFunction {
 	}
 
 	public void ConfirmationMessage() throws InterruptedException, DocumentException, Exception {
-		custException.IsTrue(pagedriver.IsNotPresent(MoveInLoct.getlocator("//locators/ConfirmationMessage")),
+		custException.IsTrue(pagedriver.IsPresent(MoveInLoct.getlocator("//locators/ConfirmationMessage")),
 				"Confirmation Message Not found");
 	}
 
