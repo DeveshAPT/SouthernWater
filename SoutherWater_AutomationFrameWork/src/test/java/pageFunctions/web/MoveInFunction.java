@@ -293,10 +293,10 @@ public class MoveInFunction {
 
 		// custException.IsTrue(pagedriver.IsNotPresent(MoveInLoct.getlocator("//locators/MoveInCustomerLabel")),"Movin
 		// Confirmation label Customer label Not found");
-		custException.IsTrue(pagedriver.IsNotPresent(MoveInLoct.getlocator("//locators/GeneratedMoveInCustomerNumber")),
+		custException.IsTrue(pagedriver.IsPresent(MoveInLoct.getlocator("//locators/GeneratedMoveInCustomerNumber")),
 				"Movin Confirmation Customer ID Not Generated");
 		// custException.pagedriver.IsNotPresent(MoveInLoct.getlocator("//locators/MoveInPayRefLabel"));
-		custException.IsTrue(pagedriver.IsNotPresent(MoveInLoct.getlocator("//locators/GeneratedMoveInPayRefNumber")),
+		custException.IsTrue(pagedriver.IsPresent(MoveInLoct.getlocator("//locators/GeneratedMoveInPayRefNumber")),
 				"\"Movin Confirmation Payment Reference  Not Generated");
 	}
 
