@@ -99,13 +99,23 @@ public class AccountDashBoardFunctions {
 	
 	public void DashBoardOptionsClick(String OptionText) throws Exception
 	{
+		//YourAccountClick();
 		List<WebElement> elements=pagedriver.getwebelements(loginLoct.getlocator("//locators/AccountDashBoardOption"));
+		WebElement ele=elements.get(0);
+		String text=ele.getText().toString();
+		text=text.trim();
+		if(text==""||text==null)
+			YourAccountClick();
+		elements=pagedriver.getwebelements(loginLoct.getlocator("//locators/AccountDashBoardOption"));
 		boolean found=false;
-		
+		/*if(elements.size()==0)
+		{
+			YourAccountClick();
+		}*/
 		for(int i=0;i<=elements.size();i++)
 		{
-			WebElement ele=elements.get(i);
-			String text=ele.getText().toString();
+			ele=elements.get(i);
+			text=ele.getText().toString();
 			System.out.println(text);
 			if(text.equals(OptionText))
 			{
@@ -117,6 +127,34 @@ public class AccountDashBoardFunctions {
 			
 		}
 		custException.IsTrue(found, "DashBoard Option = '"+OptionText+" is not Loaded unable to click");		
+	}
+	
+	public void SubmitMeterReadingPageOpen() throws DocumentException, InterruptedException
+	{
+		
+		Thread.sleep(5000);
+		String LocateMe=loginLoct.getlocator("//locators/SubmitMeterPageHeading");
+		
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Submit Reading Page Not Open " );
+	}
+	
+	
+	public void CloseAccountPageOpen() throws DocumentException, InterruptedException
+	{
+		
+		Thread.sleep(5000);
+		String LocateMe=loginLoct.getlocator("//locators/CloseAccountButton");
+		
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Close Account Page Not Open " );
+	}
+	
+	public void MakePaymentPageOpen() throws DocumentException, InterruptedException
+	{
+		
+		Thread.sleep(5000);
+		String LocateMe=loginLoct.getlocator("//locators/PaymentPageHeading");
+		
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Payment Page Not Open " );
 	}
 	
 	public void DashBoardQuickLinkFound(String DisplayText) throws DocumentException, InterruptedException
@@ -414,6 +452,20 @@ public class AccountDashBoardFunctions {
 		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Set Up Direct Debit page not open " );
 	}
 	
+	public void YourProfilePageOpen() throws Exception
+	{
+		String LocateMe=loginLoct.getlocator("//locators/YourProfileHeading");
+		
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Your Profile Page is not open" );
+	}
+	
+	public void PaymentHistoryPageOpen() throws Exception
+	{
+		String LocateMe=loginLoct.getlocator("//locators/PaymentHistoryPageHeading");
+		
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Payment History Page is not open" );
+	}
+	
 	public void DashBoardFooterButtonClick(String DisplayText) throws Exception
 	{
 		String LocateMe=loginLoct.getlocator("//locators/QuickLinkFooterButton");
@@ -431,5 +483,23 @@ public class AccountDashBoardFunctions {
 		pagedriver.SwitchToLastTab();
 		String LocateMe=loginLoct.getlocator("//locators/ContactUsPageHeading");
 		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Contact Us page is not open" );
+	}
+	
+	public void Target100PageOpenInNewTab() throws Exception
+	{
+		newTabCount=pagedriver.TabSize();
+		custException.IsTrue(newTabCount-lastTabCount==1, "New Tab is not open" );
+		pagedriver.SwitchToLastTab();
+		String LocateMe=loginLoct.getlocator("//locators/Target100Heading");
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Target 100 page is not open" );
+	}
+	
+	public void KeepITClearPageOpenInNewTab() throws Exception
+	{
+		newTabCount=pagedriver.TabSize();
+		custException.IsTrue(newTabCount-lastTabCount==1, "New Tab is not open" );
+		pagedriver.SwitchToLastTab();
+		String LocateMe=loginLoct.getlocator("//locators/KeepItClearBanner");
+		custException.IsTrue(pagedriver.IsPresent(LocateMe), "Keep It Clear page is not open" );
 	}
 }

@@ -6,11 +6,12 @@
 <MovingDetails>//div/h1[text()='Moving details']</MovingDetails>
 <CustomerPostCode>//input[@id="customerpostcode"]</CustomerPostCode> 
 <FindAddressButton>//div/input[@value='Find address']</FindAddressButton>
-<SelectAddress>//*[@id="selectedAddress"]</SelectAddress>
+<SelectAddress>//select[@id='selectedAddress']</SelectAddress>
 <YourMovingDateLabel>//div/label[text()='Your moving date']</YourMovingDateLabel>
 <MoveOutDate>//*[@id="moveOutDate"]/div/input</MoveOutDate>
 <NumberOfOccupants>//label[text()='Number of occupants']/following-sibling::input</NumberOfOccupants>
-<ContinueButton>//div/button[text()=' Continue ']</ContinueButton>
+<ContinueButton>//button[contains(text(),'Continue')]</ContinueButton>
+<ContinueLink>//a[contains(text(),'Continue')]</ContinueLink>
 <YourDetailsHeader>//h1[text()='Your details']</YourDetailsHeader>
 <SelectTitle>//*[@id="title"]</SelectTitle>
 <FirstName>//input[@id="inpFirstName"]</FirstName>
@@ -31,7 +32,7 @@
 <VerifyNumberOfOccupants>//*[@id="content"]/div/div[2]/div[1]/div[3]/div[5]/p</VerifyNumberOfOccupants>
 <AccountNumberLabel>//div/h3[text()='Account number']</AccountNumberLabel>
 <VerifyAccountNumber>//*[@id="content"]/div/div[2]/div[1]/div[4]/div[3]/div[3]/p</VerifyAccountNumber>
-<ConfirmDetailsButton>//div/button[text()=' Confirm details ']</ConfirmDetailsButton>
+<ConfirmDetailsButton>//button[contains(text(),'Confirm details')]</ConfirmDetailsButton>
 <BackButton>//div/a[text()='Back']</BackButton>
 <ThereIsAProblemErrorMessage>//*[text()='There’s a problem']</ThereIsAProblemErrorMessage>
 <CorrectErrorsToContinueErrorMessage>//*[text()='You’ll need to correct the errors to continue.']</CorrectErrorsToContinueErrorMessage>
@@ -43,4 +44,16 @@
 <NumberOfOccupantsErrorMessage>//div[contains(@class,'invalid-feedback')]/span[contains(text(),'Please enter the number of occupants')]</NumberOfOccupantsErrorMessage>
 <EnterYourAddressManually>//*[@content='Enter your address manually']</EnterYourAddressManually>
 <PleaseSelectAnAddress>//*[text()='Please select an address']</PleaseSelectAnAddress>
+<CorrespondenceYes>//input[@id='correspondenceAddressYes']/parent::div//label</CorrespondenceYes>
+<CorrespondenceNo>//input[@id='correspondenceAddressYes']/parent::div//label</CorrespondenceNo>
+<DirectDebitNo>//input[@id='payment-details__1-receipt-of-bill']/parent::div//label</DirectDebitNo>
+<MoveInCustomerLabel>//div[@class='review-detail-section'][1]//h3</MoveInCustomerLabel>
+<GeneratedMoveInCustomerNumber>//div[@class='review-detail-section'][1]//p</GeneratedMoveInCustomerNumber>
+<MoveInPayRefLabel>//div[@class='review-detail-section'][2]//h3</MoveInPayRefLabel>
+<GeneratedMoveInPayRefNumber>//div[@class='review-detail-section'][2]//p</GeneratedMoveInPayRefNumber>
+<VerifyEmailHeading>//h1[text()='Verify your email address']</VerifyEmailHeading>
+<Finish>//button[contains(text(),'Finish')]</Finish>
+<ConfirmationMessage>//h1[text()='Confirmation']</ConfirmationMessage>
+
+
 </locators>

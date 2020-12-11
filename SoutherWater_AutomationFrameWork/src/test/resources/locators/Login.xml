@@ -26,7 +26,7 @@
 
 <!-- Account DashBoard -->
 <AccountButtons>//ul[@id='nav-icons']//button[contains(.,'DisplayText')]</AccountButtons>
-<AccountDashBoardOption>//div[@class='sw-body-container']//div[@class='subnav-group']//a</AccountDashBoardOption>
+<AccountDashBoardOption>//div[@class='sw-body-container']//div[@class='subnav-group']//a//span</AccountDashBoardOption>
 <AccountDashBoardLink>//div[@class='sw-body-container']//h2//span[text()='Dashboard']//parent::a</AccountDashBoardLink>
 <LogOut>//div[@class='sw-body-container']//h2//span[text()='Log out']//parent::a</LogOut>
 <DashBoardSection>//div[@class='dashboard-top-section-containt']</DashBoardSection>
@@ -59,5 +59,9 @@
 <PaperlessUpdate>//button[contains(text(),'Update')]</PaperlessUpdate>
 <SetupDirectDebitHeading>//h1[text()='Set up/Amend Direct Debit']</SetupDirectDebitHeading>
 <ContactUsPageHeading>//h1[text()='Contact Us']</ContactUsPageHeading>
+<Target100Heading>//h1[text()='Target 100']</Target100Heading>
+<KeepItClearBanner>//div[@class='banner__content']//strong[text()='Keep it Clear']</KeepItClearBanner>
+<YourProfileHeading>//h1[text()='View Profile']</YourProfileHeading>
+<PaymentHistoryPageHeading>//h1[text()='Payment history']</PaymentHistoryPageHeading>
 </locators>
 

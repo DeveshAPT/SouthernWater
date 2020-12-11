@@ -70,7 +70,7 @@
 					
 					<!-- Forgot Password  -->
 					<!--  <include name="Reset_Password"/> -->
-					<include name="Auth_CloseConfirm"/>
+					
 					<!-- Auth Close Account -->
 					<!-- <include name="Auth_MoveOutDate"/> 
 					<include name="Auth_BillStep"/> 
@@ -79,7 +79,7 @@
 					
 					
 					 <!-- Auth Pay Bill -->
-					  
+					 
 					 <!-- <include name="Auth_PayBillAuth_Amount"/>-->
 					 
 					  <!-- Auth Pay Bill -->
