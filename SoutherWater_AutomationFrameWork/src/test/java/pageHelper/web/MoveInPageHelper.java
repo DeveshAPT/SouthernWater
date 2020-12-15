@@ -324,4 +324,27 @@ public class MoveInPageHelper {
 	public void i_Select_my_Address_from_address_list() throws Throwable {
 		moveIN.SelectAddress();
 	}
+	
+	@Then("^I can see Mobile and Home number for Contact Details$")
+	public void i_can_see_Mobile_and_Home_number_for_Contact_Details() throws Throwable 
+	{
+		moveIN.MobileHomeContactPresent();  
+	}
+	
+	@Then("^I can select one at a time$")
+	public void i_can_select_one_at_a_time() throws Throwable {
+		moveIN.verifyToggelingMobileHomeToggelButton();
+	}
+	
+	@When("^Click on Title$")
+	public void click_on_Title() throws Throwable 
+	{
+		moveIN.ClickOnTitle();   
+	}
+
+	@Then("^I can See Title Dropdow with Miss,Mr,Mrs,Ms,Dr\\.,Prof$")
+	public void i_can_See_Title_Dropdow_with_Miss_Mr_Mrs_Ms_Dr_Prof() throws Throwable {
+		moveIN.VerifyTitleOptions();
+	}
+
 }

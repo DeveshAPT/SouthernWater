@@ -38,7 +38,43 @@ Feature: Move In
     And I clicked on the Continue button
     Then I should be able to see error messages on Moving details page
 
-  #@SIT
+  @SIT
+  Scenario Outline: Verify the i can enter either Mobile or Home Contact number while moving in SW region
+    Given I have open the move-in page
+    And I click on Start button
+    And I enter Address post code <PostCode>
+    And I Click on Find Address
+    And I Select my Address <Address> from address list
+    And I Enter my  moving date
+    And I Select Correspondence address yes
+    And I Enter Number of occupant
+    When I Click Continue in MoveIN
+    Then I can see Mobile and Home number for Contact Details
+    And I can select one at a time
+
+    Examples: 
+      | PostCode | Address                                     |
+      | PO39 0AN | IVYHURST ,  THE BROADWAY, TOTLAND, PO39 0AN |
+
+  @SIT
+  Scenario Outline: Verify The Name titles Available in Move-IN Journey at Your Details step
+    Given I have open the move-in page
+    And I click on Start button
+    And I enter Address post code <PostCode>
+    And I Click on Find Address
+    And I Select my Address <Address> from address list
+    And I Enter my  moving date
+    And I Select Correspondence address yes
+    And I Enter Number of occupant
+    When I Click Continue in MoveIN
+    And Click on Title
+    Then I can See Title Dropdow with Miss,Mr,Mrs,Ms,Dr.,Prof
+
+    Examples: 
+      | PostCode | Address                                     |
+      | PO39 0AN | IVYHURST ,  THE BROADWAY, TOTLAND, PO39 0AN |
+
+  @SIT1
   Scenario Outline: Verify that i can Move-in SW region with my Bank Detail and Correspondence as Yes
     Given I have open the move-in page
     And I click on Start button
@@ -73,7 +109,7 @@ Feature: Move In
       | SO45 2LU | 1 FRANCIS COURT, WALTONS AVENUE,HOLBURY,SO45 2LU | Mrs    | FTest12 | MTest12 | LTest12 | 12/02/1980 | 9818156878 | test12@yahoo.com |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
       | PO30 1TP | 121 HIGH STREET, NEWPORT, PO30 1TP               | Mr     | FTest13 | MTest13 | LTest13 | 20/08/1986 | 9818156878 | test13@yahoo.com |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
 
-  #@SIT
+  @SIT1
   Scenario Outline: Verify that i can Move-in SW region without my Bank Detail and Correspondence as Yes
     Given I have open the move-in page
     And I click on Start button
@@ -106,7 +142,7 @@ Feature: Move In
       | BN14 0ES | 19 MARSHALL AVENUE,WORTHING,BN14 0ES   | Prof   | FTest22 | MTest22 | LTest22 | 25/10/1976 | 9818156878 | test2B@yahoo.com | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
       | ME12 3AU | 2 HALFWAY ROAD,MINSTER-ON-SEA,ME12 3AU | Mrs    | FTest23 | MTest23 | LTest23 | 25/10/1983 | 9818156878 | test2C@yahoo.com | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
 
-  #@SIT
+  @SIT1
   Scenario Outline: Verify that I can Move-in SW region with my Bank Detail and Correspondence as No
     Given I have open the move-in page
     And I click on Start button
@@ -142,7 +178,7 @@ Feature: Move In
       | PO33 4NT | 2 LUSHINGTON VILLAS, LUSHINGTON HILL,RYDE,PO33 4NT | PO33 2JT  | 19 RIBOLEAU STREET, RYDE, PO33 2JT | Miss   | FTest3A | MTest3A | LTest3A | 25/10/1972 | 9818156878 | test3A@yahoo.com |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
       | PO40 9EE | 2 MAYDENE, UPPER PRINCES ROAD,FRESHWATER,PO40 9EE  | PO33 2JT  | 19 RIBOLEAU STREET, RYDE, PO33 2JT | Ms     | FTest3B | MTest3B | LTest3B | 25/10/1990 | 9818156878 | test3B@yahoo.com |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
 
-  @SIT
+  @SIT1
   Scenario Outline: Verify that i can Move-in SW region without my Bank Detail and Correspondence as No
     Given I have open the move-in page
     And I click on Start button

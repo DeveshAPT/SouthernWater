@@ -14,6 +14,7 @@
 <ContinueLink>//a[contains(text(),'Continue')]</ContinueLink>
 <YourDetailsHeader>//h1[text()='Your details']</YourDetailsHeader>
 <SelectTitle>//*[@id="title"]</SelectTitle>
+<Titledropdow>//select[@id='title']</Titledropdow>
 <FirstName>//input[@id="inpFirstName"]</FirstName>
 <MiddleName>//input[@id="inpMiddleName"]</MiddleName>
 <LastName>//input[@id="inpName"]</LastName>
@@ -54,6 +55,7 @@
 <VerifyEmailHeading>//h1[text()='Verify your email address']</VerifyEmailHeading>
 <Finish>//button[contains(text(),'Finish')]</Finish>
 <ConfirmationMessage>//h1[text()='Confirmation']</ConfirmationMessage>
-
+<Mobile>//a[@id='mobile']</Mobile>
+<Home>//a[@id='home']</Home>
 
 </locators>

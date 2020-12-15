@@ -1,6 +1,7 @@
 package pageFunctions.web;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.dom4j.DocumentException;
@@ -274,8 +275,28 @@ public class MoveInFunction {
 
 	}
 
-	public void CommonContinue() throws Exception {
-		try {
+	public void CommonContinue() throws Exception 
+	{
+		System.out.println();
+		boolean first=pagedriver.IsPresent(MoveInLoct.getlocator("//locators/ContinueButton"));
+		System.out.println(first);
+		if(first)
+		{
+			pagedriver.Clickon(pagedriver.getwebelement(MoveInLoct.getlocator("//locators/ContinueButton")));
+		}
+		else 
+		{
+			boolean Second=pagedriver.IsPresent(MoveInLoct.getlocator("//locators/ContinueLink"));
+			System.out.println(Second);
+			if(Second)
+			{
+				pagedriver.Clickon(pagedriver.getwebelement(MoveInLoct.getlocator("//locators/ContinueLink")));
+			}
+			
+		}
+		
+		
+		/*try {
 			List<WebElement> buttons = pagedriver.getwebelements(MoveInLoct.getlocator("//locators/ContinueButton"));
 			List<WebElement> links = pagedriver.getwebelements(MoveInLoct.getlocator("//locators/ContinueLink"));
 			if (buttons.size() > 0)
@@ -285,9 +306,44 @@ public class MoveInFunction {
 		} catch (Exception ex) {
 			System.out.print("Check Continue Button");
 			System.out.print(ex.toString());
-		}
+		}*/
 	}
 
+	public void MobileHomeContactPresent() throws DocumentException, InterruptedException {
+		custException.IsTrue(
+				pagedriver.IsPresent(MoveInLoct.getlocator("//locators/Mobile"))
+						&& pagedriver.IsPresent(MoveInLoct.getlocator("//locators/Home")),
+				"Mobile and Home Contact details entering Button not Present");
+	}
+
+	public void verifyToggelingMobileHomeToggelButton() throws Exception {
+		Thread.sleep(5000);
+		WebElement eleMobile=pagedriver.getwebelement(MoveInLoct.getlocator("//locators/Mobile"));
+		WebElement eleHome=pagedriver.getwebelement(MoveInLoct.getlocator("//locators/Home"));
+		pagedriver.Clickon(eleMobile);
+		
+		String mobileClass=eleMobile.getAttribute("class");
+		System.out.println(mobileClass);
+		String homeClass=eleHome.getAttribute("class");
+		System.out.println(homeClass);
+		
+		custException.IsTrue(mobileClass.equals("secondary-button selected") && homeClass.equals("secondary-button"), "Mobile Home contact buttons are not toggel in nature");
+		
+		pagedriver.Clickon(eleHome);
+		
+		eleMobile=pagedriver.getwebelement(MoveInLoct.getlocator("//locators/Mobile"));
+		eleHome=pagedriver.getwebelement(MoveInLoct.getlocator("//locators/Home"));
+		
+		
+		mobileClass=eleMobile.getAttribute("class");
+		System.out.println(mobileClass);
+		homeClass=eleHome.getAttribute("class");
+		System.out.println(homeClass);
+		
+		custException.IsTrue(mobileClass.equals("secondary-button") && homeClass.equals("secondary-button selected"), "Mobile Home contact buttons are not toggel in nature");
+	}
+
+	
 	public void verifyCustomeridGenerated() throws DocumentException, InterruptedException {
 		Thread.sleep(20000);
 
@@ -347,5 +403,41 @@ public class MoveInFunction {
 		Select DisplayAddress = new Select(AddDrops.get(1));
 		DisplayAddress.selectByVisibleText(Address);
 
+	}
+	
+	public void ClickOnTitle() throws InterruptedException, DocumentException, Exception
+	{
+		pagedriver.Clickon(pagedriver.getwebelement(MoveInLoct.getlocator("//locators/Titledropdow")));
+	}
+	
+	public void VerifyTitleOptions() throws InterruptedException, DocumentException
+	{
+		Thread.sleep(5000);
+		Select titleDrop = new Select(pagedriver.getwebelement(MoveInLoct.getlocator("//locators/Titledropdow")));
+		List<WebElement> eles = titleDrop.getOptions();
+		List<String> titles=new ArrayList<String>();
+		
+		for (int i = 0; i < eles.size(); i++) {
+			WebElement opt = eles.get(i);
+			String temp = opt.getText();
+			temp=	temp.replaceAll("\\s", "");
+			System.out.println(temp);
+			titles.add(temp);
+			
+		}
+		
+		custException.IsTrue(titles.indexOf("Miss")>-1,"'Miss' not Present in Title");
+		
+		custException.IsTrue(titles.indexOf("Mr")>-1,"'Mr' not Present in Title");
+		
+		custException.IsTrue(titles.indexOf("Mrs")>-1,"'Mrs' not Present in Title");
+		
+		custException.IsTrue(titles.indexOf("Ms")>-1,"'Ms' not Present in Title");
+		
+		custException.IsTrue(titles.indexOf("Dr.")>-1,"'Dr.' not Present in Title");
+		
+		custException.IsTrue(titles.indexOf("Prof")>-1,"'Prof' not Present in Title");
+		
+				
 	}
 }

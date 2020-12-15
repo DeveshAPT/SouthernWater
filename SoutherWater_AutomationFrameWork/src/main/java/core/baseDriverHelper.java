@@ -1802,7 +1802,9 @@ try {
 		return date1;
 	}
 	
-	public static String GetFutureDate() {	
+	public static String GetFutureDate() {
+		
+		
 	    // For selecting move-out date
 		// Create object of SimpleDateFormat class and decide the format
 		DateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY "); 
@@ -1813,7 +1815,7 @@ try {
 		Calendar c = Calendar.getInstance();
 		c.setTime(currentDate);
 		// manipulate date
-		c.add(Calendar.DATE, 15); 
+		c.add(Calendar.DATE, 10); 
 		// convert calendar to date
 		Date currentDatePlusOne = c.getTime();
 		// Now format the date
