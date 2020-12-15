@@ -48,6 +48,7 @@
 <CorrespondenceYes>//input[@id='correspondenceAddressYes']/parent::div//label</CorrespondenceYes>
 <CorrespondenceNo>//input[@id='correspondenceAddressYes']/parent::div//label</CorrespondenceNo>
 <DirectDebitNo>//input[@id='payment-details__1-receipt-of-bill']/parent::div//label</DirectDebitNo>
+<DirectDebitYes>//input[@id='payment-details__1-direct-debit']/parent::div/label</DirectDebitYes>
 <MoveInCustomerLabel>//div[@class='review-detail-section'][1]//h3</MoveInCustomerLabel>
 <GeneratedMoveInCustomerNumber>//div[@class='review-detail-section'][1]//p</GeneratedMoveInCustomerNumber>
 <MoveInPayRefLabel>//div[@class='review-detail-section'][2]//h3</MoveInPayRefLabel>
@@ -57,5 +58,13 @@
 <ConfirmationMessage>//h1[text()='Confirmation']</ConfirmationMessage>
 <Mobile>//a[@id='mobile']</Mobile>
 <Home>//a[@id='home']</Home>
+<PayMonthly>//input[@id='payMonthely']/parent::div/label</PayMonthly>
+<PayFull>//input[@id='payFull']/parent::div/label</PayFull>
+<DayOne>//input[@id='dayOne']/parent::div/label</DayOne>
+<DayFive>//input[@id='dayFive']/parent::div/label</DayFive>
+<DayTen>//input[@id='dayTen']/parent::div/label</DayTen>
+<DayFifteen>//input[@id='dayFifteen']/parent::div/label</DayFifteen>
+<DayTwenty>//input[@id='dayTwenty']/parent::div/label</DayTwenty>
+<DayTwentyFive>//input[@id='dayTwentyFive']/parent::div/label</DayTwentyFive>
 
 </locators>

@@ -38,7 +38,7 @@ Feature: Move In
     And I clicked on the Continue button
     Then I should be able to see error messages on Moving details page
 
-  @SIT
+  @SIT1
   Scenario Outline: Verify the i can enter either Mobile or Home Contact number while moving in SW region
     Given I have open the move-in page
     And I click on Start button
@@ -56,7 +56,7 @@ Feature: Move In
       | PostCode | Address                                     |
       | PO39 0AN | IVYHURST ,  THE BROADWAY, TOTLAND, PO39 0AN |
 
-  @SIT
+  @SIT1
   Scenario Outline: Verify The Name titles Available in Move-IN Journey at Your Details step
     Given I have open the move-in page
     And I click on Start button
@@ -108,6 +108,75 @@ Feature: Move In
       | PO39 0AN | IVYHURST ,  THE BROADWAY, TOTLAND, PO39 0AN      | Miss   | FTest1  | MTest1  | LTest1  | 25/10/1985 | 9818156878 | test1@yahoo.com  |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
       | SO45 2LU | 1 FRANCIS COURT, WALTONS AVENUE,HOLBURY,SO45 2LU | Mrs    | FTest12 | MTest12 | LTest12 | 12/02/1980 | 9818156878 | test12@yahoo.com |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
       | PO30 1TP | 121 HIGH STREET, NEWPORT, PO30 1TP               | Mr     | FTest13 | MTest13 | LTest13 | 20/08/1986 | 9818156878 | test13@yahoo.com |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
+
+
+@SIT1
+  Scenario Outline: Verify that Payment Frequency While Move-in SW region with my Bank Detail and Correspondence as Yes
+    Given I have open the move-in page
+    And I click on Start button
+    And I enter Address post code <PostCode>
+    And I Click on Find Address
+    And I Select my Address <Address> from address list
+    And I Enter my  moving date
+    And I Select Correspondence address yes
+    And I Enter Number of occupant
+    And I Click Continue in MoveIN
+    And I Enter NameTitle <NTitle> FirstName <FName> MName <MName> LName <LName> Date of Birth <DOB> PhoneNumber <PNumber> email <email>
+    And I Click Continue in MoveIN
+    When I Select Direct Debit as Yes
+    Then I can See 'Pay in monthly installments'
+    And 'Pay in Full'
+    And I am able to select to 'Pay in monthly installments'
+    And I am able to select to 'Pay in Full'
+
+    Examples: 
+      | PostCode | Address                                          | NTitle | FName   | MName   | LName   | DOB        | PNumber    | email            | 
+      | PO39 0AN | IVYHURST ,  THE BROADWAY, TOTLAND, PO39 0AN      | Miss   | FTest1  | MTest1  | LTest1  | 25/10/1985 | 9818156878 | test1@yahoo.com  |
+
+
+@SIT1
+  Scenario Outline: Verify that I can Select Payment Frequency different day of month with Direct Dabit and Pay in monthly installments
+    Given I have open the move-in page
+    And I click on Start button
+    And I enter Address post code <PostCode>
+    And I Click on Find Address
+    And I Select my Address <Address> from address list
+    And I Enter my  moving date
+    And I Select Correspondence address yes
+    And I Enter Number of occupant
+    And I Click Continue in MoveIN
+    And I Enter NameTitle <NTitle> FirstName <FName> MName <MName> LName <LName> Date of Birth <DOB> PhoneNumber <PNumber> email <email>
+    And I Click Continue in MoveIN
+    When I Select Direct Debit as Yes
+    And I select to 'Pay in monthly installments'
+    Then I Can Select any day of Month for Direct Dabit
+
+    Examples: 
+      | PostCode | Address                                          | NTitle | FName   | MName   | LName   | DOB        | PNumber    | email            | 
+      | PO39 0AN | IVYHURST ,  THE BROADWAY, TOTLAND, PO39 0AN      | Miss   | FTest1  | MTest1  | LTest1  | 25/10/1985 | 9818156878 | test1@yahoo.com  |     
+
+
+@SIT
+  Scenario Outline: Verify that I can Select Payment Frequency different day of month with Direct Dabit and Pay in Full
+    Given I have open the move-in page
+    And I click on Start button
+    And I enter Address post code <PostCode>
+    And I Click on Find Address
+    And I Select my Address <Address> from address list
+    And I Enter my  moving date
+    And I Select Correspondence address yes
+    And I Enter Number of occupant
+    And I Click Continue in MoveIN
+    And I Enter NameTitle <NTitle> FirstName <FName> MName <MName> LName <LName> Date of Birth <DOB> PhoneNumber <PNumber> email <email>
+    And I Click Continue in MoveIN
+    When I Select Direct Debit as Yes
+    And I select to 'Pay in Full'
+    Then I Can Select any day of Month for Direct Dabit
+
+    Examples: 
+      | PostCode | Address                                          | NTitle | FName   | MName   | LName   | DOB        | PNumber    | email            | 
+      | PO39 0AN | IVYHURST ,  THE BROADWAY, TOTLAND, PO39 0AN      | Miss   | FTest1  | MTest1  | LTest1  | 25/10/1985 | 9818156878 | test1@yahoo.com  |     
+
 
   @SIT1
   Scenario Outline: Verify that i can Move-in SW region without my Bank Detail and Correspondence as Yes

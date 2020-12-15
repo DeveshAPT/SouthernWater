@@ -44,18 +44,18 @@ public class MoveInFunction {
 				"Create an account");
 	}
 
-	public void StartClick() throws InterruptedException, DocumentException, Exception {
+	public void startClick() throws InterruptedException, DocumentException, Exception {
 		pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/StartButton")));
 	}
 
-	public void FillMoveINDetails(String postCode, String address) throws Exception {
+	public void fillMoveINDetails(String postCode, String address) throws Exception {
 		Thread.sleep(3000);
 		pageDriver.WaitforPageToBeReady();
 		pageDriver.VerifyText(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/MovingDetails")),
 				"Moving details");
-		EnterPostCode(postCode);
+		enterPostCode(postCode);
 
-		FindAddressClick();
+		findAddressClick();
 		Thread.sleep(3000);
 
 		pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/SelectAddress")));
@@ -64,7 +64,7 @@ public class MoveInFunction {
 		Thread.sleep(2000);
 	}
 
-	public void EnterMoveINDate() throws InterruptedException, IOException, DocumentException {
+	public void enterMoveINDate() throws InterruptedException, IOException, DocumentException {
 		String date1 = core.baseDriverHelper.GetFutureDate();
 		System.out.println("selected date::: " + date1);
 		pageDriver.VerifyText(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/YourMovingDateLabel")),
@@ -74,27 +74,27 @@ public class MoveInFunction {
 		Thread.sleep(2000);
 	}
 
-	public void EnterOccupant() throws InterruptedException, IOException, DocumentException {
+	public void enterOccupant() throws InterruptedException, IOException, DocumentException {
 
 		pageDriver.SendKeys(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/NumberOfOccupants")),
 				String.valueOf(NumberOfOccupants) + Keys.TAB);
 		Thread.sleep(2000);
 	}
 
-	public void ContinueClick() throws InterruptedException, DocumentException, Exception {
+	public void continueClick() throws InterruptedException, DocumentException, Exception {
 		pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/ContinueButton")));
 		Thread.sleep(2000);
 		pageDriver.WaitforPageToBeReady();
 	}
 
-	public void VerifyYourDetailsSteps() throws InterruptedException, DocumentException {
+	public void verifyYourDetailsSteps() throws InterruptedException, DocumentException {
 		pageDriver.VerifyText(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/YourDetailsHeader")),
 				"Your details");
 		Thread.sleep(2000);
 
 	}
 
-	public void EnterYourDetails(String title, String firstName, String middleName, String lastName, String dOB,
+	public void enterYourDetails(String title, String firstName, String middleName, String lastName, String dOB,
 			String contact, String email) throws InterruptedException, DocumentException, Exception {
 
 		pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/SelectTitle")));
@@ -110,7 +110,7 @@ public class MoveInFunction {
 		Thread.sleep(2000);
 	}
 
-	public void EnterCustomerPaymentDetails(String accHoldName, String code1, String code2, String code3,
+	public void enterCustomerPaymentDetails(String accHoldName, String code1, String code2, String code3,
 			String accountNumber) throws Exception {
 		pageDriver.WaitforPageToBeReady();
 		pageDriver.VerifyText(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/PaymentDeatils")),
@@ -125,7 +125,7 @@ public class MoveInFunction {
 		Thread.sleep(2000);
 	}
 
-	public void VerifyMoveINDetails(String firstName, String midName, String lastName, String email, String occupant,
+	public void verifyMoveINDetails(String firstName, String midName, String lastName, String email, String occupant,
 			String accountNumber) throws Exception {
 		pageDriver.WaitforPageToBeReady();
 		pageDriver.VerifyText(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/CheckAndConfirmHeader")),
@@ -144,11 +144,11 @@ public class MoveInFunction {
 		Thread.sleep(3000);
 	}
 
-	public void ConfirmDetailButton() throws InterruptedException, DocumentException, Exception {
+	public void confirmDetailButton() throws InterruptedException, DocumentException, Exception {
 		pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/ConfirmDetailsButton")));
 	}
 
-	public void VerifyMoveInDetailPageLoaded() throws Exception {
+	public void verifyMoveInDetailPageLoaded() throws Exception {
 		pageDriver.WaitforPageToBeReady();
 		pageDriver.VerifyText(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/MovingDetails")),
 				"Moving details");
@@ -156,7 +156,7 @@ public class MoveInFunction {
 
 	}
 
-	public void VerifyMandatoryFieldsMessage() throws Exception {
+	public void verifyMandatoryFieldsMessage() throws Exception {
 		Thread.sleep(2000);
 		pageDriver.WaitforPageToBeReady();
 		pageDriver.VerifyText(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/ThereIsAProblemErrorMessage")),
@@ -183,19 +183,19 @@ public class MoveInFunction {
 
 	}
 
-	public void EnterPostCode(String postcode) throws InterruptedException, IOException, DocumentException {
+	public void enterPostCode(String postcode) throws InterruptedException, IOException, DocumentException {
 		Thread.sleep(2000);
 		pageDriver.SendKeys(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/CustomerPostCode")),
 				postcode + Keys.TAB);
 	}
 
-	public void FindAddressClick() throws InterruptedException, DocumentException, Exception {
+	public void findAddressClick() throws InterruptedException, DocumentException, Exception {
 		pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/FindAddressButton")));
 		pageDriver.WaitforPageToBeReady();
 		Thread.sleep(2000);
 	}
 
-	public void InValidAddressMessage() throws Exception {
+	public void inValidAddressMessage() throws Exception {
 		Thread.sleep(2000);
 		pageDriver.WaitforPageToBeReady();
 		pageDriver.VerifyText(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/ThereIsAProblemErrorMessage")),
@@ -210,12 +210,12 @@ public class MoveInFunction {
 				"Please enter a valid UK postcode");
 	}
 
-	public void VerifyEnterAddressManually() throws InterruptedException, DocumentException {
+	public void verifyEnterAddressManually() throws InterruptedException, DocumentException {
 		pageDriver.VerifyText(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/EnterYourAddressManually")),
 				"Enter your address manually");
 	}
 
-	public void PleaseSelectAddressAndOtherErrorMessage() throws InterruptedException, DocumentException {
+	public void pleaseSelectAddressAndOtherErrorMessage() throws InterruptedException, DocumentException {
 		pageDriver.VerifyText(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/ThereIsAProblemErrorMessage")),
 				"There’s a problem");
 		pageDriver.VerifyText(
@@ -236,7 +236,7 @@ public class MoveInFunction {
 				"Please enter the number of occupants");
 	}
 
-	public void SelectAddress(String address) throws InterruptedException, DocumentException, Exception {
+	public void selectAddress(String address) throws InterruptedException, DocumentException, Exception {
 		int j = 0;
 		Select DisplayAddress = new Select(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/SelectAddress")));
 		try {
@@ -268,14 +268,14 @@ public class MoveInFunction {
 
 	}
 
-	public void SelectAddress() throws InterruptedException, DocumentException, Exception {
+	public void selectAddress() throws InterruptedException, DocumentException, Exception {
 
 		Select DisplayAddress = new Select(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/SelectAddress")));
 		DisplayAddress.selectByIndex(2);
 
 	}
 
-	public void CommonContinue() throws Exception 
+	public void commonContinue() throws Exception 
 	{
 		System.out.println();
 		boolean first=pageDriver.IsPresent(MoveInLoct.getlocator("//locators/ContinueButton"));
@@ -309,7 +309,7 @@ public class MoveInFunction {
 		}*/
 	}
 
-	public void MobileHomeContactPresent() throws DocumentException, InterruptedException {
+	public void mobileHomeContactPresent() throws DocumentException, InterruptedException {
 		custException.IsTrue(
 				pageDriver.IsPresent(MoveInLoct.getlocator("//locators/Mobile"))
 						&& pageDriver.IsPresent(MoveInLoct.getlocator("//locators/Home")),
@@ -343,7 +343,6 @@ public class MoveInFunction {
 		custException.IsTrue(mobileClass.equals("secondary-button") && homeClass.equals("secondary-button selected"), "Mobile Home contact buttons are not toggel in nature");
 	}
 
-	
 	public void verifyCustomeridGenerated() throws DocumentException, InterruptedException {
 		Thread.sleep(20000);
 
@@ -363,25 +362,89 @@ public class MoveInFunction {
 
 	}
 
-	public void ClickonFinish() throws InterruptedException, DocumentException, Exception {
+	public void clickonFinish() throws InterruptedException, DocumentException, Exception {
 		pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/Finish")));
 
 	}
 
-	public void ConfirmationMessage() throws InterruptedException, DocumentException, Exception {
+	public void confirmationMessage() throws InterruptedException, DocumentException, Exception {
 		custException.IsTrue(pageDriver.IsPresent(MoveInLoct.getlocator("//locators/ConfirmationMessage")),
 				"Confirmation Message Not found");
 	}
 
-	public void SelectDebitasNo() throws InterruptedException, DocumentException {
+	public void selectDebitasNo() throws InterruptedException, DocumentException {
 		pageDriver.SafeJavaScriptClick(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/DirectDebitNo")));
 	}
 
-	public void CorrespondenceAddNo() throws InterruptedException, DocumentException {
+	public void selectDebitasYes() throws InterruptedException, DocumentException {
+		pageDriver.SafeJavaScriptClick(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/DirectDebitYes")));
+	}
+	
+	public void verifyPayInMonthlyInstall() throws InterruptedException, DocumentException {
+		custException.IsTrue(pageDriver.IsPresent(MoveInLoct.getlocator("//locators/PayMonthly")),"'Pay in Monthly installments' option is not available for Payment Frequency");
+	}
+	
+	public void verifyPayInFull() throws InterruptedException, DocumentException {
+		custException.IsTrue(pageDriver.IsPresent(MoveInLoct.getlocator("//locators/PayFull")),"'Pay in full' option is not available for Payment Frequency");
+	}
+	
+	public void selectPayInMonthlyInstall() throws Exception 
+	{	
+		Thread.sleep(5000);
+		pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/PayMonthly")));
+	}
+	
+	public void verifyDayofDirectDebitOption() throws Exception 
+	{	
+		
+		custException.IsTrue(pageDriver.IsPresent(MoveInLoct.getlocator("//locators/DayOne")),"'1st' Day of Direct is not not available for Payment Frequency");
+		
+		custException.IsTrue(pageDriver.IsPresent(MoveInLoct.getlocator("//locators/DayFive")),"'5th' Day of Direct is not not available for Payment Frequency");
+		
+		custException.IsTrue(pageDriver.IsPresent(MoveInLoct.getlocator("//locators/DayTen")),"'10th' Day of Direct is not not available for Payment Frequency");
+		
+		custException.IsTrue(pageDriver.IsPresent(MoveInLoct.getlocator("//locators/DayFifteen")),"'15th' Day of Direct is not not available for Payment Frequency");
+		
+		custException.IsTrue(pageDriver.IsPresent(MoveInLoct.getlocator("//locators/DayTwenty")),"'20th' Day of Direct is not not available for Payment Frequency");
+		
+		custException.IsTrue(pageDriver.IsPresent(MoveInLoct.getlocator("//locators/DayTwentyFive")),"'25th' Day of Direct is not not available for Payment Frequency");
+	}
+	
+	public void clickDayofDirectDebitOption() throws Exception 
+	{	
+		
+		pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/DayOne")));
+		Thread.sleep(5000);
+		
+		pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/DayFive")));
+		Thread.sleep(5000);
+		
+		pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/DayTen")));
+		Thread.sleep(5000);
+		
+		pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/DayFifteen")));
+		Thread.sleep(5000);
+		
+		pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/DayTwenty")));
+		Thread.sleep(5000);
+		
+		pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/DayTwentyFive")));
+		
+		Thread.sleep(5000);
+	}
+	
+	public void selectPayInFull() throws Exception 
+	{
+		Thread.sleep(5000);
+		pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/PayFull")));
+		Thread.sleep(5000);
+	}
+	
+	public void correspondenceAddNo() throws InterruptedException, DocumentException {
 		pageDriver.SafeJavaScriptClick(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/CorrespondenceNo")));
 	}
 
-	public void CorrespondanceCode(String code) throws Exception {
+	public void correspondanceCode(String code) throws Exception {
 
 		Thread.sleep(5000);
 		List<WebElement> Input = pageDriver.getwebelements(MoveInLoct.getlocator("//locators/CustomerPostCode"));
@@ -395,7 +458,7 @@ public class MoveInFunction {
 
 	}
 
-	public void SelectCorresponAdd(String Address) throws Exception {
+	public void selectCorresponAdd(String Address) throws Exception {
 
 		Thread.sleep(5000);
 		List<WebElement> AddDrops = pageDriver.getwebelements(MoveInLoct.getlocator("//locators/SelectAddress"));
@@ -405,12 +468,12 @@ public class MoveInFunction {
 
 	}
 	
-	public void ClickOnTitle() throws InterruptedException, DocumentException, Exception
+	public void clickOnTitle() throws InterruptedException, DocumentException, Exception
 	{
 		pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/Titledropdow")));
 	}
 	
-	public void VerifyTitleOptions() throws InterruptedException, DocumentException
+	public void verifyTitleOptions() throws InterruptedException, DocumentException
 	{
 		Thread.sleep(5000);
 		Select titleDrop = new Select(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/Titledropdow")));
