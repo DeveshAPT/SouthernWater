@@ -62,6 +62,16 @@
 <Target100Heading>//h1[text()='Target 100']</Target100Heading>
 <KeepItClearBanner>//div[@class='banner__content']//strong[text()='Keep it Clear']</KeepItClearBanner>
 <YourProfileHeading>//h1[text()='View Profile']</YourProfileHeading>
+<YourProfileDashboard>//h1[text()='Your profile']</YourProfileDashboard>
+<YourProfileEmailIDHeading>//p[text()='Email address']</YourProfileEmailIDHeading>
+<YourProfileEmailID>//p[text()='Email address']/following::p</YourProfileEmailID>
+<YourAddressLabel>//p[text()='Correspondence address']</YourAddressLabel>
+<YourAddressValues>//p[text()='Correspondence address']/parent::div//div/div</YourAddressValues>
 <PaymentHistoryPageHeading>//h1[text()='Payment history']</PaymentHistoryPageHeading>
+<AccountDetailHeading>//h1[text()='Account details']</AccountDetailHeading>
+<PropertyAddresslabel>//p[text()='Property address']</PropertyAddresslabel>
+<PropertyAddress>//p[text()='Property address']/parent::div/div</PropertyAddress>
+<YourServiceLabel>//p[text()='Your services']</YourServiceLabel>
+<YourServiceType>//p[text()='Your services']/following::p</YourServiceType>
 </locators>
 

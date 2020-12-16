@@ -204,7 +204,7 @@ Feature: Account Dashboard
       | Kumar.devesh82@yahoo.com | Apple@123 |
 
   @SIT
-  Scenario Outline: Registered User Should See latest Bill and Bill Date
+  Scenario Outline: Registered User Should See Meter Reading Section With last Meter Reading, Meter Number and Date last read
     Given I am at login page
     When I Enter my <Email> and <Password> into respective fields
     And Click on Login

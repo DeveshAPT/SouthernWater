@@ -1,6 +1,6 @@
 Feature: Move In
 
-  @SIT1
+  @SIT1 
   Scenario: Verify that user is able to move in to a address successfully
     Given I am on create an account page
     And I click on Start button

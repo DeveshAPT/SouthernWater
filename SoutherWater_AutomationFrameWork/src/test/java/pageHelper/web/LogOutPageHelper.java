@@ -45,8 +45,8 @@ public class LogOutPageHelper
 	@And("^I Logout from SW Portal$")
 	public void i_Logout_from_SW_Portal() throws Throwable 
 	{
-		dashBoard.LogoutClick(); 
-		dashBoard.LogoutSuccessfully();    
+		dashBoard.logoutClick(); 
+		dashBoard.logoutSuccessfully();    
 	}
 
 	@When("^Relogin with Using Login Credentials ([^\"]*) and ([^\"]*)$")
