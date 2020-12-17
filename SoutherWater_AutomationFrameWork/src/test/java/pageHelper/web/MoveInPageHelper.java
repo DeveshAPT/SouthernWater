@@ -429,4 +429,9 @@ public class MoveInPageHelper {
 	{
 		moveIN.randomClickDayofDirectDebitOption();
 	}
+	
+	@And("^I Select Home as Contact$")
+	public void i_Select_Home_as_Contact() throws Throwable {
+		moveIN.clickHomeAsContact();
+	}
 }

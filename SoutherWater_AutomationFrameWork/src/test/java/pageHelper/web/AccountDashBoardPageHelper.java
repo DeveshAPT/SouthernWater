@@ -33,7 +33,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.specification.RequestSpecification;
 import pageFunctions.web.AccountDashBoardFunctions;
-import pageFunctions.web.ExcelReading;
+import pageFunctions.web.ExcelWork;
 import pageFunctions.web.LoginFunctions;
 import pageHelper.bddDriver;
 import utils.PropertyReader;
@@ -48,7 +48,7 @@ public class AccountDashBoardPageHelper {
 	private bddDriver DriverInstance;
 	public String enteredName, enteredCustomerNumber, enteredEmailID, newEmail, firstSecurityQuest;
 	PropertyReader prpertyreader = new PropertyReader();
-	ExcelReading excel = new ExcelReading();
+	ExcelWork excel = new ExcelWork();
 
 	public AccountDashBoardPageHelper(WebDriver driver) {
 		webDriver = new baseDriverHelper(driver);

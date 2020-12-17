@@ -19,6 +19,7 @@ public class MoveInFunction {
 
 	public webHelper pageDriver;
 	public AssertionExceptionManager custException;
+	ExcelWork exl=new ExcelWork();;
 	PropertyReader prpertyreader = new PropertyReader();
 
 	xmlreader MoveInLoct = new xmlreader("src\\test\\resources\\locators\\MoveIn.xml");
@@ -145,7 +146,8 @@ public class MoveInFunction {
 		Thread.sleep(3000);
 	}
 
-	public void confirmDetailButton() throws InterruptedException, DocumentException, Exception {
+	public void confirmDetailButton() throws InterruptedException, DocumentException, Exception 
+	{
 		//pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/ConfirmDetailsButton")));
 	}
 
@@ -362,16 +364,34 @@ public class MoveInFunction {
 		custException.IsTrue(mobileClass.equals("secondary-button") && homeClass.equals("secondary-button selected"), "Mobile Home contact buttons are not toggel in nature");
 	}
 
-	public void verifyCustomeridGenerated() throws DocumentException, InterruptedException {
+	public void clickHomeAsContact() throws Exception
+	{
+		WebElement eleHome=pageDriver.getwebelement(MoveInLoct.getlocator("//locators/Home"));
+		pageDriver.Clickon(eleHome);
+	}
+	
+	public void verifyCustomeridGenerated() throws DocumentException, InterruptedException, IOException {
+		
 		Thread.sleep(20000);
-
-		// custException.IsTrue(pageDriver.IsNotPresent(MoveInLoct.getlocator("//locators/MoveInCustomerLabel")),"Movin
-		// Confirmation label Customer label Not found");
-		custException.IsTrue(pageDriver.IsPresent(MoveInLoct.getlocator("//locators/GeneratedMoveInCustomerNumber")),
-				"Movin Confirmation Customer ID Not Generated");
-		// custException.pageDriver.IsNotPresent(MoveInLoct.getlocator("//locators/MoveInPayRefLabel"));
-		custException.IsTrue(pageDriver.IsPresent(MoveInLoct.getlocator("//locators/GeneratedMoveInPayRefNumber")),
-				"\"Movin Confirmation Payment Reference  Not Generated");
+		//exl.WriteCustomerID("2020","2021");
+		custException.IsTrue(pageDriver.IsNotPresent(MoveInLoct.getlocator("//locators/CheckAndConfirm")),"Move-In Confirmation Customer ID and Payment Reference Not Generated");
+		
+		String CustIDLocate=MoveInLoct.getlocator("//locators/GeneratedMoveInCustomerNumber");
+		String PayRefLocate=MoveInLoct.getlocator("//locators/GeneratedMoveInPayRefNumber");
+		
+		custException.IsTrue(pageDriver.IsPresent(CustIDLocate),"Move-In Confirmation Customer ID Not Generated");
+		
+		custException.IsTrue(pageDriver.IsPresent(PayRefLocate),"Move-In Confirmation Payment Reference  Not Generated");
+		
+		WebElement CustEle=pageDriver.getwebelement(CustIDLocate);
+		WebElement PayEle=pageDriver.getwebelement(PayRefLocate);
+	
+		System.out.println();
+		String CustomerID=CustEle.getText();
+		System.out.println(CustomerID);
+		String PaymentRef=PayEle.getText();
+		System.out.println(PaymentRef);
+		exl.WriteCustomerID(CustomerID,PaymentRef);
 	}
 
 	public void verifyEmailMessage() throws DocumentException, InterruptedException {

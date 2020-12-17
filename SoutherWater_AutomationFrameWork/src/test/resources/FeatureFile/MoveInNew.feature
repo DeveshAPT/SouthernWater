@@ -144,8 +144,7 @@ Feature: Move-In
       | PostCode | Address                            | PostCode2 | Address2                           | NTitle | FName   | MName   | LName   | DOB        | PNumber    | email            | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
       | PO33 1AT | 155 MARLBOROUGH ROAD,RYDE,PO33 1AT | PO33 2JT  | 19 RIBOLEAU STREET, RYDE, PO33 2JT | Dr.    | FTest21 | MTest21 | LTest21 | 25/10/1985 | 9818156878 | test2A@yahoo.com | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
 
-
-@SIT
+  @SIT6
   Scenario Outline: Move-in into metered Property as DD Customer Full payment
     Given I have open the move-in page
     And I click on Start button
@@ -161,7 +160,7 @@ Feature: Move-In
     And Select Direct Debit as Yes
     And I Enter BankDetail <FName> Sort Code <SortCode> Account Number <AccNumber>
     And I select to 'Pay in Full'
-    And I Select Randome Day of Month 
+    And I Select Randome Day of Month
     And I Click Continue in MoveIN
     When I Click Confirm Details
     And Customer ID, Payment Reference depict on Screen
@@ -176,11 +175,45 @@ Feature: Move-In
     And Confirmation Message
 
     Examples: 
-      | PostCode | Address                                          | NTitle | FName   | MName   | LName   | DOB        | PNumber    | email            | SortCode | AccNumber | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
-      | PO39 0AN | IVYHURST ,  THE BROADWAY, TOTLAND, PO39 0AN      | Miss   | FTest1  | MTest1  | LTest1  | 25/10/1985 | 9818156878 | test1@yahoo.com  |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
-    
+      | PostCode | Address                                     | NTitle | FName  | MName  | LName  | DOB        | PNumber    | email           | SortCode | AccNumber | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
+      | PO39 0AN | IVYHURST ,  THE BROADWAY, TOTLAND, PO39 0AN | Miss   | FTest1 | MTest1 | LTest1 | 25/10/1985 | 9818156878 | test1@yahoo.com |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
 
- @SIT7
+  @SIT
+  Scenario Outline: Move-in Asses Property as non  Customer Full payment
+    Given I have open the move-in page
+    And I click on Start button
+    And I enter Address post code <PostCode>
+    And I Click on Find Address
+    And I Select my Address <Address> from address list
+    And I Enter my  moving date
+    And I Select Correspondence address yes
+    And I Enter Number of occupant
+    And I Click Continue in MoveIN
+    And I Select Home as Contact
+    And I Enter NameTitle <NTitle> FirstName <FName> MName <MName> LName <LName> Date of Birth <DOB> PhoneNumber <PNumber> email <email>
+    And I Click Continue in MoveIN
+    And Select Direct Debit as Yes
+    And I Enter BankDetail <FName> Sort Code <SortCode> Account Number <AccNumber>
+    And I select to 'Pay in Full'
+    And I Select Randome Day of Month
+    And I Click Continue in MoveIN
+    When I Click Confirm Details
+    And Customer ID, Payment Reference depict on Screen
+    And I Click Continue in MoveIN
+    And Set Password as <Password>
+    And First Security Question <Question1> and Answer <Answer1>
+    And Second Security Question <Question2> and Answer <Answer2>
+    And I agree  Terms and Condition
+    And I Click Continue in MoveIN
+    Then I Should  See Activation Mail send on my EmailID Message
+    And Click on Finish
+    And Confirmation Message
+
+    Examples: 
+      | PostCode | Address                                     | NTitle | FName  | MName  | LName  | DOB        | PNumber    | email           | SortCode | AccNumber | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
+      | PO39 0AN | IVYHURST ,  THE BROADWAY, TOTLAND, PO39 0AN | Miss   | FTest1 | MTest1 | LTest1 | 25/10/1985 | 9818156878 | test1@yahoo.com |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
+
+  @SIT8
   Scenario Outline: Move-in into Unmetered Property DD customer
     Given I have open the move-in page
     And I click on Start button
@@ -210,11 +243,8 @@ Feature: Move-In
     And Confirmation Message
 
     Examples: 
-      | PostCode | Address                                          | NTitle | FName   | MName   | LName   | DOB        | PNumber    | email            | SortCode | AccNumber | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
-      | PO39 0AN | IVYHURST ,  THE BROADWAY, TOTLAND, PO39 0AN      | Miss   | FTest1  | MTest1  | LTest1  | 25/10/1985 | 9818156878 | test1@yahoo.com  |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
-    
-
-
+      | PostCode | Address                                     | NTitle | FName  | MName  | LName  | DOB        | PNumber    | email           | SortCode | AccNumber | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
+      | PO39 0AN | IVYHURST ,  THE BROADWAY, TOTLAND, PO39 0AN | Miss   | FTest1 | MTest1 | LTest1 | 25/10/1985 | 9818156878 | test1@yahoo.com |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
 
   @SIT1
   Scenario Outline: Verify that i can Move-in SW region with my Bank Detail and Correspondence as Yes
