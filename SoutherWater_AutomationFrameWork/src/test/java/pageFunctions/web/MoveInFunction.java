@@ -3,6 +3,7 @@ package pageFunctions.web;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.dom4j.DocumentException;
 import org.openqa.selenium.Keys;
@@ -145,7 +146,7 @@ public class MoveInFunction {
 	}
 
 	public void confirmDetailButton() throws InterruptedException, DocumentException, Exception {
-		pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/ConfirmDetailsButton")));
+		//pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/ConfirmDetailsButton")));
 	}
 
 	public void verifyMoveInDetailPageLoaded() throws Exception {
@@ -236,12 +237,30 @@ public class MoveInFunction {
 				"Please enter the number of occupants");
 	}
 
-	public void selectAddress(String address) throws InterruptedException, DocumentException, Exception {
+	public void selectAddressRandom() throws InterruptedException, DocumentException, Exception 
+	{
 		int j = 0;
 		Select DisplayAddress = new Select(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/SelectAddress")));
-		try {
+		
+			Random rand = new Random(); 
+			List<WebElement> eles = DisplayAddress.getOptions();
+			int rand_int1 = rand.nextInt(eles.size()-1); 
+			DisplayAddress.selectByIndex(rand_int1);
+		
+
+	}
+
+	
+	public void selectAddress(String address) throws InterruptedException, DocumentException, Exception 
+	{
+		int j = 0;
+		Select DisplayAddress = new Select(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/SelectAddress")));
+		try 
+		{
 			DisplayAddress.selectByVisibleText(address);
-		} catch (Exception Ex) {
+		} 
+		catch (Exception Ex) 
+		{
 			List<WebElement> eles = DisplayAddress.getOptions();
 
 			for (int i = 0; i < eles.size(); i++) {
@@ -433,6 +452,24 @@ public class MoveInFunction {
 		Thread.sleep(5000);
 	}
 	
+
+	public void randomClickDayofDirectDebitOption() throws Exception 
+	{	
+		List<WebElement> days = pageDriver.getwebelements(MoveInLoct.getlocator("//locators/DayOne"));
+		days.add(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/DayFive")));
+		days.add(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/DayTen")));
+		days.add(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/DayFifteen")));
+		days.add(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/DayTwenty")));
+		days.add(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/DayTwentyFive")));
+		
+		Random rand = new Random(); 
+		int index = rand.nextInt(days.size()-1); 
+		System.out.print("");
+		System.out.print("Selecting index : "+ Integer.toString(index));
+		pageDriver.Clickon(days.get(index));
+		
+	}
+	
 	public void selectPayInFull() throws Exception 
 	{
 		Thread.sleep(5000);
@@ -462,7 +499,6 @@ public class MoveInFunction {
 
 		Thread.sleep(5000);
 		List<WebElement> AddDrops = pageDriver.getwebelements(MoveInLoct.getlocator("//locators/SelectAddress"));
-
 		Select DisplayAddress = new Select(AddDrops.get(1));
 		DisplayAddress.selectByVisibleText(Address);
 
@@ -502,5 +538,67 @@ public class MoveInFunction {
 		custException.IsTrue(titles.indexOf("Prof")>-1,"'Prof' not Present in Title");
 		
 				
+	}
+	
+	public void mandatoryFieldVerification(String PageStep) throws InterruptedException, DocumentException
+	{
+		List<WebElement> errorList = pageDriver.getwebelements(MoveInLoct.getlocator("//locators/MandatoryFields"));
+		String errorMsg;
+		WebElement errorEle=null;
+		List<String> detailserror=new ArrayList<String>();
+		if(PageStep.equalsIgnoreCase("Moving details"))
+		{
+			detailserror.add("Please enter a valid UK postcode");
+			detailserror.add("Please enter your moving date");
+			detailserror.add("Please enter the number of occupants.");
+			detailserror.add("Occupants entered can only between 1-10");
+		}
+		else if(PageStep.equalsIgnoreCase("Your details"))
+		{
+			detailserror.add("Please select your title");
+			detailserror.add("Please enter your first name");
+			detailserror.add("Please enter your last name");
+			detailserror.add("Please enter your date of birth");
+			detailserror.add("Please provide a valid telephone number");
+			detailserror.add("Please enter your email address");
+		}
+		else if(PageStep.equalsIgnoreCase("Payment details"))
+		{
+			errorList = pageDriver.getwebelements(MoveInLoct.getlocator("//locators/PaymentDetailMandatoryMessage"));
+			detailserror.add("You’ll need to correct the errors to continue.");
+		}
+	    for(int i=0;i<errorList.size();i++)
+			{
+				errorEle=errorList.get(i);
+				errorMsg=errorEle.getText();
+				System.out.println();
+				System.out.println(errorMsg);
+				custException.IsTrue(detailserror.indexOf(errorMsg)>-1,"Mandatory Field Message >> "+errorMsg+" not found ");
+			}
+	}
+	
+	public void enterMandatoryField(String PageStep) throws Exception
+		{
+			if(PageStep.equalsIgnoreCase("Moving details"))
+			{
+				enterPostCode("PO39 0AN");
+				findAddressClick();
+				selectAddressRandom();
+				enterMoveINDate();
+				enterOccupant();
+			}
+			else if(PageStep.equalsIgnoreCase("Your details"))
+			{
+				enterYourDetails("Miss", "Toony", "Bill", "Taylor", "02/02/1985", "9810203040", "TestAutomation@QAutomation.com");
+			}
+			else if(PageStep.equalsIgnoreCase("Payment details"))
+			{
+				enterCustomerPaymentDetails("testAccountHolderName", "20", "00", "00", "55779911");
+			}
+		}
+	
+	public void verifyCheckDetailsPageIsOpen() throws DocumentException, InterruptedException
+	{
+		custException.IsTrue(pageDriver.IsPresent(MoveInLoct.getlocator("//locators/CheckAndConfirm")),"Check Detail Page not Open");
 	}
 }

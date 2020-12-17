@@ -276,7 +276,7 @@ public class MoveInPageHelper {
 
 	@And("^Customer ID, Payment Reference depict on Screen$")
 	public void customer_ID_Payment_Reference_depict_on_Screen() throws Throwable {
-		
+
 		moveIN.verifyCustomeridGenerated();
 
 	}
@@ -323,33 +323,30 @@ public class MoveInPageHelper {
 	public void i_Select_my_Address_from_address_list() throws Throwable {
 		moveIN.selectAddress();
 	}
-	
+
 	@Then("^I can see Mobile and Home number for Contact Details$")
-	public void i_can_see_Mobile_and_Home_number_for_Contact_Details() throws Throwable 
-	{
-		moveIN.mobileHomeContactPresent();  
+	public void i_can_see_Mobile_and_Home_number_for_Contact_Details() throws Throwable {
+		moveIN.mobileHomeContactPresent();
 	}
-	
+
 	@Then("^I can select one at a time$")
 	public void i_can_select_one_at_a_time() throws Throwable {
 		moveIN.verifyToggelingMobileHomeToggelButton();
 	}
-	
+
 	@When("^Click on Title$")
-	public void click_on_Title() throws Throwable 
-	{
-		moveIN.clickOnTitle();   
+	public void click_on_Title() throws Throwable {
+		moveIN.clickOnTitle();
 	}
 
 	@Then("^I can See Title Dropdow with Miss,Mr,Mrs,Ms,Dr\\.,Prof$")
 	public void i_can_See_Title_Dropdow_with_Miss_Mr_Mrs_Ms_Dr_Prof() throws Throwable {
 		moveIN.verifyTitleOptions();
 	}
-	
+
 	@When("^I Select Direct Debit as Yes$")
-	public void i_Select_Direct_Debit_as_Yes() throws Throwable 
-	{
-	    moveIN.selectDebitasYes();
+	public void i_Select_Direct_Debit_as_Yes() throws Throwable {
+		moveIN.selectDebitasYes();
 	}
 
 	@Then("^I can See 'Pay in monthly installments'$")
@@ -371,7 +368,7 @@ public class MoveInPageHelper {
 	public void i_am_able_to_select_to_Pay_in_Full() throws Throwable {
 		moveIN.selectPayInFull();
 	}
-	
+
 	@And("^I select to 'Pay in monthly installments'$")
 	public void i_select_to_Pay_in_monthly_installments() throws Throwable {
 		moveIN.selectPayInMonthlyInstall();
@@ -381,12 +378,55 @@ public class MoveInPageHelper {
 	public void i_Can_Select_any_day_of_Month_for_Direct_Dabit() throws Throwable {
 		moveIN.verifyDayofDirectDebitOption();
 		moveIN.clickDayofDirectDebitOption();
-		
+
 	}
-	
+
 	@When("^I select to 'Pay in Full'$")
 	public void i_select_to_Pay_in_Full() throws Throwable {
 		moveIN.selectPayInFull();
 	}
 
+	@And("^I See Mandatory Field Error Message Moving Details$")
+	public void i_See_Mandatory_Field_Error_Message() throws Throwable {
+		moveIN.mandatoryFieldVerification("Moving details");
+	}
+
+	@And("^I Enter Mandatory Fileds Moving Details$")
+	public void i_Enter_Mandatory_Fileds() throws Throwable {
+		moveIN.enterMandatoryField("Moving details");
+	}
+
+	@And("^I See Mandatory Field Error Message Your Details$")
+	public void i_See_Mandatory_Field_Error_Message_Your_Details() throws Throwable {
+		moveIN.mandatoryFieldVerification("Your details");
+	}
+
+	@And("^I Enter Mandatory Fileds Your Details$")
+	public void i_Enter_Mandatory_Fileds_Your_Details() throws Throwable {
+		moveIN.enterMandatoryField("Your details");
+	}
+
+	@And("^I See Mandatory Field Error Message Payment Details$")
+	public void i_See_Mandatory_Field_Error_Message_Payment_Details() throws Throwable {
+		moveIN.mandatoryFieldVerification("Payment details");
+
+	}
+
+	@And("^I Enter Mandatory Fileds Payment Details$")
+	public void i_Enter_Mandatory_Fileds_Payment_Details() throws Throwable {
+		moveIN.enterMandatoryField("Payment details");
+
+	}
+
+	@Then("^I Should move to Check Detail Page$")
+	public void i_Should_move_to_Check_Detail_Page() throws Throwable {
+		moveIN.verifyCheckDetailsPageIsOpen();
+
+	}
+
+	@And("^I Select Randome Day of Month$")
+	public void i_Select_Randome_Day_of_Month() throws Exception
+	{
+		moveIN.randomClickDayofDirectDebitOption();
+	}
 }

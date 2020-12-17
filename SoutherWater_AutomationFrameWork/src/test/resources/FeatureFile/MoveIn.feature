@@ -212,7 +212,7 @@ Feature: Move In
       | ME12 3AU | 2 HALFWAY ROAD,MINSTER-ON-SEA,ME12 3AU | Mrs    | FTest23 | MTest23 | LTest23 | 25/10/1983 | 9818156878 | test2C@yahoo.com | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
 
   @SIT1
-  Scenario Outline: Verify that I can Move-in SW region with my Bank Detail and Correspondence as No
+  Scenario Outline: Move-in into metered Property as non DD Customer differen Corespondence address
     Given I have open the move-in page
     And I click on Start button
     And I enter Address post code <PostCode>

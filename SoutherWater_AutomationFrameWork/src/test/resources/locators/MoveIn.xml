@@ -66,5 +66,7 @@
 <DayFifteen>//input[@id='dayFifteen']/parent::div/label</DayFifteen>
 <DayTwenty>//input[@id='dayTwenty']/parent::div/label</DayTwenty>
 <DayTwentyFive>//input[@id='dayTwentyFive']/parent::div/label</DayTwentyFive>
-
+<MandatoryFields>//div[@class='feedback-box mb-4 feedback-box--harley']//ul//a</MandatoryFields>
+<PaymentDetailMandatoryMessage>//div[@class='feedback-box mb-4 feedback-box--harley']//p</PaymentDetailMandatoryMessage>
+<CheckAndConfirm>//h1[text()='Check and confirm']</CheckAndConfirm>
 </locators>

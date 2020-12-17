@@ -1,0 +1,252 @@
+Feature: Move-In
+
+  @SIT1
+  Scenario: Verify End to End Move-In Mandatory Field
+    Given I have open the move-in page
+    And I click on Start button
+    And I Click Continue in MoveIN
+    And I See Mandatory Field Error Message Moving Details
+    And I Enter Mandatory Fileds Moving Details
+    And I Click Continue in MoveIN
+    And I Click Continue in MoveIN
+    And I See Mandatory Field Error Message Your Details
+    And I Enter Mandatory Fileds Your Details
+    And I Click Continue in MoveIN
+    And I Click Continue in MoveIN
+    And I See Mandatory Field Error Message Payment Details
+    And I Enter Mandatory Fileds Payment Details
+    When I Click Continue in MoveIN
+    Then I Should move to Check Detail Page
+
+  @SIT2
+  Scenario Outline: Move-In into Metered Property as non DD Customer
+    Given I have open the move-in page
+    And I click on Start button
+    And I enter Address post code <PostCode>
+    And I Click on Find Address
+    And I Select my Address <Address> from address list
+    And I Enter my  moving date
+    And I Select Correspondence address yes
+    And I Enter Number of occupant
+    And I Click Continue in MoveIN
+    And I Enter NameTitle <NTitle> FirstName <FName> MName <MName> LName <LName> Date of Birth <DOB> PhoneNumber <PNumber> email <email>
+    And I Click Continue in MoveIN
+    And Select Direct Dabit as No
+    And I Click Continue in MoveIN
+    When I Click Confirm Details
+    And Customer ID, Payment Reference depict on Screen
+    And I Click Continue in MoveIN
+    And Set Password as <Password>
+    And First Security Question <Question1> and Answer <Answer1>
+    And Second Security Question <Question2> and Answer <Answer2>
+    And I agree  Terms and Condition
+    And I Click Continue in MoveIN
+    Then I Should  See Activation Mail send on my EmailID Message
+    And Click on Finish
+    And Confirmation Message
+
+    Examples: 
+      | PostCode | Address                            | NTitle | FName   | MName   | LName   | DOB        | PNumber    | email            | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
+      | PO33 1AT | 155 MARLBOROUGH ROAD,RYDE,PO33 1AT | Dr.    | FTest21 | MTest21 | LTest21 | 25/10/1985 | 9818156878 | test2A@yahoo.com | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
+
+  @SIT3
+  Scenario Outline: Move-In Asses Property as non DD Customer
+    Given I have open the move-in page
+    And I click on Start button
+    And I enter Address post code <PostCode>
+    And I Click on Find Address
+    And I Select my Address <Address> from address list
+    And I Enter my  moving date
+    And I Select Correspondence address yes
+    And I Enter Number of occupant
+    And I Click Continue in MoveIN
+    And I Enter NameTitle <NTitle> FirstName <FName> MName <MName> LName <LName> Date of Birth <DOB> PhoneNumber <PNumber> email <email>
+    And I Click Continue in MoveIN
+    And Select Direct Dabit as No
+    And I Click Continue in MoveIN
+    When I Click Confirm Details
+    And Customer ID, Payment Reference depict on Screen
+    And I Click Continue in MoveIN
+    And Set Password as <Password>
+    And First Security Question <Question1> and Answer <Answer1>
+    And Second Security Question <Question2> and Answer <Answer2>
+    And I agree  Terms and Condition
+    And I Click Continue in MoveIN
+    Then I Should  See Activation Mail send on my EmailID Message
+    And Click on Finish
+    And Confirmation Message
+
+    Examples: 
+      | PostCode | Address                            | NTitle | FName   | MName   | LName   | DOB        | PNumber    | email            | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
+      | PO33 1AT | 155 MARLBOROUGH ROAD,RYDE,PO33 1AT | Dr.    | FTest21 | MTest21 | LTest21 | 25/10/1985 | 9818156878 | test2A@yahoo.com | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
+
+  @SIT4
+  Scenario Outline: Move-in into Unmetered Property non DD Customer
+    Given I have open the move-in page
+    And I click on Start button
+    And I enter Address post code <PostCode>
+    And I Click on Find Address
+    And I Select my Address <Address> from address list
+    And I Enter my  moving date
+    And I Select Correspondence address yes
+    And I Enter Number of occupant
+    And I Click Continue in MoveIN
+    And I Enter NameTitle <NTitle> FirstName <FName> MName <MName> LName <LName> Date of Birth <DOB> PhoneNumber <PNumber> email <email>
+    And I Click Continue in MoveIN
+    And Select Direct Dabit as No
+    And I Click Continue in MoveIN
+    When I Click Confirm Details
+    And Customer ID, Payment Reference depict on Screen
+    And I Click Continue in MoveIN
+    And Set Password as <Password>
+    And First Security Question <Question1> and Answer <Answer1>
+    And Second Security Question <Question2> and Answer <Answer2>
+    And I agree  Terms and Condition
+    And I Click Continue in MoveIN
+    Then I Should  See Activation Mail send on my EmailID Message
+    And Click on Finish
+    And Confirmation Message
+
+    Examples: 
+      | PostCode | Address                            | NTitle | FName   | MName   | LName   | DOB        | PNumber    | email            | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
+      | PO33 1AT | 155 MARLBOROUGH ROAD,RYDE,PO33 1AT | Dr.    | FTest21 | MTest21 | LTest21 | 25/10/1985 | 9818156878 | test2A@yahoo.com | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
+
+  @SIT5
+  Scenario Outline: Move-In into Metered Property as non DD Customer differen Corespondence address
+    Given I have open the move-in page
+    And I click on Start button
+    And I enter Address post code <PostCode>
+    And I Click on Find Address
+    And I Select my Address <Address> from address list
+    And I Enter my  moving date
+    And I Select Correspondence address No
+    And I enter Correspodant Address post code <PostCode2>
+    And I Select my Correspodant Address <Address2> from address list
+    And I Enter Number of occupant
+    And I Click Continue in MoveIN
+    And I Enter NameTitle <NTitle> FirstName <FName> MName <MName> LName <LName> Date of Birth <DOB> PhoneNumber <PNumber> email <email>
+    And I Click Continue in MoveIN
+    And Select Direct Dabit as No
+    And I Click Continue in MoveIN
+    When I Click Confirm Details
+    And Customer ID, Payment Reference depict on Screen
+    And I Click Continue in MoveIN
+    And Set Password as <Password>
+    And First Security Question <Question1> and Answer <Answer1>
+    And Second Security Question <Question2> and Answer <Answer2>
+    And I agree  Terms and Condition
+    And I Click Continue in MoveIN
+    Then I Should  See Activation Mail send on my EmailID Message
+    And Click on Finish
+    And Confirmation Message
+
+    Examples: 
+      | PostCode | Address                            | PostCode2 | Address2                           | NTitle | FName   | MName   | LName   | DOB        | PNumber    | email            | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
+      | PO33 1AT | 155 MARLBOROUGH ROAD,RYDE,PO33 1AT | PO33 2JT  | 19 RIBOLEAU STREET, RYDE, PO33 2JT | Dr.    | FTest21 | MTest21 | LTest21 | 25/10/1985 | 9818156878 | test2A@yahoo.com | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
+
+
+@SIT
+  Scenario Outline: Move-in into metered Property as DD Customer Full payment
+    Given I have open the move-in page
+    And I click on Start button
+    And I enter Address post code <PostCode>
+    And I Click on Find Address
+    And I Select my Address <Address> from address list
+    And I Enter my  moving date
+    And I Select Correspondence address yes
+    And I Enter Number of occupant
+    And I Click Continue in MoveIN
+    And I Enter NameTitle <NTitle> FirstName <FName> MName <MName> LName <LName> Date of Birth <DOB> PhoneNumber <PNumber> email <email>
+    And I Click Continue in MoveIN
+    And Select Direct Debit as Yes
+    And I Enter BankDetail <FName> Sort Code <SortCode> Account Number <AccNumber>
+    And I select to 'Pay in Full'
+    And I Select Randome Day of Month 
+    And I Click Continue in MoveIN
+    When I Click Confirm Details
+    And Customer ID, Payment Reference depict on Screen
+    And I Click Continue in MoveIN
+    And Set Password as <Password>
+    And First Security Question <Question1> and Answer <Answer1>
+    And Second Security Question <Question2> and Answer <Answer2>
+    And I agree  Terms and Condition
+    And I Click Continue in MoveIN
+    Then I Should  See Activation Mail send on my EmailID Message
+    And Click on Finish
+    And Confirmation Message
+
+    Examples: 
+      | PostCode | Address                                          | NTitle | FName   | MName   | LName   | DOB        | PNumber    | email            | SortCode | AccNumber | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
+      | PO39 0AN | IVYHURST ,  THE BROADWAY, TOTLAND, PO39 0AN      | Miss   | FTest1  | MTest1  | LTest1  | 25/10/1985 | 9818156878 | test1@yahoo.com  |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
+    
+
+ @SIT7
+  Scenario Outline: Move-in into Unmetered Property DD customer
+    Given I have open the move-in page
+    And I click on Start button
+    And I enter Address post code <PostCode>
+    And I Click on Find Address
+    And I Select my Address <Address> from address list
+    And I Enter my  moving date
+    And I Select Correspondence address yes
+    And I Enter Number of occupant
+    And I Click Continue in MoveIN
+    And I Enter NameTitle <NTitle> FirstName <FName> MName <MName> LName <LName> Date of Birth <DOB> PhoneNumber <PNumber> email <email>
+    And I Click Continue in MoveIN
+    And Select Direct Debit as Yes
+    And I Enter BankDetail <FName> Sort Code <SortCode> Account Number <AccNumber>
+    And I Select Pay in Monthly Statement
+    And I Click Continue in MoveIN
+    When I Click Confirm Details
+    And Customer ID, Payment Reference depict on Screen
+    And I Click Continue in MoveIN
+    And Set Password as <Password>
+    And First Security Question <Question1> and Answer <Answer1>
+    And Second Security Question <Question2> and Answer <Answer2>
+    And I agree  Terms and Condition
+    And I Click Continue in MoveIN
+    Then I Should  See Activation Mail send on my EmailID Message
+    And Click on Finish
+    And Confirmation Message
+
+    Examples: 
+      | PostCode | Address                                          | NTitle | FName   | MName   | LName   | DOB        | PNumber    | email            | SortCode | AccNumber | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
+      | PO39 0AN | IVYHURST ,  THE BROADWAY, TOTLAND, PO39 0AN      | Miss   | FTest1  | MTest1  | LTest1  | 25/10/1985 | 9818156878 | test1@yahoo.com  |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
+    
+
+
+
+  @SIT1
+  Scenario Outline: Verify that i can Move-in SW region with my Bank Detail and Correspondence as Yes
+    Given I have open the move-in page
+    And I click on Start button
+    And I enter Address post code <PostCode>
+    And I Click on Find Address
+    And I Select my Address <Address> from address list
+    And I Enter my  moving date
+    And I Select Correspondence address yes
+    And I Enter Number of occupant
+    And I Click Continue in MoveIN
+    And I Enter NameTitle <NTitle> FirstName <FName> MName <MName> LName <LName> Date of Birth <DOB> PhoneNumber <PNumber> email <email>
+    And I Click Continue in MoveIN
+    And Select Direct Debit as Yes
+    And I Enter BankDetail <FName> Sort Code <SortCode> Account Number <AccNumber>
+    And I Select Pay in Monthly Statement
+    And I Click Continue in MoveIN
+    When I Click Confirm Details
+    And Customer ID, Payment Reference depict on Screen
+    And I Click Continue in MoveIN
+    And Set Password as <Password>
+    And First Security Question <Question1> and Answer <Answer1>
+    And Second Security Question <Question2> and Answer <Answer2>
+    And I agree  Terms and Condition
+    And I Click Continue in MoveIN
+    Then I Should  See Activation Mail send on my EmailID Message
+    And Click on Finish
+    And Confirmation Message
+
+    Examples: 
+      | PostCode | Address                                          | NTitle | FName   | MName   | LName   | DOB        | PNumber    | email            | SortCode | AccNumber | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
+      | PO39 0AN | IVYHURST ,  THE BROADWAY, TOTLAND, PO39 0AN      | Miss   | FTest1  | MTest1  | LTest1  | 25/10/1985 | 9818156878 | test1@yahoo.com  |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
+      | SO45 2LU | 1 FRANCIS COURT, WALTONS AVENUE,HOLBURY,SO45 2LU | Mrs    | FTest12 | MTest12 | LTest12 | 12/02/1980 | 9818156878 | test12@yahoo.com |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
+      | PO30 1TP | 121 HIGH STREET, NEWPORT, PO30 1TP               | Mr     | FTest13 | MTest13 | LTest13 | 20/08/1986 | 9818156878 | test13@yahoo.com |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
