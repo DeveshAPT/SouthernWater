@@ -369,24 +369,24 @@ public class AccountDashBoardPageHelper {
 		dashBoard.contactUsPageOpenInNewTab();
 	}
 
-	@When("^I Click Find out more$")
-	public void i_Click_Find_out_more() throws Throwable {
-		dashBoard.dashBoardFooterButtonClick("Find out more");
+	@When("^I Click Discover ways to save$")
+	public void i_Click_Discover_ways_to_save() throws Throwable {
+		dashBoard.dashBoardFooterButtonClick("Discover ways to save");
 	}
 
-	@Then("^Target_100 page should open in new tab$")
-	public void target_page_should_open_in_new_tab() throws Throwable {
-		dashBoard.target100PageOpenInNewTab();
+	@Then("^Save Water page should open in new tab$")
+	public void save_Water_page_should_open_in_new_tab() throws Throwable {
+		dashBoard.saveWaterPageOpenInNewTab();
 	}
 
-	@When("^I Click How to keep it clear$")
-	public void i_Click_How_to_keep_it_clear() throws Throwable {
-		dashBoard.dashBoardFooterButtonClick("How to keep it clear");
+	@When("^I Click Learn more$")
+	public void i_Click_Learn_more() throws Throwable {
+		dashBoard.dashBoardFooterButtonClick("Learn more");
 	}
 
-	@Then("^Keep it clear page should open in new tab$")
-	public void keep_it_clear_page_should_open_in_new_tab() throws Throwable {
-		dashBoard.keepITClearPageOpenInNewTab();
+	@Then("^How to prevent blockage page should open in new tab$")
+	public void how_to_prevent_blockagepage_should_open_in_new_tab() throws Throwable {
+		dashBoard.preventBlockagePageOpenInNewTab();
 	}
 
 	@When("^I Click Set Up your Profile$")
@@ -481,5 +481,50 @@ public class AccountDashBoardPageHelper {
 		dashBoard.dashBoardBillDueLabel();
 		dashBoard.dashBoardBillAmount();
 		dashBoard.dashBoardBillAmountDate();
+	}
+	
+	@Then("^I Can See Following Menu ([^\"]*) Items$")
+	public void i_Can_See_Following_Menu_Items(String MenuList) throws Throwable {
+		String[] Listlinks = MenuList.split(",");
+		for (int i = 0; i < Listlinks.length; i++) 
+		{
+			String temp=Listlinks[i].trim();
+			System.out.println(temp);
+			dashBoard.dashBoardOptionsVerification(temp.trim());
+			
+		}
+	}
+	
+	@And("^I Click View bills/Account statement$")
+	public void i_Click_View_bills_Account_statement() throws Throwable 
+	{
+		dashBoard.dashBoardOptionsClick("View bills/Account statement");
+	}
+
+	@Then("^I Should move to View Bill Account Statement Page$")
+	public void i_Should_move_to_View_Bill_Account_Statement_Page() throws Throwable {
+		dashBoard.yourViewBillsPageOpen();
+	}
+	
+	@And("^I Click on 'Submit a meter reading' button from Dashboard$")
+	public void i_Click_on_Submit_a_meter_reading_button_from_Dashboard() throws Throwable {
+		dashBoard.clickSubmitMeterReadingButton();
+	}
+	
+	@And("^I Click on 'Tell us you are moving' button from Dashboard$")
+	public void i_Click_on_Tell_us_you_are_moving_button_from_Dashboard() throws Throwable {
+		dashBoard.clickYouAreMovingButton();
+	}
+	
+	@And("^I Click on 'Make a payment' button from Dashboard$")
+	public void i_Click_on_Make_a_payment_button_from_Dashboard() throws Throwable {
+	   
+		dashBoard.clickMakeAPaymentButton();
+	}
+	
+	@When("^I Click 'View Profile' button from Dashboard$")
+	public void i_Click_View_Profile_button_from_Dashboard() throws Throwable {
+		dashBoard.clickViewProfileButton();
+	   
 	}
 }

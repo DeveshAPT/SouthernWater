@@ -432,6 +432,30 @@ public class AccountDashBoardFunctions {
 		pageDriver.Clickon(pageDriver.getwebelement(LocateMe));
 	}
 	
+	public void clickSubmitMeterReadingButton() throws Exception
+	{
+		String LocateMe=loginLoct.getlocator("//locators/SubmitMeterReading");	
+		pageDriver.Clickon(pageDriver.getwebelement(LocateMe));
+	}
+	
+	public void clickYouAreMovingButton() throws Exception
+	{
+		String LocateMe=loginLoct.getlocator("//locators/QuickLinkMoving");	
+		pageDriver.Clickon(pageDriver.getwebelement(LocateMe));
+	}
+	
+	public void clickMakeAPaymentButton() throws Exception
+	{
+		String LocateMe=loginLoct.getlocator("//locators/LoginMakeaPayment");	
+		pageDriver.Clickon(pageDriver.getwebelement(LocateMe));
+	}
+	
+	public void clickViewProfileButton() throws Exception
+	{
+		String LocateMe=loginLoct.getlocator("//locators/ViewProfileButton");	
+		pageDriver.Clickon(pageDriver.getwebelement(LocateMe));
+	}
+	
 	public void thankYouMessage() throws Exception
 	{
 		String LocateMe=loginLoct.getlocator("//locators/PaperlessUpdate");
@@ -451,6 +475,13 @@ public class AccountDashBoardFunctions {
 		String LocateMe=loginLoct.getlocator("//locators/YourProfileHeading");
 		
 		custException.IsTrue(pageDriver.IsPresent(LocateMe), "Your Profile Page is not open" );
+	}
+	
+	public void yourViewBillsPageOpen() throws Exception
+	{
+		String LocateMe=loginLoct.getlocator("//locators/BillStatement");
+		
+		custException.IsTrue(pageDriver.IsPresent(LocateMe), "Your Account Statement(View bills/Account statement) Page is not open" );
 	}
 	
 	public void paymentHistoryPageOpen() throws Exception
@@ -480,22 +511,22 @@ public class AccountDashBoardFunctions {
 		custException.IsTrue(pageDriver.IsPresent(LocateMe), "Contact Us page is not open" );
 	}
 	
-	public void target100PageOpenInNewTab() throws Exception
+	public void saveWaterPageOpenInNewTab() throws Exception
 	{
 		newTabCount=pageDriver.TabSize();
 		custException.IsTrue(newTabCount-lastTabCount==1, "New Tab is not open" );
 		pageDriver.SwitchToLastTab();
-		String LocateMe=loginLoct.getlocator("//locators/Target100Heading");
-		custException.IsTrue(pageDriver.IsPresent(LocateMe), "Target 100 page is not open" );
+		String LocateMe=loginLoct.getlocator("//locators/SaveWaterBanner");
+		custException.IsTrue(pageDriver.IsPresent(LocateMe), "Save Water page is not open" );
 	}
 	
-	public void keepITClearPageOpenInNewTab() throws Exception
+	public void preventBlockagePageOpenInNewTab() throws Exception
 	{
 		newTabCount=pageDriver.TabSize();
 		custException.IsTrue(newTabCount-lastTabCount==1, "New Tab is not open" );
 		pageDriver.SwitchToLastTab();
-		String LocateMe=loginLoct.getlocator("//locators/KeepItClearBanner");
-		custException.IsTrue(pageDriver.IsPresent(LocateMe), "Keep It Clear page is not open" );
+		String LocateMe=loginLoct.getlocator("//locators/PreventBlockage");
+		custException.IsTrue(pageDriver.IsPresent(LocateMe), "Prevent Blockage page is not open" );
 	}
 	
 	public void yourProfileHeadingDashBoard() throws DocumentException, InterruptedException

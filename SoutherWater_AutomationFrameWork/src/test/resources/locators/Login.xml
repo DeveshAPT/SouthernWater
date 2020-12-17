@@ -60,9 +60,12 @@
 <SetupDirectDebitHeading>//h1[text()='Set up/Amend Direct Debit']</SetupDirectDebitHeading>
 <ContactUsPageHeading>//h1[text()='Contact Us']</ContactUsPageHeading>
 <Target100Heading>//h1[text()='Target 100']</Target100Heading>
+<SaveWaterBanner>//div[@class='banner__content']/p[text()='How to save water']</SaveWaterBanner>
+<PreventBlockage>//h1[text()='How to prevent blockages']</PreventBlockage>
 <KeepItClearBanner>//div[@class='banner__content']//strong[text()='Keep it Clear']</KeepItClearBanner>
 <YourProfileHeading>//h1[text()='View Profile']</YourProfileHeading>
 <YourProfileDashboard>//h1[text()='Your profile']</YourProfileDashboard>
+<ViewProfileButton>//a[text()='View profile']</ViewProfileButton>
 <YourProfileEmailIDHeading>//p[text()='Email address']</YourProfileEmailIDHeading>
 <YourProfileEmailID>//p[text()='Email address']/following::p</YourProfileEmailID>
 <YourAddressLabel>//p[text()='Correspondence address']</YourAddressLabel>
@@ -73,5 +76,6 @@
 <PropertyAddress>//p[text()='Property address']/parent::div/div</PropertyAddress>
 <YourServiceLabel>//p[text()='Your services']</YourServiceLabel>
 <YourServiceType>//p[text()='Your services']/following::p</YourServiceType>
+<BillStatement>//h1[text()='View bills/Account statement']</BillStatement>
 </locators>
 
