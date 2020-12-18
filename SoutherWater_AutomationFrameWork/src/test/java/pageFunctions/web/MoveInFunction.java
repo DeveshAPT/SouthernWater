@@ -298,6 +298,8 @@ public class MoveInFunction {
 
 	public void commonContinue() throws Exception 
 	{
+		pageDriver.WaitforPageToBeReady();
+		Thread.sleep(5000);
 		System.out.println();
 		boolean first=pageDriver.IsPresent(MoveInLoct.getlocator("//locators/ContinueButton"));
 		System.out.println(first);
@@ -316,20 +318,30 @@ public class MoveInFunction {
 			
 		}
 		
-		
-		/*try {
-			List<WebElement> buttons = pageDriver.getwebelements(MoveInLoct.getlocator("//locators/ContinueButton"));
-			List<WebElement> links = pageDriver.getwebelements(MoveInLoct.getlocator("//locators/ContinueLink"));
-			if (buttons.size() > 0)
-				pageDriver.Clickon(buttons.get(0));
-			else if (links.size() > 0)
-				pageDriver.Clickon(links.get(0));
-		} catch (Exception ex) {
-			System.out.print("Check Continue Button");
-			System.out.print(ex.toString());
-		}*/
 	}
 
+	
+	public void commonBack() throws Exception 
+	{
+		System.out.println();
+		boolean first=pageDriver.IsPresent(MoveInLoct.getlocator("//locators/BackButton"));
+		System.out.println(first);
+		if(first)
+		{
+			pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/BackButton")));
+		}
+		else 
+		{
+			boolean Second=pageDriver.IsPresent(MoveInLoct.getlocator("//locators/BackLink"));
+			System.out.println(Second);
+			if(Second)
+			{
+				pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/BackLink")));
+			}
+			
+		}
+		
+	}
 	public void mobileHomeContactPresent() throws DocumentException, InterruptedException {
 		custException.IsTrue(
 				pageDriver.IsPresent(MoveInLoct.getlocator("//locators/Mobile"))
@@ -619,6 +631,28 @@ public class MoveInFunction {
 	
 	public void verifyCheckDetailsPageIsOpen() throws DocumentException, InterruptedException
 	{
+		Thread.sleep(5000);
 		custException.IsTrue(pageDriver.IsPresent(MoveInLoct.getlocator("//locators/CheckAndConfirm")),"Check Detail Page not Open");
+	}
+	
+	public void verifyPaymentDetailPageOpen() throws DocumentException, InterruptedException {
+
+		custException.IsTrue(pageDriver.IsPresent(MoveInLoct.getlocator("//locators/PaymentDeatils")),
+				"Payment Detail page is not open");
+
+	}
+	
+	public void verifyYourDetailPageOpen() throws DocumentException, InterruptedException {
+
+		custException.IsTrue(pageDriver.IsPresent(MoveInLoct.getlocator("//locators/YourDetailsHeader")),
+				"Your Detail page is not open");
+
+	}
+	public void verifyMovingDetailPageOpen() throws DocumentException, InterruptedException {
+
+		Thread.sleep(5000);
+		custException.IsTrue(pageDriver.IsPresent(MoveInLoct.getlocator("//locators/MovingDetails")),
+				"Your Detail page is not open");
+
 	}
 }

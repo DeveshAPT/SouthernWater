@@ -35,6 +35,7 @@
 <VerifyAccountNumber>//*[@id="content"]/div/div[2]/div[1]/div[4]/div[3]/div[3]/p</VerifyAccountNumber>
 <ConfirmDetailsButton>//button[contains(text(),'Confirm details')]</ConfirmDetailsButton>
 <BackButton>//div/a[text()='Back']</BackButton>
+<BackLink>//button[contains(text(),'Back')]</BackLink>
 <ThereIsAProblemErrorMessage>//*[text()='There’s a problem']</ThereIsAProblemErrorMessage>
 <CorrectErrorsToContinueErrorMessage>//*[text()='You’ll need to correct the errors to continue.']</CorrectErrorsToContinueErrorMessage>
 <HeaderUKPostCodeErrorMessage>//*[text()='Please enter a valid UK postcode']</HeaderUKPostCodeErrorMessage>
@@ -69,4 +70,5 @@
 <MandatoryFields>//div[@class='feedback-box mb-4 feedback-box--harley']//ul//a</MandatoryFields>
 <PaymentDetailMandatoryMessage>//div[@class='feedback-box mb-4 feedback-box--harley']//p</PaymentDetailMandatoryMessage>
 <CheckAndConfirm>//h1[text()='Check and confirm']</CheckAndConfirm>
+
 </locators>

@@ -178,7 +178,7 @@ Feature: Move-In
       | PostCode | Address                                     | NTitle | FName  | MName  | LName  | DOB        | PNumber    | email           | SortCode | AccNumber | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
       | PO39 0AN | IVYHURST ,  THE BROADWAY, TOTLAND, PO39 0AN | Miss   | FTest1 | MTest1 | LTest1 | 25/10/1985 | 9818156878 | test1@yahoo.com |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
 
-  @SIT
+  @SIT7
   Scenario Outline: Move-in Asses Property as non  Customer Full payment
     Given I have open the move-in page
     And I click on Start button
@@ -246,37 +246,17 @@ Feature: Move-In
       | PostCode | Address                                     | NTitle | FName  | MName  | LName  | DOB        | PNumber    | email           | SortCode | AccNumber | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
       | PO39 0AN | IVYHURST ,  THE BROADWAY, TOTLAND, PO39 0AN | Miss   | FTest1 | MTest1 | LTest1 | 25/10/1985 | 9818156878 | test1@yahoo.com |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
 
-  @SIT1
-  Scenario Outline: Verify that i can Move-in SW region with my Bank Detail and Correspondence as Yes
-    Given I have open the move-in page
-    And I click on Start button
-    And I enter Address post code <PostCode>
-    And I Click on Find Address
-    And I Select my Address <Address> from address list
-    And I Enter my  moving date
-    And I Select Correspondence address yes
-    And I Enter Number of occupant
-    And I Click Continue in MoveIN
-    And I Enter NameTitle <NTitle> FirstName <FName> MName <MName> LName <LName> Date of Birth <DOB> PhoneNumber <PNumber> email <email>
-    And I Click Continue in MoveIN
-    And Select Direct Debit as Yes
-    And I Enter BankDetail <FName> Sort Code <SortCode> Account Number <AccNumber>
-    And I Select Pay in Monthly Statement
-    And I Click Continue in MoveIN
-    When I Click Confirm Details
-    And Customer ID, Payment Reference depict on Screen
-    And I Click Continue in MoveIN
-    And Set Password as <Password>
-    And First Security Question <Question1> and Answer <Answer1>
-    And Second Security Question <Question2> and Answer <Answer2>
-    And I agree  Terms and Condition
-    And I Click Continue in MoveIN
-    Then I Should  See Activation Mail send on my EmailID Message
-    And Click on Finish
-    And Confirmation Message
-
-    Examples: 
-      | PostCode | Address                                          | NTitle | FName   | MName   | LName   | DOB        | PNumber    | email            | SortCode | AccNumber | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
-      | PO39 0AN | IVYHURST ,  THE BROADWAY, TOTLAND, PO39 0AN      | Miss   | FTest1  | MTest1  | LTest1  | 25/10/1985 | 9818156878 | test1@yahoo.com  |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
-      | SO45 2LU | 1 FRANCIS COURT, WALTONS AVENUE,HOLBURY,SO45 2LU | Mrs    | FTest12 | MTest12 | LTest12 | 12/02/1980 | 9818156878 | test12@yahoo.com |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
-      | PO30 1TP | 121 HIGH STREET, NEWPORT, PO30 1TP               | Mr     | FTest13 | MTest13 | LTest13 | 20/08/1986 | 9818156878 | test13@yahoo.com |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
+  
+  @SIT
+  Scenario: Verify the back Traversal from Check and Confirm
+  Given I am at Check Detail Step of Move-in
+  When I Click Back on Button
+  Then I Should move to Payment Detail Page
+  And I Click Back
+  And I Should move to Your Detail Page
+  And I Click Back
+  And I Should move to Moving Detail Page
+  And I Click Continue in MoveIN
+  And I Click Continue in MoveIN
+  And I Click Continue in MoveIN
+  And I Should move to Check Detail Page

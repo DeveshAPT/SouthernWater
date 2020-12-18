@@ -434,4 +434,47 @@ public class MoveInPageHelper {
 	public void i_Select_Home_as_Contact() throws Throwable {
 		moveIN.clickHomeAsContact();
 	}
+	
+	@Given("^I am at Check Detail Step of Move-in$")
+	public void i_am_at_Check_Detail_Step_of_Move_in() throws Throwable 
+	{
+		moveIN.OpenMoveInPage();
+		moveIN.startClick();
+		moveIN.enterPostCode("SO22 5JN");
+		moveIN.findAddressClick();
+		moveIN.selectAddress();
+		moveIN.enterMoveINDate();
+		moveIN.enterOccupant();
+		moveIN.commonContinue();
+		moveIN.enterYourDetails("Mr", "Mark", "Bone", "Taylor", "26/09/1987", "9810203040", "backTrave@Automation.com");
+		moveIN.commonContinue();
+		moveIN.enterCustomerPaymentDetails("Mark Taylor", "10", "20", "30", "55779911");
+		moveIN.commonContinue();
+	}
+
+	@When("I Click Back on Button$")
+	public void i_Click_Back_Button() throws Throwable {
+	   moveIN.commonBack();
+	}
+
+	@Then("^I Should move to Payment Detail Page$")
+	public void i_Should_move_to_Payment_Detail_Page() throws Throwable {
+	   moveIN.verifyPaymentDetailPageOpen();
+	}
+
+	@Then("^I Click Back$")
+	public void i_Click_Back() throws Throwable {
+		  moveIN.commonBack();
+	}
+
+	@Then("^I Should move to Your Detail Page$")
+	public void i_Should_move_to_Your_Detail_Page() throws Throwable {
+		  moveIN.verifyYourDetailPageOpen();
+	}
+
+	@Then("^I Should move to Moving Detail Page$")
+	public void i_Should_move_to_Moving_Detail_Page() throws Throwable {
+		moveIN.verifyMovingDetailPageOpen();
+	}
+
 }
