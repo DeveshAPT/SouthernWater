@@ -477,4 +477,40 @@ public class MoveInPageHelper {
 		moveIN.verifyMovingDetailPageOpen();
 	}
 
+	@And("^I Should see the Update Address ([^\"]*)$")
+	public void i_Should_see_the_Update_PostCode_and_Address(String address) throws Throwable {
+		moveIN.verifyUpdateAddress(address);
+	}
+
+	@When("^I Moved till Check Detail Page$")
+	public void i_Moved_till_Check_Detail_Page() throws Throwable {
+		moveIN.OpenMoveInPage();
+		moveIN.verifySWlogoLoaded();
+		moveIN.verifyCreateAccountContent();
+		moveIN.startClick();
+		moveIN.verifySWlogoLoaded();
+		moveIN.verifyMovingPageContent();
+		moveIN.enterPostCode("SO22 5JN");
+		moveIN.findAddressClick();
+		moveIN.selectAddress();
+		moveIN.enterMoveINDate();
+		moveIN.enterOccupant();
+		moveIN.commonContinue();
+		moveIN.verifySWlogoLoaded();
+		moveIN.verifyYourDetailPageContent();
+		moveIN.enterYourDetails("Mr", "Mark", "Bone", "Taylor", "26/09/1987", "9810203040", "backTrave@Automation.com");
+		moveIN.commonContinue();
+		moveIN.verifySWlogoLoaded();
+		moveIN.verifyPaymentPageContent();
+		moveIN.enterCustomerPaymentDetails("Mark Taylor", "10", "20", "30", "55779911");
+		moveIN.commonContinue();
+		moveIN.verifySWlogoLoaded();
+		moveIN.verifyCheckDetailPageContent();
+	}
+
+	@Then("^I Can See UI is loaded Correctly$")
+	public void i_Can_See_UI_is_loaded_Correctly() throws Throwable {
+	    
+	}
+	
 }

@@ -3,6 +3,7 @@
 <AcceptCokies>//button[@id='onetrust-accept-btn-handler']</AcceptCokies>
 <CreateAnAccountHeading>//div/h1[text()='Create an account']</CreateAnAccountHeading>
 <StartButton>//div/a[text()='Start']</StartButton>
+<CancelButton>//a[text()='Cancel']</CancelButton>
 <MovingDetails>//div/h1[text()='Moving details']</MovingDetails>
 <CustomerPostCode>//input[@id="customerpostcode"]</CustomerPostCode> 
 <FindAddressButton>//div/input[@value='Find address']</FindAddressButton>
@@ -70,5 +71,20 @@
 <MandatoryFields>//div[@class='feedback-box mb-4 feedback-box--harley']//ul//a</MandatoryFields>
 <PaymentDetailMandatoryMessage>//div[@class='feedback-box mb-4 feedback-box--harley']//p</PaymentDetailMandatoryMessage>
 <CheckAndConfirm>//h1[text()='Check and confirm']</CheckAndConfirm>
-
+<updateAddress>//h3[text()='New address']/parent::div/p/div</updateAddress>
+<SouthernWaterLogo>//img[@alt='Southern Water Logo']</SouthernWaterLogo>
+<VisitedStep>//div[@class='progress-steps__step progress-steps__step--visited']</VisitedStep>
+<ActiveStep>//div[@class='progress-steps__step progress-steps__step--active']//span</ActiveStep>
+<PendingStep>//div[@class='progress-steps__step']//span</PendingStep>
+<StepIndicator>//div[@class='progress-steps__step-indicator']//span</StepIndicator>
+<AreYou>//h3[text()=' Are you new to Southern Water? ']</AreYou>
+<NewCustomerlabel>//input[@id='new-customer']/parent::div/label</NewCustomerlabel>
+<ExistingCustomer>//input[@id='existing-customer']/parent::div/label</ExistingCustomer>
+<NewAddress>//h2[text()='HH2']</NewAddress>
+<CheckLabel>//div/h3[@class='review-detail__sub-head']</CheckLabel>
+<CheckValues>//div/p[@class='review-detail-text']</CheckValues>
+<TextLabel>//label[text()='HH2']</TextLabel>
+<YourDetailEdit>//a[@id='your-details']</YourDetailEdit>
+<MovingEdit>//a[@id='moving-details']</MovingEdit>
+<PaymentEdit>//a[@id='payment-details']</PaymentEdit>
 </locators>

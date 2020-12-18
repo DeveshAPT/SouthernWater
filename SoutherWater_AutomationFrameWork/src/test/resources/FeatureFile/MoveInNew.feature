@@ -246,17 +246,44 @@ Feature: Move-In
       | PostCode | Address                                     | NTitle | FName  | MName  | LName  | DOB        | PNumber    | email           | SortCode | AccNumber | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
       | PO39 0AN | IVYHURST ,  THE BROADWAY, TOTLAND, PO39 0AN | Miss   | FTest1 | MTest1 | LTest1 | 25/10/1985 | 9818156878 | test1@yahoo.com |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
 
-  
-  @SIT
-  Scenario: Verify the back Traversal from Check and Confirm
-  Given I am at Check Detail Step of Move-in
-  When I Click Back on Button
-  Then I Should move to Payment Detail Page
-  And I Click Back
-  And I Should move to Your Detail Page
-  And I Click Back
-  And I Should move to Moving Detail Page
-  And I Click Continue in MoveIN
-  And I Click Continue in MoveIN
-  And I Click Continue in MoveIN
-  And I Should move to Check Detail Page
+  @SIT1
+  Scenario: Verify the Back and Continue Traversal from Check and Confirm
+    Given I am at Check Detail Step of Move-in
+    When I Click Back on Button
+    Then I Should move to Payment Detail Page
+    And I Click Back
+    And I Should move to Your Detail Page
+    And I Click Back
+    And I Should move to Moving Detail Page
+    And I Click Continue in MoveIN
+    And I Click Continue in MoveIN
+    And I Click Continue in MoveIN
+    And I Should move to Check Detail Page
+
+  @SIT1
+  Scenario Outline: Verify Address Edit from Check and Confirm Step
+    Given I am at Check Detail Step of Move-in
+    When I move to Check Detail Page
+    Then I Should move to Payment Detail Page
+    And I Click Back
+    And I Should move to Your Detail Page
+    And I Click Back
+    And I Should move to Moving Detail Page
+    And I enter Address post code <PostCode>
+    And I Click on Find Address
+    And I Select my Address <Address> from address list
+    And I Click Continue in MoveIN
+    And I Click Continue in MoveIN
+    And I Click Continue in MoveIN
+    And I Should move to Check Detail Page
+    And I Should see the Update Address <Address>
+
+    Examples: 
+      | PostCode | Address                                     |
+      | PO39 0AN | IVYHURST ,  THE BROADWAY, TOTLAND, PO39 0AN |
+
+@SIT
+  Scenario: Verify the User interface is loaded Correctly
+    Given I have open the move-in page
+    When I Moved till Check Detail Page
+    Then I Can See UI is loaded Correctly
