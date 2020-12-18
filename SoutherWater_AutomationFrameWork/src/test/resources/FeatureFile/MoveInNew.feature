@@ -1,6 +1,6 @@
 Feature: Move-In
 
-  @SIT1
+  @SIT
   Scenario: Verify End to End Move-In Mandatory Field
     Given I have open the move-in page
     And I click on Start button
@@ -18,7 +18,7 @@ Feature: Move-In
     When I Click Continue in MoveIN
     Then I Should move to Check Detail Page
 
-  @SIT2
+  @SIT
   Scenario Outline: Move-In into Metered Property as non DD Customer
     Given I have open the move-in page
     And I click on Start button
@@ -49,7 +49,7 @@ Feature: Move-In
       | PostCode | Address                            | NTitle | FName   | MName   | LName   | DOB        | PNumber    | email            | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
       | PO33 1AT | 155 MARLBOROUGH ROAD,RYDE,PO33 1AT | Dr.    | FTest21 | MTest21 | LTest21 | 25/10/1985 | 9818156878 | test2A@yahoo.com | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
 
-  @SIT3
+  @SIT
   Scenario Outline: Move-In Asses Property as non DD Customer
     Given I have open the move-in page
     And I click on Start button
@@ -80,7 +80,7 @@ Feature: Move-In
       | PostCode | Address                            | NTitle | FName   | MName   | LName   | DOB        | PNumber    | email            | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
       | PO33 1AT | 155 MARLBOROUGH ROAD,RYDE,PO33 1AT | Dr.    | FTest21 | MTest21 | LTest21 | 25/10/1985 | 9818156878 | test2A@yahoo.com | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
 
-  @SIT4
+  @SIT
   Scenario Outline: Move-in into Unmetered Property non DD Customer
     Given I have open the move-in page
     And I click on Start button
@@ -111,7 +111,7 @@ Feature: Move-In
       | PostCode | Address                            | NTitle | FName   | MName   | LName   | DOB        | PNumber    | email            | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
       | PO33 1AT | 155 MARLBOROUGH ROAD,RYDE,PO33 1AT | Dr.    | FTest21 | MTest21 | LTest21 | 25/10/1985 | 9818156878 | test2A@yahoo.com | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
 
-  @SIT5
+  @SIT
   Scenario Outline: Move-In into Metered Property as non DD Customer differen Corespondence address
     Given I have open the move-in page
     And I click on Start button
@@ -144,7 +144,7 @@ Feature: Move-In
       | PostCode | Address                            | PostCode2 | Address2                           | NTitle | FName   | MName   | LName   | DOB        | PNumber    | email            | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
       | PO33 1AT | 155 MARLBOROUGH ROAD,RYDE,PO33 1AT | PO33 2JT  | 19 RIBOLEAU STREET, RYDE, PO33 2JT | Dr.    | FTest21 | MTest21 | LTest21 | 25/10/1985 | 9818156878 | test2A@yahoo.com | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
 
-  @SIT6
+  @SIT
   Scenario Outline: Move-in into metered Property as DD Customer Full payment
     Given I have open the move-in page
     And I click on Start button
@@ -178,7 +178,7 @@ Feature: Move-In
       | PostCode | Address                                     | NTitle | FName  | MName  | LName  | DOB        | PNumber    | email           | SortCode | AccNumber | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
       | PO39 0AN | IVYHURST ,  THE BROADWAY, TOTLAND, PO39 0AN | Miss   | FTest1 | MTest1 | LTest1 | 25/10/1985 | 9818156878 | test1@yahoo.com |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
 
-  @SIT7
+  @SIT
   Scenario Outline: Move-in Asses Property as non  Customer Full payment
     Given I have open the move-in page
     And I click on Start button
@@ -213,7 +213,7 @@ Feature: Move-In
       | PostCode | Address                                     | NTitle | FName  | MName  | LName  | DOB        | PNumber    | email           | SortCode | AccNumber | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
       | PO39 0AN | IVYHURST ,  THE BROADWAY, TOTLAND, PO39 0AN | Miss   | FTest1 | MTest1 | LTest1 | 25/10/1985 | 9818156878 | test1@yahoo.com |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
 
-  @SIT8
+  @SIT
   Scenario Outline: Move-in into Unmetered Property DD customer
     Given I have open the move-in page
     And I click on Start button
@@ -246,7 +246,7 @@ Feature: Move-In
       | PostCode | Address                                     | NTitle | FName  | MName  | LName  | DOB        | PNumber    | email           | SortCode | AccNumber | Password  | Question1                                      | Answer1 | Question2                           | Answer2 |
       | PO39 0AN | IVYHURST ,  THE BROADWAY, TOTLAND, PO39 0AN | Miss   | FTest1 | MTest1 | LTest1 | 25/10/1985 | 9818156878 | test1@yahoo.com |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
 
-  @SIT1
+  @SIT
   Scenario: Verify the Back and Continue Traversal from Check and Confirm
     Given I am at Check Detail Step of Move-in
     When I Click Back on Button
@@ -260,10 +260,10 @@ Feature: Move-In
     And I Click Continue in MoveIN
     And I Should move to Check Detail Page
 
-  @SIT1
+  @SIT
   Scenario Outline: Verify Address Edit from Check and Confirm Step
     Given I am at Check Detail Step of Move-in
-    When I move to Check Detail Page
+    When I Click Back on Button
     Then I Should move to Payment Detail Page
     And I Click Back
     And I Should move to Your Detail Page

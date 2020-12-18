@@ -292,9 +292,10 @@ public class MoveInFunction {
 		pageDriver.WaitforPageToBeReady();
 		Thread.sleep(5000);
 		System.out.println();
-		boolean first = pageDriver.IsPresent(MoveInLoct.getlocator("//locators/ContinueButton"));
+		boolean first = pageDriver.IsPresent(MoveInLoct.getlocator("//locators/CommonContinue"));
+		pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/CommonContinue")));
 		System.out.println(first);
-		if (first) {
+		/*if (first) {
 			pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/ContinueButton")));
 		} else {
 			boolean Second = pageDriver.IsPresent(MoveInLoct.getlocator("//locators/ContinueLink"));
@@ -303,7 +304,7 @@ public class MoveInFunction {
 				pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/ContinueLink")));
 			}
 
-		}
+		}*/
 
 	}
 

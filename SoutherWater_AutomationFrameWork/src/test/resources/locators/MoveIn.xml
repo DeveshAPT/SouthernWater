@@ -11,6 +11,7 @@
 <YourMovingDateLabel>//div/label[text()='Your moving date']</YourMovingDateLabel>
 <MoveOutDate>//*[@id="moveOutDate"]/div/input</MoveOutDate>
 <NumberOfOccupants>//label[text()='Number of occupants']/following-sibling::input</NumberOfOccupants>
+<CommonContinue>//div//*[contains(text(),'Continue')]</CommonContinue>
 <ContinueButton>//button[contains(text(),'Continue')]</ContinueButton>
 <ContinueLink>//a[contains(text(),'Continue')]</ContinueLink>
 <YourDetailsHeader>//h1[text()='Your details']</YourDetailsHeader>
