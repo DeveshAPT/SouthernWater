@@ -204,9 +204,11 @@ public class RegistrationFunctions {
 		enteredCustomerNumber = CustomerNumber;
 		enteredEmailID = Email;
 		pageDriver.CleasrAndSendKeys(pageDriver.getwebelement(custRegist.getlocator("//locators/CustomerNumber")),
-				CustomerNumber+Keys.TAB);
-		pageDriver.CleasrAndSendKeys(pageDriver.getwebelement(custRegist.getlocator("//locators/LastName")), LastName+Keys.TAB);
-		pageDriver.CleasrAndSendKeys(pageDriver.getwebelement(custRegist.getlocator("//locators/EmailId")), Email+Keys.TAB);
+				CustomerNumber + Keys.TAB);
+		pageDriver.CleasrAndSendKeys(pageDriver.getwebelement(custRegist.getlocator("//locators/LastName")),
+				LastName + Keys.TAB);
+		pageDriver.CleasrAndSendKeys(pageDriver.getwebelement(custRegist.getlocator("//locators/EmailId")),
+				Email + Keys.TAB);
 	}
 
 	public void enterCustomerNumner(String CustomerNumber) throws InterruptedException, IOException, DocumentException {
@@ -419,20 +421,19 @@ public class RegistrationFunctions {
 				"Mandatory Field Error message not gone ");
 
 	}
-	
-	public void commonBackRegistration() throws InterruptedException, DocumentException, Exception
-	{
+
+	public void commonBackRegistration() throws InterruptedException, DocumentException, Exception {
 		pageDriver.Clickon(pageDriver.getwebelement(custRegist.getlocator("//locators/CommonBack")));
 		pageDriver.WaitforPageToBeReady();
 	}
-	
+
 	public void checkAndConfirmOpen() throws InterruptedException, DocumentException {
 
 		custException.IsTrue(pageDriver.IsPresent(custRegist.getlocator("//locators/CheckAndConfirm")),
 				"Check And Confirm Page not open ");
 
 	}
-	
+
 	public void loginDetailPageOpen() throws InterruptedException, DocumentException {
 
 		custException.IsTrue(pageDriver.IsPresent(custRegist.getlocator("//locators/LoginDetailStepHeading")),

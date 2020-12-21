@@ -56,26 +56,26 @@ public class PayBillPageHelper
 		@Given("^I am on SouthernWater Pay Bill page$") 
 		public void SouthernWaterPayBill() throws Exception
 		{
-			payFunc.AccessUnauthPayBillPage();
+			payFunc.acessUnauthPayBillPage();
 		}
 		
 		@When("^I Click on Start$") 
 		public void ClickOnStart() throws Exception
 		{
 			
-			payFunc.PayUnAuthBillStart();
+			payFunc.payUnAuthBillStart();
 		}
 		
 		@Then("^I move to customer details page") 
 		public void Verify_PayBillPage() throws InterruptedException, DocumentException
 		{
-			payFunc.YourDetailsSteps();
+			payFunc.yourDetailsSteps();
 		}
 		
 		@And("^Back link is also available") 
 		public void Verify_BackButon() throws InterruptedException, DocumentException
 		{
-			payFunc.VerifyBackButton();
+			payFunc.verifyBackButton();
 		}
 		
 		//Test2 >> Verify Pay Bill Back Button Functionality//
@@ -83,20 +83,20 @@ public class PayBillPageHelper
 		@Given("^I am on SouthernWater Pay Bill detail Page$") 
 		public void IAmSouthernWaterPayBillDetail() throws Exception
 		{
-			payFunc.AccessUnauthPayBillPage();
-			payFunc.PayUnAuthBillStart();
+			payFunc.acessUnauthPayBillPage();
+			payFunc.payUnAuthBillStart();
 		}
 				
 		@When("^I Click on Back Button$") 
 		public void ClickOnBackButton() throws Exception
 		{
-			payFunc.ClickBackButton();
+			payFunc.clickBackButton();
 		}
 				
 		@Then("^I moved to Pay Detail Main Page") 
 		public void MovedToPayBillMainPage() throws DocumentException, Exception
 		{
-			payFunc.MainPageVerification();		
+			payFunc.mainPageVerification();		
 		}
 		
 		//Test3 >> Verify Question Mark ToolTip //
@@ -104,21 +104,21 @@ public class PayBillPageHelper
 		@Given("^I am on SouthernWater PayBill detail Page$") 
 		public void SouthernWaterBillPay() throws Exception
 		{
-			payFunc.AccessUnauthPayBillPage();
-			payFunc.PayUnAuthBillStart();
+			payFunc.acessUnauthPayBillPage();
+			payFunc.payUnAuthBillStart();
 			
 		}
 						
 		@When("^I Click First Time on Question Mark Icons$") 
 		public void ClickQuestionIconFirst() throws Exception
 		{
-			payFunc.ClickQuestionmarkFirst();
+			payFunc.clickQuestionmarkFirst();
 		}
 						
 		@Then("^I Can see the Suggestion Message") 
 		public void SuugestionMessageAppear() throws InterruptedException, DocumentException
 		{
-			payFunc.QuestionMarkMessages();	
+			payFunc.questionMarkMessages();	
 		}
 		
 		@When("^I Click Second Time on Question Mark Icons$") 
@@ -138,21 +138,21 @@ public class PayBillPageHelper
 		@Given("^I am on SouthernWater Pay Bill page detail Page$") 
 		public void SouthernWaterPayBillDetail() throws Exception
 		{
-			payFunc.AccessUnauthPayBillPage();
-			payFunc.PayUnAuthBillStart();
+			payFunc.acessUnauthPayBillPage();
+			payFunc.payUnAuthBillStart();
 		}
 		
 		@When("^I Click on Continue of Pay Bill Detail Page$") 
 		public void When_I_Click_on_Continue_of_Pay_Bill_Detail_Page() throws Exception
 		{
-			payFunc.PayBillDetailClickContinue();
+			payFunc.payBillDetailClickContinue();
 		}
 		
 		
 		@Then("^I Should see the mandatory field Error Message") 
 		public void MandatoryMessage() throws InterruptedException, DocumentException
 		{
-			payFunc.MandatoryFieldMessage();
+			payFunc.mandatoryFieldMessage();
 		}
 		
 		//Test5 >> Check the error message for Incorrect Data //
@@ -160,26 +160,26 @@ public class PayBillPageHelper
 		@Given("^I am on SouthernWater Pay Bill on Your Detail Step$") 
 		public void SouthernWaterPayErrorMessage() throws Exception
 		{
-			payFunc.AccessUnauthPayBillPage();
-			payFunc.PayUnAuthBillStart();
+			payFunc.acessUnauthPayBillPage();
+			payFunc.payUnAuthBillStart();
 		}
 				
 		@When("^I enter all details$") 
 		public void EnteringDetails() throws Exception
 		{
-			payFunc.EnterYourDetails("1234567890","1234567891234","BDDTest","BDD@Test.com");
+			payFunc.enterYourDetails("1234567890","1234567891234","BDDTest","BDD@Test.com");
 		}
 			
 		@And("^I click on Continue on Detail page$")
 		public void I_click_on_Continue_on_Detail_page() throws InterruptedException, Exception
 		{
-			payFunc.PayBillDetailClickContinue();
+			payFunc.payBillDetailClickContinue();
 		}
 		
 		@Then("^I Should see the error Message for incorrect Data") 
 		public void IncorrectDataMessage() throws InterruptedException, DocumentException
 		{
-			payFunc.IncorrectDateMessage();			
+			payFunc.incorrectDateMessage();			
 		}
 		
 		
@@ -187,23 +187,23 @@ public class PayBillPageHelper
 		@Given("I am on SouthernWater Pay Bill with mandatory field error message$") 
 		public void SouthernWaterPayMandatroyMessage() throws Exception
 		{
-			payFunc.AccessUnauthPayBillPage();
-			payFunc.PayUnAuthBillStart();
-			payFunc.PayBillDetailClickContinue();
+			payFunc.acessUnauthPayBillPage();
+			payFunc.payUnAuthBillStart();
+			payFunc.payBillDetailClickContinue();
 			
 		}
 				
 		@When("^I enter all details in form$") 
 		public void EnteringDetailsInForms() throws Exception
 		{
-			payFunc.EnterYourDetails("1234567890","1234567891234","BDDTest","BDD@Test.com");
+			payFunc.enterYourDetails("1234567890","1234567891234","BDDTest","BDD@Test.com");
 			
 		}
 			
 		@Then("^I Should not see the error Message for mandatory fields$") 
 		public void MandatoryErrorMessageRemoved() throws InterruptedException, DocumentException
 		{
-			payFunc.MandatoryFieldMessageShouldnotVisible();
+			payFunc.mandatoryFieldMessageShouldnotVisible();
 					
 		}
 		
@@ -212,95 +212,95 @@ public class PayBillPageHelper
 		@Given("^I am Accesing Pay Bill Detail Page$")
 		public void AccessingPayBillPage() throws IOException, InterruptedException
 		{
-			payFunc.AccessUnauthPayBillPage();
+			payFunc.acessUnauthPayBillPage();
 			
 		}
 		
 		@And("^I Click Start Button on Page$")
 		public void StartButtonofPage() throws Exception
 		{
-			payFunc.PayUnAuthBillStart();
+			payFunc.payUnAuthBillStart();
 		}
 		
 		@And("^I Enter Details Customer Number ([^\"]*) Payment Reference ([^\"]*) Last Name ([^\"]*) EmailID ([^\"]*)$")
 		public void IEnterCustDetailWithPaymentRef(String CustomerNumber,String PaymentRef,String LastName,String Email) throws Exception
 		{
-			payFunc.EnterYourDetails(CustomerNumber,PaymentRef,LastName,Email);
+			payFunc.enterYourDetails(CustomerNumber,PaymentRef,LastName,Email);
 		}
 		
 		@And("^I Click On Continue Button on Detail Step$")
 		public void ContinueButtonofDetailStep() throws Exception
 		{
-			payFunc.PayBillDetailClickContinue();
+			payFunc.payBillDetailClickContinue();
 			
 		}
 		
 		@And("^I Click on Continue Button of Check Detail Step")
 		public void And_I_Click_on_Continue_Button_of_Check_Detail_Step() throws Exception
 		{
-			payFunc.ClickCheckDetailContinue();
+			payFunc.clickCheckDetailContinue();
 		}
 		
 		@And("I Select Pay another Amount")
 		public void SelectPayAnotherAmount() throws Exception
 		{
-			payFunc.SelectAnotherAmount();
+			payFunc.selectAnotherAmount();
 		}
 		
 		@And("^I Enter Partial Amount([^\"]*)$")
 		public void EnterPartialAmount(String amount) throws Exception
 		{
-			payFunc.EnterAmount(amount);
+			payFunc.enterAmount(amount);
 		}
 		
 		@And("^I Click on Make Payment$")
 		public void ClickMakePayment() throws InterruptedException, DocumentException, Exception
 		{
-			payFunc.ClickMakePayment();
+			payFunc.clickMakePayment();
 		}
 		
 		@When("^I Enter Card Detail ([^\"]*) Name ([^\"]*) Expiry Month ([^\"]*) Expiry Year ([^\"]*)  and SecurityCode ([^\"]*)$")
 		public void EnterPaymentCardDetails(String CardNumber, String NameOnCard, String ExpiryMonth,String ExpiryYear, String code) throws InterruptedException, IOException, DocumentException 
 		{
 			
-			payFunc.EnterPaymentDetails(CardNumber,NameOnCard,ExpiryMonth,ExpiryYear,code);
+			payFunc.enterPaymentDetails(CardNumber,NameOnCard,ExpiryMonth,ExpiryYear,code);
 		}
 		
 		@And("^I Click on Pay Now on Make Payment Step$")
 		public void ClickPayNow() throws Exception
 		{
-			payFunc.ClickPayNowButton();
+			payFunc.clickPayNowButton();
 		}
 		
 		@Then("^I Can see Payment Confirmation Message$")
 		public void PyamentConfirmationMessage() throws DocumentException, InterruptedException
 		{
-			payFunc.VerifyPaymentConfirmation();
+			payFunc.verifyPaymentConfirmation();
 		}
 		
 		@And("^Thankyou Message$")
 		public void ThankyouMessage() throws DocumentException, InterruptedException
 		{
-			payFunc.VerifyThankYouMessage();
+			payFunc.verifyThankYouMessage();
 		}
 		
 		@And("^Transaction with Transaction Number$")
 		public void TransactionMessage() throws DocumentException, InterruptedException
 		{
-			payFunc.TranSactionMessageConfirmation();
+			payFunc.tranSactionMessageConfirmation();
 		}
 		
 		@And("Payment Reference With Reference Number")
 		public void PaymentReferenceNumber() throws InterruptedException, DocumentException
 		{
 			
-			payFunc.PaymentReferenceVerification();
+			payFunc.paymentReferenceVerification();
 		}
 		
 		@And("Same Amount ([^\"]*) as I Pay")
 		public void AmountVerification(String Amount) throws InterruptedException, DocumentException
 		{
-			payFunc.VerifyPaidAmount(Amount);
+			payFunc.verifyPaidAmount(Amount);
 		}
 		
 		
@@ -308,87 +308,87 @@ public class PayBillPageHelper
 		@Given("^I have Open Pay Bill Detail Page$")
 		public void IHaveOpenPayBillPage() throws IOException, InterruptedException
 		{
-			payFunc.AccessUnauthPayBillPage();
+			payFunc.acessUnauthPayBillPage();
 		}
 		
 		@And("^I Click Start Link on Page$")
 		public void i_Click_Start_Link_on_Page() throws Exception
 		{
-			payFunc.PayUnAuthBillStart();
+			payFunc.payUnAuthBillStart();
 		}
 		
 		@And("^I enter my details Customer Number ([^\"]*) Payment Reference ([^\"]*) Last Name ([^\"]*) EmailID ([^\"]*)$")
 		public void IEnterMyCustDetailWithPaymentRef(String CustomerNumber,String PaymentRef,String LastName,String Email) throws Exception
 		{
-			payFunc.EnterYourDetails(CustomerNumber,PaymentRef,LastName,Email);
+			payFunc.enterYourDetails(CustomerNumber,PaymentRef,LastName,Email);
 		}
 		
 		@And("^I Click On Continue link on Detail Step$")
 		public void And_I_Click_On_Continue_link_on_Detail_Step() throws Exception
 		{
-			payFunc.PayBillDetailClickContinue();
+			payFunc.payBillDetailClickContinue();
 		}
 		
 		@And("^I Click on Continue link of Check Detail Step")
 		public void And_I_Click_on_Continue_link_of_Check_Detail_Step() throws Exception
 		{
-			payFunc.ClickCheckDetailContinue();
+			payFunc.clickCheckDetailContinue();
 		}
 		
 		@And("I Select Pay Full Amount")
 		public void SelectPayFulllAmount() throws Exception
 		{
-			payFunc.SelectFullAmount();
+			payFunc.selectFullAmount();
 		}
 		
 		
 		@And("^I Click on Make Payment Link$")
 		public void ClickMakePaymentLink() throws InterruptedException, DocumentException, Exception
 		{
-			payFunc.ClickMakePayment();
+			payFunc.clickMakePayment();
 		}
 		
 		@When("^I Enter Payment Card Detail ([^\"]*) Name ([^\"]*) Expiry Month ([^\"]*) Expiry Year ([^\"]*)  and SecurityCode ([^\"]*)$")
 		public void IEnterPaymentCardDetails(String CardNumber, String NameOnCard, String ExpiryMonth,String ExpiryYear, String code) throws InterruptedException, IOException, DocumentException 
 		{
-			payFunc.EnterPaymentDetails(CardNumber,NameOnCard,ExpiryMonth,ExpiryYear,code);
+			payFunc.enterPaymentDetails(CardNumber,NameOnCard,ExpiryMonth,ExpiryYear,code);
 		}
 		
 		@And("^I Click on Pay Now Button on Make Payment Step$")
 		public void ClickPayNowtoMakePayment() throws Exception
 		{
-			payFunc.ClickPayNowButton();
+			payFunc.clickPayNowButton();
 		}
 		
 		@Then("^I Can see Payment Confirmation Message on Page$")
 		public void PyamentConfirmationMessagePage() throws DocumentException, InterruptedException
 		{
-			payFunc.VerifyPaymentConfirmation();
+			payFunc.verifyPaymentConfirmation();
 		}
 		
 		@And("^Thankyou Message on Page$")
 		public void ThankyouMessageOnPage() throws DocumentException, InterruptedException
 		{
-			payFunc.VerifyThankYouMessage();
+			payFunc.verifyThankYouMessage();
 		}
 		
 		@And("^Transaction with Transaction Number on Receipt$")
 		public void TransactionMessageOnPage() throws DocumentException, InterruptedException
 		{
-			payFunc.TranSactionMessageConfirmation();
+			payFunc.tranSactionMessageConfirmation();
 		}
 		
 		@And("Payment Reference With Reference Number on Receipt")
 		public void Payment_Reference_With_Reference_Number_On_Receipt() throws InterruptedException, DocumentException
 		{
 			
-			payFunc.PaymentReferenceVerification();
+			payFunc.paymentReferenceVerification();
 		}
 		
 		@And("Same Amount as I Pay on Receipt")
 		public void AmountVerificationPage() throws InterruptedException, DocumentException
 		{
-			payFunc.VerifyFullAmountonReciept();	
+			payFunc.verifyFullAmountonReciept();	
 		}
 		
 		
@@ -423,62 +423,62 @@ public class PayBillPageHelper
 		@And("I Click Select Pay Another Amount Option")
 		public void SelectPayAnotherAmountOption() throws Exception
 		{
-			payFunc.SelectAnotherAmount();
+			payFunc.selectAnotherAmount();
 		}
 		
 		@And("^I Enter Amount as ([^\"]*)$")
 		public void EnterPartialAmountForPayment(String amount) throws Exception
 		{
-			payFunc.EnterAmount(amount);
+			payFunc.enterAmount(amount);
 		}
 		
 		@And("^I Click on Make Payment Link on Page$")
 		public void MakePaymentLink() throws Exception
 		{
-			payFunc.ClickMakePayment();
+			payFunc.clickMakePayment();
 		}
 		
 		@When("^I Fill Payment Card Detail ([^\"]*) Name ([^\"]*) Expiry Month ([^\"]*) Expiry Year ([^\"]*) and SecurityCode ([^\"]*)$")
 		public void EnterPaymentcardDetails(String CardNumber, String NameOnCard, String Month, String Year, String Code) throws InterruptedException, IOException, DocumentException
 		{
-			payFunc.EnterPaymentDetails(CardNumber,NameOnCard,Month,Year,Code);
+			payFunc.enterPaymentDetails(CardNumber,NameOnCard,Month,Year,Code);
 		}
 		
 		
 		@And("^I Click on Pay Now Button on Make Payment$")
 		public void i_Click_on_Pay_Now_Button_on_Make_Payment() throws Throwable 
 		{
-			payFunc.ClickPayNowButton();
+			payFunc.clickPayNowButton();
 		}    
 		
 		@Then("^I Can see Payment Confirmation Message on Portal$")
 		public void PaymentConfirmationMessages() throws DocumentException, InterruptedException
 		{
-			payFunc.VerifyPaymentConfirmation();
+			payFunc.verifyPaymentConfirmation();
 		}
 		
 		@And("^I Can See Thankyou Message on Portal$")
 		public void PaymentThankyouMessage() throws DocumentException, InterruptedException
 		{
-			payFunc.VerifyThankYouMessage();
+			payFunc.verifyThankYouMessage();
 		}
 		
 		@And("^I Can See Transaction with Transaction Number on Portal$")
 		public void PaymentTransactionMessageOnPortal() throws DocumentException, InterruptedException
 		{
-			payFunc.TranSactionMessageConfirmation();
+			payFunc.tranSactionMessageConfirmation();
 		}
 		
 		@And("^I Can See Payment Reference With Reference Number on Portal$")
 		public void PaymentReferenceMessageOnPortal() throws InterruptedException, DocumentException
 		{
-			payFunc.PaymentReferenceVerification();
+			payFunc.paymentReferenceVerification();
 		}
 		
 		@And("^I Can See Same Amount as ([^\"]*) I Pay on Portal$")
 		public void PaymentAmountVerificationOnPortal(String partialAmount) throws InterruptedException, DocumentException
 		{
-			payFunc.VerifyPaidAmount(partialAmount);
+			payFunc.verifyPaidAmount(partialAmount);
 		}
 		
 		
@@ -512,55 +512,55 @@ public class PayBillPageHelper
 		@And("^I Click Select Pay Full Amount Option$")
 		public void SelectPayFullAmountRadio() throws Exception
 		{
-			payFunc.SelectFullAmount();
+			payFunc.selectFullAmount();
 		}
 		
 		@And("^I Click on Make Payment Link on Portal$")
 		public void IClickMakePaymentLinkOnPage() throws InterruptedException, DocumentException, Exception
 		{
-			payFunc.ClickMakePayment();
+			payFunc.clickMakePayment();
 		}
 		
 		@When("^I Fill Payment Card Detail <Card> Name <Name> Expiry Month <expiryMonth> Expiry Year <expiryYear> and SecurityCode <SecureCode>$")
 		public void FillPaymentCardDetails(String CardNumber, String NameOnCard, String Month, String Year, String Code) throws InterruptedException, IOException, DocumentException
 		{
-			payFunc.EnterPaymentDetails(CardNumber,NameOnCard,Month,Year,Code);
+			payFunc.enterPaymentDetails(CardNumber,NameOnCard,Month,Year,Code);
 		}
 		
 		@And("^I Click on Pay Now Link on Make Payment Step on Portal$")
 		public void IClickPayNowWithCardDetails() throws Exception
 		{
-			payFunc.ClickPayNowButton();
+			payFunc.clickPayNowButton();
 		}
 		
 		@Then("^I Should see Payment Confirmation Message$")
 		public void IShouldSeePaymentConfirmationMessageOnPage() throws DocumentException, InterruptedException
 		{
-			payFunc.VerifyPaymentConfirmation();
+			payFunc.verifyPaymentConfirmation();
 		}
 		
 		@And("^I Should See Thankyou Message$")
 		public void ICanSeeThankyouMessage() throws DocumentException, InterruptedException
 		{
-			payFunc.VerifyThankYouMessage();
+			payFunc.verifyThankYouMessage();
 		}
 		
 		@And("^I Should See Transaction with Transaction$")
 		public void IShouldSeeTransactionMessages() throws DocumentException, InterruptedException
 		{
-			payFunc.TranSactionMessageConfirmation();
+			payFunc.tranSactionMessageConfirmation();
 		}
 		
 		@And("^I Should See Payment Reference With Reference$")
 		public void IShouldSeePaymentReference() throws InterruptedException, DocumentException
 		{
-			payFunc.PaymentReferenceVerification();
+			payFunc.paymentReferenceVerification();
 		}
 		
 		@And("^I Should See Payment Amount as I Pay on Portal$")
 		public void IShouldSeePaymentAmountVerification() throws InterruptedException, DocumentException
 		{
-			payFunc.VerifyFullAmountonReciept();
+			payFunc.verifyFullAmountonReciept();
 		}
 		
 		//New
@@ -568,34 +568,34 @@ public class PayBillPageHelper
 		@Given("^I have Open The SouthernWater UnAuth Pay Bill Page$")
 		public void i_have_Open_The_SouthernWater_UnAuth_Pay_Bill_Page() throws Throwable {
 		   
-			payFunc.AccessUnauthPayBillPage();
+			payFunc.acessUnauthPayBillPage();
 		}
 
 		@Given("^I already Click on Start Button$")
 		public void i_already_Click_on_Start_Button() throws Throwable 
 		{
-			payFunc.PayUnAuthBillStart();
+			payFunc.payUnAuthBillStart();
 		}
 
 		@When("^I Perform Click Action on Continue Button of Pay Bill Detail Page$")
 		public void i_Perform_Click_Action_on_Continue_Button_of_Pay_Bill_Detail_Page() throws Throwable 
 		{
-			payFunc.PayBillDetailClickContinue();
+			payFunc.payBillDetailClickContinue();
 		}
 
 		@Then("^I am not able to Proceed & System throw the mandatory field Error Message$")
 		public void i_am_not_able_to_Proceed_System_throw_the_mandatory_field_Error_Message() throws Throwable 
 		{
-			payFunc.MandatoryFieldMessage();
+			payFunc.mandatoryFieldMessage();
 		}
 		
 		@And("^I Do Click Action on Continue Button of Pay Bill Detail Page$")
 		public void i_Do_Click_Action_on_Continue_Button_of_Pay_Bill_Detail_Page() throws Throwable {
-			payFunc.PayBillDetailClickContinue();
+			payFunc.payBillDetailClickContinue();
 		}
 		@And("^I Do Click Action on Continue Button of Check Detail Step$")
 		public void i_Do_Click_Action_on_Continue_Button_of_Check_Detail_Step() throws Throwable {
 		    // Write code here that turns the phrase above into concrete actions
-			payFunc.ClickCheckDetailContinue();
+			payFunc.clickCheckDetailContinue();
 		}
 }

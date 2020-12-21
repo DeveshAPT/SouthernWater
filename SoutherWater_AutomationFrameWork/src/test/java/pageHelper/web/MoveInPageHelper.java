@@ -425,19 +425,17 @@ public class MoveInPageHelper {
 	}
 
 	@And("^I Select Randome Day of Month$")
-	public void i_Select_Randome_Day_of_Month() throws Exception
-	{
+	public void i_Select_Randome_Day_of_Month() throws Exception {
 		moveIN.randomClickDayofDirectDebitOption();
 	}
-	
+
 	@And("^I Select Home as Contact$")
 	public void i_Select_Home_as_Contact() throws Throwable {
 		moveIN.clickHomeAsContact();
 	}
-	
+
 	@Given("^I am at Check Detail Step of Move-in$")
-	public void i_am_at_Check_Detail_Step_of_Move_in() throws Throwable 
-	{
+	public void i_am_at_Check_Detail_Step_of_Move_in() throws Throwable {
 		moveIN.openMoveInPage();
 		moveIN.startClick();
 		moveIN.enterPostCode("SO22 5JN");
@@ -454,22 +452,22 @@ public class MoveInPageHelper {
 
 	@When("I Click Back on Button$")
 	public void i_Click_Back_Button() throws Throwable {
-	   moveIN.commonBack();
+		moveIN.commonBack();
 	}
 
 	@Then("^I Should move to Payment Detail Page$")
 	public void i_Should_move_to_Payment_Detail_Page() throws Throwable {
-	   moveIN.verifyPaymentDetailPageOpen();
+		moveIN.verifyPaymentDetailPageOpen();
 	}
 
 	@Then("^I Click Back$")
 	public void i_Click_Back() throws Throwable {
-		  moveIN.commonBack();
+		moveIN.commonBack();
 	}
 
 	@Then("^I Should move to Your Detail Page$")
 	public void i_Should_move_to_Your_Detail_Page() throws Throwable {
-		  moveIN.verifyYourDetailPageOpen();
+		moveIN.verifyYourDetailPageOpen();
 	}
 
 	@Then("^I Should move to Moving Detail Page$")
@@ -510,7 +508,7 @@ public class MoveInPageHelper {
 
 	@Then("^I Can See UI is loaded Correctly$")
 	public void i_Can_See_UI_is_loaded_Correctly() throws Throwable {
-	    
+
 	}
-	
+
 }

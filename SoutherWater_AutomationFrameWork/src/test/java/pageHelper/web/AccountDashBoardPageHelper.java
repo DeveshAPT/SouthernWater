@@ -412,7 +412,7 @@ public class AccountDashBoardPageHelper {
 	}
 
 	// New Dashboard
-	
+
 	@Given("^I am at login Page$")
 	public void i_am_at_login_Page() throws Throwable {
 		login.OpenLoginPage();
@@ -427,77 +427,72 @@ public class AccountDashBoardPageHelper {
 	}
 
 	@Then("^I can see the QucikLinks ([^\"]*) on Dashboard$")
-	public void i_can_see_the_QucikLinks(String links) throws Throwable 
-	{
+	public void i_can_see_the_QucikLinks(String links) throws Throwable {
 		String[] Listlinks = links.split(",");
-		for (int i = 0; i < Listlinks.length; i++) 
-		{
-			String temp=Listlinks[i].trim();
+		for (int i = 0; i < Listlinks.length; i++) {
+			String temp = Listlinks[i].trim();
 			System.out.println(temp);
 			dashBoard.dashBoardQuickLinkFound(temp.trim());
-			
+
 		}
 	}
-	
+
 	@Then("^I can see Customer Number,Payment Reference on Dashboard$")
 	public void customer_Number_Payment_Reference_on_Dashboard() throws Throwable {
 		dashBoard.dashBoardPaymentReferenceNumber();
 		dashBoard.dashBoardCustomerReferenceNumber();
 	}
-	
+
 	@Then("^I Can see Customer Email ID, Correspondence Address under your profile section$")
 	public void i_Can_see_Customer_Email_ID_Correspondence_Address_under_your_profile_section() throws Throwable {
 		dashBoard.yourProfileHeadingDashBoard();
 		dashBoard.yourProfileEmailHeadingAndEmailID();
 		dashBoard.yourProfileAddressLabelAndValue();
-	   
+
 	}
-	
+
 	@Then("^I Can see Last Meter Reading, Meter Number, Date last Read$")
 	public void i_Can_see_Last_Meter_Reading_Meter_Number_Date_last_Read() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
+		// Write code here that turns the phrase above into concrete actions
 		dashBoard.meterReadingHeading();
 		dashBoard.meterReadingLabelAndValues();
 		dashBoard.meterNumberLabelAndValues();
 		dashBoard.meterReadLabelAndValues();
-	   
+
 	}
-	
+
 	@Then("^I Can see Property address, Your Services$")
 	public void i_Can_see_Property_address_Your_Services() throws Throwable {
 		dashBoard.accountDetailsSectionVerification();
 	}
-	
+
 	@Then("^I Can see Latest Bill, Bill Amount, Bill Date$")
-	public void i_Can_see_Latest_Bill_Bill_Amount_Bill_Date() throws Throwable 
-	{
+	public void i_Can_see_Latest_Bill_Bill_Amount_Bill_Date() throws Throwable {
 		dashBoard.dashBoardLatestBillMainHeading();
 		dashBoard.dashBoardLatestBillAmount();
 		dashBoard.dashBoardLatestBillDate();
 	}
-	
+
 	@Then("^I Can see Amount Due, Amount, date$")
 	public void i_Can_see_Amount_Due_Amount_date() throws Throwable {
 		dashBoard.dashBoardBillDueLabel();
 		dashBoard.dashBoardBillAmount();
 		dashBoard.dashBoardBillAmountDate();
 	}
-	
+
 	@Then("^I Can See Following Menu ([^\"]*) Items$")
 	public void i_Can_See_Following_Menu_Items(String MenuList) throws Throwable {
 		String[] Listlinks = MenuList.split(",");
-		for (int i = 0; i < Listlinks.length; i++) 
-		{
-			String temp=Listlinks[i].trim();
+		for (int i = 0; i < Listlinks.length; i++) {
+			String temp = Listlinks[i].trim();
 			System.out.println(temp);
 			dashBoard.dashBoardOptionsVerification(temp.trim());
-			
+
 		}
 	}
-	
+
 	@And("^I Click View bills/Account statement$")
-	public void i_Click_View_bills_Account_statement() throws Throwable 
-	{
+	public void i_Click_View_bills_Account_statement() throws Throwable {
 		dashBoard.dashBoardOptionsClick("View bills/Account statement");
 	}
 
@@ -505,26 +500,26 @@ public class AccountDashBoardPageHelper {
 	public void i_Should_move_to_View_Bill_Account_Statement_Page() throws Throwable {
 		dashBoard.yourViewBillsPageOpen();
 	}
-	
+
 	@And("^I Click on 'Submit a meter reading' button from Dashboard$")
 	public void i_Click_on_Submit_a_meter_reading_button_from_Dashboard() throws Throwable {
 		dashBoard.clickSubmitMeterReadingButton();
 	}
-	
+
 	@And("^I Click on 'Tell us you are moving' button from Dashboard$")
 	public void i_Click_on_Tell_us_you_are_moving_button_from_Dashboard() throws Throwable {
 		dashBoard.clickYouAreMovingButton();
 	}
-	
+
 	@And("^I Click on 'Make a payment' button from Dashboard$")
 	public void i_Click_on_Make_a_payment_button_from_Dashboard() throws Throwable {
-	   
+
 		dashBoard.clickMakeAPaymentButton();
 	}
-	
+
 	@When("^I Click 'View Profile' button from Dashboard$")
 	public void i_Click_View_Profile_button_from_Dashboard() throws Throwable {
 		dashBoard.clickViewProfileButton();
-	   
+
 	}
 }

@@ -63,7 +63,7 @@ public class ExcelWork {
 	}
 
 	public void writeCustomerID(String CustomerID, String PaymentReference) throws IOException {
-		
+
 		String path = "src//test//resources//dataSource//CustomerID.xlsx";
 		File file = new File(path);
 		if (!file.exists()) {
@@ -74,7 +74,7 @@ public class ExcelWork {
 				System.out.println(e.getMessage());
 			}
 		}
-		appendData(path, CustomerID,PaymentReference);
+		appendData(path, CustomerID, PaymentReference);
 	}
 
 	public void createFile(String Path) throws IOException {

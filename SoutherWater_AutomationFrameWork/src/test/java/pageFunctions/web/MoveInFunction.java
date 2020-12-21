@@ -295,16 +295,17 @@ public class MoveInFunction {
 		boolean first = pageDriver.IsPresent(MoveInLoct.getlocator("//locators/CommonContinue"));
 		pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/CommonContinue")));
 		System.out.println(first);
-		/*if (first) {
-			pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/ContinueButton")));
-		} else {
-			boolean Second = pageDriver.IsPresent(MoveInLoct.getlocator("//locators/ContinueLink"));
-			System.out.println(Second);
-			if (Second) {
-				pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/ContinueLink")));
-			}
-
-		}*/
+		/*
+		 * if (first) {
+		 * pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator(
+		 * "//locators/ContinueButton"))); } else { boolean Second =
+		 * pageDriver.IsPresent(MoveInLoct.getlocator("//locators/ContinueLink"));
+		 * System.out.println(Second); if (Second) {
+		 * pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator(
+		 * "//locators/ContinueLink"))); }
+		 * 
+		 * }
+		 */
 
 	}
 
@@ -832,42 +833,39 @@ public class MoveInFunction {
 		Heading.add("Account number");
 		Heading.add("Payment frequency");
 		Heading.add("Payment date");
-		
+
 		Loct = MoveInLoct.getlocator("//locators/CheckLabel");
-		List<WebElement> eles=pageDriver.getwebelements(Loct);
-		System.out.println();		
-		for(int i=0;i<eles.size();i++)
-		{
-			WebElement ele=eles.get(i);
-			Temp=ele.getText();
+		List<WebElement> eles = pageDriver.getwebelements(Loct);
+		System.out.println();
+		for (int i = 0; i < eles.size(); i++) {
+			WebElement ele = eles.get(i);
+			Temp = ele.getText();
 			System.out.println(Temp);
-			custException.IsTrue(Heading.indexOf(Temp)>-1, Temp+" Label not found");
+			custException.IsTrue(Heading.indexOf(Temp) > -1, Temp + " Label not found");
 		}
 
 		Loct = MoveInLoct.getlocator("//locators/CheckValues");
-		eles=pageDriver.getwebelements(Loct);
-		System.out.println();			
-		for(int i=0;i<eles.size();i++)
-		{
-			WebElement ele=eles.get(i);
-			Temp=ele.getText();
+		eles = pageDriver.getwebelements(Loct);
+		System.out.println();
+		for (int i = 0; i < eles.size(); i++) {
+			WebElement ele = eles.get(i);
+			Temp = ele.getText();
 			System.out.println(Temp);
-			custException.IsTrue(Temp!=""&&Temp!=null, "Label Values are correctly loaded");
+			custException.IsTrue(Temp != "" && Temp != null, "Label Values are correctly loaded");
 		}
 
-		
 		custException.IsTrue(pageDriver.IsPresent(MoveInLoct.getlocator("//locators/BackButton")),
 				"Back Button Not Found");
-		
+
 		custException.IsTrue(pageDriver.IsPresent(MoveInLoct.getlocator("//locators/ConfirmDetailsButton")),
 				"Confirm details button not found");
-		
+
 		custException.IsTrue(pageDriver.IsPresent(MoveInLoct.getlocator("//locators/YourDetailEdit")),
 				"Your Detail Edit Link not found");
-		
+
 		custException.IsTrue(pageDriver.IsPresent(MoveInLoct.getlocator("//locators/MovingEdit")),
 				"Moving Detail Edit Link not found");
-		
+
 		custException.IsTrue(pageDriver.IsPresent(MoveInLoct.getlocator("//locators/PaymentEdit")),
 				"Payment Edit Link not found");
 

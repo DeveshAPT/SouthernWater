@@ -1,4 +1,5 @@
 package pageFunctions.web;
+
 import java.util.List;
 import org.dom4j.DocumentException;
 import org.openqa.selenium.WebDriver;
@@ -9,148 +10,137 @@ import core.webDriver;
 import core.webHelper;
 import utils.PropertyReader;
 import utils.xmlreader;
-public class LoginFunctions 
-{
 
-	public  webHelper pageDriver;
+public class LoginFunctions {
+
+	public webHelper pageDriver;
 	public AssertionExceptionManager custException;
-	private xmlreader payBillLoct=new xmlreader("src\\test\\resources\\locators\\PayBill.xml");
-	private xmlreader loginLoct=new xmlreader("src\\test\\resources\\locators\\Login.xml");
-	private xmlreader regiLoct=new xmlreader("src\\test\\resources\\locators\\CustomerRegistration.xml");
+	private xmlreader payBillLoct = new xmlreader("src\\test\\resources\\locators\\PayBill.xml");
+	private xmlreader loginLoct = new xmlreader("src\\test\\resources\\locators\\Login.xml");
+	private xmlreader regiLoct = new xmlreader("src\\test\\resources\\locators\\CustomerRegistration.xml");
 	private PropertyReader prpertyreader = new PropertyReader();
-	public LoginFunctions(webHelper dr)
-	{
+
+	public LoginFunctions(webHelper dr) {
 		System.out.println("I am in POM");
-		pageDriver=  dr;
-		custException=new AssertionExceptionManager(dr);
+		pageDriver = dr;
+		custException = new AssertionExceptionManager(dr);
 	}
-	public void OpenLoginPage() throws Exception
-	{
+
+	public void OpenLoginPage() throws Exception {
 		Thread.sleep(5000);
-		//webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
+		// webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
 		pageDriver.WaitforPageToBeReady();
 		pageDriver.OpenURL(prpertyreader.readproperty("LoginUrl"));
 		pageDriver.WaitforPageToBeReady();
 		Thread.sleep(5000);
 	}
-	
-	public void enterEmailAndPassword(String email, String password) throws Exception
-	{
+
+	public void enterEmailAndPassword(String email, String password) throws Exception {
 		Thread.sleep(5000);
 		System.out.println("Email ID : " + email);
 		System.out.println("PassWord : " + password);
 		System.out.println("Email Locator  : " + loginLoct.getlocator("//locators/EmailId"));
 		System.out.println("PassWord Locator : " + loginLoct.getlocator("//locators/Password"));
-		
-		pageDriver.SendKeys(pageDriver.getwebelement(loginLoct.getlocator("//locators/EmailId")),email);
-		pageDriver.SendKeys(pageDriver.getwebelement(loginLoct.getlocator("//locators/Password")),password);
+
+		pageDriver.SendKeys(pageDriver.getwebelement(loginLoct.getlocator("//locators/EmailId")), email);
+		pageDriver.SendKeys(pageDriver.getwebelement(loginLoct.getlocator("//locators/Password")), password);
 
 	}
-	
-	public void clickOnLogin() throws Exception
-	{
-				
+
+	public void clickOnLogin() throws Exception {
+
 		pageDriver.Clickon(pageDriver.getwebelement(loginLoct.getlocator("//locators/LoginButton")));
-		pageDriver.WaitforPageToBeReady();	
+		pageDriver.WaitforPageToBeReady();
 	}
-	
-	public void loginError() throws Exception
-	{
-		pageDriver.VerifyText(pageDriver.getwebelement(loginLoct.getlocator("//locators/LoginError")), "The email or password you’ve entered is incorrect.");		
-		//verify Dashboard
+
+	public void loginError() throws Exception {
+		pageDriver.VerifyText(pageDriver.getwebelement(loginLoct.getlocator("//locators/LoginError")),
+				"The email or password you’ve entered is incorrect.");
+		// verify Dashboard
 	}
-	
-	public void loginCompleted() throws InterruptedException, DocumentException
-	{
-		List<WebElement> elements1=pageDriver.getwebelements(loginLoct.getlocator("//locators/LoginMakeaPayment"));
-		boolean flag1=elements1.size()>0?true:false;
-		
-		elements1=pageDriver.getwebelements(loginLoct.getlocator("//locators/SubmitMeterReading"));
-		boolean flag2=elements1.size()>0?true:false;
-		
-		elements1=pageDriver.getwebelements(loginLoct.getlocator("//locators/CloseAccount"));
-		boolean flag3=elements1.size()>0?true:false;
-		
-		elements1=pageDriver.getwebelements(loginLoct.getlocator("//locators/LogOut"));
-		boolean flag4=elements1.size()>0?true:false;
-		
-		Assert.assertTrue(flag1&&flag2&&flag3&&flag4,"Dashboard not Loaded");
+
+	public void loginCompleted() throws InterruptedException, DocumentException {
+		List<WebElement> elements1 = pageDriver.getwebelements(loginLoct.getlocator("//locators/LoginMakeaPayment"));
+		boolean flag1 = elements1.size() > 0 ? true : false;
+
+		elements1 = pageDriver.getwebelements(loginLoct.getlocator("//locators/SubmitMeterReading"));
+		boolean flag2 = elements1.size() > 0 ? true : false;
+
+		elements1 = pageDriver.getwebelements(loginLoct.getlocator("//locators/CloseAccount"));
+		boolean flag3 = elements1.size() > 0 ? true : false;
+
+		elements1 = pageDriver.getwebelements(loginLoct.getlocator("//locators/LogOut"));
+		boolean flag4 = elements1.size() > 0 ? true : false;
+
+		Assert.assertTrue(flag1 && flag2 && flag3 && flag4, "Dashboard not Loaded");
 	}
-	
-	public void clickForgotPassword() throws Exception
-	{
+
+	public void clickForgotPassword() throws Exception {
 		pageDriver.Clickon(pageDriver.getwebelement(loginLoct.getlocator("//locators/Forgot")));
-		pageDriver.WaitforPageToBeReady();	
+		pageDriver.WaitforPageToBeReady();
 	}
-	
-	public void navigateToForgetPassword() throws InterruptedException, DocumentException
-	{
-		pageDriver.VerifyTitle("My account");	
-		
-		Assert.assertTrue(pageDriver.IsNotPresent(loginLoct.getlocator("//locators/LoginButton")),"Forgot Password Page is not Open");
+
+	public void navigateToForgetPassword() throws InterruptedException, DocumentException {
+		pageDriver.VerifyTitle("My account");
+
+		Assert.assertTrue(pageDriver.IsNotPresent(loginLoct.getlocator("//locators/LoginButton")),
+				"Forgot Password Page is not Open");
 	}
-	
-	public void forgotPasswordEmailId() throws Exception
-	{
-		List<WebElement> elements1=pageDriver.getwebelements(loginLoct.getlocator("//locators/ForgotEmail"));
-		Assert.assertTrue(elements1.size()>0?true:false,"Not able to See the Forgot Password Email ID Field");	
-		
+
+	public void forgotPasswordEmailId() throws Exception {
+		List<WebElement> elements1 = pageDriver.getwebelements(loginLoct.getlocator("//locators/ForgotEmail"));
+		Assert.assertTrue(elements1.size() > 0 ? true : false, "Not able to See the Forgot Password Email ID Field");
+
 	}
-	
-	public void backToLoginAndContinue() throws Exception
-	{
-				
-		List<WebElement> elements1=pageDriver.getwebelements(loginLoct.getlocator("//locators/BackTologin"));
-		boolean flag1=elements1.size()>0?true:false;	
-		
-		elements1=pageDriver.getwebelements(loginLoct.getlocator("//locators/ForgotContinue"));
-		boolean flag2=elements1.size()>0?true:false;	
-		Assert.assertTrue(flag1&&flag2, "Back to Login and Continue button is not loaded");
+
+	public void backToLoginAndContinue() throws Exception {
+
+		List<WebElement> elements1 = pageDriver.getwebelements(loginLoct.getlocator("//locators/BackTologin"));
+		boolean flag1 = elements1.size() > 0 ? true : false;
+
+		elements1 = pageDriver.getwebelements(loginLoct.getlocator("//locators/ForgotContinue"));
+		boolean flag2 = elements1.size() > 0 ? true : false;
+		Assert.assertTrue(flag1 && flag2, "Back to Login and Continue button is not loaded");
 	}
-	
-	public void enterEmailForgotPassword(String email) throws Exception
-	{
-		
-		pageDriver.SendKeys(pageDriver.getwebelement(loginLoct.getlocator("//locators/ForgotEmail")),email);
+
+	public void enterEmailForgotPassword(String email) throws Exception {
+
+		pageDriver.SendKeys(pageDriver.getwebelement(loginLoct.getlocator("//locators/ForgotEmail")), email);
 	}
-	
-	public void clickForgotContinue() throws Exception
-	{
+
+	public void clickForgotContinue() throws Exception {
 
 		pageDriver.Clickon(pageDriver.getwebelement(loginLoct.getlocator("//locators/ForgotContinue")));
-		pageDriver.WaitforPageToBeReady();	
-		
+		pageDriver.WaitforPageToBeReady();
+
 	}
-	
-	public void resetPasswordLinkVerification(String EmailID ) throws InterruptedException, DocumentException
-	{
-		
+
+	public void resetPasswordLinkVerification(String EmailID) throws InterruptedException, DocumentException {
+
 		Thread.sleep(10000);
-		List<WebElement> elements1=pageDriver.getwebelements(loginLoct.getlocator("//locators/ForgotMessageEmail"));
-		WebElement ele=elements1.get(0);
-		String Text=ele.getText();
+		List<WebElement> elements1 = pageDriver.getwebelements(loginLoct.getlocator("//locators/ForgotMessageEmail"));
+		WebElement ele = elements1.get(0);
+		String Text = ele.getText();
 		System.out.println("Email ID = " + Text);
-		Assert.assertTrue(Text.contains(EmailID),"Email id in message not matched with entered Email ID ");
-		
-		elements1=pageDriver.getwebelements(loginLoct.getlocator("//locators/ForgotMessage"));
-		ele=elements1.get(0);
-		Text=ele.getText();
+		Assert.assertTrue(Text.contains(EmailID), "Email id in message not matched with entered Email ID ");
+
+		elements1 = pageDriver.getwebelements(loginLoct.getlocator("//locators/ForgotMessage"));
+		ele = elements1.get(0);
+		Text = ele.getText();
 		System.out.println("Message = " + Text);
-		Assert.assertTrue(Text.contains(EmailID),"Message(We have sent you an email) not found");
+		Assert.assertTrue(Text.contains(EmailID), "Message(We have sent you an email) not found");
 	}
-	
-	public void clickOnRegisration () throws Exception
-	{
+
+	public void clickOnRegisration() throws Exception {
 		pageDriver.Clickon(pageDriver.getwebelement(loginLoct.getlocator("//locators/Register")));
 		pageDriver.WaitforPageToBeReady();
 	}
-	
-	public void verifyRegisrationPageOpen() throws InterruptedException, DocumentException
-	{
-		
-		List<WebElement> elements1=pageDriver.getwebelements(regiLoct.getlocator("//locators/RegisterNow"));
-		boolean flag1=elements1.size()>0?true:false;	
-		Assert.assertTrue(flag1,"Test Failed Due to >> Not Navigated to Registered page");
-	
+
+	public void verifyRegisrationPageOpen() throws InterruptedException, DocumentException {
+
+		List<WebElement> elements1 = pageDriver.getwebelements(regiLoct.getlocator("//locators/RegisterNow"));
+		boolean flag1 = elements1.size() > 0 ? true : false;
+		Assert.assertTrue(flag1, "Test Failed Due to >> Not Navigated to Registered page");
+
 	}
 }

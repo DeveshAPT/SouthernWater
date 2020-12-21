@@ -624,4 +624,9 @@ public class CustomerRegistrationPageHelper {
 	public void i_Should_move_to_Your_Details_Step() throws Throwable {
 		registerFunc.yourDetailStepIsOpen();
 	}
+	
+	@Then("^I Should move back to Login Details Step$")
+	public void i_Should_move_back_to_Login_Details_Step() throws Throwable {
+		registerFunc.loginDetailPageOpen();
+	}
 }

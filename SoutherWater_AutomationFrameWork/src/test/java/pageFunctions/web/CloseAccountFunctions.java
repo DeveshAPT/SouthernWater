@@ -16,108 +16,98 @@ import java.util.List;
 import utils.PropertyReader;
 import utils.xmlreader;
 
-public class CloseAccountFunctions 
-{
-	public  webHelper pageDriver;
+public class CloseAccountFunctions {
+	public webHelper pageDriver;
 	public AssertionExceptionManager custException;
-	xmlreader loginLoct=new xmlreader("src\\test\\resources\\locators\\Login.xml");
-	xmlreader CloseAccLoct=new xmlreader("src\\test\\resources\\locators\\CloseAccount.xml");
+	xmlreader loginLoct = new xmlreader("src\\test\\resources\\locators\\Login.xml");
+	xmlreader CloseAccLoct = new xmlreader("src\\test\\resources\\locators\\CloseAccount.xml");
 	PropertyReader prpertyreader = new PropertyReader();
 	String dueAmount;
-	
-	public CloseAccountFunctions(webHelper dr)
-	{
-		pageDriver=dr;
-		custException=new AssertionExceptionManager(dr);
+
+	public CloseAccountFunctions(webHelper dr) {
+		pageDriver = dr;
+		custException = new AssertionExceptionManager(dr);
 	}
 
-	public void openCloseAccountPage() throws Exception
-	{
+	public void openCloseAccountPage() throws Exception {
 		Thread.sleep(5000);
-		//webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
+		// webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
 		pageDriver.WaitforPageToBeReady();
 		pageDriver.OpenURL(prpertyreader.readproperty("CloseAccount"));
 		pageDriver.WaitforPageToBeReady();
 		Thread.sleep(10000);
 	}
-	
-	public void startClick() throws InterruptedException, DocumentException, Exception
-	{
+
+	public void startClick() throws InterruptedException, DocumentException, Exception {
 		pageDriver.Clickon(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/CloseAccountStart")));
 		pageDriver.WaitforPageToBeReady();
 		Thread.sleep(7000);
 	}
-	
-	public void enterCustDetails(String customerName,String paymentRef, String lastName ) throws InterruptedException, IOException, DocumentException
-	{
-		pageDriver.SendKeys(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/CustomerNumber")),customerName);
-		pageDriver.SendKeys(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/PaymentReference")),paymentRef);
-		pageDriver.SendKeys(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/LastName")),lastName);
+
+	public void enterCustDetails(String customerName, String paymentRef, String lastName)
+			throws InterruptedException, IOException, DocumentException {
+		pageDriver.SendKeys(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/CustomerNumber")),
+				customerName);
+		pageDriver.SendKeys(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/PaymentReference")),
+				paymentRef);
+		pageDriver.SendKeys(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/LastName")), lastName);
 	}
-	
-	public void enterMoveOutDate() throws InterruptedException, IOException, DocumentException
-	{
-		String date1=  core.baseDriverHelper.GetFutureDate();
-		System.out.println("selected date::: "+date1);	
-		pageDriver.SendKeys(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/MoveOutDateInput")),date1+Keys.TAB);
+
+	public void enterMoveOutDate() throws InterruptedException, IOException, DocumentException {
+		String date1 = core.baseDriverHelper.GetFutureDate();
+		System.out.println("selected date::: " + date1);
+		pageDriver.SendKeys(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/MoveOutDateInput")),
+				date1 + Keys.TAB);
 	}
-	
-	public void continueClick() throws InterruptedException, DocumentException, Exception
-	{
+
+	public void continueClick() throws InterruptedException, DocumentException, Exception {
 		pageDriver.Clickon(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/MoveOutContinue")));
 		Thread.sleep(5000);
 	}
-	
-	public void enterPostCode(String postCode) throws InterruptedException, IOException, DocumentException
-	{
-		pageDriver.SendKeys(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/PostCodeInput")),postCode);
+
+	public void enterPostCode(String postCode) throws InterruptedException, IOException, DocumentException {
+		pageDriver.SendKeys(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/PostCodeInput")), postCode);
 	}
-	
-	public void findAddressClick() throws InterruptedException, DocumentException, Exception
-	{
+
+	public void findAddressClick() throws InterruptedException, DocumentException, Exception {
 		pageDriver.Clickon(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/FinalAddress")));
 		Thread.sleep(5000);
 	}
-	
-	public void selectAddress(String address) throws InterruptedException, DocumentException
-	{
-		Select DropList=new Select(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/SelectAddress")));
+
+	public void selectAddress(String address) throws InterruptedException, DocumentException {
+		Select DropList = new Select(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/SelectAddress")));
 		DropList.selectByVisibleText(address);
 	}
-	
-	public void moveOutContinue() throws InterruptedException, DocumentException, Exception
-	{
+
+	public void moveOutContinue() throws InterruptedException, DocumentException, Exception {
 		pageDriver.Clickon(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/MoveOutContinue")));
 		Thread.sleep(5000);
 	}
-	
-	public void confirmClick() throws InterruptedException, DocumentException, Exception
-	{
-		
+
+	public void confirmClick() throws InterruptedException, DocumentException, Exception {
+
 		Thread.sleep(5000);
-		
-		List <WebElement> elements1=pageDriver.getwebelements(CloseAccLoct.getlocator("//locators/ConfirmCloseAccount"));
+
+		List<WebElement> elements1 = pageDriver
+				.getwebelements(CloseAccLoct.getlocator("//locators/ConfirmCloseAccount"));
 		System.out.println(String.valueOf(elements1.size()));
-		
-		custException.IsTrue(elements1.size()>0, "Click Confirm Button Not Visible","Click Confirm Button Verified");
-		//pageDriver.Clickon(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/ConfirmCloseAccount")));
+
+		custException.IsTrue(elements1.size() > 0, "Click Confirm Button Not Visible", "Click Confirm Button Verified");
+		// pageDriver.Clickon(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/ConfirmCloseAccount")));
 	}
-	
-	public void clickCloseYourAccount() throws DocumentException, Exception
-	{
-		
+
+	public void clickCloseYourAccount() throws DocumentException, Exception {
+
 		pageDriver.Clickon(pageDriver.getwebelement(loginLoct.getlocator("//locators/CloseAccountButton")));
 		Thread.sleep(5000);
-		
+
 	}
-	
-	public void accountShouldClose()
-	{
-		
+
+	public void accountShouldClose() {
+
 	}
-	
-	public void closingMessage()
-	{
-		
+
+	public void closingMessage() {
+
 	}
 }
