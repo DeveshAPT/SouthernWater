@@ -56,14 +56,14 @@ public class UnRegisteredUserCloseAccountPageHelper
 		@Given("^I have Open UnRegisterd User Close Account Page$")
 		public void i_have_Open_UnRegisterd_User_Close_Account_Page() throws Throwable 
 		{
-			closeAcc.OpenCloseAccountPage();   
+			closeAcc.openCloseAccountPage();   
 		}
 		
 		
 		
 		@And("^I Click on Start of Close Account Page$")
 		public void i_Click_on_Start_of_Close_Account_Page() throws Throwable {
-			closeAcc.StartClick();
+			closeAcc.startClick();
 		}
 		
 		
@@ -71,76 +71,76 @@ public class UnRegisteredUserCloseAccountPageHelper
 		public void I_Enter_CustomerNumer_Payment_Reference_LastName(String CustomerName, String PaymentRef, String LastName) throws InterruptedException, IOException, DocumentException
 		{
 			
-			closeAcc.EnterCustDetails(CustomerName,PaymentRef,LastName);
+			closeAcc.enterCustDetails(CustomerName,PaymentRef,LastName);
 			
 		}
 		
 		@And("^I Click On Continue of Close Account Your Detail Step$")
 		public void I_Click_On_Continue_of_Close_Account_Your_Detail_Step() throws InterruptedException, DocumentException, Exception
 		{
-			closeAcc.ContinueClick();
+			closeAcc.continueClick();
 		}
 	
 		@And("^I Enter Moving Out Date of Close Account$")
 		public void I_Enter_Moving_Out_Date_of_Close_Account() throws InterruptedException, IOException, DocumentException
 		{
-			closeAcc.EnterMoveOutDate();
+			closeAcc.enterMoveOutDate();
 		}
 		
 		@And("^I Click On Continue of Close Account Moving Date Step$")
 		public void I_Click_On_Continue_of_Close_Account_Moving_Date_Step() throws InterruptedException, DocumentException, Exception
 		{
 			Thread.sleep(5000);
-			closeAcc.ContinueClick();
+			closeAcc.continueClick();
 			Thread.sleep(5000);
 		}
 		
 		@And("^I Click On Continue of Close Account Final Bill Step$")
 		public void I_Click_On_Continue_of_Close_Account_Final_Bill_Step() throws InterruptedException, DocumentException, Exception
 		{
-			closeAcc.ContinueClick();
+			closeAcc.continueClick();
 		}
 		
 		@And("^I Enter Address Post Code as ([^\"]*) on Forwarding Address Step$")
 		public void I_Enter_Post_Code_as_on_Forwarding_Address(String PostCode) throws InterruptedException, IOException, DocumentException
 		{
-			closeAcc.EnterPostCode(PostCode);
+			closeAcc.enterPostCode(PostCode);
 		}
 		
 		@And("^I Click on Find Address Forwarding Address Step$")
 		public void I_Click_on_Find_Address_Forwarding_Address() throws InterruptedException, DocumentException, Exception
 		{
-			closeAcc.FindAddressClick();
+			closeAcc.findAddressClick();
 		}
 		
 		@And("^I Select ([^\"]*) from Address List on Forwarding Address Step$")
 		public void I_Select_from_Address_List_on_Forwarding_Address(String Address) throws InterruptedException, DocumentException
 		{
-			closeAcc.SelectAddress(Address);
+			closeAcc.selectAddress(Address);
 		}
 		
 		@And("^I Click Continue on Forwarding Address Step$")
 		public void I_Click_Continue_on_Forwarding_Address() throws InterruptedException, DocumentException, Exception
 		{
 			
-			closeAcc.MoveOutContinue();
+			closeAcc.moveOutContinue();
 		}
 		
 		@When("^I Click Confirm and Close Account on check and confirm Step$")
 		public void I_Click_Confirm_and_Close_Account_on_check_and_confirm_step() throws DocumentException, Exception
 		{
-			closeAcc.ConfirmClick();
+			closeAcc.confirmClick();
 		}
 		
 		@Then("^I Should see Account Close$")
 		public void I_Should_see_Account_Close()
 		{
 		
-			closeAcc.AccountShouldClose();
+			closeAcc.accountShouldClose();
 		}
 		@And("^I Should See Account Closing Message$")
 		public void I_Should_See_Account_Closing_Message()
 		{
-			closeAcc.ClosingMessage();
+			closeAcc.closingMessage();
 		}
 }

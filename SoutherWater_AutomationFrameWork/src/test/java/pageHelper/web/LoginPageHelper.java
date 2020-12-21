@@ -49,25 +49,25 @@ public class LoginPageHelper {
 		@When("^I Enter my ([^\"]*) and([^\"]*) into respective fields$")
 		public void EnterEmailAndPassword(String email, String password) throws Exception
 		{
-			login.EnterEmailAndPassword(email, password);
+			login.enterEmailAndPassword(email, password);
 		}
 		
 		@And("^Click on Login$")
 		public void ClickOnLogin() throws Exception
 		{
-			login.ClickOnLogin();
+			login.clickOnLogin();
 		}
 		
 		@Then("^I Should not login$")
 		public void LoginFailed() throws Exception
 		{
-			login.LoginError();
+			login.loginError();
 		}
 		
 		@And("^I Should see the Login error message$")
 		public void LoginError() throws Exception
 		{
-			login.ClickOnLogin();
+			login.clickOnLogin();
 		}	
 		
 		// Second 
@@ -80,19 +80,19 @@ public class LoginPageHelper {
 		@When("^I Enter credentials ([^\"]*) and([^\"]*) into respective fields$")
 		public void EnterCredentials(String email, String password) throws Exception
 		{
-			login.EnterEmailAndPassword(email, password);
+			login.enterEmailAndPassword(email, password);
 		}
 		
 		@And("^Click on Login button$")
 		public void ClickOnLoginButton() throws Exception
 		{
-			login.ClickOnLogin();
+			login.clickOnLogin();
 		}
 		
 		@Then("^I should see the Dashboard$")
 		public void LoginCompleted() throws InterruptedException, DocumentException
 		{
-			login.LoginCompleted();
+			login.loginCompleted();
 		}
 		
 		/*public void ClickYourAccount() throws Exception
@@ -115,25 +115,25 @@ public class LoginPageHelper {
 		@When("^I Click on Forgot Password$")
 		public void ClickForgotPassword() throws Exception
 		{
-			login.ClickForgotPassword();
+			login.clickForgotPassword();
 		}
 		
 		@Then("^I Should navigate to Forgot Password Page$")
 		public void NavigateToForgetPassword() throws InterruptedException, DocumentException
 		{
-			login.NavigateToForgetPassword();
+			login.navigateToForgetPassword();
 		}
 		
 		@And("^I Should See Email address field for reset password$")
 		public void ForgotPasswordEmailId() throws Exception
 		{
-			login.ForgotPasswordEmailId();
+			login.forgotPasswordEmailId();
 			
 		}	
 		@And("^Back to login, Continue links$")
 		public void BackToLoginAndContinue() throws Exception
 		{
-			login.BackToLoginAndContinue();
+			login.backToLoginAndContinue();
 		}
 		
 		// Fourth
@@ -142,27 +142,27 @@ public class LoginPageHelper {
 		public void ResetPasswordPage() throws Exception
 		{
 			login.OpenLoginPage();
-			login.ClickForgotPassword();
+			login.clickForgotPassword();
 		}
 
 		@When("^I Enter ([^\"]*) in Reset Password$")
 		public void EnterEmailForgotPassword(String email) throws Exception
 		{
 			EmailID=email;
-			login.EnterEmailForgotPassword(email);
+			login.enterEmailForgotPassword(email);
 		}
 		
 		@And("^Click on Continue$")
 		public void ClickContinue() throws Exception
 		{
-			login.ClickForgotContinue();
+			login.clickForgotContinue();
 			
 		}	
 		
 		@Then("^I Can See the Verification Link Sent Message$")
 		public void ResetPasswordLinkVerification() throws InterruptedException, DocumentException
 		{
-			login.ResetPasswordLinkVerification(EmailID);
+			login.resetPasswordLinkVerification(EmailID);
 		}
 		
 		//Fifth 
@@ -176,13 +176,13 @@ public class LoginPageHelper {
 		@When("^I Click on Registration$")
 		public void ClickOnRegisration() throws Exception
 		{
-			login.ClickOnRegisration();
+			login.clickOnRegisration();
 		}
 		
 		@Then("^I Should Navigate to Registration Page$")
 		public void VerifyRegisrationPageOpen() throws InterruptedException, DocumentException
 		{
-			login.VerifyRegisrationPageOpen();
+			login.verifyRegisrationPageOpen();
 		}
 }
 

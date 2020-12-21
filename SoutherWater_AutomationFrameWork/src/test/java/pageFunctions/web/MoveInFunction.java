@@ -35,7 +35,7 @@ public class MoveInFunction {
 		custException = new AssertionExceptionManager(pageDriver);
 	}
 
-	public void OpenMoveInPage() throws Exception {
+	public void openMoveInPage() throws Exception {
 		Thread.sleep(3000);
 		pageDriver.WaitforPageToBeReady();
 		// pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/AcceptCokies")));
@@ -388,7 +388,7 @@ public class MoveInFunction {
 		System.out.println(CustomerID);
 		String PaymentRef = PayEle.getText();
 		System.out.println(PaymentRef);
-		exl.WriteCustomerID(CustomerID, PaymentRef);
+		exl.writeCustomerID(CustomerID, PaymentRef);
 	}
 
 	public void verifyEmailMessage() throws DocumentException, InterruptedException {

@@ -60,7 +60,7 @@ public class MoveInPageHelper {
 
 	@Given("^I am on create an account page$")
 	public void NavigateToMoveInAccountPage() throws Exception {
-		moveIN.OpenMoveInPage();
+		moveIN.openMoveInPage();
 	}
 
 	@And("^I click on Start button$")
@@ -106,7 +106,7 @@ public class MoveInPageHelper {
 	// Scenario: Verify that user is able to move to Moving details page
 	@Given("^I am on a create an account page$")
 	public void NavigateToCreateAccountPage() throws Exception {
-		moveIN.OpenMoveInPage();
+		moveIN.openMoveInPage();
 	}
 
 	@When("^I click on Start button to Moving details page$")
@@ -123,7 +123,7 @@ public class MoveInPageHelper {
 	// not filling any values
 	@Given("^I am on Moving details page$")
 	public void NavigateToMovingDetailsPage() throws Exception {
-		moveIN.OpenMoveInPage();
+		moveIN.openMoveInPage();
 		moveIN.startClick();
 		moveIN.verifyMoveInDetailPageLoaded();
 
@@ -143,7 +143,7 @@ public class MoveInPageHelper {
 	// page for not entering valid value in postcode
 	@Given("^I am on the Moving details page$")
 	public void MoveToDetailsPage() throws Exception {
-		moveIN.OpenMoveInPage();
+		moveIN.openMoveInPage();
 		moveIN.startClick();
 		moveIN.verifyMoveInDetailPageLoaded();
 	}
@@ -167,7 +167,7 @@ public class MoveInPageHelper {
 	// not selecting an address
 	@Given("^I am on the moving details page$")
 	public void MovingToDetailsPage() throws Exception {
-		moveIN.OpenMoveInPage();
+		moveIN.openMoveInPage();
 		moveIN.startClick();
 		moveIN.verifyMoveInDetailPageLoaded();
 	}
@@ -197,7 +197,7 @@ public class MoveInPageHelper {
 
 	@Given("^I have open the move-in page$")
 	public void i_have_open_the_move_in_page() throws Throwable {
-		moveIN.OpenMoveInPage();
+		moveIN.openMoveInPage();
 	}
 
 	@And("^I enter Address post code ([^\"]*)$")
@@ -438,7 +438,7 @@ public class MoveInPageHelper {
 	@Given("^I am at Check Detail Step of Move-in$")
 	public void i_am_at_Check_Detail_Step_of_Move_in() throws Throwable 
 	{
-		moveIN.OpenMoveInPage();
+		moveIN.openMoveInPage();
 		moveIN.startClick();
 		moveIN.enterPostCode("SO22 5JN");
 		moveIN.findAddressClick();
@@ -484,7 +484,7 @@ public class MoveInPageHelper {
 
 	@When("^I Moved till Check Detail Page$")
 	public void i_Moved_till_Check_Detail_Page() throws Throwable {
-		moveIN.OpenMoveInPage();
+		moveIN.openMoveInPage();
 		moveIN.verifySWlogoLoaded();
 		moveIN.verifyCreateAccountContent();
 		moveIN.startClick();

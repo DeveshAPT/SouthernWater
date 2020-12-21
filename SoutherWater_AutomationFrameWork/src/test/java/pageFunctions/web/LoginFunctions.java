@@ -34,7 +34,7 @@ public class LoginFunctions
 		Thread.sleep(5000);
 	}
 	
-	public void EnterEmailAndPassword(String email, String password) throws Exception
+	public void enterEmailAndPassword(String email, String password) throws Exception
 	{
 		Thread.sleep(5000);
 		System.out.println("Email ID : " + email);
@@ -47,20 +47,20 @@ public class LoginFunctions
 
 	}
 	
-	public void ClickOnLogin() throws Exception
+	public void clickOnLogin() throws Exception
 	{
 				
 		pageDriver.Clickon(pageDriver.getwebelement(loginLoct.getlocator("//locators/LoginButton")));
 		pageDriver.WaitforPageToBeReady();	
 	}
 	
-	public void LoginError() throws Exception
+	public void loginError() throws Exception
 	{
 		pageDriver.VerifyText(pageDriver.getwebelement(loginLoct.getlocator("//locators/LoginError")), "The email or password you’ve entered is incorrect.");		
 		//verify Dashboard
 	}
 	
-	public void LoginCompleted() throws InterruptedException, DocumentException
+	public void loginCompleted() throws InterruptedException, DocumentException
 	{
 		List<WebElement> elements1=pageDriver.getwebelements(loginLoct.getlocator("//locators/LoginMakeaPayment"));
 		boolean flag1=elements1.size()>0?true:false;
@@ -77,27 +77,27 @@ public class LoginFunctions
 		Assert.assertTrue(flag1&&flag2&&flag3&&flag4,"Dashboard not Loaded");
 	}
 	
-	public void ClickForgotPassword() throws Exception
+	public void clickForgotPassword() throws Exception
 	{
 		pageDriver.Clickon(pageDriver.getwebelement(loginLoct.getlocator("//locators/Forgot")));
 		pageDriver.WaitforPageToBeReady();	
 	}
 	
-	public void NavigateToForgetPassword() throws InterruptedException, DocumentException
+	public void navigateToForgetPassword() throws InterruptedException, DocumentException
 	{
 		pageDriver.VerifyTitle("My account");	
 		
 		Assert.assertTrue(pageDriver.IsNotPresent(loginLoct.getlocator("//locators/LoginButton")),"Forgot Password Page is not Open");
 	}
 	
-	public void ForgotPasswordEmailId() throws Exception
+	public void forgotPasswordEmailId() throws Exception
 	{
 		List<WebElement> elements1=pageDriver.getwebelements(loginLoct.getlocator("//locators/ForgotEmail"));
 		Assert.assertTrue(elements1.size()>0?true:false,"Not able to See the Forgot Password Email ID Field");	
 		
 	}
 	
-	public void BackToLoginAndContinue() throws Exception
+	public void backToLoginAndContinue() throws Exception
 	{
 				
 		List<WebElement> elements1=pageDriver.getwebelements(loginLoct.getlocator("//locators/BackTologin"));
@@ -108,13 +108,13 @@ public class LoginFunctions
 		Assert.assertTrue(flag1&&flag2, "Back to Login and Continue button is not loaded");
 	}
 	
-	public void EnterEmailForgotPassword(String email) throws Exception
+	public void enterEmailForgotPassword(String email) throws Exception
 	{
 		
 		pageDriver.SendKeys(pageDriver.getwebelement(loginLoct.getlocator("//locators/ForgotEmail")),email);
 	}
 	
-	public void ClickForgotContinue() throws Exception
+	public void clickForgotContinue() throws Exception
 	{
 
 		pageDriver.Clickon(pageDriver.getwebelement(loginLoct.getlocator("//locators/ForgotContinue")));
@@ -122,7 +122,7 @@ public class LoginFunctions
 		
 	}
 	
-	public void ResetPasswordLinkVerification(String EmailID ) throws InterruptedException, DocumentException
+	public void resetPasswordLinkVerification(String EmailID ) throws InterruptedException, DocumentException
 	{
 		
 		Thread.sleep(10000);
@@ -139,13 +139,13 @@ public class LoginFunctions
 		Assert.assertTrue(Text.contains(EmailID),"Message(We have sent you an email) not found");
 	}
 	
-	public void ClickOnRegisration () throws Exception
+	public void clickOnRegisration () throws Exception
 	{
 		pageDriver.Clickon(pageDriver.getwebelement(loginLoct.getlocator("//locators/Register")));
 		pageDriver.WaitforPageToBeReady();
 	}
 	
-	public void VerifyRegisrationPageOpen() throws InterruptedException, DocumentException
+	public void verifyRegisrationPageOpen() throws InterruptedException, DocumentException
 	{
 		
 		List<WebElement> elements1=pageDriver.getwebelements(regiLoct.getlocator("//locators/RegisterNow"));

@@ -124,13 +124,13 @@ public class RegisteredUserCloseAccountPageHelper {
 		@And("^I Enter the MoveOut Date$")
 		public void i_Enter_the_MoveOut_Date() throws Throwable 
 		{
-			closeAcc.EnterMoveOutDate();
+			closeAcc.enterMoveOutDate();
 		}
 
 		@And("^I Click On Continue of Move Out Step$")
 		public void i_Click_On_Continue_of_Move_Out_Step() throws Throwable 
 		{
-			closeAcc.ContinueClick();
+			closeAcc.continueClick();
 			//webDriver.Clickon(webDriver.getwebelement(CloseAccLoct.getlocator("//locators/MoveOutContinue")));
 			//Thread.sleep(5000);
 		}
@@ -138,7 +138,7 @@ public class RegisteredUserCloseAccountPageHelper {
 		@And("^I Click On Continue of Final Bill Step$")
 		public void i_Click_On_Continue_of_Final_Bill_Step() throws Throwable 
 		{
-			closeAcc.ContinueClick();
+			closeAcc.continueClick();
 			//webDriver.Clickon(webDriver.getwebelement(CloseAccLoct.getlocator("//locators/MoveOutContinue")));
 			//Thread.sleep(5000);
 		}
@@ -146,49 +146,49 @@ public class RegisteredUserCloseAccountPageHelper {
 		@And("^I Enter Post Code as ([^\"]*)$")
 		public void i_Enter_Post_Code_as(String PostCode) throws Throwable 
 		{
-			closeAcc.EnterPostCode(PostCode);
+			closeAcc.enterPostCode(PostCode);
 		
 		}
 
 		@And("^I Click on Find Address$")
 		public void i_Click_Find_Address_as() throws Throwable 
 		{
-			closeAcc.FindAddressClick();
+			closeAcc.findAddressClick();
 		}
 
 		@And("^I Select ([^\"]*) from Address List$")
 		public void i_Select_Address_from_Address_List(String Address) throws Throwable 
 		{
-			closeAcc.SelectAddress(Address);	
+			closeAcc.selectAddress(Address);	
 		}
 
 		@And("^I Click Continue of Forwarding Address$")
 		public void i_Click_Continue_of_Forwarding_Address() throws Throwable 
 		{
-			closeAcc.MoveOutContinue();
+			closeAcc.moveOutContinue();
 		}
 
 		@And("^I Click Confirm and Close Account$")
 		public void i_Click_Confirm_and_Close_Account() throws Throwable 
 		{
-			closeAcc.ConfirmClick();
+			closeAcc.confirmClick();
 		}
 
 		@Then("^My Account Should Close$")
 		public void my_Account_Should_Close() throws Throwable 
 		{
-			closeAcc.AccountShouldClose();
+			closeAcc.accountShouldClose();
 		}
 
 		@And("^I Can See Closing Message$")
 		public void i_Can_See_Closing_Message() throws Throwable 
 		{
-			closeAcc.ClosingMessage();
+			closeAcc.closingMessage();
 		}
 		
 		@And("^I Click Close your account from you are moving$")
 		public void i_Click_Close_your_account_from_you_are_moving() throws Throwable {
 		    // Write code here that turns the phrase above into concrete actions
-			closeAcc.ClickCloseYourAccount();
+			closeAcc.clickCloseYourAccount();
 		}
 	}

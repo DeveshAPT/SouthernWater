@@ -62,7 +62,7 @@ public class ExcelWork {
 		return obj;
 	}
 
-	public void WriteCustomerID(String CustomerID, String PaymentReference) throws IOException {
+	public void writeCustomerID(String CustomerID, String PaymentReference) throws IOException {
 		
 		String path = "src//test//resources//dataSource//CustomerID.xlsx";
 		File file = new File(path);
@@ -74,7 +74,7 @@ public class ExcelWork {
 				System.out.println(e.getMessage());
 			}
 		}
-		AppendData(path, CustomerID,PaymentReference);
+		appendData(path, CustomerID,PaymentReference);
 	}
 
 	public void createFile(String Path) throws IOException {
@@ -95,7 +95,7 @@ public class ExcelWork {
 		fos.close();
 	}
 
-	public void AppendData(String Path, String CustomerID, String PaymentReference) throws FileNotFoundException {
+	public void appendData(String Path, String CustomerID, String PaymentReference) throws FileNotFoundException {
 		try {
 
 			FileInputStream fis = new FileInputStream(new File(Path));
@@ -110,7 +110,7 @@ public class ExcelWork {
 
 			row.createCell(0).setCellValue(CustomerID);
 			row.createCell(1).setCellValue(PaymentReference);
-			row.createCell(2).setCellValue(CurrentDate());
+			row.createCell(2).setCellValue(currentDate());
 			fis.close();
 			FileOutputStream fos = new FileOutputStream(Path);
 			workbook.write(fos);
@@ -120,7 +120,7 @@ public class ExcelWork {
 		}
 	}
 
-	public String CurrentDate() {
+	public String currentDate() {
 		Date date = new Date();
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 		return (formatter.format(date));

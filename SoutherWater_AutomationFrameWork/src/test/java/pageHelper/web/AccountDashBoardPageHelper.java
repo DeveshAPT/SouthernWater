@@ -132,8 +132,8 @@ public class AccountDashBoardPageHelper {
 	public void i_am_on_Account_DashBoard_Using_Login_Credentials_devesh_kumar_southernwater_co_uk_and_Logica(
 			String email, String password) throws Throwable {
 		login.OpenLoginPage();
-		login.EnterEmailAndPassword(email, password);
-		login.ClickOnLogin();
+		login.enterEmailAndPassword(email, password);
+		login.clickOnLogin();
 		dashBoard.yourAccountClick();
 
 	}
@@ -324,7 +324,7 @@ public class AccountDashBoardPageHelper {
 
 	@And("^Login With  my ([^\"]*) and ([^\"]*)$")
 	public void login_With_my_Kumar_devesh_yahoo_com_and_Apple(String email, String password) throws Throwable {
-		login.EnterEmailAndPassword(email, password);
+		login.enterEmailAndPassword(email, password);
 	}
 
 	@And("^I Click Change Paperless Setting$")
@@ -423,7 +423,7 @@ public class AccountDashBoardPageHelper {
 		// Map<String, String> map=excel.TestDataFromExcel("Dashboard");
 		String email = prpertyreader.readproperty("UserEmail");
 		String password = prpertyreader.readproperty("UserPassword");
-		login.EnterEmailAndPassword(email, password);
+		login.enterEmailAndPassword(email, password);
 	}
 
 	@Then("^I can see the QucikLinks ([^\"]*) on Dashboard$")

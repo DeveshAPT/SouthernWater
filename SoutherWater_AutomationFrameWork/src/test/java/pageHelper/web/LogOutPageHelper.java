@@ -52,8 +52,8 @@ public class LogOutPageHelper
 	@When("^Relogin with Using Login Credentials ([^\"]*) and ([^\"]*)$")
 	public void relogin_with_Using_Login_Credentials(String email, String password) throws Throwable 
 	{
-		login.EnterEmailAndPassword(email, password); 
-		login.ClickOnLogin();
+		login.enterEmailAndPassword(email, password); 
+		login.clickOnLogin();
 	}
 
 	

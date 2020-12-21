@@ -31,7 +31,7 @@ public class CloseAccountFunctions
 		custException=new AssertionExceptionManager(dr);
 	}
 
-	public void OpenCloseAccountPage() throws Exception
+	public void openCloseAccountPage() throws Exception
 	{
 		Thread.sleep(5000);
 		//webDriver.Clickon(webDriver.getwebelement(payBillLoct.getlocator("//locators/AcceptCokies")));
@@ -41,59 +41,57 @@ public class CloseAccountFunctions
 		Thread.sleep(10000);
 	}
 	
-	public void StartClick() throws InterruptedException, DocumentException, Exception
+	public void startClick() throws InterruptedException, DocumentException, Exception
 	{
 		pageDriver.Clickon(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/CloseAccountStart")));
 		pageDriver.WaitforPageToBeReady();
 		Thread.sleep(7000);
 	}
 	
-	public void EnterCustDetails(String customerName,String paymentRef, String lastName ) throws InterruptedException, IOException, DocumentException
+	public void enterCustDetails(String customerName,String paymentRef, String lastName ) throws InterruptedException, IOException, DocumentException
 	{
 		pageDriver.SendKeys(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/CustomerNumber")),customerName);
 		pageDriver.SendKeys(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/PaymentReference")),paymentRef);
 		pageDriver.SendKeys(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/LastName")),lastName);
 	}
 	
-	
-	
-	public void EnterMoveOutDate() throws InterruptedException, IOException, DocumentException
+	public void enterMoveOutDate() throws InterruptedException, IOException, DocumentException
 	{
 		String date1=  core.baseDriverHelper.GetFutureDate();
 		System.out.println("selected date::: "+date1);	
 		pageDriver.SendKeys(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/MoveOutDateInput")),date1+Keys.TAB);
 	}
 	
-	public void ContinueClick() throws InterruptedException, DocumentException, Exception
+	public void continueClick() throws InterruptedException, DocumentException, Exception
 	{
 		pageDriver.Clickon(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/MoveOutContinue")));
 		Thread.sleep(5000);
 	}
 	
-	public void EnterPostCode(String postCode) throws InterruptedException, IOException, DocumentException
+	public void enterPostCode(String postCode) throws InterruptedException, IOException, DocumentException
 	{
 		pageDriver.SendKeys(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/PostCodeInput")),postCode);
 	}
 	
-	public void FindAddressClick() throws InterruptedException, DocumentException, Exception
+	public void findAddressClick() throws InterruptedException, DocumentException, Exception
 	{
 		pageDriver.Clickon(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/FinalAddress")));
 		Thread.sleep(5000);
 	}
 	
-	public void SelectAddress(String address) throws InterruptedException, DocumentException
+	public void selectAddress(String address) throws InterruptedException, DocumentException
 	{
 		Select DropList=new Select(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/SelectAddress")));
 		DropList.selectByVisibleText(address);
 	}
 	
-	public void MoveOutContinue() throws InterruptedException, DocumentException, Exception
+	public void moveOutContinue() throws InterruptedException, DocumentException, Exception
 	{
 		pageDriver.Clickon(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/MoveOutContinue")));
 		Thread.sleep(5000);
 	}
 	
-	public void ConfirmClick() throws InterruptedException, DocumentException, Exception
+	public void confirmClick() throws InterruptedException, DocumentException, Exception
 	{
 		
 		Thread.sleep(5000);
@@ -105,7 +103,7 @@ public class CloseAccountFunctions
 		//pageDriver.Clickon(pageDriver.getwebelement(CloseAccLoct.getlocator("//locators/ConfirmCloseAccount")));
 	}
 	
-	public void ClickCloseYourAccount() throws DocumentException, Exception
+	public void clickCloseYourAccount() throws DocumentException, Exception
 	{
 		
 		pageDriver.Clickon(pageDriver.getwebelement(loginLoct.getlocator("//locators/CloseAccountButton")));
@@ -113,12 +111,12 @@ public class CloseAccountFunctions
 		
 	}
 	
-	public void AccountShouldClose()
+	public void accountShouldClose()
 	{
 		
 	}
 	
-	public void ClosingMessage()
+	public void closingMessage()
 	{
 		
 	}
