@@ -33,5 +33,6 @@
 <CheckDetailValues>//div[@class='review-detail-section']//p</CheckDetailValues>
 <VerifyEmailMessage>//h1[text()='Verify your email address']</VerifyEmailMessage>
 <VerifyEmailMessageList>//div[@class='register__container']//p</VerifyEmailMessageList>
+<MandatoryFieldMessage>//div[@class='feedback-box mb-4 feedback-box--harley']//a</MandatoryFieldMessage>
 
 </locators>

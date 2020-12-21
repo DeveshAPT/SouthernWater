@@ -20,7 +20,7 @@ import utils.maiUtility;
 @CucumberOptions(
 
 features = {
-			"src/test/resources/FeatureFile/MoveInNew.feature"},glue = { "pageHelper" },
+			"src/test/resources/FeatureFile/NewRegistration.feature"},glue = { "pageHelper" },
 plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"},
 tags= "@SIT",
 dryRun=false
