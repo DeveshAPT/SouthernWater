@@ -575,11 +575,12 @@ public class CustomerRegistrationPageHelper {
 		registerFunc.continueClickPassword();
 
 	}
+
 	@Given("^I should see the Mandatory Field Message on Login Details Step$")
 	public void i_should_see_the_Mandatory_Field_Message_on_Login_Details_Step() throws Throwable {
 		registerFunc.mandatoryFieldMessages("LoginDetail");
 	}
-	
+
 	@When("^I Enter Password ([^\"]*)$")
 	public void i_Enter_Password_Apple(String Password) throws Throwable {
 		registerFunc.enterPassword(Password);
@@ -589,10 +590,10 @@ public class CustomerRegistrationPageHelper {
 	public void i_Should_not_see_any_Mandatory_Error_Message() throws Throwable {
 		registerFunc.mandatoryFieldMessagesGone("LoginDetail");
 	}
-	
+
 	@Given("^I am Login Detail page Using ([^\"]*) Last Name ([^\"]*) Email ([^\"]*)$")
-	public void i_am_Login_Detail_page_Using_Last_Name_Email(String CustomerNumber, String  LastName, String Email) throws Throwable 
-	{
+	public void i_am_Login_Detail_page_Using_Last_Name_Email(String CustomerNumber, String LastName, String Email)
+			throws Throwable {
 		registerFunc.openRegistrationPage();
 
 		registerFunc.clickTermsAndConditionCheckBox();
@@ -607,24 +608,24 @@ public class CustomerRegistrationPageHelper {
 
 		registerFunc.continueClick();
 
-		registerFunc.confirmContinueClick();  
+		registerFunc.confirmContinueClick();
 	}
 
 	@And("^I Click Back Button$")
 	public void i_Click_Back_Button() throws Throwable {
 		registerFunc.commonBackRegistration();
 	}
-	
+
 	@And("^I Move to Check and Confirm Step$")
 	public void i_Move_to_Check_and_Confirm_Step() throws Throwable {
 		registerFunc.checkAndConfirmOpen();
 	}
-	
+
 	@And("^I Should move to Your Details Step$")
 	public void i_Should_move_to_Your_Details_Step() throws Throwable {
 		registerFunc.yourDetailStepIsOpen();
 	}
-	
+
 	@Then("^I Should move back to Login Details Step$")
 	public void i_Should_move_back_to_Login_Details_Step() throws Throwable {
 		registerFunc.loginDetailPageOpen();
