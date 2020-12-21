@@ -44,21 +44,21 @@ public class RegistrationFunctions {
 		custException = new AssertionExceptionManager(pageDriver);
 	}
 
-	public void OpenRegistrationPage() throws InterruptedException, IOException {
+	public void openRegistrationPage() throws InterruptedException, IOException {
 		Thread.sleep(5000);
 		pageDriver.OpenURL(prpertyreader.readproperty("CustomerRegistration"));
 		Thread.sleep(5000);
 		System.out.println(pageDriver.GetTitle());
 	}
 
-	public void VerifyTermsConditionsCheckBox() throws InterruptedException, DocumentException {
+	public void verifyTermsConditionsCheckBox() throws InterruptedException, DocumentException {
 		boolean flag = false;
 		List<WebElement> elements = pageDriver.getwebelements(custRegist.getlocator("//locators/AgreeTermsCheckBox"));
 		flag = elements.size() > 0 ? true : false;
 		Assert.assertTrue(flag, "Agree CheckBox not Found");
 	}
 
-	public void VerifyTermsAndCondtionLink() throws InterruptedException, DocumentException {
+	public void verifyTermsAndCondtionLink() throws InterruptedException, DocumentException {
 		boolean flag = false;
 		List<WebElement> elements = pageDriver
 				.getwebelements(custRegist.getlocator("//locators/TermsAndConditionsLink"));
@@ -66,7 +66,7 @@ public class RegistrationFunctions {
 		Assert.assertTrue(flag, "Terms and Conditions Link not Present");
 	}
 
-	public void ClickTermsConditionLink() throws Exception {
+	public void clickTermsConditionLink() throws Exception {
 		String locator = custRegist.getlocator("//locators/TermsAndConditionsLink");
 		System.out.println(locator);
 		Thread.sleep(5000);
@@ -78,7 +78,7 @@ public class RegistrationFunctions {
 
 	}
 
-	public void VerifyTermsAndConditionPage() throws InterruptedException, DocumentException {
+	public void verifyTermsAndConditionPage() throws InterruptedException, DocumentException {
 		List<WebElement> elements1 = pageDriver
 				.getwebelements(custRegist.getlocator("//locators/TermsAndCondtionHeading"));
 		boolean flag1 = elements1.size() > 0 ? true : false;
@@ -98,7 +98,7 @@ public class RegistrationFunctions {
 		Assert.assertTrue(flag1 && flag2 && flag3 && flag4 && flag5, "Terms And Condition page Not Open");
 	}
 
-	public void CloseTermAndConditionPage() throws Exception {
+	public void closeTermAndConditionPage() throws Exception {
 
 		pageDriver.WaitforPageToBeReady();
 		// pageDriver.IsPresent((custRegist.getlocator("//locators/TermsAndConditionClose")));
@@ -106,45 +106,45 @@ public class RegistrationFunctions {
 				"Close button not found");
 	}
 
-	public void ClickCloseTermAndCondition() throws InterruptedException, DocumentException, Exception {
+	public void clickCloseTermAndCondition() throws InterruptedException, DocumentException, Exception {
 		pageDriver.Clickon(pageDriver.getwebelement(custRegist.getlocator("//locators/TermsAndConditionClose")));
 		pageDriver.WaitforPageToBeReady();
 	}
 
-	public void ClickTermsAndConditionCheckBox() throws Exception {
+	public void clickTermsAndConditionCheckBox() throws Exception {
 		pageDriver
 				.SafeJavaScriptClick(pageDriver.getwebelement(custRegist.getlocator("//locators/AgreeTermsCheckBox")));
 		// pageDriver.Clickon(pageDriver.getwebelement(custRegist.getlocator("//locators/AgreeTermsCheckBox")));
 		pageDriver.WaitforPageToBeReady();
 	}
 
-	public void VerifyRegisterationPageOpen() throws InterruptedException, DocumentException {
+	public void verifyRegisterationPageOpen() throws InterruptedException, DocumentException {
 
 		List<WebElement> elements1 = pageDriver.getwebelements(custRegist.getlocator("//locators/RegisterNow"));
 		boolean flag1 = elements1.size() > 0 ? true : false;
 		Assert.assertTrue(flag1, "Customer Registration Page Not Opened");
 	}
 
-	public void ClickStart() throws InterruptedException, DocumentException, Exception {
+	public void clickStart() throws InterruptedException, DocumentException, Exception {
 		pageDriver.Clickon(pageDriver.getwebelement(custRegist.getlocator("//locators/Start")));
 		pageDriver.WaitforPageToBeReady();
 	}
 
-	public void AcceptTermsAndConditionMandatoryMessageFirst() throws InterruptedException, DocumentException {
+	public void acceptTermsAndConditionMandatoryMessageFirst() throws InterruptedException, DocumentException {
 		List<WebElement> elements1 = pageDriver
 				.getwebelements(custRegist.getlocator("//locators/AcceptTermMessageFirst"));
 		boolean flag1 = elements1.size() > 0 ? true : false;
 		Assert.assertTrue(flag1, "First Accpet Terms and Conditions Message Not found");
 	}
 
-	public void AcceptTermsAndConditionMandatoryMessageSecond() throws InterruptedException, DocumentException {
+	public void acceptTermsAndConditionMandatoryMessageSecond() throws InterruptedException, DocumentException {
 		List<WebElement> elements1 = pageDriver
 				.getwebelements(custRegist.getlocator("//locators/AcceptTermMessageSecond"));
 		boolean flag1 = elements1.size() > 0 ? true : false;
 		Assert.assertTrue(flag1, "Second Accpet Terms and Conditions Message Not found");
 	}
 
-	public void TermsConditionMessegeDisAppear() throws InterruptedException, DocumentException {
+	public void termsConditionMessegeDisAppear() throws InterruptedException, DocumentException {
 		boolean firstgone = pageDriver.IsNotPresent(custRegist.getlocator("//locators/AcceptTermMessageFirst"));
 		Assert.assertTrue(firstgone, "First Accpet Terms and Conditions is not removed");
 
@@ -165,12 +165,12 @@ public class RegistrationFunctions {
 		 */
 	}
 
-	public void PrivacyLinkClick() throws InterruptedException, DocumentException, Exception {
+	public void privacyLinkClick() throws InterruptedException, DocumentException, Exception {
 		pageDriver.Clickon(pageDriver.getwebelement(custRegist.getlocator("//locators/PrivacyLink")));
 		pageDriver.WaitforPageToBeReady();
 	}
 
-	public void VerifyItShouldTakeFewMinute() throws InterruptedException, DocumentException {
+	public void verifyItShouldTakeFewMinute() throws InterruptedException, DocumentException {
 
 		List<WebElement> elements2 = pageDriver.getwebelements(custRegist.getlocator("//locators/ItShouldTakeLabel"));
 		boolean exist = elements2.size() > 0 ? true : false;
@@ -178,7 +178,7 @@ public class RegistrationFunctions {
 
 	}
 
-	public void Verify8Digitlabel() throws InterruptedException, DocumentException {
+	public void verify8Digitlabel() throws InterruptedException, DocumentException {
 		List<WebElement> elements2 = pageDriver.getwebelements(custRegist.getlocator("//locators/EightDigitLabel"));
 		boolean exist = elements2.size() > 0 ? true : false;
 		Assert.assertTrue(exist,
@@ -186,19 +186,19 @@ public class RegistrationFunctions {
 
 	}
 
-	public void VerifyLastNameLabel() throws InterruptedException, DocumentException {
+	public void verifyLastNameLabel() throws InterruptedException, DocumentException {
 		List<WebElement> elements2 = pageDriver.getwebelements(custRegist.getlocator("//locators/YourLastNameLabel"));
 		boolean exist = elements2.size() > 0 ? true : false;
 		Assert.assertTrue(exist, "Your last name as shown on the bill. ");
 	}
 
-	public void VerifyEmailLabel() throws InterruptedException, DocumentException {
+	public void verifyEmailLabel() throws InterruptedException, DocumentException {
 		List<WebElement> elements2 = pageDriver.getwebelements(custRegist.getlocator("//locators/YourEmailLabel"));
 		boolean exist = elements2.size() > 0 ? true : false;
 		Assert.assertTrue(exist, "Your email address. ");
 	}
 
-	public void EnterCustomerDetials(String CustomerNumber, String LastName, String Email)
+	public void enterCustomerDetials(String CustomerNumber, String LastName, String Email)
 			throws InterruptedException, IOException, DocumentException {
 		enteredName = LastName;
 		enteredCustomerNumber = CustomerNumber;
@@ -214,7 +214,7 @@ public class RegistrationFunctions {
 				CustomerNumber + Keys.TAB);
 	}
 
-	public void ContinueClick() throws InterruptedException, DocumentException, Exception {
+	public void continueClick() throws InterruptedException, DocumentException, Exception {
 		System.out.println("I am Before Continue");
 		Thread.sleep(7000);
 		pageDriver.Clickon(pageDriver.getwebelement(custRegist.getlocator("//locators/Continue")));
@@ -222,7 +222,7 @@ public class RegistrationFunctions {
 		System.out.println("I am after Continue");
 	}
 
-	public void VerifyCustomerDetail() throws InterruptedException, DocumentException {
+	public void verifyCustomerDetail() throws InterruptedException, DocumentException {
 		Thread.sleep(10000);
 		List<WebElement> elements = pageDriver.getwebelements(custRegist.getlocator("//locators/CheckDetailHeadings"));
 		WebElement ele = elements.get(0);
@@ -235,7 +235,7 @@ public class RegistrationFunctions {
 		Assert.assertTrue(Text.contains(enteredName), "Entered Name Not matched on Check Detail page");
 	}
 
-	public void VerifyEmail() throws InterruptedException, DocumentException {
+	public void verifyEmail() throws InterruptedException, DocumentException {
 		List<WebElement> elements = pageDriver.getwebelements(custRegist.getlocator("//locators/CheckDetailHeadings"));
 		WebElement ele = elements.get(1);
 		String Text = ele.getText();
@@ -247,7 +247,7 @@ public class RegistrationFunctions {
 		Assert.assertTrue(Text.contains(enteredEmailID), "Entered Email ID not matched on Check Detail page");
 	}
 
-	public void VerifyCustomerNumber() throws InterruptedException, DocumentException {
+	public void verifyCustomerNumber() throws InterruptedException, DocumentException {
 		List<WebElement> elements = pageDriver.getwebelements(custRegist.getlocator("//locators/CheckDetailHeadings"));
 		WebElement ele = elements.get(2);
 		String Text = ele.getText();
@@ -260,32 +260,32 @@ public class RegistrationFunctions {
 				"Entered Customer number not matched on Check Detail page");
 	}
 
-	public void VerifyAddress() throws InterruptedException, DocumentException {
+	public void verifyAddress() throws InterruptedException, DocumentException {
 		List<WebElement> elements = pageDriver.getwebelements(custRegist.getlocator("//locators/CheckDetailHeadings"));
 		WebElement ele = elements.get(3);
 		String Text = ele.getText();
 		Assert.assertTrue(Text.contains("Address"), "Address Lable Not Found on Check Detials");
 	}
 
-	public void YourDetailStepIsOpen() throws DocumentException, InterruptedException {
+	public void yourDetailStepIsOpen() throws DocumentException, InterruptedException {
 		Assert.assertTrue(pageDriver.IsPresent(custRegist.getlocator("//locators/YourDetails")),
 				"Your Details Page is not open");
 	}
 
-	public void BackButtonClick() throws InterruptedException, DocumentException, Exception {
+	public void backButtonClick() throws InterruptedException, DocumentException, Exception {
 		Thread.sleep(5000);
 		pageDriver.Clickon(pageDriver.getwebelement(custRegist.getlocator("//locators/Back")));
 		pageDriver.WaitforPageToBeReady();
 	}
 
-	public void EnterEmailID(String UpdateEmail) throws InterruptedException, IOException, DocumentException {
+	public void enterEmailID(String UpdateEmail) throws InterruptedException, IOException, DocumentException {
 		newEmail = UpdateEmail;
 		Thread.sleep(5000);
 		pageDriver.CleasrAndSendKeys(pageDriver.getwebelement(custRegist.getlocator("//locators/EmailId")),
 				UpdateEmail + Keys.TAB);
 	}
 
-	public void VerifyUpdatedEmail() throws InterruptedException, DocumentException {
+	public void verifyUpdatedEmail() throws InterruptedException, DocumentException {
 		Thread.sleep(4000);
 		List<WebElement> elements = pageDriver.getwebelements(custRegist.getlocator("//locators/CheckDetailHeadings"));
 		WebElement ele = elements.get(1);
@@ -298,17 +298,17 @@ public class RegistrationFunctions {
 		Assert.assertTrue(Text.contains(newEmail), "Entered Email ID not matched on Check Detail page");
 	}
 
-	public void ConfirmContinueClick() throws InterruptedException, DocumentException, Exception {
+	public void confirmContinueClick() throws InterruptedException, DocumentException, Exception {
 		pageDriver.Clickon(pageDriver.getwebelement(custRegist.getlocator("//locators/ConfirmContinue")));
 		pageDriver.WaitforPageToBeReady();
 	}
 
-	public void EnterPassword(String Password) throws InterruptedException, IOException, DocumentException {
+	public void enterPassword(String Password) throws InterruptedException, IOException, DocumentException {
 		Thread.sleep(4000);
 		pageDriver.SendKeys(pageDriver.getwebelement(custRegist.getlocator("//locators/Password")), Password);
 	}
 
-	public void FirstQuestionAnswer(String firstQuestion, String firstAnswer)
+	public void firstQuestionAnswer(String firstQuestion, String firstAnswer)
 			throws InterruptedException, IOException, DocumentException {
 		Select Question = new Select(pageDriver.getwebelement(custRegist.getlocator("//locators/FirstQuestion")));
 		Question.selectByVisibleText(firstQuestion);
@@ -316,7 +316,7 @@ public class RegistrationFunctions {
 		pageDriver.SendKeys(pageDriver.getwebelement(custRegist.getlocator("//locators/FirstAnswer")), firstAnswer);
 	}
 
-	public void SecondQuestionAnswer(String secondQuestion, String secondAnswer)
+	public void secondQuestionAnswer(String secondQuestion, String secondAnswer)
 			throws InterruptedException, IOException, DocumentException {
 		Select Question = new Select(pageDriver.getwebelement(custRegist.getlocator("//locators/SecondQuestion")));
 		Question.selectByVisibleText(secondQuestion);
@@ -326,7 +326,7 @@ public class RegistrationFunctions {
 		Thread.sleep(5000);
 	}
 
-	public void TrySelectFirstQuestionInSecondQuestion(String firstQuestion) {
+	public void trySelectFirstQuestionInSecondQuestion(String firstQuestion) {
 		firstSecurityQuest = firstQuestion;
 		try {
 			Select Question = new Select(pageDriver.getwebelement(custRegist.getlocator("//locators/SecondQuestion")));
@@ -336,7 +336,7 @@ public class RegistrationFunctions {
 		}
 	}
 
-	public void FirstQuestionNotvisibleInSecondQuestionAfterSelection() throws InterruptedException, DocumentException {
+	public void firstQuestionNotvisibleInSecondQuestionAfterSelection() throws InterruptedException, DocumentException {
 		Select Question = new Select(pageDriver.getwebelement(custRegist.getlocator("//locators/SecondQuestion")));
 		List<WebElement> dd = Question.getOptions();
 		for (int j = 0; j < dd.size(); j++) {
@@ -347,12 +347,12 @@ public class RegistrationFunctions {
 		}
 	}
 
-	public void ContinueClickPassword() throws InterruptedException, DocumentException, Exception {
+	public void continueClickPassword() throws InterruptedException, DocumentException, Exception {
 		pageDriver.Clickon(pageDriver.getwebelement(custRegist.getlocator("//locators/PasswordContinue")));
 		pageDriver.WaitforPageToBeReady();
 	}
 
-	public void ActivationMailMessageVerify() throws Exception {
+	public void activationMailMessageVerify() throws Exception {
 		Thread.sleep(15000);
 		pageDriver.WaitforPageToBeReady();
 
@@ -417,6 +417,26 @@ public class RegistrationFunctions {
 
 		custException.IsTrue(pageDriver.IsNotPresent(custRegist.getlocator("//locators/MandatoryFieldMessage")),
 				"Mandatory Field Error message not gone ");
+
+	}
+	
+	public void commonBackRegistration() throws InterruptedException, DocumentException, Exception
+	{
+		pageDriver.Clickon(pageDriver.getwebelement(custRegist.getlocator("//locators/CommonBack")));
+		pageDriver.WaitforPageToBeReady();
+	}
+	
+	public void checkAndConfirmOpen() throws InterruptedException, DocumentException {
+
+		custException.IsTrue(pageDriver.IsPresent(custRegist.getlocator("//locators/CheckAndConfirm")),
+				"Check And Confirm Page not open ");
+
+	}
+	
+	public void loginDetailPageOpen() throws InterruptedException, DocumentException {
+
+		custException.IsTrue(pageDriver.IsPresent(custRegist.getlocator("//locators/LoginDetailStepHeading")),
+				"Login Detail Page is not Open");
 
 	}
 }

@@ -34,5 +34,7 @@
 <VerifyEmailMessage>//h1[text()='Verify your email address']</VerifyEmailMessage>
 <VerifyEmailMessageList>//div[@class='register__container']//p</VerifyEmailMessageList>
 <MandatoryFieldMessage>//div[@class='feedback-box mb-4 feedback-box--harley']//a</MandatoryFieldMessage>
-
+<CommonBack>//div//*[contains(text(),'Back')]</CommonBack>
+<CheckAndConfirm>//h1[text()='Check and confirm']</CheckAndConfirm>
+<LoginDetailStepHeading>//h1[text()='Set up your login details']</LoginDetailStepHeading>
 </locators>
