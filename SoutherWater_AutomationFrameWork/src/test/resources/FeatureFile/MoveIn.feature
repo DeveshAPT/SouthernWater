@@ -1,6 +1,6 @@
 Feature: Move In
 
-  @SIT1 
+@OLD
   Scenario: Verify that user is able to move in to a address successfully
     Given I am on create an account page
     And I click on Start button
@@ -8,19 +8,19 @@ Feature: Move In
     And I fill all the payment details
     Then I Should be able to move in
 
-  @SIT1
+@OLD
   Scenario: Verify that user is able to move to Moving details page
     Given I am on a create an account page
     When I click on Start button to Moving details page
     Then I should be able to move to Moving details page
 
-  @SIT1
+@OLD
   Scenario: Verify that user will get error messages on Moving details page for not filling any values
     Given I am on Moving details page
     When I clicked on Continue button
     Then I should be able to see error messages on Moving details page for not filling any values
 
-  @SIT1
+@OLD
   Scenario Outline: Verify that user will get error message on Moving details page for not entering valid value in postcode
     Given I am on the Moving details page
     When I enter invalid <Postcode> in Enter the postcode
@@ -31,14 +31,14 @@ Feature: Move In
       | Postcode |
       |   110033 |
 
-  @SIT1
+@OLD
   Scenario: Verify that user will get error messages on Moving details page for not selecting an address
     Given I am on the moving details page
     When I am not selecting the address
     And I clicked on the Continue button
     Then I should be able to see error messages on Moving details page
 
-  @SIT1
+@OLD
   Scenario Outline: Verify the i can enter either Mobile or Home Contact number while moving in SW region
     Given I have open the move-in page
     And I click on Start button
@@ -56,7 +56,7 @@ Feature: Move In
       | PostCode | Address                                     |
       | PO39 0AN | IVYHURST ,  THE BROADWAY, TOTLAND, PO39 0AN |
 
-  @SIT1
+@OLD
   Scenario Outline: Verify The Name titles Available in Move-IN Journey at Your Details step
     Given I have open the move-in page
     And I click on Start button
@@ -74,7 +74,7 @@ Feature: Move In
       | PostCode | Address                                     |
       | PO39 0AN | IVYHURST ,  THE BROADWAY, TOTLAND, PO39 0AN |
 
-  @SIT1
+@OLD
   Scenario Outline: Verify that i can Move-in SW region with my Bank Detail and Correspondence as Yes
     Given I have open the move-in page
     And I click on Start button
@@ -178,7 +178,7 @@ Feature: Move In
       | PO39 0AN | IVYHURST ,  THE BROADWAY, TOTLAND, PO39 0AN      | Miss   | FTest1  | MTest1  | LTest1  | 25/10/1985 | 9818156878 | test1@yahoo.com  |     
 
 
-  @SIT1
+@OLD
   Scenario Outline: Verify that i can Move-in SW region without my Bank Detail and Correspondence as Yes
     Given I have open the move-in page
     And I click on Start button
@@ -211,7 +211,7 @@ Feature: Move In
       | BN14 0ES | 19 MARSHALL AVENUE,WORTHING,BN14 0ES   | Prof   | FTest22 | MTest22 | LTest22 | 25/10/1976 | 9818156878 | test2B@yahoo.com | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
       | ME12 3AU | 2 HALFWAY ROAD,MINSTER-ON-SEA,ME12 3AU | Mrs    | FTest23 | MTest23 | LTest23 | 25/10/1983 | 9818156878 | test2C@yahoo.com | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
 
-  @SIT1
+@OLD
   Scenario Outline: Move-in into metered Property as non DD Customer differen Corespondence address
     Given I have open the move-in page
     And I click on Start button
@@ -247,7 +247,7 @@ Feature: Move In
       | PO33 4NT | 2 LUSHINGTON VILLAS, LUSHINGTON HILL,RYDE,PO33 4NT | PO33 2JT  | 19 RIBOLEAU STREET, RYDE, PO33 2JT | Miss   | FTest3A | MTest3A | LTest3A | 25/10/1972 | 9818156878 | test3A@yahoo.com |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
       | PO40 9EE | 2 MAYDENE, UPPER PRINCES ROAD,FRESHWATER,PO40 9EE  | PO33 2JT  | 19 RIBOLEAU STREET, RYDE, PO33 2JT | Ms     | FTest3B | MTest3B | LTest3B | 25/10/1990 | 9818156878 | test3B@yahoo.com |   200000 |  55779911 | Apple@123 | What was the model of the first car you owned? | Maruti  | What is the name of your first pet? | Dog     |
 
-  @SIT1
+@OLD
   Scenario Outline: Verify that i can Move-in SW region without my Bank Detail and Correspondence as No
     Given I have open the move-in page
     And I click on Start button

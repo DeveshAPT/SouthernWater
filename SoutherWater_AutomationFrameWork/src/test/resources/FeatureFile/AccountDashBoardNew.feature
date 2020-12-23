@@ -1,12 +1,12 @@
-Feature: Account Dashboard
+Feature: Account Dashboard Non Direct Debit Customer
 
   Background: A
     Given I am at login Page
-    And Login with Credentials
+    And Login with Non DD Credentials
     When Click on Login
 
   @SIT
-  Scenario Outline: Verify Account Dashboard Quick links
+  Scenario Outline: Verify Account Dashboard Quick links for Non Direct Debit Metered Customer
     Then I can see the QucikLinks <Links> on Dashboard
     And I can see Customer Number,Payment Reference on Dashboard
     And I Can see Customer Email ID, Correspondence Address under your profile section
@@ -16,8 +16,21 @@ Feature: Account Dashboard
     And I Can see Amount Due, Amount, date
 
     Examples: 
-      | Links                                                                                                 |
-      | Set up a Direct Debit , View bills/account statement ,View payment history ,Change paperless settings |
+      | Links                                                                                                |
+      | Set up a Direct Debit, View bills/account statement ,View payment history ,Change paperless settings |
+
+  @SITUNM
+  Scenario Outline: Verify Account Dashboard Quick links for Un-Metered Account
+    Then I can see the QucikLinks <Links> on Dashboard
+    And I can see Customer Number,Payment Reference on Dashboard
+    And I Can see Customer Email ID, Correspondence Address under your profile section
+    And I Can see Property address, Your Services
+    And I Can see Latest Bill, Bill Amount, Bill Date
+
+    #And I Can see Amount Due, Amount, date
+    Examples: 
+      | CustType | Links                                                                                          |
+      | UNM      | Make a payment , View bills/account statement ,View payment history ,Change paperless settings |
 
   @SIT
   Scenario Outline: Verify Dashboard Menu Items
@@ -25,8 +38,8 @@ Feature: Account Dashboard
     Then I Can See Following Menu <MenuItem> Items
 
     Examples: 
-      | MenuItem                                                                                                                                                                 |
-      | Make a payment , Set up/Amend a Direct Debit ,View bills/Account statement ,Payment history,Submit a meter reading,Paperless settings,Tell us you're moving,Your profile |
+      | MenuItem                                                                                                                                                                   |
+      | Make a payment , Set up/Amend a Direct Debit ,View bills/Account statement ,Payment history,Submit a meter reading,Paperless settings,Tell us you_re moving,Update profile |
 
   @SIT
   Scenario: Verify Logout Functionality
@@ -58,9 +71,9 @@ Feature: Account Dashboard
     And Click on 'Your Account' Option
     And I Click Change Paperless Setting
     And I Should move to Paperless Setting Page
-    And I Click on Update
-    Then I Can See Thankyou Message
 
+  #And I Click on Update
+  #Then I Can See Thankyou Message
   @SIT
   Scenario: Verify Direct Debit Navigation
     And Click on 'Your Account' Option
@@ -70,7 +83,7 @@ Feature: Account Dashboard
   @SIT
   Scenario: Verify Your Profile Navigation
     And Click on 'Your Account' Option
-    When I Click Set Up your Profile
+    When I Click update Profile
     Then I Should move to View Profile Page
 
   @SIT

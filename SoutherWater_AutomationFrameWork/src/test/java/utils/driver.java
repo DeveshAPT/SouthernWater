@@ -259,8 +259,6 @@ public class driver extends pageController
 
 	}
 
-
-
 	@BeforeMethod(groups = { "desktop" })
 	@Before
 	public void Desktopsetup(Method method,ITestContext ctx ,Object[] data) throws Exception{
@@ -416,6 +414,7 @@ public class driver extends pageController
 		MOBILE_DRIVER_THREAD_LOCAL.get().quit();
 
 	}
+	
 	@AfterMethod(groups = { "desktop" })
 	@After
 	public static void DesktopTeardown() throws ClientApiException, IOException {

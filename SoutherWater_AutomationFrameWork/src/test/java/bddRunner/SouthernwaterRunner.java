@@ -19,8 +19,7 @@ import utils.maiUtility;
 
 @CucumberOptions(
 
-features = {
-			"src/test/resources/FeatureFile/NewRegistration.feature"},glue = { "pageHelper" },
+features = {"src/test/resources/FeatureFile/AccountDashBoardNew.feature"},glue = { "pageHelper" },
 plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"},
 tags= "@SIT",
 dryRun=false

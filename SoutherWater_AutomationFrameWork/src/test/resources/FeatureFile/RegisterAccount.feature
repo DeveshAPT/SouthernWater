@@ -2,14 +2,14 @@ Feature: Registration
 
 #SSR-502 >> Agree terms and conditions
 
-@SIT
+@OLD
 Scenario: Verify Terms and Condition on Customer Registration Page 
 Given I am at SouthernWater web portal
 When I open Customer Registration Page
 Then I am able to see Terms & Conditions Check Box 
 And Hyperlink for Terms & Conditions
 
-@SITNotworking
+@OLDNotworking
 Scenario: Verify that user is able to navigate to the terms and conditions page after clicking the button for the same
 Given I am at online Customer Registration Page
 When I Click on term & condition link
@@ -20,20 +20,20 @@ And I should move to Customer Registration Page
 
 
 
-@SIT
+@OLD
 Scenario: Verify that Agree Terms & Condition checkbox is mandatory 
 Given Customer Registration Page is open
 When I click on Start button without agree Terms & Conditions
 Then I should see the error message for agree Terms & Conditions 
 And Second at below the Terms & Condition line
 
-@SIT
+@OLD
 Scenario: Verify that the validation message for agree Terms & Condition should disappear after checking agree Terms & Condition 
 Given Customer Registration Page is open and having Terms & Condition error on page
 When I Click checkbox against Terms & Conditions
 Then Agree Terms & Conditions Error message should remove from both locations
 
-@SIT
+@OLD
 Scenario: Verify that user is navigated to your privacy page after clicking the Your Privacy Link 
 Given I am on Customer Registration Page 
 When I Click Your Privacy Link
@@ -43,7 +43,7 @@ Then I Should move to Privacy Page
 #SSR-444 >> Tell the user what information they will need at the start of the register account journey
 
 
-@SIT
+@OLD
 Scenario: Verify field details message on customer registration page
 Given I am on online SouthernWater Portal page
 When I Access Customer Registration Page
@@ -78,7 +78,7 @@ Given I have the Account Verification Link in mail
 When I Click on verification email after 48 hours
 Then I should Error message for linked is expired 
 
- @SIT
+ @OLD
  Scenario Outline: Verify that as SouthernWater User I can verify my detail on Registration Checkdetail Step 
     Given I am at online Register Web page
     When I Check Terms & Condition
@@ -95,7 +95,7 @@ Examples:
     |30041953|Pinku|xovisi7659@hmnmw.com|
   
  
- @SIT
+ @OLD
  Scenario Outline: Verify the user is able to navigate to the previous step using the back button on Online Registration
     Given I am at Your Details step in Online Registration
     When Enter Customer Number <CustNumber> Last Name <LastName> Email <EmailID>
@@ -108,7 +108,7 @@ Examples:
     | CustNumber | LastName | EmailID|
     |30041953|Pinku|xovisi7659@hmnmw.com|
    
- @SIT
+ @OLD
  Scenario Outline:  Verify that as SouthernWater User I can Change my Email on check detail step in online Registration
     Given I am Accessing Online Regisration Page
     And Check Terms and Condition
@@ -125,7 +125,7 @@ Examples:
     |30041953|Pinku|xovisi7659@hmnmw.com|abc.xyz@yahoo.com|
 
 
-@SIT
+@OLD
  Scenario Outline: Verify that first Selected Security Question does not display in Second Security Question
     Given I am Login Details Page after Entering Customer Number <CustNumber> Last Name <LastName> Email <EmailID> and <Password>
     And I Select First Security Question <Question1> and Answer <Answer1>
@@ -137,7 +137,7 @@ Examples:
     |30041953|Pinku|xovisi7659@hmnmw.com|Apple@123| What was the model of the first car you owned? |Maruti|
 
     
- @SIT
+ @OLD
  Scenario Outline:  Verify that user is able to register the account successfully after filling out all of the mandatory fields
     Given I have open the Online Registration Link
     When I agree  Terms and Condition

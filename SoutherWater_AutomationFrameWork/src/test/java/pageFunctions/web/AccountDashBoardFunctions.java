@@ -22,14 +22,15 @@ public class AccountDashBoardFunctions {
 	int lastTabCount = -1;
 	int newTabCount = -1;
 
-	public AccountDashBoardFunctions(webHelper dr) {
+	public AccountDashBoardFunctions(webHelper dr) 
+	{
 		System.out.println("I am in POM");
 		pageDriver = dr;
 		custException = new AssertionExceptionManager(dr);
 	}
 
 	public void yourAccountDisplayed() throws Exception {
-		Thread.sleep(5000);
+		Thread.sleep(7000);
 		String locator = loginLoct.getlocator("//locators/AccountButtons");
 		locator = locator.replace("DisplayText", "Your Account");
 		custException.IsTrue(pageDriver.IsPresent(locator), "Your Account Button is not display",
@@ -67,7 +68,7 @@ public class AccountDashBoardFunctions {
 	}
 
 	public void logoutSuccessfully() throws Exception {
-
+Thread.sleep(7000);
 		custException.IsTrue(pageDriver.IsPresent(loginLoct.getlocator("//locators/LogoutComplete")),
 				"Logout Message 'You have been logged out successfully' not found");
 
@@ -425,10 +426,10 @@ public class AccountDashBoardFunctions {
 		custException.IsTrue(pageDriver.IsPresent(LocateMe), "Set Up Direct Debit page not open ");
 	}
 
-	public void yourProfilePageOpen() throws Exception {
-		String LocateMe = loginLoct.getlocator("//locators/YourProfileHeading");
-
-		custException.IsTrue(pageDriver.IsPresent(LocateMe), "Your Profile Page is not open");
+	public void updateProfilePageOpen() throws Exception {
+		
+		String LocateMe = loginLoct.getlocator("//locators/UpdateProfileHeading");
+		custException.IsTrue(pageDriver.IsPresent(LocateMe), "Update Profile Page is not open");
 	}
 
 	public void yourViewBillsPageOpen() throws Exception {
@@ -456,6 +457,8 @@ public class AccountDashBoardFunctions {
 	}
 
 	public void contactUsPageOpenInNewTab() throws Exception {
+		
+		Thread.sleep(7000);
 		newTabCount = pageDriver.TabSize();
 		custException.IsTrue(newTabCount - lastTabCount == 1, "New Tab is not open");
 		pageDriver.SwitchToLastTab();

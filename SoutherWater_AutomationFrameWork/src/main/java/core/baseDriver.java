@@ -103,6 +103,31 @@ public class baseDriver implements apiDriver, webDriver,desktopDriver,mobileDriv
 		{
 			System.out.println("For IE Browser");
 		}
+		else if (browser.equalsIgnoreCase("Edge"))
+		{
+			System.setProperty("webdriver.edge.driver","lib\\msedgedriver.exe");
+			dr= new EdgeDriver();	
+			dr.manage().deleteAllCookies();
+			dr.get(BaseURL);
+			dr.manage().window().maximize();
+			System.out.println("For IE Browser");
+		}
+		else if (browser.equalsIgnoreCase("ie"))
+		{
+			DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
+			caps.setCapability("ignoreZoomSetting", true);
+			caps.setCapability("nativeEvents",false);
+			caps.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+			caps.setCapability("requireWindowFocus", true);
+			System.setProperty("webdriver.ie.driver","lib\\IEDriverServer.exe");
+			dr = new InternetExplorerDriver(caps);
+			
+			//dr= new InternetExplorerDriver();
+			dr.manage().deleteAllCookies();
+			dr.get(BaseURL);
+			dr.manage().window().maximize();
+			System.out.println("For IE Browser");
+		}
 		
 		else
 		{

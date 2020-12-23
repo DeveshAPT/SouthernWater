@@ -20,7 +20,7 @@
 <YourMeterReadingPageHeading>//div/h1[text()='Your meter reading']</YourMeterReadingPageHeading>
 <BackButton>//a[text()='Back']</BackButton>
 <DashBoardName>//h1[contains(text(),'Hi')]</DashBoardName>
-<SubmitMeterPageHeading>//h1[text()='Your meter reading']</SubmitMeterPageHeading>
+<SubmitMeterPageHeading>//h1[text()='Submit a meter reading']</SubmitMeterPageHeading>
 <PaymentPageHeading>//h1[text()='Choose amount to pay']</PaymentPageHeading>
 <CloseAccountHeading>//h1[text()='Moving out date']</CloseAccountHeading>
 
@@ -63,9 +63,10 @@
 <SaveWaterBanner>//div[@class='banner__content']/p[text()='How to save water']</SaveWaterBanner>
 <PreventBlockage>//h1[text()='How to prevent blockages']</PreventBlockage>
 <KeepItClearBanner>//div[@class='banner__content']//strong[text()='Keep it Clear']</KeepItClearBanner>
-<YourProfileHeading>//h1[text()='View Profile']</YourProfileHeading>
+<UpdateProfileHeading>//h1[text()='Update profile']</UpdateProfileHeading>
+<YourProfileHeading>//h1[text()='Update profile']</YourProfileHeading>
 <YourProfileDashboard>//h1[text()='Your profile']</YourProfileDashboard>
-<ViewProfileButton>//a[text()='View profile']</ViewProfileButton>
+<ViewProfileButton>//a[text()='Update profile']</ViewProfileButton>
 <YourProfileEmailIDHeading>//p[text()='Email address']</YourProfileEmailIDHeading>
 <YourProfileEmailID>//p[text()='Email address']/following::p</YourProfileEmailID>
 <YourAddressLabel>//p[text()='Correspondence address']</YourAddressLabel>

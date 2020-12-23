@@ -391,12 +391,12 @@ public class AccountDashBoardPageHelper {
 
 	@When("^I Click Set Up your Profile$")
 	public void i_Click_Set_Up_your_Profile() throws Throwable {
-		dashBoard.dashBoardOptionsClick("Your profile");
+		dashBoard.dashBoardOptionsClick("Update profile");
 	}
 
 	@Then("^I Should move to View Profile Page$")
 	public void i_Should_move_to_View_Profile_Page() throws Throwable {
-		dashBoard.yourProfilePageOpen();
+		dashBoard.updateProfilePageOpen();
 	}
 
 	@When("^I Click Set Up Payment history$")
@@ -420,10 +420,15 @@ public class AccountDashBoardPageHelper {
 
 	@And("^Login with Credentials$")
 	public void login_with_Credentials() throws Throwable {
-		// Map<String, String> map=excel.TestDataFromExcel("Dashboard");
-		String email = prpertyreader.readproperty("UserEmail");
-		String password = prpertyreader.readproperty("UserPassword");
-		login.enterEmailAndPassword(email, password);
+		Map<String, HashMap<String, String>> DataSet=excel.ReadTestData("Dashboard");
+		System.out.println("");
+		System.out.println(DataSet.size());
+		HashMap<String, String>map=DataSet.get("NDD");
+		System.out.println(map.get("Email"));
+		System.out.println(map.get("Password"));
+		//String email = prpertyreader.readproperty("UserEmail");
+		//String password = prpertyreader.readproperty("UserPassword");
+		login.enterEmailAndPassword(map.get("Email"), map.get("Password"));
 	}
 
 	@Then("^I can see the QucikLinks ([^\"]*) on Dashboard$")
@@ -485,6 +490,7 @@ public class AccountDashBoardPageHelper {
 		String[] Listlinks = MenuList.split(",");
 		for (int i = 0; i < Listlinks.length; i++) {
 			String temp = Listlinks[i].trim();
+			temp = temp.replace("_", "'");
 			System.out.println(temp);
 			dashBoard.dashBoardOptionsVerification(temp.trim());
 
@@ -522,4 +528,15 @@ public class AccountDashBoardPageHelper {
 		dashBoard.clickViewProfileButton();
 
 	}
+	
+	@Given("^Login with Non DD Credentials$")
+	public void login_with_Non_DD_Credentials() throws Throwable {
+		login.loginCustomerType("NDD");
+	}
+	
+	@When("^I Click update Profile$")
+	public void i_Click_update_Profile() throws Throwable {
+		dashBoard.dashBoardOptionsClick("Update profile");
+	}
+
 }

@@ -3,12 +3,15 @@ package pageHelper;
 
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import pageFunctions.web.ExcelWork;
 import utils.Log;
 import utils.PropertyReader;
 import utils.pageController;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.log4j.xml.DOMConfigurator;
 import org.openqa.selenium.By;
@@ -38,9 +41,11 @@ public class bddDriver
 	public static final ThreadLocal<String> Message = new InheritableThreadLocal<>();
 	PropertyReader prpertyreader = new PropertyReader();
 	String Browser;
+	ExcelWork excel = new ExcelWork();
 	
 	@Before("@API")
-	public void APIsetup(Scenario s){
+	public void APIsetup(Scenario s)
+	{
 		apiDriver ApiDriver=new baseDriver();
 		//API_DRIVER_THREAD_LOCAL.set(ApiDriver.apiinit("https://gorest.co.in/public-api/users/123/posts"));
 		//API_DRIVER_THREAD_LOCAL.set(ApiDriver.apiinit("https://rapidapi.p.rapidapi.com/exchange?from=SGD&to=MYR&q=1.0"));
@@ -55,8 +60,15 @@ public class bddDriver
 	public void Websetup(Scenario s) throws Exception
 	{
 		//String currbrowser=Browser;
+		Map<String, HashMap<String, String>> DataSet=excel.ReadTestData("Config");
+		System.out.println("");
+		System.out.println(DataSet.size());
+		HashMap<String, String>map=DataSet.get("Config");
+		System.out.println(map.get("Browser"));
+		System.out.println(map.get("BaseUrl"));
 		webDriver webDriver=new baseDriver();
-		WEB_DRIVER_THREAD_LOCAL.set(webDriver.webinit(prpertyreader.readproperty("browser"), "", false,false));
+		//WEB_DRIVER_THREAD_LOCAL.set(webDriver.webinit(prpertyreader.readproperty("browser"), "", false,false));
+		WEB_DRIVER_THREAD_LOCAL.set(webDriver.webinit(map.get("Browser"), map.get("BaseUrl"), false,false));
 		//WEB_DRIVER_THREAD_LOCAL.set(webDriver.webinit(currbrowser, "https://sit.southernwater.co.uk", false));
 		
 	}

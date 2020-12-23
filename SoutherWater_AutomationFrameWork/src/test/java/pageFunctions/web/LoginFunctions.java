@@ -1,6 +1,9 @@
 package pageFunctions.web;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import org.dom4j.DocumentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,6 +22,7 @@ public class LoginFunctions {
 	private xmlreader loginLoct = new xmlreader("src\\test\\resources\\locators\\Login.xml");
 	private xmlreader regiLoct = new xmlreader("src\\test\\resources\\locators\\CustomerRegistration.xml");
 	private PropertyReader prpertyreader = new PropertyReader();
+	ExcelWork excel = new ExcelWork();
 
 	public LoginFunctions(webHelper dr) {
 		System.out.println("I am in POM");
@@ -46,11 +50,32 @@ public class LoginFunctions {
 		pageDriver.SendKeys(pageDriver.getwebelement(loginLoct.getlocator("//locators/Password")), password);
 
 	}
+	
+	public void loginCustomerType(String Custtype) throws Exception 
+	{
+		
+		Map<String, HashMap<String, String>> DataSet=excel.ReadTestData("Users");
+		System.out.println("");
+		System.out.println(DataSet.size());
+		HashMap<String, String>map=DataSet.get(Custtype);
+		String email=map.get("Email");
+		String password=map.get("Password");
+		Thread.sleep(5000);
+		System.out.println("Email ID : " + email);
+		System.out.println("PassWord : " + password);
+		System.out.println("Email Locator  : " + loginLoct.getlocator("//locators/EmailId"));
+		System.out.println("PassWord Locator : " + loginLoct.getlocator("//locators/Password"));
+		pageDriver.SendKeys(pageDriver.getwebelement(loginLoct.getlocator("//locators/EmailId")), email);
+		pageDriver.SendKeys(pageDriver.getwebelement(loginLoct.getlocator("//locators/Password")), password);
+
+	}
+
 
 	public void clickOnLogin() throws Exception {
 
 		pageDriver.Clickon(pageDriver.getwebelement(loginLoct.getlocator("//locators/LoginButton")));
 		pageDriver.WaitforPageToBeReady();
+		Thread.sleep(7000);
 	}
 
 	public void loginError() throws Exception {

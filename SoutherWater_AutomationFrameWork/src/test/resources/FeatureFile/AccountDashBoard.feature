@@ -1,6 +1,6 @@
 Feature: Account Dashboard
 
-  @SIT
+@OLD
   Scenario Outline: As A Registered User i can see Your Account Link after Login
     Given I am at login page
     When I Enter my <Email> and <Password> into respective fields
@@ -11,7 +11,7 @@ Feature: Account Dashboard
       | Email                            | Password   |
       | devesh.kumar@southernwater.co.uk | 360@Logica |
 
-  @SIT
+@OLD
   Scenario Outline: Account Dashboard should load after your account click
     Given I am at login page
     When I Enter my <Email> and <Password> into respective fields
@@ -32,7 +32,7 @@ Feature: Account Dashboard
       | Email                            | Password   |
       | devesh.kumar@southernwater.co.uk | 360@Logica |
 
-  @SIT
+@OLD
   Scenario Outline: Registered User Can Log out from Protal
     Given I am on Account DashBoard Using Login Credentials <Email> and <Password>
     When I Click on Logout from Dashboard
@@ -43,7 +43,7 @@ Feature: Account Dashboard
       | Email                            | Password   |
       | devesh.kumar@southernwater.co.uk | 360@Logica |
 
-  @SIT
+@OLD
   Scenario Outline: Registered User can access Submit Meter Reading
     Given I am on Account DashBoard Using Login Credentials <Email> and <Password>
     When I Click on 'Submit a meter reading' from Dashboard
@@ -53,7 +53,7 @@ Feature: Account Dashboard
       | Email                            | Password   |
       | devesh.kumar@southernwater.co.uk | 360@Logica |
 
-  @SIT
+@OLD
   Scenario Outline: Registered User can access Make a Payment
     Given I am on Account DashBoard Using Login Credentials <Email> and <Password>
     When I Click on 'Make a payment' from Dashboard
@@ -63,7 +63,7 @@ Feature: Account Dashboard
       | Email                            | Password   |
       | devesh.kumar@southernwater.co.uk | 360@Logica |
 
-  @SIT
+@OLD
   Scenario Outline: Registered User can access Close Account
     Given I am on Account DashBoard Using Login Credentials <Email> and <Password>
     When I Click on 'Tell us you are moving' from Dashboard
@@ -73,7 +73,7 @@ Feature: Account Dashboard
       | Email                            | Password   |
       | devesh.kumar@southernwater.co.uk | 360@Logica |
 
-  @SIT
+@OLD
   Scenario Outline: As A Registered User i can see Your Account Link after Login
     Given I am at login page
     When I Enter my <Email> and <Password> into respective fields
@@ -93,7 +93,7 @@ Feature: Account Dashboard
       | Email                    | Password  |
       | Kumar.devesh82@yahoo.com | Apple@123 |
 
-  @SIT
+@OLD
   Scenario Outline: Registered User Should see Quick link for Make Payment on dashboard if Payment is pending
     Given I am at login page
     When I Enter my <Email> and <Password> into respective fields
@@ -104,7 +104,7 @@ Feature: Account Dashboard
       | Email                    | Password  |
       | Kumar.devesh82@yahoo.com | Apple@123 |
 
-  @SIT
+@OLD
   Scenario Outline: Registered User Should See latest Bill and Bill Date
     Given I am at login page
     When I Enter my <Email> and <Password> into respective fields
@@ -117,7 +117,7 @@ Feature: Account Dashboard
       | Email                    | Password  |
       | Kumar.devesh82@yahoo.com | Apple@123 |
 
-  @SIT
+@OLD
   Scenario Outline: Registered User Should See Payment Reference and Customer Number on Dashboard
     Given I am at login page
     When I Enter my <Email> and <Password> into respective fields
@@ -129,7 +129,7 @@ Feature: Account Dashboard
       | Email                    | Password  |
       | Kumar.devesh82@yahoo.com | Apple@123 |
 
-  @SIT
+@OLD
   Scenario Outline: Registered User Should See latest Bill and Bill Date
     Given I am at login page
     When I Enter my <Email> and <Password> into respective fields
@@ -142,7 +142,7 @@ Feature: Account Dashboard
       | Email                    | Password  |
       | Kumar.devesh82@yahoo.com | Apple@123 |
 
-  @SIT
+@OLD
   Scenario Outline: Registered User Should See latest Bill and Bill Date
     Given I am at login page
     When I Enter my <Email> and <Password> into respective fields
@@ -153,7 +153,7 @@ Feature: Account Dashboard
       | Email                    | Password  |
       | Kumar.devesh82@yahoo.com | Apple@123 |
 
-  @SIT
+@OLD
   Scenario Outline: Registered User Can set paperless Setting for online Bill
     Given I have open login page
     And Login With  my <Email> and <Password>
@@ -167,7 +167,7 @@ Feature: Account Dashboard
       | Email                    | Password  |
       | Kumar.devesh82@yahoo.com | Apple@123 |
 
-  @SIT
+@OLD
   Scenario Outline: Registered User Can Set Up Direct Debit
     Given I have open login page
     And Login With  my <Email> and <Password>
@@ -179,7 +179,7 @@ Feature: Account Dashboard
       | Email                    | Password  |
       | Kumar.devesh82@yahoo.com | Apple@123 |
 
-  @SIT
+@OLD
   Scenario Outline: Registered User Can See Profile
     Given I have open login page
     And Login With  my <Email> and <Password>
@@ -191,7 +191,7 @@ Feature: Account Dashboard
       | Email                    | Password  |
       | Kumar.devesh82@yahoo.com | Apple@123 |
 
-  @SIT
+@OLD
   Scenario Outline: Registered User Can Payment History
     Given I have open login page
     And Login With  my <Email> and <Password>
@@ -203,7 +203,7 @@ Feature: Account Dashboard
       | Email                    | Password  |
       | Kumar.devesh82@yahoo.com | Apple@123 |
 
-  @SIT
+@OLD
   Scenario Outline: Registered User Should See Meter Reading Section With last Meter Reading, Meter Number and Date last read
     Given I am at login page
     When I Enter my <Email> and <Password> into respective fields
@@ -217,7 +217,7 @@ Feature: Account Dashboard
       | Email                    | Password  |
       | Kumar.devesh82@yahoo.com | Apple@123 |
 
-  @SIT
+@OLD
   Scenario Outline: Registered User Should not see Quick link for Make Payment on dashboard if Payment is not pending
     Given I am at login page
     When I Enter my <Email> and <Password> into respective fields
@@ -229,7 +229,7 @@ Feature: Account Dashboard
       | Email                            | Password   |
       | devesh.kumar@southernwater.co.uk | 360@Logica |
 
-  @SIT
+@OLD
   Scenario Outline: Registered User can access Contact Us from Dashboard
     Given I have open login page
     And Login With  my <Email> and <Password>
@@ -241,7 +241,7 @@ Feature: Account Dashboard
       | Email                    | Password  |
       | Kumar.devesh82@yahoo.com | Apple@123 |
 
-  @SIT
+@OLD
   Scenario Outline: Registered User can access Find out more from Dashboard
     Given I have open login page
     And Login With  my <Email> and <Password>
@@ -253,7 +253,7 @@ Feature: Account Dashboard
       | Email                    | Password  |
       | Kumar.devesh82@yahoo.com | Apple@123 |
 
-  @SIT
+@OLD
   Scenario Outline: Registered User can access How to keep it clear
     Given I have open login page
     And Login With  my <Email> and <Password>
