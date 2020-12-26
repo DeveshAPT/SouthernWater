@@ -99,10 +99,6 @@ public class baseDriver implements apiDriver, webDriver,desktopDriver,mobileDriv
 			dr.manage().deleteAllCookies();
 			dr.get(BaseURL);
 		}
-		else if (browser.equals("ie"))
-		{
-			System.out.println("For IE Browser");
-		}
 		else if (browser.equalsIgnoreCase("Edge"))
 		{
 			System.setProperty("webdriver.edge.driver","lib\\msedgedriver.exe");
@@ -131,13 +127,17 @@ public class baseDriver implements apiDriver, webDriver,desktopDriver,mobileDriv
 		
 		else
 		{
-			System.setProperty("webdriver.gecko.driver","./lib/geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver","lib\\geckodriver.exe");
+			//System.setProperty("webdriver.gecko.driver","./lib/geckodriver.exe");
 			DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 			//capabilities.setCapability("marionette", true);
 			dr = new FirefoxDriver(capabilities);
 			//dr=new marionetteDriver();
-			System.out.println("For FF Browser");
+			dr.manage().deleteAllCookies();
 			dr.get(BaseURL);
+			dr.manage().window().maximize();
+			System.out.println("For FF Browser");
+			//dr.get(BaseURL);
 		}
 
 		}

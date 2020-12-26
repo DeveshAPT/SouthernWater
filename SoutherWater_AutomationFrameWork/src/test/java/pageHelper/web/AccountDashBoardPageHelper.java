@@ -529,14 +529,36 @@ public class AccountDashBoardPageHelper {
 
 	}
 	
-	@Given("^Login with Non DD Credentials$")
-	public void login_with_Non_DD_Credentials() throws Throwable {
-		login.loginCustomerType("NDD");
+	@Given("^Login with ([^\"]*) Credentials$")
+	public void login_with_Non_DD_Credentials(String CustType) throws Throwable {
+		login.loginCustomerType(CustType);
 	}
 	
 	@When("^I Click update Profile$")
 	public void i_Click_update_Profile() throws Throwable {
 		dashBoard.dashBoardOptionsClick("Update profile");
+	}
+	
+	@And("^I Can see Struggling to Pay,Amend Direct Debit$")
+	public void i_Can_see_Struggling_to_Pay_Amend_Direct_Debit() throws Throwable {
+		dashBoard.dashBoardStruggglingToPay();
+		dashBoard.dashBoardAmendDirectDebit();
+	    
+	}
+	@And("^I Can see Meter Reading, This account is not metered$")
+	public void i_Can_see_Meter_Reading_This_account_is_not_metered() throws Throwable {
+		dashBoard.meterReadingHeading();
+		dashBoard.unMeterReadingHeading();
+	}
+	
+	@And("^I Click Struggling to Pay$")
+	public void i_Click_Struggling_to_Pay() throws Throwable {
+		dashBoard.struggglingToPayClick();
+	}
+
+	@Then("^Struggling to Pay page should open in new tab$")
+	public void struggling_to_Pay_page_should_open_in_new_tab() throws Throwable {
+		dashBoard.strugglingPageOpenInNewTab();
 	}
 
 }

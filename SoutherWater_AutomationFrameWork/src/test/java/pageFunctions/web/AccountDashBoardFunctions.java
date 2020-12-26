@@ -22,8 +22,7 @@ public class AccountDashBoardFunctions {
 	int lastTabCount = -1;
 	int newTabCount = -1;
 
-	public AccountDashBoardFunctions(webHelper dr) 
-	{
+	public AccountDashBoardFunctions(webHelper dr) {
 		System.out.println("I am in POM");
 		pageDriver = dr;
 		custException = new AssertionExceptionManager(dr);
@@ -68,7 +67,7 @@ public class AccountDashBoardFunctions {
 	}
 
 	public void logoutSuccessfully() throws Exception {
-Thread.sleep(7000);
+		Thread.sleep(7000);
 		custException.IsTrue(pageDriver.IsPresent(loginLoct.getlocator("//locators/LogoutComplete")),
 				"Logout Message 'You have been logged out successfully' not found");
 
@@ -181,6 +180,17 @@ Thread.sleep(7000);
 		String LocateMe = loginLoct.getlocator("//locators/QuickLinkStrugglingPay");
 
 		custException.IsTrue(pageDriver.IsPresent(LocateMe), "Struggling to Pay? not found on DashBoard");
+	}
+
+	public void struggglingToPayClick() throws Exception {
+		String LocateMe = loginLoct.getlocator("//locators/QuickLinkStrugglingPay");
+
+		custException.IsTrue(pageDriver.IsPresent(LocateMe), "Struggling to Pay? not found on DashBoard");
+		lastTabCount = pageDriver.TabSize();
+		System.out.println();
+		System.out.println(Integer.toString(lastTabCount));
+		pageDriver.Clickon(pageDriver.getwebelement(LocateMe));
+		
 	}
 
 	public void dashBoardAmendDirectDebit() throws DocumentException, InterruptedException {
@@ -312,6 +322,13 @@ Thread.sleep(7000);
 
 	}
 
+	public void unMeterReadingHeading() throws DocumentException, InterruptedException {
+		String LocateMe = loginLoct.getlocator("//locators/UnmeterHeading");
+		custException.IsTrue(pageDriver.IsPresent(LocateMe),
+				"MeterReading Heading Section 'This account is not metered.' not found");
+
+	}
+
 	public void meterReadingLabelAndValues() throws DocumentException, InterruptedException {
 
 		String LocateMe = loginLoct.getlocator("//locators/MeterReadSectionLabel");
@@ -427,7 +444,7 @@ Thread.sleep(7000);
 	}
 
 	public void updateProfilePageOpen() throws Exception {
-		
+
 		String LocateMe = loginLoct.getlocator("//locators/UpdateProfileHeading");
 		custException.IsTrue(pageDriver.IsPresent(LocateMe), "Update Profile Page is not open");
 	}
@@ -457,13 +474,25 @@ Thread.sleep(7000);
 	}
 
 	public void contactUsPageOpenInNewTab() throws Exception {
-		
+
 		Thread.sleep(7000);
 		newTabCount = pageDriver.TabSize();
 		custException.IsTrue(newTabCount - lastTabCount == 1, "New Tab is not open");
 		pageDriver.SwitchToLastTab();
 		String LocateMe = loginLoct.getlocator("//locators/ContactUsPageHeading");
 		custException.IsTrue(pageDriver.IsPresent(LocateMe), "Contact Us page is not open");
+	}
+
+	public void strugglingPageOpenInNewTab() throws Exception {
+
+		Thread.sleep(15000);
+		newTabCount = pageDriver.TabSize();
+		System.out.print(Integer.toString(lastTabCount));
+		System.out.print(Integer.toString(newTabCount));
+		custException.IsTrue(newTabCount - lastTabCount == 1, "New Tab is not open");
+		pageDriver.SwitchToLastTab();
+		String LocateMe = loginLoct.getlocator("//locators/PayHelpPageHeading");
+		custException.IsTrue(pageDriver.IsPresent(LocateMe), "Help Paying page not open");
 	}
 
 	public void saveWaterPageOpenInNewTab() throws Exception {
