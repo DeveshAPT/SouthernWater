@@ -47,6 +47,9 @@ public class ExcelWork {
 					Map<String, String>map=new HashMap<String,String>();
 					for (int j = 0; j < colCount; j++) 
 					{
+						System.out.println("");
+						System.out.println(sheet.getRow(0).getCell(j).toString());
+						System.out.println(sheet.getRow(i + 1).getCell(j).toString());
 						map.put(sheet.getRow(0).getCell(j).toString(), sheet.getRow(i + 1).getCell(j).toString());
 					}
 					DataSet.put(TestName, (HashMap<String, String>) map);
@@ -58,6 +61,25 @@ public class ExcelWork {
 		
 		return DataSet;
 		
+	}
+	
+	public HashMap<String, String> TestData(String SheetName, String TestCaseName) throws IOException
+	{
+		try
+		{
+		Map<String, HashMap<String, String>> DataSet=ReadTestData(SheetName);
+		System.out.println("");
+		System.out.println(DataSet.size());
+		HashMap<String, String>map=DataSet.get(TestCaseName);
+		return map;
+		}
+		catch (Exception ex) 
+		{
+			System.out.println("Excel reading issue with Sheet : "+SheetName +" and for Test Cases "+TestCaseName);
+			System.out.println(ex.getMessage().toString());
+			return null;
+		}
+	
 	}
 	
 	public void writeCustomerID(String CustomerID, String PaymentReference) throws IOException {

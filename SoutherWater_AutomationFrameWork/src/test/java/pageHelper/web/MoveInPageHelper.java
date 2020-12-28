@@ -27,6 +27,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.specification.RequestSpecification;
 import pageFunctions.web.MoveInFunction;
+import pageFunctions.web.RegistrationFunctions;
 import pageHelper.bddDriver;
 import utils.PropertyReader;
 import utils.driver;
@@ -37,6 +38,7 @@ public class MoveInPageHelper {
 	public webHelper webDriver;
 	private bddDriver DriverInstance;
 	public MoveInFunction moveIN;
+	public RegistrationFunctions reg;
 	PropertyReader prpertyreader = new PropertyReader();
 	String TestFirstName = "TestFirstName";
 	String TestMiddleName = "TestMiddleName";
@@ -49,6 +51,7 @@ public class MoveInPageHelper {
 		webDriver = new baseDriverHelper(driver);
 		System.out.println("First Constructor");
 		moveIN = new MoveInFunction(webDriver);
+		reg=new RegistrationFunctions(webDriver);
 	}
 
 	public MoveInPageHelper(bddDriver contextSteps) throws Exception {
@@ -56,6 +59,7 @@ public class MoveInPageHelper {
 		System.out.println(this.DriverInstance);
 		webDriver = new baseDriverHelper(DriverInstance.getWebDriver());
 		moveIN = new MoveInFunction(webDriver);
+		reg=new RegistrationFunctions(webDriver);
 	}
 
 	@Given("^I am on create an account page$")
@@ -201,7 +205,7 @@ public class MoveInPageHelper {
 	}
 
 	@And("^I enter Address post code ([^\"]*)$")
-	public void i_enter_Address_post_code_devesh_kumar_southernwater_co_uk(String postcode) throws Throwable {
+	public void i_enter_Address_post(String postcode) throws Throwable {
 		moveIN.enterPostCode(postcode);
 	}
 
@@ -510,5 +514,46 @@ public class MoveInPageHelper {
 	public void i_Can_See_UI_is_loaded_Correctly() throws Throwable {
 
 	}
+
+	// excel 
+	
+	@And("^I Enter Address PostCode for TestCase ([^\"]*)$")
+	public void i_Enter_Address_PostCode_for_TestCase(String TestCode) throws Throwable 
+	{
+		moveIN.enterPostCodefromExcel(TestCode);
+	}
+
+	@And("^I Enter Customer Detail for ([^\"]*)$")
+	public void i_Enter_Customer_Detail_for_(String TestCode) throws Throwable 
+	{
+		moveIN.enterCustomerDetailsfromExcel(TestCode);
+	}
+
+	@And("^First Security Question and Answer ([^\"]*)$")
+	public void first_Security_Question_and_Answer_(String TestCode) throws Throwable {
+	   reg.firstQuestionAnswerFromExcel(TestCode);
+	}
+
+	@And("^Second Security Question and Answer ([^\"]*)$")
+	public void second_Security_Question_and_Answer_(String TestCode) throws Throwable {
+		reg.secondQuestionAnswerFromExcel(TestCode);
+	}
+	
+	@And("^Set Login Password as ([^\"]*)$")
+	public void set_Login_Password_as_(String TestCode) throws Throwable {
+		reg.setPasswordFromExcel(TestCode);
+	}
+
+	
+	@And("^I enter Correspodant Address PostCode ([^\"]*)$")
+	public void i_enter_Correspodant_Address_PostCode_(String TestCode) throws Throwable {
+		moveIN.correspondanceCodeFromExcel(TestCode);
+	}
+
+	@And("^I Select my Correspodant Address ([^\"]*)$")
+	public void i_Select_my_Correspodant_Address_(String TestCode) throws Throwable {
+		moveIN.selectCorresponAddExcel(TestCode);
+	}
+
 
 }

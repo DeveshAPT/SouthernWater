@@ -2,7 +2,9 @@ package pageFunctions.web;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import org.dom4j.DocumentException;
@@ -21,6 +23,7 @@ public class MoveInFunction {
 	public AssertionExceptionManager custException;
 	ExcelWork exl = new ExcelWork();;
 	PropertyReader prpertyreader = new PropertyReader();
+	ExcelWork excel = new ExcelWork();
 
 	xmlreader MoveInLoct = new xmlreader("src\\test\\resources\\locators\\MoveIn.xml");
 	String TestFirstName = "TestFirstName";
@@ -111,6 +114,29 @@ public class MoveInFunction {
 		pageDriver.SendKeys(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/UserEmailAddress")), email);
 		Thread.sleep(2000);
 	}
+	
+	public void enterCustomerDetailsfromExcel(String TestCode ) throws InterruptedException, DocumentException, Exception 
+	{
+
+		HashMap<String,String> map=excel.TestData("MoveIn", TestCode);	
+		
+		System.out.println("");
+		System.out.println(map.get("Pnumber"));
+		String mobile=map.get("Pnumber");
+		String newmobile=mobile.replace(".", "");
+		
+		pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/SelectTitle")));
+		Thread.sleep(2000);
+		pageDriver.SendKeys(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/SelectTitle")), map.get("Ntitle"));
+		Thread.sleep(2000);
+		pageDriver.SendKeys(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/FirstName")),  map.get("Fname"));
+		pageDriver.SendKeys(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/MiddleName")),  map.get("Mname"));
+		pageDriver.SendKeys(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/LastName")),  map.get("Lname"));
+		pageDriver.SendKeys(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/DateOfBirth")),  map.get("DOB") + Keys.TAB);
+		pageDriver.SendKeys(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/UserMobileNumber")),  newmobile);
+		pageDriver.SendKeys(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/UserEmailAddress")),  map.get("email"));
+		Thread.sleep(2000);
+	}
 
 	public void enterCustomerPaymentDetails(String accHoldName, String code1, String code2, String code3,
 			String accountNumber) throws Exception {
@@ -185,12 +211,27 @@ public class MoveInFunction {
 
 	}
 
-	public void enterPostCode(String postcode) throws InterruptedException, IOException, DocumentException {
+	public void enterPostCode(String postcode) throws InterruptedException, IOException, DocumentException 
+	{
+		
 		Thread.sleep(2000);
 		pageDriver.CleasrAndSendKeys(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/CustomerPostCode")),
 				postcode + Keys.TAB);
 	}
 
+	
+	public void enterPostCodefromExcel(String TestCode) throws InterruptedException, IOException, DocumentException 
+	{
+		
+		System.out.println(); 
+		System.out.println(TestCode); 
+		HashMap<String, String> TCData=excel.TestData("MoveIn", TestCode);
+		System.out.print("");
+		System.out.print(TCData.get("PostCode"));
+		Thread.sleep(2000);
+		pageDriver.CleasrAndSendKeys(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/CustomerPostCode")),
+				TCData.get("PostCode") + Keys.TAB);
+	}
 	public void findAddressClick() throws InterruptedException, DocumentException, Exception {
 		pageDriver.Clickon(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/FindAddressButton")));
 		pageDriver.WaitforPageToBeReady();
@@ -249,24 +290,55 @@ public class MoveInFunction {
 
 	}
 
-	public void selectAddress(String address) throws InterruptedException, DocumentException, Exception {
+	public void selectAddress(String address) throws InterruptedException, DocumentException, Exception 
+	{
+		System.out.println("");
+		System.out.println(address);
+		String DropAddress;
+		if(address.equalsIgnoreCase("MPNDD"))
+		{
+			HashMap<String,String> map=excel.TestData("MoveIn", address);
+			DropAddress=map.get("Address");
+		}
+		else if(address.equalsIgnoreCase("APNDD"))
+		{
+			HashMap<String,String> map=excel.TestData("MoveIn", address);
+			DropAddress=map.get("Address");
+		}
+
+		else if(address.equalsIgnoreCase("UPNDD"))
+		{
+			HashMap<String,String> map=excel.TestData("MoveIn", address);
+			DropAddress=map.get("Address");
+		}
+
+		else if(address.equalsIgnoreCase("MPNDDC"))
+		{
+			HashMap<String,String> map=excel.TestData("MoveIn", address);
+			DropAddress=map.get("Address");
+		}
+
+		else
+			DropAddress=address;
 		int j = 0;
 		Select DisplayAddress = new Select(pageDriver.getwebelement(MoveInLoct.getlocator("//locators/SelectAddress")));
-		try {
-			DisplayAddress.selectByVisibleText(address);
-		} catch (Exception Ex) {
+		try 
+		{
+			DisplayAddress.selectByVisibleText(DropAddress);
+		} 
+		catch (Exception Ex) 
+		{
 			List<WebElement> eles = DisplayAddress.getOptions();
-
-			for (int i = 0; i < eles.size(); i++) {
+			for (int i = 0; i < eles.size(); i++) 
+			{
 				WebElement opt = eles.get(i);
 				String temp = opt.getText();
 				System.out.println(temp);
-
 				System.out.println(Integer.toString(j));
 				System.out.println("");
 				temp = temp.replaceAll("\\s", "");
 				System.out.println(temp);
-				String add = address.replaceAll("\\s", "");
+				String add = DropAddress.replaceAll("\\s", "");
 				System.out.println(add);
 				if (temp.equalsIgnoreCase(add))
 					break;
@@ -515,12 +587,37 @@ public class MoveInFunction {
 
 	}
 
+	
+	public void correspondanceCodeFromExcel(String TestCode) throws Exception 
+	{
+		HashMap<String, String>map=excel.TestData("MoveIn", TestCode);
+		Thread.sleep(5000);
+		List<WebElement> Input = pageDriver.getwebelements(MoveInLoct.getlocator("//locators/CustomerPostCode"));
+		WebElement post = Input.get(1);
+		pageDriver.SendKeys(post, map.get("PostCode2") + Keys.TAB);
+
+		List<WebElement> btns = pageDriver.getwebelements(MoveInLoct.getlocator("//locators/FindAddressButton"));
+		WebElement btn = btns.get(1);
+		pageDriver.Clickon(btn);
+		Thread.sleep(5000);
+
+	}
 	public void selectCorresponAdd(String Address) throws Exception {
 
 		Thread.sleep(5000);
 		List<WebElement> AddDrops = pageDriver.getwebelements(MoveInLoct.getlocator("//locators/SelectAddress"));
 		Select DisplayAddress = new Select(AddDrops.get(1));
 		DisplayAddress.selectByVisibleText(Address);
+
+	}
+	
+	public void selectCorresponAddExcel(String TestCode) throws Exception {
+
+		HashMap<String, String>map=excel.TestData("MoveIn", TestCode);
+		Thread.sleep(5000);
+		List<WebElement> AddDrops = pageDriver.getwebelements(MoveInLoct.getlocator("//locators/SelectAddress"));
+		Select DisplayAddress = new Select(AddDrops.get(1));
+		DisplayAddress.selectByVisibleText(map.get("Address2"));
 
 	}
 
@@ -898,4 +995,5 @@ public class MoveInFunction {
 		custException.IsTrue(eles.size() == steps, "Visited Steps Count is not correct");
 
 	}
+	
 }

@@ -2,6 +2,7 @@ package pageFunctions.web;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.dom4j.DocumentException;
@@ -34,6 +35,7 @@ public class RegistrationFunctions {
 
 	public webHelper pageDriver;
 	private PropertyReader prpertyreader = new PropertyReader();
+	ExcelWork excel = new ExcelWork();
 	public AssertionExceptionManager custException;
 	public String enteredName, enteredCustomerNumber, enteredEmailID, newEmail, firstSecurityQuest;
 	xmlreader payBillLoct = new xmlreader("src\\test\\resources\\locators\\PayBill.xml");
@@ -310,12 +312,31 @@ public class RegistrationFunctions {
 		pageDriver.SendKeys(pageDriver.getwebelement(custRegist.getlocator("//locators/Password")), Password);
 	}
 
+	public void setPasswordFromExcel(String TestCode) throws InterruptedException, IOException, DocumentException {
+		Thread.sleep(4000);
+		HashMap<String, String> map=excel.TestData("MoveIn", TestCode);
+		System.out.println();
+		System.out.println(map.get("Password"));
+		pageDriver.SendKeys(pageDriver.getwebelement(custRegist.getlocator("//locators/Password")), map.get("Password"));
+	}
+	
 	public void firstQuestionAnswer(String firstQuestion, String firstAnswer)
 			throws InterruptedException, IOException, DocumentException {
 		Select Question = new Select(pageDriver.getwebelement(custRegist.getlocator("//locators/FirstQuestion")));
 		Question.selectByVisibleText(firstQuestion);
 
 		pageDriver.SendKeys(pageDriver.getwebelement(custRegist.getlocator("//locators/FirstAnswer")), firstAnswer);
+	}
+	
+	public void firstQuestionAnswerFromExcel(String TestCode)
+			throws InterruptedException, IOException, DocumentException 
+	{
+		
+		HashMap<String, String> map=excel.TestData("MoveIn", TestCode);
+		Select Question = new Select(pageDriver.getwebelement(custRegist.getlocator("//locators/FirstQuestion")));
+		Question.selectByVisibleText(map.get("Question1"));
+
+		pageDriver.SendKeys(pageDriver.getwebelement(custRegist.getlocator("//locators/FirstAnswer")), map.get("Answer1"));
 	}
 
 	public void secondQuestionAnswer(String secondQuestion, String secondAnswer)
@@ -327,6 +348,18 @@ public class RegistrationFunctions {
 				secondAnswer + Keys.TAB);
 		Thread.sleep(5000);
 	}
+	
+	public void secondQuestionAnswerFromExcel(String TestCode)
+			throws InterruptedException, IOException, DocumentException 
+	{
+		
+		HashMap<String, String> map=excel.TestData("MoveIn", TestCode);
+		Select Question = new Select(pageDriver.getwebelement(custRegist.getlocator("//locators/FirstQuestion")));
+		Question.selectByVisibleText(map.get("Question2"));
+
+		pageDriver.SendKeys(pageDriver.getwebelement(custRegist.getlocator("//locators/FirstAnswer")), map.get("Answer2"));
+	}
+
 
 	public void trySelectFirstQuestionInSecondQuestion(String firstQuestion) {
 		firstSecurityQuest = firstQuestion;
