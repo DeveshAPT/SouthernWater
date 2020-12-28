@@ -22,7 +22,7 @@ public class ExcelWork {
 	@SuppressWarnings("resource")
 	public Map<String, HashMap<String, String>> ReadTestData(String SheetName) throws IOException
 	{
-		Map<String, HashMap<String, String>> DateSet=new HashMap<String,HashMap<String, String>>();
+		Map<String, HashMap<String, String>> DataSet=new HashMap<String,HashMap<String, String>>();
 		File file = new File("src\\test\\resources\\dataSource\\SWTestData.xlsx");
 		FileInputStream inputStream = new FileInputStream(file);
 		Workbook workbook = null;
@@ -49,14 +49,14 @@ public class ExcelWork {
 					{
 						map.put(sheet.getRow(0).getCell(j).toString(), sheet.getRow(i + 1).getCell(j).toString());
 					}
-					DateSet.put(TestName, (HashMap<String, String>) map);
+					DataSet.put(TestName, (HashMap<String, String>) map);
 				} 
 				
 			}
 		}
 		
 		
-		return DateSet;
+		return DataSet;
 		
 	}
 	

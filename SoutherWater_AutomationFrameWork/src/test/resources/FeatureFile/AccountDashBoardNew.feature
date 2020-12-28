@@ -2,7 +2,7 @@ Feature: Account Dashboard Non Direct Debit Customer
 
   Background: A
 
-  # Non Direct Debit Customer
+  # Non Direct Debit Customer >> NDD
   @SIT1
   Scenario Outline: Verify Account Dashboard Quick links for Non Direct Debit Metered Customer
     Given I am at login Page
@@ -198,7 +198,7 @@ Feature: Account Dashboard Non Direct Debit Customer
       | CustType |
       | NDD      |
 
-  @SIT
+  @SIT1
   Scenario Outline: Verify Contact Us Navigation from Dashboard
     Given I am at login Page
     And Login with <CustType> Credentials
@@ -234,8 +234,8 @@ Feature: Account Dashboard Non Direct Debit Customer
       | CustType |
       | NDD      |
 
-  # UnMetered Non Direct Debit Customer
-  @SIT1
+  # UnMetered Non Direct Debit Customer >> UMNDD
+  @SIT
   Scenario Outline: Verify Account Dashboard Quick links for Un-Metered Account
     Given I am at login Page
     And Login with <CustType> Credentials
@@ -250,9 +250,9 @@ Feature: Account Dashboard Non Direct Debit Customer
     #And I Can see Amount Due, Amount, date
     Examples: 
       | CustType | Links                                                                                          |
-      | UNM      | Make a payment , View bills/account statement ,View payment history ,Change paperless settings |
+      | UMNDD    | Make a payment , View bills/account statement ,View payment history ,Change paperless settings |
 
-  @SIT1
+  @SIT
   Scenario Outline: Verify Struggling to pay Navigation from Dashboard
     Given I am at login Page
     And Login with <CustType> Credentials
@@ -262,4 +262,4 @@ Feature: Account Dashboard Non Direct Debit Customer
 
     Examples: 
       | CustType |
-      | NDD      |
+      | UMNDD    |
