@@ -434,6 +434,7 @@ public class AccountDashBoardPageHelper {
 	@Then("^I can see the QucikLinks ([^\"]*) on Dashboard$")
 	public void i_can_see_the_QucikLinks(String links) throws Throwable {
 		String[] Listlinks = links.split(",");
+		//dashBoard.MakeMenuDisplay();
 		for (int i = 0; i < Listlinks.length; i++) {
 			String temp = Listlinks[i].trim();
 			System.out.println(temp);
@@ -499,7 +500,7 @@ public class AccountDashBoardPageHelper {
 
 	@And("^I Click View bills/Account statement$")
 	public void i_Click_View_bills_Account_statement() throws Throwable {
-		dashBoard.dashBoardOptionsClick("View bills/Account statement");
+		dashBoard.dashBoardOptionsClick("View bills / Account statement");
 	}
 
 	@Then("^I Should move to View Bill Account Statement Page$")

@@ -67,8 +67,8 @@ public class bddDriver
 		System.out.println(map.get("Browser"));
 		System.out.println(map.get("BaseUrl"));
 		webDriver webDriver=new baseDriver();
-		//WEB_DRIVER_THREAD_LOCAL.set(webDriver.webinit(prpertyreader.readproperty("browser"), "", false,false));
-		WEB_DRIVER_THREAD_LOCAL.set(webDriver.webinit(map.get("Browser"), map.get("BaseUrl"), false,false));
+		WEB_DRIVER_THREAD_LOCAL.set(webDriver.webinit(prpertyreader.readproperty("browser"), "", false,false));
+		//WEB_DRIVER_THREAD_LOCAL.set(webDriver.webinit(map.get("Browser"), map.get("BaseUrl"), false,false));
 		//WEB_DRIVER_THREAD_LOCAL.set(webDriver.webinit(currbrowser, "https://sit.southernwater.co.uk", false));
 		
 	}
@@ -84,6 +84,9 @@ public class bddDriver
 			 
 		 }
 		WEB_DRIVER_THREAD_LOCAL.get().quit();
+		//Runtime.getRuntime().exec("taskkill /F /IM chromedriver.exe /T");
+		//Runtime.getRuntime().exec("taskkill /F /IM msedgedriver.exe /T");
+		//Runtime.getRuntime().exec("taskkill /F /IM geckodriver.exe /T");
 	}
 	
 	

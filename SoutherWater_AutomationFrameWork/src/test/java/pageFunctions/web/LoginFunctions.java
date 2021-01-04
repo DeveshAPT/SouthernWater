@@ -147,13 +147,15 @@ public class LoginFunctions {
 		WebElement ele = elements1.get(0);
 		String Text = ele.getText();
 		System.out.println("Email ID = " + Text);
-		Assert.assertTrue(Text.contains(EmailID), "Email id in message not matched with entered Email ID ");
-
-		elements1 = pageDriver.getwebelements(loginLoct.getlocator("//locators/ForgotMessage"));
-		ele = elements1.get(0);
+		//Assert.assertTrue(Text.contains(EmailID), "Email id in message not matched with entered Email ID ");
+		Assert.assertTrue(Text.contains("verification link"), "Email id in message not matched with entered Email ID ");
+		elements1 = pageDriver.getwebelements(loginLoct.getlocator("//locators/ForgotMessageEmail"));
+		ele = elements1.get(1);
 		Text = ele.getText();
 		System.out.println("Message = " + Text);
-		Assert.assertTrue(Text.contains(EmailID), "Message(We have sent you an email) not found");
+		//This link will expire in 4 hours.
+		//Assert.assertTrue(Text.contains(EmailID), "Message(We have sent you an email) not found");
+		Assert.assertTrue(Text.contains("This link will expire in 4 hours."), "Message(We have sent you an email) not found");
 	}
 
 	public void clickOnRegisration() throws Exception {

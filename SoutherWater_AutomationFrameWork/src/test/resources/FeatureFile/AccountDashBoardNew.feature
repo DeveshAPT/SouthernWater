@@ -3,7 +3,7 @@ Feature: Account Dashboard Non Direct Debit Customer
   Background: A
 
   # Non Direct Debit Customer >> NDD
-  @SIT1
+  @SIT
   Scenario Outline: Verify Account Dashboard Quick links for Non Direct Debit Metered Customer
     Given I am at login Page
     And Login with <CustType> Credentials
@@ -20,7 +20,7 @@ Feature: Account Dashboard Non Direct Debit Customer
       | CustType | Links                                                                                                |
       | NDD      | Set up a Direct Debit, View bills/account statement ,View payment history ,Change paperless settings |
 
-  @SIT1
+  @SIT
   Scenario Outline: Verify Dashboard Menu Items
     Given I am at login Page
     And Login with <CustType> Credentials
@@ -30,9 +30,9 @@ Feature: Account Dashboard Non Direct Debit Customer
 
     Examples: 
       | CustType | MenuItem                                                                                                                                                                   |
-      | NDD      | Make a payment , Set up/Amend a Direct Debit ,View bills/Account statement ,Payment history,Submit a meter reading,Paperless settings,Tell us you_re moving,Update profile |
+      | NDD      | Make a payment , Set up / Amend a Direct Debit ,View bills / Account statement ,Payment history,Submit a meter reading,Paperless settings,Tell us you_re moving,Update profile |
 
-  @SIT1
+  @SIT
   Scenario Outline: Verify Logout Functionality
     Given I am at login Page
     And Login with <CustType> Credentials
@@ -46,7 +46,7 @@ Feature: Account Dashboard Non Direct Debit Customer
       | CustType |
       | NDD      |
 
-  @SIT1
+  @SIT
   Scenario Outline: Verify Submit Meter Navigation
     Given I am at login Page
     And Login with <CustType> Credentials
@@ -59,7 +59,7 @@ Feature: Account Dashboard Non Direct Debit Customer
       | CustType |
       | NDD      |
 
-  @SIT1
+  @SIT
   Scenario Outline: Verify Make a payment Navigation
     Given I am at login Page
     And Login with <CustType> Credentials
@@ -72,7 +72,7 @@ Feature: Account Dashboard Non Direct Debit Customer
       | CustType |
       | NDD      |
 
-  @SIT1
+  @SIT
   Scenario Outline: Verify Close Account Navigation
     Given I am at login Page
     And Login with <CustType> Credentials
@@ -85,7 +85,7 @@ Feature: Account Dashboard Non Direct Debit Customer
       | CustType |
       | NDD      |
 
-  @SIT1
+  @SIT
   Scenario Outline: Verify the paperless Setting for online Bill
     Given I am at login Page
     And Login with <CustType> Credentials
@@ -98,7 +98,7 @@ Feature: Account Dashboard Non Direct Debit Customer
       | CustType |
       | NDD      |
 
-  @SIT1
+  @SIT
   Scenario Outline: Verify Direct Debit Navigation
     Given I am at login Page
     And Login with <CustType> Credentials
@@ -111,7 +111,7 @@ Feature: Account Dashboard Non Direct Debit Customer
       | CustType |
       | NDD      |
 
-  @SIT1
+  @SIT
   Scenario Outline: Verify Your Profile Navigation
     Given I am at login Page
     And Login with <CustType> Credentials
@@ -124,7 +124,7 @@ Feature: Account Dashboard Non Direct Debit Customer
       | CustType |
       | NDD      |
 
-  @SIT1
+  @SIT
   Scenario Outline: Verify Payment History Navigation
     Given I am at login Page
     And Login with <CustType> Credentials
@@ -137,7 +137,7 @@ Feature: Account Dashboard Non Direct Debit Customer
       | CustType |
       | NDD      |
 
-  @SIT1
+  @SIT
   Scenario Outline: Verify View bills/Account statement Navigation
     Given I am at login Page
     And Login with <CustType> Credentials
@@ -150,7 +150,7 @@ Feature: Account Dashboard Non Direct Debit Customer
       | CustType |
       | NDD      |
 
-  @SIT1
+  @SIT
   Scenario Outline: Verify Submit Meter Navigation by quick link on Dashboard
     Given I am at login Page
     And Login with <CustType> Credentials
@@ -162,7 +162,7 @@ Feature: Account Dashboard Non Direct Debit Customer
       | CustType |
       | NDD      |
 
-  @SIT1
+  @SIT
   Scenario Outline: Verify Close Account Navigation by quick link on Dashboard
     Given I am at login Page
     And Login with <CustType> Credentials
@@ -174,7 +174,7 @@ Feature: Account Dashboard Non Direct Debit Customer
       | CustType |
       | NDD      |
 
-  @SIT1
+  @SIT
   Scenario Outline: Verify Make a payment Navigation by quick link on Dashboard
     Given I am at login Page
     And Login with <CustType> Credentials
@@ -186,7 +186,7 @@ Feature: Account Dashboard Non Direct Debit Customer
       | CustType |
       | NDD      |
 
-  @SIT1
+  @SIT
   Scenario Outline: Verify Your Profile Navigation by quick link on Dashboard
     Given I am at login Page
     And Login with <CustType> Credentials
@@ -198,7 +198,7 @@ Feature: Account Dashboard Non Direct Debit Customer
       | CustType |
       | NDD      |
 
-  @SIT1
+  @SIT
   Scenario Outline: Verify Contact Us Navigation from Dashboard
     Given I am at login Page
     And Login with <CustType> Credentials
@@ -210,7 +210,7 @@ Feature: Account Dashboard Non Direct Debit Customer
       | CustType |
       | NDD      |
 
-  @SIT1
+  @SIT
   Scenario Outline: Verify Find out more Navigation from Dashboard
     Given I am at login Page
     And Login with <CustType> Credentials
@@ -222,7 +222,7 @@ Feature: Account Dashboard Non Direct Debit Customer
       | CustType |
       | NDD      |
 
-  @SIT1
+  @SIT
   Scenario Outline: Registered User can access How to keep it clear
     Given I am at login Page
     And Login with <CustType> Credentials

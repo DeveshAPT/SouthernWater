@@ -40,7 +40,7 @@ public class AccountDashBoardFunctions {
 		String locator = loginLoct.getlocator("//locators/AccountButtons");
 		locator = locator.replace("DisplayText", "Your Account");
 		pageDriver.Clickon(pageDriver.getwebelement(locator));
-		Thread.sleep(5000);
+		Thread.sleep(7000);
 	}
 
 	public void yourAccountShouldNotVisible() throws Exception {
@@ -144,12 +144,29 @@ public class AccountDashBoardFunctions {
 		custException.IsTrue(pageDriver.IsPresent(LocateMe), "Payment Page Not Open ");
 	}
 
-	public void dashBoardQuickLinkFound(String DisplayText) throws DocumentException, InterruptedException {
+	public void dashBoardQuickLinkFound(String DisplayText) throws Exception {
 		Thread.sleep(5000);
+	
+		
 		String LocateMe = loginLoct.getlocator("//locators/QuickLinkDashBoard");
 		LocateMe = LocateMe.replace("DisplayText", DisplayText);
-
 		custException.IsTrue(pageDriver.IsPresent(LocateMe), "DashBoard Quick Link = " + DisplayText + " not found ");
+	}
+	public void MakeMenuDisplay() throws Exception
+	{
+		pageDriver.Clickon(pageDriver.getwebelement(loginLoct.getlocator("//locators/YourAccount")));
+		Thread.sleep(5000);
+		String MenuDiv = loginLoct.getlocator("//locators/MenuDiv");
+		WebElement Menus=pageDriver.getwebelement(MenuDiv);
+		String MenuClass=Menus.getAttribute("class");
+		System.out.println();
+		System.out.println(MenuClass);
+		if(!MenuClass.contains("show"))
+		{
+			pageDriver.Clickon(pageDriver.getwebelement(loginLoct.getlocator("//locators/YourAccount")));
+			Thread.sleep(5000);
+		}
+		
 	}
 
 	public void dashBoardQuickLinkClick(String DisplayText) throws Exception {

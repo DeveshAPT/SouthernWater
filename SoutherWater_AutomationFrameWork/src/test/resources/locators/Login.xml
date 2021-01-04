@@ -59,7 +59,7 @@
 <PaperlessOnline>//input[@type='radio']/following::label[contains(text(),'online')]</PaperlessOnline>
 <PaperlessPost>//input[@type='radio']/following::label[contains(text(),'address')]</PaperlessPost>
 <PaperlessUpdate>//button[contains(text(),'Update')]</PaperlessUpdate>
-<SetupDirectDebitHeading>//h1[text()='Set up/Amend Direct Debit']</SetupDirectDebitHeading>
+<SetupDirectDebitHeading>//h1[text()='Set up Direct Debit']</SetupDirectDebitHeading>
 <ContactUsPageHeading>//h1[text()='Contact Us']</ContactUsPageHeading>
 <Target100Heading>//h1[text()='Target 100']</Target100Heading>
 <SaveWaterBanner>//div[@class='banner__content']/p[text()='How to save water']</SaveWaterBanner>
@@ -79,6 +79,8 @@
 <PropertyAddress>//p[text()='Property address']/parent::div/div</PropertyAddress>
 <YourServiceLabel>//p[text()='Your services']</YourServiceLabel>
 <YourServiceType>//p[text()='Your services']/following::p</YourServiceType>
-<BillStatement>//h1[text()='View bills/Account statement']</BillStatement>
+<BillStatement>//h1[text()='View bills / Account statement']</BillStatement>
+<MenuDiv>//div[@id='accountNav']</MenuDiv>
+<YourAccount>//button[contains(text(),'Your Account')]</YourAccount>
 </locators>
 

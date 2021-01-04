@@ -2,7 +2,7 @@
 <locators>
 <AcceptCokies>//button[@id='onetrust-accept-btn-handler']</AcceptCokies>
 <CreateAnAccountHeading>//div/h1[text()='Create an account']</CreateAnAccountHeading>
-<StartButton>//div/a[text()='Start']</StartButton>
+<StartButton>//a[text()='Start']</StartButton>
 <CancelButton>//a[text()='Cancel']</CancelButton>
 <MovingDetails>//div/h1[text()='Moving details']</MovingDetails>
 <CustomerPostCode>//input[@id="customerpostcode"]</CustomerPostCode> 

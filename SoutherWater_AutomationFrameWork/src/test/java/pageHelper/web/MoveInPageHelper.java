@@ -520,6 +520,8 @@ public class MoveInPageHelper {
 	@And("^I Enter Address PostCode for TestCase ([^\"]*)$")
 	public void i_Enter_Address_PostCode_for_TestCase(String TestCode) throws Throwable 
 	{
+		System.out.println();
+		System.out.println(TestCode);
 		moveIN.enterPostCodefromExcel(TestCode);
 	}
 

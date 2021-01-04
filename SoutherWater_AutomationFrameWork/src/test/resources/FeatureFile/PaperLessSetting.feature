@@ -10,5 +10,5 @@
     And Click on 'Your Account' Option
     And I Click Change Paperless Setting
     And I Should move to Paperless Setting Page
-    #And I Click on Update
-    #Then I Can See Thankyou Message
+    And I Click on Update
+    Then I Can See Thankyou Message

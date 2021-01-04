@@ -20,7 +20,7 @@ Scenario: I Want to Verify customer meter reading details
     Then I Should able to verify all the details of customer 
     
 
- @WEB
+@SIT
   Scenario Outline: As Unregistered User i Can Submit my Meter Reading 
     Given I am on Unregistered Submit meter Reading page
     And  I Click on Start Button
